@@ -13,7 +13,7 @@ new Magmastream.Node(options: NodeOptions)
 ## Properties
 
 | Options         | Type      | Description                                                                 |
-| --------------- | :-------- | --------------------------------------------------------------------------- |
+|-----------------|:----------|-----------------------------------------------------------------------------|
 | `host`          | `string`  | The host for the node.                                                      |
 | `identifier`    | `string`  | The identifier for the node.                                                |
 | `password`      | `string`  | The password for the node.                                                  |
@@ -21,7 +21,7 @@ new Magmastream.Node(options: NodeOptions)
 | `retryAmount`   | `number`  | How many tries connect to the node if connection failed.                    |
 | `retryDelay`    | `number`  | Timeout to retry connecting to the node if connection failed.               |
 | `resumeStatus`  | `boolean` | Whether to resume the previous session. If false music will halt instantly. |
-| `resumeTimeout` | `number`  | How load to wait before resuming.                                           |
+| `resumeTimeout` | `number`  | The time the lavalink server will wait before it removes the player.        |
 | `secure`        | `boolean` | Whether the host uses SSL.                                                  |
 | `priority`      | `number`  | Set the priority level of your node.                                        |
 
@@ -30,13 +30,15 @@ new Magmastream.Node(options: NodeOptions)
 
 ## Overview
 
-| Properties                  | Methods             |
-| --------------------------- | :------------------ |
-| [manager](#manager)         | [connect](#connect) |
-| [options](#options)         | [destroy](#destroy) |
-| [socket](#socket)           |                     |
-| [stats](#stats)             |                     |
-| [connected](#get-connected) |                     |
+| Properties                  | Methods                                   |
+|-----------------------------|:------------------------------------------|
+| [manager](#manager)         | [connect](#connect)                       |
+| [options](#options)         | [destroy](#destroy)                       |
+| [socket](#socket)           | [fetchInfo](#fetchinfo)                   |
+| [stats](#stats)             | [setSponsorBlock](#setsponsorblock)       |
+| [connected](#get-connected) | [getSponsorBlock](#getsponsorblock)       |
+| [address](#get-address)     | [deleteSponsorBlock](#deletesponsorblock) |
+| [info](#info)               |                                           |
 
 ### Properties
 
@@ -60,9 +62,9 @@ new Magmastream.Node(options: NodeOptions)
 
 > The socket for the node.
 >
-> | Type              | Value |
-> | ----------------- | ----- |
-> | WebSocket or null | null  |
+> | Type              |
+> | ----------------- |
+> | WebSocket or null |
 
 #### • stats
 
@@ -85,16 +87,70 @@ new Magmastream.Node(options: NodeOptions)
 > | ------- |
 > | boolean |
 
+#### • `get` address
+
+> Returns the address for this node.
+>
+> | Type   |
+> |--------|
+> | string |
+
+#### • info
+
+> Actual Lavalink information of the node.
+>
+> | Type                                             |
+> |--------------------------------------------------|
+> | [LavalinkInfo](../typedefs/LavalinkInfo) or null |
+
 ### Methods
 
 #### • connect()
 
-> | Description           | Returns |
-> | --------------------- | ------- |
-> | Connects to the Node. | `void`  |
+> Connects to the Node.
+>
+> Returns: `void`
 
 #### • destroy()
 
-> | Description                                          | Returns |
-> | ---------------------------------------------------- | ------- |
-> | Destroys the Node and all players connected with it. | `void`  |
+> Destroys the Node and all players connected with it.
+> 
+> Returns: `void`
+
+#### • fetchInfo()
+
+> Fetch information about lavalink in this node
+> 
+> Returns: Promise<[LavalinkInfo](../typedefs/lavalinkinfo)>
+
+#### • setSponsorBlock()
+
+> Sets the sponsorblock for the player.
+> 
+> Returns: `Promise<void>`
+>
+> | Parameter | Type                                                     |
+> |-----------|----------------------------------------------------------|
+> | player    | [Player](../classes/player)                              |
+> | segments  | [SponsorBlockSegment](../typedefs/sponsorblocksegment)[] |
+
+#### • getSponsorBlock()
+
+> Gets the sponsorblock for the player.
+> 
+> Returns Promise<[SponsorBlockSegment](../typedefs/sponsorblocksegment)>
+>
+> | Parameter | Type                                                     |
+> |-----------|----------------------------------------------------------|
+> | player    | [Player](../classes/player)                              |
+> | segments  | [SponsorBlockSegment](../typedefs/sponsorblocksegment)[] |
+
+#### • deleteSponsorBlock()
+
+> Deletes the sponsorblock for the player.
+>
+> Returns: `Promise<void>`
+> 
+> | Parameter | Type                                                     |
+> |-----------|----------------------------------------------------------|
+> | player    | [Player](../classes/player)                              |
