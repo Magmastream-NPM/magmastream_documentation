@@ -2,10 +2,10 @@
 
 ### Overview
 
-| Options | Type         | Description    |
-| ------- | :----------- | -------------- |
-| `d`     | [object](#d) |                |
-| `op`    | `number`     | `The OP code.` |
+| Options | Type           | Description    |
+| ------- |:---------------| -------------- |
+| `op`    | `number`       | `The OP code.` |
+| `d`     | [object{}](#d) |                |
 
 ### d
 
