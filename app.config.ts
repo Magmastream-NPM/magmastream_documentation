@@ -1,8 +1,10 @@
 export default defineAppConfig({
   docus: {
-    title: "Magmastream",
-    description: "Ignite the Symphony of Sonic Harmony!",
-    image: "",
+    title: 'Magmastream',
+    titleTemplate: "Magmastream",
+    description: 'Magmastream is an easy-to-use and useful music module for your discord app',
+    url: 'https://docs.magmastream.com/',
+    image: 'https://i.imgur.com/jeqFLp3.png',
     github: {
       edit: false,
       owner: "Blackfort-Hosting",
@@ -10,8 +12,12 @@ export default defineAppConfig({
       branch: "docs",
     },
     socials: {
-      twitter: "Blackforthost",
-      github: "Blackfort-Hosting/magmastream",
+      github: 'Magmastream-NPM/magmastream',
+      discord: {
+        label: 'Discord support server',
+        icon: 'simple-icons:discord',
+        href: 'https://discord.gg/Nq5gTGUfwa'
+      }
     },
     aside: {
       level: 0,
@@ -23,8 +29,7 @@ export default defineAppConfig({
       fluid: true,
     },
     header: {
-      title: "Magmastream",
-      logo: true,
+      logo: false,
       showLinkIcon: true,
       exclude: [],
       fluid: true,
