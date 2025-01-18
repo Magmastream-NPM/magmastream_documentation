@@ -1,0 +1,80 @@
+.main {
+    padding: 2rem 0;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chartsSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.chartWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] {
+    .card {
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+}
+
+[data-theme="dark"] {
+    .card{
+        padding: 1.5rem;
+        background-color: #0a0a0a;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+}
+
+.card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #686868;
+}
+
+.chartsSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.moreInfo {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.link {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
