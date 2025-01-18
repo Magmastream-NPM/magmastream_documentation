@@ -60,13 +60,13 @@ const Usedby = () => {
     return (
             <main className={styles.main}>
                 <div className="container">
-                    <h1 className={"fire-header_nye2"} style={{
+                    <Heading as="h1" style={{
                         textAlign: 'center',
-                        fontSize: '3rem',
-                        textTransform: 'none',
                         marginTop: '2rem',
-                        marginBottom: '5rem'
-                    }}>Used by</h1>
+                        marginBottom: '5rem',
+                    }}>
+                        Used by
+                    </Heading>
                     <div className={styles.grid}>
                         {usedBy && usedBy.map((usedByItem) => (
                             <>
@@ -98,6 +98,7 @@ const Usedby = () => {
 import Layout from '@theme/Layout';
 import {useColorMode} from "@docusaurus/theme-common";
 import Link from "@docusaurus/Link";
+import Heading from "@theme/Heading";
 
 function UsedbyPage() {
     return (

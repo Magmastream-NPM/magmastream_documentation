@@ -26,7 +26,7 @@ const config = {
   onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   organizationName: 'Magmastream-NPM', // Usually your GitHub org/user name.
-  projectName: 'magmastream_documentation', // Usually your repo name.
+  projectName: 'magmastream', // Usually your repo name.
 
   presets: [
     [
@@ -37,7 +37,7 @@ const config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: 'v2.7.0',
+              label: 'v2.7.2 (current)',
             },
             '2.6.1': {
               label: 'v2.6.1',
@@ -46,6 +46,7 @@ const config = {
               noIndex: true,
             },
           },
+
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.

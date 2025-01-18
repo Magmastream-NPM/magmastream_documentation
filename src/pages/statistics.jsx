@@ -94,13 +94,13 @@ const Statistics = () => {
     return (
             <main className={styles.main}>
                 <div className="container">
-                    <h1 className={"fire-header_nye2"} style={{
-                        fontSize: '3rem',
+                    <Heading as="h1" style={{
                         textAlign: 'center',
                         marginTop: '2rem',
                         marginBottom: '5rem',
-                        textTransform: 'none',
-                    }}>Statistics</h1>
+                    }}>
+                        Statistics
+                    </Heading>
                     <div className={styles.grid}>
                         {repoData && (
                             <>
@@ -176,6 +176,7 @@ const Statistics = () => {
 
 import Layout from '@theme/Layout';
 import {useColorMode} from "@docusaurus/theme-common";
+import Heading from "@theme/Heading";
 
 function StatisticsPage() {
     return (
