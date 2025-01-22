@@ -30,7 +30,7 @@ import TabItem from '@theme/TabItem';
 
         #### Properties
 
-        | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
         |:----------------------------------------------|:--------------------------------------|:---------------------------------------------|
         | `player`                                      | [Player](../classes/player)           | The guild player                             |
     </TabItem>
@@ -39,7 +39,7 @@ import TabItem from '@theme/TabItem';
 
 #### Table of Contents
 
-| <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-boxes-stacked"/> Methods |
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
 | --------------------------------------- | :--------------------------------------------- |
 | [distortion](#distortion)               | [bassBoost()](#bassboost)                      |
 | [equalizer](#equalizer)                 | [clearFilters()](#clearfilters)                |
@@ -140,9 +140,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type      | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :-------------------------------------- | :-------------------------------------- |
-> | `filter`                                   | [`AvailableFilters`](#availablefilters) | <i class="fa-solid fa-xmark"/>          |
+> | `filter`                                   | [`AvailableFilters`](#availablefilters) | <i className="fa-solid fa-xmark"/>          |
 
 ### nightcore()
 
@@ -156,9 +156,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type          | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type          | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :------------------------------------------ | :-------------------------------------- |
-> | `distortion`                               | [`DistortionOptions{}`](#distortionoptions) | <i class="fa-solid fa-xmark"/>          |
+> | `distortion`                               | [`DistortionOptions{}`](#distortionoptions) | <i className="fa-solid fa-xmark"/>          |
 
 ### setEqualizer()
 
@@ -166,9 +166,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :--------------------------------- | :-------------------------------------- |
-> | `bands`                                    | [`Band[]`](../typedefs/band.md)    | <i class="fa-solid fa-xmark"/>          |
+> | `bands`                                    | [`Band[]`](../typedefs/band.md)    | <i className="fa-solid fa-xmark"/>          |
 
 ### setKaraoke()
 
@@ -176,9 +176,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type    | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :------------------------------------ | :-------------------------------------- |
-> | `karaoke`                                  | [`KaraokeOptions{}`](#karaokeoptions) | <i class="fa-solid fa-xmark"/>          |
+> | `karaoke`                                  | [`KaraokeOptions{}`](#karaokeoptions) | <i className="fa-solid fa-xmark"/>          |
 
 ### setTimescale()
 
@@ -186,9 +186,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type        | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :---------------------------------------- | :-------------------------------------- |
-> | `timescale`                                | [`TimescaleOptions{}`](#timescaleoptions) | <i class="fa-solid fa-xmark"/>          |
+> | `timescale`                                | [`TimescaleOptions{}`](#timescaleoptions) | <i className="fa-solid fa-xmark"/>          |
 
 ### setVibrato()
 
@@ -196,9 +196,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`this`](#properties)
 >
-> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type    | <i class="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-flask"/> Optional |
 > | ------------------------------------------ | :------------------------------------ | :-------------------------------------- |
-> | `vibrato`                                  | [`VibratoOptions{}`](#vibratooptions) | <i class="fa-solid fa-xmark"/>          |
+> | `vibrato`                                  | [`VibratoOptions{}`](#vibratooptions) | <i className="fa-solid fa-xmark"/>          |
 
 ### slowmo()
 
@@ -240,7 +240,7 @@ import TabItem from '@theme/TabItem';
 
 > Options for applying distortion effect to audio.
 >
-> | <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description                  |
+> | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                  |
 > | --------------------------------------- | :--------------------------------- | :--------------------------------------------------------- |
 > | `sinOffset`                             | number                             | The offset value for the sine wave distortion.             |
 > | `sinScale`                              | number                             | The scale factor for the sine wave distortion.             |
@@ -255,7 +255,7 @@ import TabItem from '@theme/TabItem';
 
 > Options for applying karaoke effect to audio.
 >
-> | <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description |
+> | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | --------------------------------------- | :--------------------------------- | ----------------------------------------- |
 > | `level`                                 | number                             | The level of karaoke effect.              |
 > | `monoLevel`                             | number                             | The mono level of karaoke effect.         |
@@ -266,7 +266,7 @@ import TabItem from '@theme/TabItem';
 
 > Options for applying rotation effect to audio.
 >
-> | <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description |
+> | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | --------------------------------------- | :--------------------------------- | ----------------------------------------- |
 > | `rotationHz`                            | number                             | The rotation speed in Hertz (Hz).         |
 
@@ -274,7 +274,7 @@ import TabItem from '@theme/TabItem';
 
 > Options for adjusting the timescale of audio.
 >
-> | <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description |
+> | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | --------------------------------------- | :--------------------------------- | ----------------------------------------- |
 > | `speed`                                 | number                             | The speed factor for the timescale.       |
 > | `pitch`                                 | number                             | The pitch factor for the timescale.       |
@@ -284,7 +284,7 @@ import TabItem from '@theme/TabItem';
 
 > Options for applying vibrato effect to audio.
 >
-> | <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description |
+> | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | --------------------------------------- | :--------------------------------- | ----------------------------------------- |
 > | `speed`                                 | number                             | The speed factor for the timescale.       |
 > | `pitch`                                 | number                             | The pitch factor for the timescale.       |
