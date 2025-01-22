@@ -1,10 +1,10 @@
 ---
-id: test
-title: Test
-description: My document description
-slug: /getting-started/test
+id: general-information
+title: General information
+description: General information about the getting started
+slug: /getting-started/general-information
 sidebar_position: 1
-sidebar_label: Test
+sidebar_label: General information
 ---
 
-# Index.js file
+# General information page

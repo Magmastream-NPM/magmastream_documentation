@@ -23,24 +23,24 @@ const sidebars = {
       label: '🚀 Getting started',
       link: {
         type: "generated-index",
-        description: "5 minutes to learn the most important Docusaurus concepts."
+        description: "And to start, take a moment to familiarize yourself with the module..."
       },
       items: [
         {
           type: 'doc',
-            id: 'Getting-started/test',
+            id: 'Getting-started/general-information',
         },
           {
             type: 'category',
-            label: '👀 Basics',
+            label: '👀 Examples',
             link: {
               type: "generated-index",
-              description: "5 minutes to learn the most important Docusaurus concepts."
+              description: "Here are examples that you can implement in your discord application at the start"
             },
             items: [
-              'Getting-started/Basics/index-js',
-              'Getting-started/Basics/play-command',
-              'Getting-started/Basics/events'
+              'Getting-started/Examples/index-js',
+              'Getting-started/Examples/play-command',
+              'Getting-started/Examples/events'
             ],
           }
       ],
@@ -50,7 +50,7 @@ const sidebars = {
       label: '🏛️ Classes',
       link: {
         type: "generated-index",
-        description: "5 minutes to learn the most important Docusaurus concepts."
+        description: "Classes are the most important part of the module, so take a look at them..."
       },
       items: [
         {
@@ -64,7 +64,7 @@ const sidebars = {
       label: '🎈 Typedefs',
       link: {
         type: "generated-index",
-        description: "5 minutes to learn the most important Docusaurus concepts."
+        description: "Typedefs is the second most important part of the module, so take a look at them..."
       },
       items: [
         {

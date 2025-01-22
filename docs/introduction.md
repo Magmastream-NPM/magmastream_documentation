@@ -1,10 +1,10 @@
 ---
 id: introduction
 title: Introduction
-description: My document description
+description: Introduction to the documentation
 slug: /intro
-sidebar_position: 2
+sidebar_position: 1
 sidebar_label: ⭐ Introduction
 ---
 
-# Introduction
+# Introduction page
