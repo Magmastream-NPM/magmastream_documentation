@@ -10,6 +10,7 @@ ICONS: (https://fontawesome.com/search?ic=free)
 <i class="fa-solid fa-check"/> - no
 <i class="fa-solid fa-arrow-right-from-bracket"/> Returns
 <i class="fa-regular fa-calendar"/> Events
+<i class="fa-solid fa-bars"/> Value
 
 For link: <i class="fa-solid fa-arrow-up-right-from-square"/>
 
