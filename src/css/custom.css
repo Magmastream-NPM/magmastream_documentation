@@ -11,7 +11,20 @@
   background: #ff6e00 !important;
 }
 
+[role='tabpanel'] {
+  margin: 15px 15px 15px 15px;
+}
+
+.tabs-container {
+  border-radius: 10px;
+  padding-bottom: 0.2rem;
+}
+
 [data-theme="light"] {
+
+  .tabs-container {
+    background-color: #f5f6f7;
+  }
 
   blockquote a:has(code):hover code {
     background-color: #f5f6f7;
@@ -416,6 +429,10 @@
 }
 
 [data-theme='dark'] {
+
+  .tabs-container {
+    background-color: #080808;
+  }
 
   ::-webkit-scrollbar-track {
     background: #0a0a0a;
