@@ -19,8 +19,8 @@ Assuming you've followed the guide so far, your project directory should look so
 ```
 discord-bot/
 ├── node_modules/
-├── config.js/
-├── index.js/
+├── config.js
+├── index.js
 ├── package-lock.json
 └── package.json
 ```
@@ -33,8 +33,8 @@ Your new project directory should look something like this:
 discord-bot/
 ├── node_modules/
 ├── src/
-│   ├── config.js/
-│   └── index.js/
+│   ├── config.js
+│   └── index.js
 ├── package-lock.json
 └── package.json
 ```
@@ -59,7 +59,7 @@ discord-bot/
 
         1. The individual command files, containing their definitions and functionality.
         2. The [`command handler`](/docs/getting-started/examples/command-handling), which dynamically reads the files and executes the commands.
-        3. The [`command deployment script`], to register your slash commands with Discord so they appear in the interface.
+        3. The [`command deployment script`](/docs/getting-started/examples/deployment-script), to register your slash commands with Discord so they appear in the interface.
 
         These steps can be done in any order, but all are required before the commands are fully functional.
 
@@ -70,8 +70,8 @@ discord-bot/
 
         Create a new folder inside the `src/` folder, named `commands` and a subfolder named `music` inside it, which is where you'll store all of your music command files. You'll be using the [`SlashCommandBuilder`](https://discord.js.org/docs/packages/builders/1.10.0/SlashCommandBuilder:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class to construct the command definitions.
 
-        At a minimum, the definition of a slash command must have a name and a description. Slash command names must be between 1-32 characters and contain no capital letters, spaces, or symbols other than `-` and `_`. Using the builder, a simple play command definition would look like this:
-        
+        At a minimum, the definition of a event file must have only a name.
+
         ```javascript showLineNumbers
         new SlashCommandBuilder()
             .setName("play")
@@ -99,17 +99,100 @@ discord-bot/
         <Tabs>
             <TabItem value="slashcommands-1" label="src/commands/play.js" default>
                 ```javascript showLineNumbers
-                const { SlashCommandBuilder } = require('discord.js');
+                const { LoadTypes, StateTypes } = require("magmastream");
+                const { SlashCommandBuilder } = require("discord.js");
 
                 module.exports = {
                     data: new SlashCommandBuilder()
                         .setName("play")
                         .setDescription("Play a song/playlist.")
                         .addStringOption((option) => option.setName("query").setDescription("The search query for the song/playlist").setRequired(true)),
+
                     async execute(client, interaction) {
-                        await interaction.reply('Playing your song/playlist!')
-                    }
-                }
+                        // Check if the user is in a voice channel
+                        if (!interaction.member.voice.channel) {
+                            return await interaction
+                                .reply("You need to be in a voice channel to use this command.")
+                                .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                        }
+
+                        // Get the current player
+                        let player = client.manager.get(interaction.guild.id);
+
+                        // Check if the user is in the same voice channel as the bot
+                        if (player && interaction.member.voice.channel.id !== player.voiceChannel) {
+                            return await interaction
+                                .reply("You need to be in the same voice channel as the bot to use this command.")
+                                .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                        }
+
+                        // Defer the reply
+                        await interaction.deferReply().catch((error) => console.log(`[ERROR] Failed to defer message ${error.message} to channel: ${interaction.channel.id}`));
+
+                        // Get the search query
+                        const query = interaction.options.getString("query");
+
+                        // Search for the query
+                        let res = await client.manager.search(query, interaction.member.user);
+
+                        // Check if the search returned any results
+                        if (res.loadType === LoadTypes.Empty || res.loadType === LoadTypes.Error) {
+                            return await interaction
+                                .editReply("No results found.")
+                                .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                        }
+
+                        // Create the player if it doesn't exist
+                        try {
+                            player = client.manager.create({
+                                guild: interaction.guild.id,
+                                voiceChannel: interaction.member.voice.channel.id,
+                                textChannel: interaction.channel.id,
+                                selfDeafen: true,
+                                volume: 100,
+                            });
+                            // Connect to the voice channel if the player is not already connected
+                            if (player.state !== StateTypes.Disconnected) player.connect();
+                        } catch (error) {
+                            return await interaction
+                                .editReply(`An error occurred while creating the player: ${error.message}`)
+                                .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                        }
+
+                        // Handle the search result
+                        switch (res.loadType) {
+                            case LoadTypes.Track:
+                            case LoadTypes.Search:
+                                // Add the track to the queue
+                                const track = res.tracks[0];
+                                player.queue.add(track);
+
+                                // Play the track if the queue is empty
+                                if (!player.playing && !player.paused && !player.queue.size) await player.play();
+
+                                // Reply with a success message
+                                await interaction
+                                    .editReply(`Successfully added \`${track.author} - ${track.title}\` to the queue.`)
+                                    .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                                break;
+                            case LoadTypes.Playlist:
+                                // Add the playlist tracks to the queue
+                                res.tracks = res.playlist.tracks;
+
+                                player.queue.add(res.tracks);
+
+                                // Play the first track if the queue is empty
+                                if (!player.playing && !player.paused && player.queue.size === res.tracks.length) await player.play();
+
+                                // Reply with a success message
+                                await interaction
+                                    .editReply(`Successfully added \`${res.playlist.name}\` playlist with \`${res.tracks.length + 1} songs\` to the queue.`)
+                                    .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
+                                break;
+                        }
+                    },
+                };
+
                 ```
             </TabItem>
         </Tabs>
@@ -139,8 +222,10 @@ discord-bot/
 </Tabs>
 
 ## Next steps
-You can implement additional commands by creating new files within a dedicated subfolder in the `commands` folder, but this one is the one we're going to use for the examples as we go on. 
+
+You can implement additional commands by creating new files within a dedicated subfolder in the `commands` folder, but this one is the one we're going to use for the examples as we go on.
 For now let's move on to the code you'll need for command handling, to load the files and respond to incoming interactions.
 
 ## Resulting code
-If you want to compare your code to the code we've constructed so far, you can review it over on the GitHub repository [here](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src/commands/music) .
+
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).

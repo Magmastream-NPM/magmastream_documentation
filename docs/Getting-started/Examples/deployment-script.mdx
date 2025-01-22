@@ -1,0 +1,146 @@
+---
+id: deployment-script
+title: Registering commands
+description: Registering commands to the Discord API
+slug: /getting-started/examples/deployment-script
+sidebar_position: 6
+sidebar_label: 📝 Registering commands
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+#
+
+## Registering commands
+
+:::::tip
+💡 This page requires you to have a valid [main file](/docs/getting-started/examples/main-file), have at least created `one` command following [these steps](/docs/getting-started/examples/creating-commands) and followed the last two steps [command handling](/docs/getting-started/examples/command-handling) and [event handling](/docs/getting-started/examples/event-handling).
+:::info
+ℹ️ This section is **only** required, if you are using `slash-commands`!
+:::
+:::::
+
+## Before you continue
+
+Assuming you've followed the guide so far, your project directory should look something like this:
+
+```
+discord-bot/
+├── node_modules/
+├── src/
+│   ├── commands/
+│   │   └── play.js
+│   ├── events/
+│   │   ├── discord/
+│   │   │   ├── raw.js
+│   │   │   ├── ready.js
+│   │   │   └── interactionCreate.js
+│   │   └── magmastream/
+│   │       ├── nodeConnect.js
+│   │       ├── trackStart.js
+│   │       └── queueEnd.js
+│   ├── config.js
+│   └── index.js
+├── package-lock.json
+└── package.json
+```
+
+## Creating the deployment-script
+
+Create a new file inside the `src/` folder named `deploy-commands.js`.
+
+The `deploy-commands.js` file will be used to communicate with the Discord API, informing it about the commands we want to display when a user types `/` in the chat.
+
+Below is an example of what the `deploy-commands.js` file might look like:
+```javascript showLineNumbers
+const config = require("./config.js");
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v10");
+
+module.exports = async (client) => {
+	const rest = new REST().setToken(config.token);
+
+	try {
+		console.log(`[INFO] Started refreshing application commands.`);
+
+		// Read all of the command files
+		const data = [];
+		client.commands.forEach((command) => {
+			try {
+				// Create a copy of the command data without the execute function
+				let item = {
+					name: command.data.name,
+					description: command.data.description,
+				};
+
+				// If the command has options, add them to the item
+				if (command.data.options) {
+					item.options = command.data.options;
+				}
+
+				// Add the command to the data array
+				data.push(item);
+			} catch (error) {}
+		});
+
+		// Put the data array to the Discord API
+		await rest.put(Routes.applicationCommands(client.user.id), { body: data });
+
+		console.log(`[INFO] Successfully reloaded ${data.length} application commands.`);
+	} catch (error) {
+		// And of course, make sure you catch and log any errors!
+		console.error(`[ERROR] Failed to reload application commands: ${error}`);
+	}
+};
+```
+
+## Deploying the commands
+:::warning
+⚠️ Don’t forget to update the `src/events/discord/ready.js` event file to deploy the commands once the bot has entered the "ready" state.
+:::
+
+```javascript ${9} showLineNumbers
+const { Events } = require("discord.js");
+
+module.exports = {
+	name: Events.ClientReady,
+	once: true,
+
+	execute(client) {
+		// Deploy slash commands
+		require("../../deploy-commands")(client);
+
+		// Initialize Lavalink
+		client.manager.init(client.user.id);
+
+		// Print a message to the console indicating that the client is ready
+		console.log(`[INFO] Ready! Logged in as ${client.user.tag}`);
+	},
+};
+```
+
+## Final project structure
+```
+discord-bot/
+├── node_modules/
+├── src/
+│   ├── commands/
+│   │   └── play.js
+│   ├── events/
+│   │   ├── discord/
+│   │   │   ├── raw.js
+│   │   │   ├── ready.js
+│   │   │   └── interactionCreate.js
+│   │   └── magmastream/
+│   │       ├── nodeConnect.js
+│   │       ├── trackStart.js
+│   │       └── queueEnd.js
+│   ├── config.js
+│   ├── index.js
+│   └── deploy-commands.js
+├── package-lock.json
+└── package.json
+```
+
+With that, the "Quick Start" guide should be complete. Upon entering `node .` in your terminal, you should have a fully functional bot capable of playing songs, titles, URLs, or playlists, with all events handled in their respective files.

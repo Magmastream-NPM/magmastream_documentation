@@ -21,7 +21,7 @@ Unless your bot project is small, it's not a very good idea to have a single fil
 
 1. The [`individual command files`](/docs/getting-started/examples/creating-commands), containing their definitions and functionality.
 2. The command handler, which dynamically reads the files and executes the commands.
-3. The [`command deployment script`], to register your slash commands with Discord so they appear in the interface.
+3. The [`command deployment script`](/docs/getting-started/examples/deployment-script), to register your slash commands with Discord so they appear in the interface.
 
 These steps can be done in any order, but all are required before the commands are fully functional.
 
@@ -46,7 +46,7 @@ This page details how to complete Step 2. Make sure to also complete the other p
         ```javascript ${1-3,30} showLineNumbers
         const fs = require("node:fs");
         const path = require("node:path");
-        const { Client, Collection, GatewayIntentBits } = require("discord.js");
+        const { Client, Collection, Events, GatewayIntentBits, MessageFlags } = require("discord.js");
         const { Manager, UseNodeOptions, SearchPlatform } = require("magmastream");
         const config = require("./config.js");
 
@@ -80,7 +80,7 @@ This page details how to complete Step 2. Make sure to also complete the other p
         ```
 
         We recommend attaching a `.commands` property to your client instance so that you can access your commands in other files. The rest of the examples in this guide will follow this convention. For TypeScript users, we recommend extending the base Client class to add this property, [casting <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://www.typescripttutorial.net/typescript-tutorial/type-casting/), or [augmenting the module type <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
-   
+
         :::tip
         - The [`fs`](https://nodejs.org/api/fs.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> module is Node's native file system module. `fs` is used to read the `commands` directory and identify our command files.
         - The [`path`](https://nodejs.org/api/path.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> module is Node's native path utility module. `path` helps construct paths to access files and directories. One of the advantages of the path module is that it automatically detects the operating system and uses the appropriate joiners.
@@ -120,6 +120,82 @@ This page details how to complete Step 2. Make sure to also complete the other p
         // Load commands from the main commands folder
         loadCommands(foldersPath);
         ```
+        - `loadCommands()` recursively scans the `commands` folder and its subfolders using `fs.readdirSync` and `fs.statSync`, checking if a file is a directory (to recurse deeper) or a `.js` file (to process as a command).
+        - For each `.js` file, it imports the command module, checks if it has the required `data` (command metadata) and `execute` (function to run) properties, and adds valid commands to the `client.commands` Collection.
+        - Valid commands are logged with their name, while invalid ones trigger a warning about missing properties, ensuring only properly structured commands are loaded.
+
+        <br>
+        </br>
+
+        ## Receiving command interactions
+
+        You will receive an interaction for every slash command executed. To respond to a command, you need to create a listener for the [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> event that will execute code when your application receives an interaction. Place the code below in the `index.js` file you created earlier.
+        ```javascript showLineNumbers
+        client.on(Events.InteractionCreate, interaction => {
+            console.log(interaction);
+        });
+        ```
+        Not every interaction is a slash command (e.g. `MessageComponent` interactions). Make sure to only handle slash commands in this function by making use of the [`BaseInteraction#isChatInputCommand()`](https://discord.js.org/docs/packages/discord.js/stable/BaseInteraction:Class#isChatInputCommand)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> method to exit the handler if another type is encountered. This method also provides typeguarding for TypeScript users, narrowing the type from `BaseInteraction` to [`ChatInputCommandInteraction`](https://discord.js.org/docs/packages/discord.js/stable/ChatInputCommandInteraction:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>.
+
+        ```javascript ${2} showLineNumbers
+        client.on(Events.InteractionCreate, interaction => {
+            if (!interaction.isChatInputCommand()) return;
+            console.log(interaction);
+        });
+        ```
+
+        <br>
+        </br>
+
+        ## Executing slash commands
+
+        When your bot receives a [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> event, the interaction object contains all the information you need to dynamically retrieve and execute your commands!
+
+        Let's take a look at the `play` command again. Note the execute() function that will reply to the interaction with "Playing your song/playlist!".
+
+        ```javascript showLineNumbers
+        module.exports = {
+            data: new SlashCommandBuilder()
+                .setName("play")
+                .setDescription("Play a song/playlist.")
+                .addStringOption((option) => option.setName("query").setDescription("The search query for the song/playlist").setRequired(true)),
+            async execute(client, interaction) {
+                await interaction.reply('Playing your song/playlist!')
+            }
+        }
+        ```
+        First, you need to get the matching command from the `client.commands` Collection based on the `interaction.commandName`. If no matching command is found, log an error to the console and ignore the event. Then we pass your [`Client`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> instance as parameter into the execute() function.
+
+        ```javascript ${1,3-27} showLineNumbers
+        client.on(Events.InteractionCreate, async interaction => {
+                // Only handle chat input commands
+            if (!interaction.isChatInputCommand()) return;
+
+            // Get the command from the command collection
+            const command = client.commands.get(interaction.commandName);
+
+            // If no command is found, log an error
+            if (!command) {
+                console.error(`No command matching ${interaction.commandName} was found.`);
+                return;
+            }
+
+            try {
+                // Execute the command
+                await command.execute(client, interaction);
+            } catch (error) {
+                // Log the error
+                console.error(error);
+
+                // Reply with an ephemeral message if the interaction has already been replied to
+                if (interaction.replied || interaction.deferred) {
+                    await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+                } else {
+                    await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+                }
+            }
+        })
+        ```
     </TabItem>
     <TabItem value="message events" label="Handling message commands">
 
@@ -127,10 +203,11 @@ This page details how to complete Step 2. Make sure to also complete the other p
 
 </Tabs>
 
----
+## Next steps
 
----
+1. We'll create an [event handler](/docs/getting-started/examples/event-handling) to clean up our `index.js` file.
+2. We'll create a [deployment script] for our slash commands.
 
----
+## Resulting code
 
-# WORK IN PROGRESS
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).

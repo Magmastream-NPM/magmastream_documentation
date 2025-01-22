@@ -22,8 +22,8 @@ Here's the base code to get you started:
 
 ```javascript showLineNumbers
 const { Client, Events, GatewayIntentBits } = require('discord.js');
-const { Manager, UseNodeOptions, SearchPlatform } = require("magmastream");
-const config = require("./config.js");
+const { Manager, UseNodeOptions, SearchPlatform } = require('magmastream');
+const config = require('./config.js');
 
 // Create a new client instance
 const client = new Client({
@@ -36,7 +36,7 @@ client.manager = new Manager({
 	usePriority: false, // Optional! - Recommanded if you have more than 1 node
 	replaceYouTubeCredentials: true, // Optional! - Recommanded to be true
 	lastFmApiKey: config.lastFmApiKey, // Optional!
-	trackPartial: ["pluginInfo", "title", "author", "duration", "uri", "requester", "artworkUrl", "sourceName", "identifier", "artistUrl"], // Optional!
+	trackPartial: ['pluginInfo', 'title', 'author', 'duration', 'uri', 'requester', 'artworkUrl', 'sourceName', 'identifier', 'artistUrl'], // Optional!
 	useNode: UseNodeOptions.LeastLoad, // Optional!
 	defaultSearchPlatform: SearchPlatform.YouTube, // Optional! - Assuming YouTube is enabled on Lavalink
 	autoPlaySearchPlatform: SearchPlatform.Spotify, // Optional! - Assuming Spotify is enabled on Lavalink
@@ -47,8 +47,8 @@ client.manager = new Manager({
 	},
 });
 
-client.once(Events.ClientReady, readyClient => {
-	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+client.once(Events.ClientReady, (client) => {
+	console.log(`Ready! Logged in as ${client.user.tag}`);
 });
 
 // Log in the client
@@ -73,3 +73,7 @@ The next step is to start adding slash commands to develop your bot's functional
 
 After closing the process with `Ctrl + C`, you can press the up arrow on your keyboard to bring up the latest commands you've run. Pressing up and then enter after closing the process is a quick way to start it up again.
 :::
+
+## Resulting code
+
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).

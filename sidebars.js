@@ -28,7 +28,7 @@ const sidebars = {
       items: [
           {
             type: 'category',
-            label: '👀 Examples',
+            label: '🤖 Creating Your Bot',
             link: {
               type: "generated-index",
               description: "Here are examples that you can implement in your discord application at the start"
@@ -38,9 +38,8 @@ const sidebars = {
               'Getting-started/Examples/main-file',
               'Getting-started/Examples/creating-commands',
               'Getting-started/Examples/command-handling',
-              'Getting-started/Examples/index-js',
-              'Getting-started/Examples/play-command',
-              'Getting-started/Examples/events',
+              'Getting-started/Examples/event-handling',
+              'Getting-started/Examples/deployment-script',
             ],
           }
       ],
