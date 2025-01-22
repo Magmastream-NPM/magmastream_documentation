@@ -149,13 +149,171 @@ import TabItem from '@theme/TabItem';
 ### setDistortion()
 
 > Applies the distortion audio effect to the player.<br/><br/>
-> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
-> transformation to the audio signal.
+> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
+> If no options are provided, the filter will be reset and the distortion effect will
+> be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type          | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------|:------------------------------------------|
+> | `distortion`                        | [`distortionOptions{}`](#distortionoptions) | The distortion options to apply.          |
+
+### setEqualizer()
+
+> Sets the equalizer bands and updates the filters on the player.<br/><br/>
+> This method updates the player's equalizer settings by applying the provided
+> bands configuration. The equalizer is an array of Band objects, each containing
+> a band number and a gain value. The method ensures that the filters are updated
+> after setting the equalizer, to reflect the changes in audio output.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description                                                                                          |
+> |:-------------------------------------------|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+> | `bands`                                    | [`Band[]`](../Typedefs/Band.mdx)   | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+
+### setKaraoke()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type    | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------|:------------------------------------------|
+> | `karaoke`                                  | [`karaokeOptions{}`](#karaokeoptions) | The karaoke options to apply.             |
+
+### setRotation()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type      | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:----------------------------------------|:------------------------------------------|
+> | `rotation`                                 | [`rotationOptions{}`](#rotationoptions) | The rotation options to apply.            |
+
+### setTimescale()
+
+> Applies the timescale options specified by the filter.<br/><br/>
+> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
+> adjustments to modify the playback characteristics of the audio.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
+> | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
+
+### setVibrato()
+
+> Applies the vibrato options specified by the filter.<br/><br/>
+> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
+> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
+> | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
+
+### slowmo()
+
+> Applies the slow motion audio effect.<br/><br/>
+> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+>
+> Returns: [this](#properties)
+
+### soft()
+
+> Applies the soft audio effect to the player.<br/><br/>
+> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
+> by reducing the gain of certain frequency bands.
+>
+> Returns: [this](#properties)
+
+### trebleBass()
+
+> Applies the treble bass audio effect.<br/><br/>
+> This filter applies a treble boost and a bass boost to the audio.
+>
+> Returns: [this](#properties)
+
+### tv()
+
+> Applies the television audio effect.<br/><br/>
+> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
+>
+> Returns: [this](#properties)
+
+### vaporwave()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
 >
 > Returns: [this](#properties)
 
 ## Returns
 
-### void
+### distortionOptions\{}
 
+> Distortion options object as a parameter, which can be used to customize the distortion effect.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description           |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+> | `sinOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine offset value for the distortion effect.    |
+> | `sinScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine scale value for the distortion effect.     |
+> | `cosOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine offset value for the distortion effect.  |
+> | `cosScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine scale value for the distortion effect.   |
+> | `tanOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent offset value for the distortion effect. |
+> | `tanScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent scale value for the distortion effect.  |
+> | `offset`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset value for the distortion effect.         |
+> | `scale`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The scale value for the distortion effect.          |
 
+### karaokeOptions\{}
+
+> Options for applying karaoke effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `level`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The level of karaoke effect.              |
+> | `monoLevel`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The mono level of karaoke effect.         |
+> | `filterBand`                               | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter band of karaoke effect.        |
+> | `filterWidth`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter width of karaoke effect.       |
+
+### rotationOptions\{}
+
+> Options for applying rotation effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `rotationHz`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) |  The rotation speed in Hertz (Hz).              |
+
+### timescaleOptions\{}
+
+> Options for adjusting the timescale of audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `speed`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The speed factor for the timescale.       |
+> | `pitch`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The pitch factor for the timescale.       |
+> | `rate`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rate factor for the timescale.        |
+
+### vibratoOptions\{}
+
+> Options for applying vibrato effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `frequency`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The frequency of the vibrato effect.      |
+> | `depth`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The depth of the vibrato effect.          |
+
+### availableFilters''
+
+> Available filters for the player.
+>
+> `bassboost` `distort` `eightD` `karaoke` `nightcore` `slowmo` `soft` `trebleBass` `tv` `vaporwave`
