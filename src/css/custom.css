@@ -128,7 +128,7 @@
   --ifm-color-primary-lighter: #ffad66;
   --ifm-color-primary-lightest: #ffd9b3;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 106, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 123, 0, 0.281);
   --ifm-color-secondary-dark: rgb(212, 213, 216);
   --ifm-color-secondary-darker: rgb(200, 201, 204);
   --ifm-color-secondary-darkest: rgb(164, 166, 168);
@@ -463,7 +463,7 @@
   --ifm-color-primary-light: #ff8c33;
   --ifm-color-primary-lighter: #ffad66;
   --ifm-color-primary-lightest: #ffd9b3;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 106, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgba(155, 188, 190, 0.158);
 
 
   --docsearch-text-color: #f5f6f7 !important;
