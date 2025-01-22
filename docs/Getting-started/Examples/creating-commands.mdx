@@ -12,16 +12,6 @@ import TabItem from '@theme/TabItem';
 
 #
 
-## Creating commands
-
-:::::info
-ℹ️ This page is about creating commands for your Discord bot. It requires you to have a valid [main file](/docs/getting-started/examples/main-file).
-::::warning
-⚠️ Please make sure to select below the command creation "step" you need. The section below is divided into "creating slash commands" and "creating message commands".
-::::
-
-:::::
-
 ## Before you continue
 
 Assuming you've followed the guide so far, your project directory should look something like this:
@@ -55,14 +45,21 @@ discord-bot/
 
 ---
 
+:::::info
+ℹ️ This page requires you to have a valid [main file](/docs/getting-started/examples/main-file).
+::::warning
+⚠️ Please make sure to select below the command creation "step" you need. The section below is divided into "Creating slash commands" and "Creating message commands".
+::::
+:::::
+
 <Tabs>
 	<TabItem value="interaction commands" label="Creating slash commands" default>
 		:::tip
         ℹ️  For fully functional slash commands, there are three important pieces of code that need to be written. They are:
 
         1. The individual command files, containing their definitions and functionality.
-        2. The [command handler], which dynamically reads the files and executes the commands.
-        3. The [command deployment script], to register your slash commands with Discord so they appear in the interface.
+        2. The [`command handler`](/docs/getting-started/examples/command-handling), which dynamically reads the files and executes the commands.
+        3. The [`command deployment script`], to register your slash commands with Discord so they appear in the interface.
 
         These steps can be done in any order, but all are required before the commands are fully functional.
 
@@ -71,7 +68,7 @@ discord-bot/
 
         ## Individual command files (slash commands)
 
-        Create a new folder inside the `src/` folder, named `commands` and a subfolder named `music` inside it, which is where you'll store all of your music command files. You'll be using the [`SlashCommandBuilder`](https://discord.js.org/docs/packages/builders/1.10.0/SlashCommandBuilder:Class) <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class to construct the command definitions.
+        Create a new folder inside the `src/` folder, named `commands` and a subfolder named `music` inside it, which is where you'll store all of your music command files. You'll be using the [`SlashCommandBuilder`](https://discord.js.org/docs/packages/builders/1.10.0/SlashCommandBuilder:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class to construct the command definitions.
 
         At a minimum, the definition of a slash command must have a name and a description. Slash command names must be between 1-32 characters and contain no capital letters, spaces, or symbols other than `-` and `_`. Using the builder, a simple play command definition would look like this:
         
