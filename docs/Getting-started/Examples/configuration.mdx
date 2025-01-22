@@ -49,7 +49,7 @@ Storing data in a `config.js` file is a common way of keeping your sensitive val
     ```
     </TabItem>
 	<TabItem value="Usage" label="Usage" default>
-    ```javascript
+    ```javascript  showLineNumbers
     const { token, lastFmApiKey, nodes } = require('./config.json');
     ```
     </TabItem>
@@ -88,14 +88,14 @@ You can use the [`dotenv` package <i className="fa-solid fa-arrow-up-right-from-
 
 <Tabs>
 	<TabItem value=".env" label=".env" default>
-    ```env
+    ```env  showLineNumbers
     TOKEN=""
     LASTFM_API_KEY=""
     LAVALINK_NODES=[{"host":"","port":9999,"password":"","secure":false,"retryAmount":500,"retryDelay":300000,"resumeStatus":true,"resumeTimeout":300}]
     ```
     </TabItem>
     <TabItem value="Usage" label="Usage" default>
-    ```javascript
+    ```javascript  showLineNumbers
     require("dotenv").config();
 
     const { TOKEN, LASTFM_API_KEY, LAVALINK_NODES } = process.env;
