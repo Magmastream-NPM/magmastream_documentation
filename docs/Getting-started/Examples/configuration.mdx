@@ -10,7 +10,12 @@ sidebar_label: ⚙️ Configuration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Configuration files
+#
+## Configuration files
+
+:::tip
+💡 This page follows the official [discordjs.guide <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://discordjs.guide/#before-you-begin).
+:::
 
 Once you [add your bot to a server <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://discordjs.guide/preparations/adding-your-bot-to-servers.html), the next step is to start coding and get it online! Let's start by creating a config file for your client token and a main file for your bot application.
 
@@ -18,13 +23,13 @@ As explained in the ["What is a token, anyway?" <i className="fa-solid fa-arrow-
 
 Open your application in the [Discord Developer Portal <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://discord.com/developers/applications) and go to the "Bot" page to copy your token
 
-# Using `config.js`
+## Using `config.js`
 
 Storing data in a `config.js` file is a common way of keeping your sensitive values safe. Create a `config.js` file in your project directory and paste in your token. You can access your token inside other files by using require().
 
 <Tabs>
 	<TabItem value="config.js" label="config.js" default>
-    ```javascript
+    ```javascript showLineNumbers
     module.exports = {
 	    token: "", // required
 	    lastFmApiKey: "", // optional
@@ -50,10 +55,11 @@ Storing data in a `config.js` file is a common way of keeping your sensitive val
     </TabItem>
 </Tabs>
 
-<br>
-</br>
+<br></br>
 
-# Using dotenv
+---
+
+## Using dotenv
 
 Another common approach is storing these values in a `.env` file. This spares you from always copying your token into the command line. Each line in a `.env` file should hold a `KEY=value` pair.
 
@@ -61,30 +67,20 @@ You can use the [`dotenv` package <i className="fa-solid fa-arrow-up-right-from-
 
 <Tabs>
 	<TabItem value="npm" label="npm" default>
-    ```shell
-    npm install dotenv
-    ```
-    </TabItem>
+		```shell npm install dotenv ```
+	</TabItem>
 	<TabItem value="yarn" label="yarn" default>
-    ```shell
-    yarn add dotenv
-    ```
-    </TabItem>
-    <TabItem value="pnpm" label="pnpm" default>
-    ```shell
-    pnpm add dotenv
-    ```
-    </TabItem>
-    <TabItem value="bun" label="bun" default>
-    ```shell
-    # dotenv is not necessary with Bun
-    # Bun reads .env files automatically
-    ```
-    </TabItem>
+		```shell yarn add dotenv ```
+	</TabItem>
+	<TabItem value="pnpm" label="pnpm" default>
+		```shell pnpm add dotenv ```
+	</TabItem>
+	<TabItem value="bun" label="bun" default>
+		```shell # dotenv is not necessary with Bun # Bun reads .env files automatically ```
+	</TabItem>
 </Tabs>
 
-<br>
-</br>
+<br></br>
 
 :::warning
 ⚠️ DOTENV DOES NOT NATIVELY SUPPORT ARRAYS, BUT YOU CAN STORE ARRAYS SUITABLE FOR NODES BY SERIALIZING THEM INTO A STRING (e.g., JSON).
@@ -108,5 +104,5 @@ You can use the [`dotenv` package <i className="fa-solid fa-arrow-up-right-from-
     const nodes = JSON.parse(LAVALINK_NODES || "[]");
     ```
     </TabItem>
-</Tabs>
 
+</Tabs>

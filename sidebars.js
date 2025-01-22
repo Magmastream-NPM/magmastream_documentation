@@ -35,6 +35,8 @@ const sidebars = {
             },
             items: [
               'Getting-started/Examples/configuration',
+              'Getting-started/Examples/main-file',
+              'Getting-started/Examples/creating-commands',
               'Getting-started/Examples/index-js',
               'Getting-started/Examples/play-command',
               'Getting-started/Examples/events',
