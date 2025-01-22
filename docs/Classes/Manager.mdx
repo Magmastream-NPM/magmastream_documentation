@@ -6,3 +6,350 @@ slug: /classes/manager
 sidebar_position: 1
 sidebar_label: Manager
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor
+
+<Tabs>
+    <TabItem value="Manager" label="Manager" default>
+        ```js
+        new Magmastream.Manager(options: ManagerOptions)
+        ```
+
+        | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                                                                                                                | <i class="fa-solid fa-list"/> Description                                                                                                                                         |
+        |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | `autoPlay`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether players should automatically play the next song.                                                                                                                          |
+        | `autoPlaySearchPlatform`                   | [`SearchPlatform`](#searchplatform)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
+        | `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUser.id](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The client ID to use.                                                                                                                                                             |
+        | `clientName`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                 | Value to use for the `Client-Name` header.                                                                                                                                        |
+        | `defaultSearchPlatform`                    | [`SearchPlatform`](#searchplatform)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
+        | `lastFmApiKey`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [apiKey](https://www.last.fm/api/authentication)                                       | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts) |
+        | `nodes`                                    | [`Node[]`](../Typedefs/NodeOptions.mdx)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
+        | `plugins`                                  | [`Plugin[]`](./Plugin.mdx)                                                                                                                                                                        | A array of plugins to use.                                                                                                                                                        |
+        | `replaceYouTubeCredentials`                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether the YouTube video titles should be replaced if the Author does not exactly match.                                                                                         |
+        | `send`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [send()](#send)                                                                          | Function to send data to the websocket.                                                                                                                                           |
+        | `trackPartial`                             | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                  | An array of track properties to keep. `track` will always be present.                                                                                                                                                                                  |
+        | `usePriority`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                                                                                    | Use priority mode over least amount of player or load?                                                                                                                                                                                  |
+        | `useNode`                                  | [`useNode`](../Typedefs/useNode.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
+
+        ### send()
+        <Tabs>
+            <TabItem value="Parameters" label="Parameters" default>
+                > Function to send data to the websocket.
+                >
+                > | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description                                                   |
+                > |:-------------------------------------------|:------------------------------------------|:--------------------------------------------------------------------------------------------|
+                > | `id`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to. |
+                > | `payload`                                  | [`Payload`](../Typedefs/Payload)                                          | The payload to send                                          |
+            </TabItem>
+            <TabItem value="Default usage" label="Default usage" default>
+                ```js
+                    new Magmastream.Manager({
+                        ...ManagerOptions,
+                        send: (id, payload) => {
+                            const guild = client.guilds.cache.get(id);
+                            // NOTE: FOR ERIS YOU NEED JSON.stringify() THE PAYLOAD
+                            if (guild) guild.shard.send(payload);
+                        },
+                    })
+                ```
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+
+## Table of contents
+
+| <i class="fa-solid fa-pen"/> Properties | <i class="fa-solid fa-boxes-stacked"/> Methods | <i class="fa-solid fa-arrow-right-from-bracket"/> Options/Returns |
+|:----------------------------------------|:-----------------------------------------------|:------------------------------------------------------------------|
+| [distortion](#distortion)               | [bassBoost()](#bassboost)                      | [`distortionOptions{}`](#distortionoptions)                       |
+| [equalizer](#equalizer)                 | [clearFilters()](#clearfilters)                | [`karaokeOptions{}`](#karaokeoptions)                             |
+| [karaoke](#karaoke)                     | [distort()](#distort)                          | [`rotationOptions{}`](#rotationoptions)                           |
+| [player](#player)                       | [eightD()](#eightd)                            | [`timescaleOptions{}`](#timescaleoptions)                         |
+| [rotation](#rotation)                   | [getFilterStatus()](#getfilterstatus)          | [`vibratoOptions{}`](#vibratooptions)                             |
+| [timescale](#timescale)                 | [nightcore()](#nightcore)                      | [`availableFilters''`](#availablefilters)                                                                  |
+| [vibrato](#vibrato)                     | [setDistortion()](#setdistortion)              |                                                                   |
+| [volume](#volume)                       | [setEqualizer()](#setequalizer)                |                                                                   |
+|                                         | [setKaraoke()](#setkaraoke)                    |                                                                   |
+|                                         | [setRotation()](#setrotation)                  |                                                                   |
+|                                         | [setTimescale()](#settimescale)                |                                                                   |
+|                                         | [setVibrato()](#setvibrato)                    |                                                                   |
+|                                         | [slowmo()](#slowmo)                            |                                                                   |
+|                                         | [soft()](#soft)                                |                                                                   |
+|                                         | [trebleBass()](#treblebass)                    |                                                                   |
+|                                         | [tv()](#tv)                                    |                                                                   |
+|                                         | [vaporwave()](#vaporwave)                      |                                                                   |
+
+
+## Properties
+
+### distortion
+
+> Get the distortion filter options
+>
+> Returns: [`distortionOptions{}`](#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### equalizer
+
+> Get the equalizer filter options
+>
+> Returns: [`Band[]`](../Typedefs/Band.mdx)
+
+### karaoke
+
+> Get the karaoke filter options
+>
+> Returns: [`karaokeOptions{}`](#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### player
+
+> The guild player
+>
+> Returns: [`Player`](./Player.mdx#properties)
+
+### rotation
+
+> Get the rotation filter options
+>
+> Returns: [`rotationOptions{}`](#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### timescale
+
+> Get the timescale filter options
+>
+> Returns: [`timescaleOptions{}`](#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### vibrato
+
+> Get the vibrato filter options
+>
+> Returns: [`vibratoOptions{}`](#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### volume
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+## Methods
+
+### bassBoost()
+
+> Apply the bass boost audio effect.<br/><br/>
+> This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
+>
+> Returns: [this](#properties)
+
+### clearFilters()
+
+> Removes the audio effects and resets the filter status.<br/><br/>
+> This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
+> It is also a convenient way to disable all audio effects without having to manually reset each filter individually.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+
+### distort()
+
+> Applies the distortion audio effect to the player.<br/><br/>
+> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
+> transformation to the audio signal.
+>
+> Returns: [this](#properties)
+
+### eightD()
+
+> Applies the eight dimension audio effect.<br/><br/>
+> This filter applies a rotationHz of 0.2 to the player.
+>
+> Returns: [this](#properties)
+
+### getFilterStatus()
+
+> Returns the status of the specified filter.<br/>
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
+> | `filter`                                   | [`availableFilters''`](#availablefilters) | The filter to get the status of.          |
+
+### nightcore()
+
+> Applies the nightcore audio effect.<br/><br/>
+> This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
+>
+> Returns: [this](#properties)
+
+### setDistortion()
+
+> Applies the distortion audio effect to the player.<br/><br/>
+> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
+> If no options are provided, the filter will be reset and the distortion effect will
+> be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type          | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------|:------------------------------------------|
+> | `distortion`                        | [`distortionOptions{}`](#distortionoptions) | The distortion options to apply.          |
+
+### setEqualizer()
+
+> Sets the equalizer bands and updates the filters on the player.<br/><br/>
+> This method updates the player's equalizer settings by applying the provided
+> bands configuration. The equalizer is an array of Band objects, each containing
+> a band number and a gain value. The method ensures that the filters are updated
+> after setting the equalizer, to reflect the changes in audio output.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type | <i class="fa-solid fa-list"/> Description                                                                                          |
+> |:-------------------------------------------|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+> | `bands`                                    | [`Band[]`](../Typedefs/Band.mdx)   | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+
+### setKaraoke()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type    | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------|:------------------------------------------|
+> | `karaoke`                                  | [`karaokeOptions{}`](#karaokeoptions) | The karaoke options to apply.             |
+
+### setRotation()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type      | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:----------------------------------------|:------------------------------------------|
+> | `rotation`                                 | [`rotationOptions{}`](#rotationoptions) | The rotation options to apply.            |
+
+### setTimescale()
+
+> Applies the timescale options specified by the filter.<br/><br/>
+> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
+> adjustments to modify the playback characteristics of the audio.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
+> | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
+
+### setVibrato()
+
+> Applies the vibrato options specified by the filter.<br/><br/>
+> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
+> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type        | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
+> | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
+
+### slowmo()
+
+> Applies the slow motion audio effect.<br/><br/>
+> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+>
+> Returns: [this](#properties)
+
+### soft()
+
+> Applies the soft audio effect to the player.<br/><br/>
+> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
+> by reducing the gain of certain frequency bands.
+>
+> Returns: [this](#properties)
+
+### trebleBass()
+
+> Applies the treble bass audio effect.<br/><br/>
+> This filter applies a treble boost and a bass boost to the audio.
+>
+> Returns: [this](#properties)
+
+### tv()
+
+> Applies the television audio effect.<br/><br/>
+> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
+>
+> Returns: [this](#properties)
+
+### vaporwave()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+## Returns
+
+### distortionOptions\{}
+
+> Distortion options object as a parameter, which can be used to customize the distortion effect.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description           |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+> | `sinOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine offset value for the distortion effect.    |
+> | `sinScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine scale value for the distortion effect.     |
+> | `cosOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine offset value for the distortion effect.  |
+> | `cosScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine scale value for the distortion effect.   |
+> | `tanOffset`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent offset value for the distortion effect. |
+> | `tanScale`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent scale value for the distortion effect.  |
+> | `offset`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset value for the distortion effect.         |
+> | `scale`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The scale value for the distortion effect.          |
+
+### karaokeOptions\{}
+
+> Options for applying karaoke effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `level`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The level of karaoke effect.              |
+> | `monoLevel`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The mono level of karaoke effect.         |
+> | `filterBand`                               | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter band of karaoke effect.        |
+> | `filterWidth`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter width of karaoke effect.       |
+
+### rotationOptions\{}
+
+> Options for applying rotation effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `rotationHz`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) |  The rotation speed in Hertz (Hz).              |
+
+### timescaleOptions\{}
+
+> Options for adjusting the timescale of audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `speed`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The speed factor for the timescale.       |
+> | `pitch`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The pitch factor for the timescale.       |
+> | `rate`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rate factor for the timescale.        |
+
+### vibratoOptions\{}
+
+> Options for applying vibrato effect to audio.
+>
+> | <i class="fa-solid fa-hashtag"/> Parameter | <i class="fa-solid fa-font"/> Type                                                                | <i class="fa-solid fa-list"/> Description |
+> |:-------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------|
+> | `frequency`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The frequency of the vibrato effect.      |
+> | `depth`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The depth of the vibrato effect.          |
+
+### availableFilters''
+
+> Available filters for the player.
+>
+> `bassboost` `distort` `eightD` `karaoke` `nightcore` `slowmo` `soft` `trebleBass` `tv` `vaporwave`
