@@ -42,7 +42,7 @@ import TabItem from '@theme/TabItem';
                 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type        | <i className="fa-solid fa-list"/> Description                                                   |
                 > |:-------------------------------------------|:------------------------------------------|:--------------------------------------------------------------------------------------------|
                 > | `id`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to. |
-                > | `payload`                                  | [`Payload`](../Typedefs/Payload)                                          | The payload to send                                          |
+                > | `payload`                                  | [`Payload`](../Typedefs/Payload.mdx)                                          | The payload to send                                          |
             </TabItem>
             <TabItem value="Default usage" label="Default usage" default>
                 ```js
@@ -62,87 +62,75 @@ import TabItem from '@theme/TabItem';
 
 ## Table of contents
 
-| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-solid fa-arrow-right-from-bracket"/> Options/Returns |
-|:----------------------------------------|:-----------------------------------------------|:------------------------------------------------------------------|
-| [distortion](#distortion)               | [bassBoost()](#bassboost)                      | [`distortionOptions{}`](#distortionoptions)                       |
-| [equalizer](#equalizer)                 | [clearFilters()](#clearfilters)                | [`karaokeOptions{}`](#karaokeoptions)                             |
-| [karaoke](#karaoke)                     | [distort()](#distort)                          | [`rotationOptions{}`](#rotationoptions)                           |
-| [player](#player)                       | [eightD()](#eightd)                            | [`timescaleOptions{}`](#timescaleoptions)                         |
-| [rotation](#rotation)                   | [getFilterStatus()](#getfilterstatus)          | [`vibratoOptions{}`](#vibratooptions)                             |
-| [timescale](#timescale)                 | [nightcore()](#nightcore)                      | [`availableFilters''`](#availablefilters)                                                                  |
-| [vibrato](#vibrato)                     | [setDistortion()](#setdistortion)              |                                                                   |
-| [volume](#volume)                       | [setEqualizer()](#setequalizer)                |                                                                   |
-|                                         | [setKaraoke()](#setkaraoke)                    |                                                                   |
-|                                         | [setRotation()](#setrotation)                  |                                                                   |
-|                                         | [setTimescale()](#settimescale)                |                                                                   |
-|                                         | [setVibrato()](#setvibrato)                    |                                                                   |
-|                                         | [slowmo()](#slowmo)                            |                                                                   |
-|                                         | [soft()](#soft)                                |                                                                   |
-|                                         | [trebleBass()](#treblebass)                    |                                                                   |
-|                                         | [tv()](#tv)                                    |                                                                   |
-|                                         | [vaporwave()](#vaporwave)                      |                                                                   |
-
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-regular fa-calendar"/> Events | <i className="fa-solid fa-arrow-right-from-bracket"/> Typedefs |
+|:--------------------------------------------|:---------------------------------------------------|:-----------------------------------------------|:---------------------------------------------------------------|
+| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              |                                                                |
+| [nodes](#nodes)                             | [createNode()](#createnode)                        | [chaptersLoaded](#chaptersloaded)              |                                                                |
+| [options](#options)                         | [decodeTrack()](#decodeTrack)                      | [debug](#debug)                                |                                                                |
+|                                             | [decodeTracks()](#decodeTracks)                    | [nodeConnect](#nodeconnect)                    |                                                                |
+|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodecreate)                      |                                                                |
+|                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodedestroy)                    |                                                                |
+|                                             | [init()](#init)                                    | [nodeDisconnect](#nodedisconnect)              |                                                                |
+|                                             | [get()](#get)                                      | [nodeError](#nodeerror)                        |                                                                |
+|                                             | [on()](#on)                                        | [nodeRaw](#noderaw)                            |                                                                |
+|                                             | [savePlayerState()](#saveplayerstate)              | [nodeReconnect](#nodereconnect)                |                                                                |
+|                                             | [search()](#search)                                | [playerCreate](#playercreate)                  |                                                                |
+|                                             | [updateVoiceState()](#updatevoicestate)            | [playerDestroy](#playerdestroy)                |                                                                |
+|                                             | [useableNodes()](#useablenodes)                    | [playerDisconnect](#playerdisconnect)          |                                                                |
+|                                             |                                                    | [playerMove](#playermove)                      |                                                                |
+|                                             |                                                    | [playerStateUpdate](#playerstateupdate)        |                                                                |
+|                                             |                                                    | [queueEnd](#queueend)                          |                                                                |
+|                                             |                                                    | [segmentSkipped](#segmentskipped)              |                                                                |
+|                                             |                                                    | [segmentsLoaded](#segmentsloaded)              |                                                                |
+|                                             |                                                    | [socketClosed](#socketclosed)                  |                                                                |
+|                                             |                                                    | [trackEnd](#trackend)                          |                                                                |
+|                                             |                                                    | [trackEndReason](#trackendreason)              |                                                                |
+|                                             |                                                    | [trackEndReasonData](#trackendreasondata)      |                                                                |
+|                                             |                                                    | [trackEndReasonRaw](#trackendreasonraw)        |                                                                |
+|                                             |                                                    | [trackError](#trackerror)                      |                                                                |
+|                                             |                                                    | [trackStart](#trackstart)                      |                                                                |
+|                                             |                                                    | [trackStuck](#trackstuck)                      |                                                                |
 
 ## Properties
 
-### distortion
+### players
 
-> Get the distortion filter options
+<span className="info badge">readonly</span>
+
+> The map of players.
 >
-> Returns: [`distortionOptions{}`](#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
 
-### equalizer
+### nodes
 
-> Get the equalizer filter options
+<span className="info badge">readonly</span>
+
+> The map of nodes.
 >
-> Returns: [`Band[]`](../Typedefs/Band.mdx)
+> Returns: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
 
-### karaoke
+### options
 
-> Get the karaoke filter options
+<span className="info badge">readonly</span>
+
+> The options that were set.
 >
 > Returns: [`karaokeOptions{}`](#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### player
-
-> The guild player
->
-> Returns: [`Player`](./Player.mdx#properties)
-
-### rotation
-
-> Get the rotation filter options
->
-> Returns: [`rotationOptions{}`](#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
-
-### timescale
-
-> Get the timescale filter options
->
-> Returns: [`timescaleOptions{}`](#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
-
-### vibrato
-
-> Get the vibrato filter options
->
-> Returns: [`vibratoOptions{}`](#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
-
-### volume
-
-> Get the volume the player
->
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
 ## Methods
 
-### bassBoost()
+### create()
 
-> Apply the bass boost audio effect.<br/><br/>
+> Creates a player or returns one if it already exists.<br/><br/>
 > This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
 >
-> Returns: [this](#properties)
+> Returns: [`Player`](./Player.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------|:----------------------------------------------|
+> | `options`                                      | [`playerOptions{}`](#playeroptions)    | The options to create the player with.        |
 
-### clearFilters()
+### createNode()
 
 > Removes the audio effects and resets the filter status.<br/><br/>
 > This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
@@ -150,7 +138,7 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
 
-### distort()
+### decodeTrack()
 
 > Applies the distortion audio effect to the player.<br/><br/>
 > This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
@@ -158,14 +146,14 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 
-### eightD()
+### decodeTracks()
 
 > Applies the eight dimension audio effect.<br/><br/>
 > This filter applies a rotationHz of 0.2 to the player.
 >
 > Returns: [this](#properties)
 
-### getFilterStatus()
+### destroy()
 
 > Returns the status of the specified filter.<br/>
 >
@@ -175,14 +163,14 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
 > | `filter`                                   | [`availableFilters''`](#availablefilters) | The filter to get the status of.          |
 
-### nightcore()
+### destroyNode()
 
 > Applies the nightcore audio effect.<br/><br/>
 > This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
 >
 > Returns: [this](#properties)
 
-### setDistortion()
+### init()
 
 > Applies the distortion audio effect to the player.<br/><br/>
 > This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
@@ -195,7 +183,7 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:--------------------------------------------|:------------------------------------------|
 > | `distortion`                        | [`distortionOptions{}`](#distortionoptions) | The distortion options to apply.          |
 
-### setEqualizer()
+### get()
 
 > Sets the equalizer bands and updates the filters on the player.<br/><br/>
 > This method updates the player's equalizer settings by applying the provided
@@ -209,7 +197,7 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:-----------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
 > | `bands`                                    | [`Band[]`](../Typedefs/Band.mdx)   | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
 
-### setKaraoke()
+### on()
 
 > Applies the karaoke options specified by the filter.<br/><br/>
 > This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
@@ -221,7 +209,7 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:--------------------------------------|:------------------------------------------|
 > | `karaoke`                                  | [`karaokeOptions{}`](#karaokeoptions) | The karaoke options to apply.             |
 
-### setRotation()
+### savePlayerState()
 
 > Applies the karaoke options specified by the filter.<br/><br/>
 > This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
@@ -233,7 +221,7 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:----------------------------------------|:------------------------------------------|
 > | `rotation`                                 | [`rotationOptions{}`](#rotationoptions) | The rotation options to apply.            |
 
-### setTimescale()
+### search()
 
 > Applies the timescale options specified by the filter.<br/><br/>
 > This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
@@ -245,7 +233,7 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
 > | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
 
-### setVibrato()
+### updateVoiceState()
 
 > Applies the vibrato options specified by the filter.<br/><br/>
 > This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
@@ -257,43 +245,14 @@ import TabItem from '@theme/TabItem';
 > |:-------------------------------------------|:------------------------------------------|:------------------------------------------|
 > | `timescale`                                | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.           |
 
-### slowmo()
+### useableNodes()
 
 > Applies the slow motion audio effect.<br/><br/>
 > This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
 >
 > Returns: [this](#properties)
 
-### soft()
-
-> Applies the soft audio effect to the player.<br/><br/>
-> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
-> by reducing the gain of certain frequency bands.
->
-> Returns: [this](#properties)
-
-### trebleBass()
-
-> Applies the treble bass audio effect.<br/><br/>
-> This filter applies a treble boost and a bass boost to the audio.
->
-> Returns: [this](#properties)
-
-### tv()
-
-> Applies the television audio effect.<br/><br/>
-> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
->
-> Returns: [this](#properties)
-
-### vaporwave()
-
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
->
-> Returns: [this](#properties)
-
-## Returns
+## Typedefs
 
 ### distortionOptions\{}
 

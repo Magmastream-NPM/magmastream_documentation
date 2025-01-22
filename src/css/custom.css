@@ -705,3 +705,33 @@ blockquote a:has(code):hover code {
   border-color: var(--ifm-link-color);
   color: currentColor;
 }
+
+.badge {
+  align-items: center;
+  border: 1px solid;
+  border-radius: 9999px;
+  display: inline-flex;
+  font-size: 1rem;
+  letter-spacing: -0.025em;
+  line-height: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.info {
+  background-color: #00131d !important;
+  border-color: #002235 !important;
+  color: #64c7ff !important;
+}
+
+.warning {
+  background-color: #1b1500 !important;
+  border-color: #292100 !important;
+  color: #ffdc4e !important;
+}
+
+.danger {
+  background-color: #1c0301 !important;
+  border-color: #340a01 !important;
+  color: #ffa692 !important;
+}

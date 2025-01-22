@@ -303,8 +303,8 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} <b>Magmastream</b>, Inc. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.vsDark,
+      theme: prismThemes.oneLight,
+      darkTheme: prismThemes.oneDark,
     },
     algolia: {
       appId: 'Q8WSIPIGO0',
