@@ -16,6 +16,7 @@
   "dependencies": {
     "@docusaurus/core": "3.7.0",
     "@docusaurus/plugin-content-pages": "^3.7.0",
+    "@docusaurus/plugin-sitemap": "^3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
     "@docusaurus/theme-search-algolia": "^3.7.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -29,6 +30,7 @@
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.0.0",
+    "remark-grid-tables": "^2.2.2",
     "swr": "^2.3.0"
   },
   "devDependencies": {

@@ -1,0 +1,60 @@
+---
+id: plugin
+title: Plugin
+description: Plugins for magmastream
+slug: /plugin
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<br/><br/><br/>
+
+:::danger
+🚨 THIS DOCUMENTATION IS FOR VERSION =\<2.6.1. WE RECOMMEND USING THE LATEST VERSION FOR SUPPORT REASONS. WE ALSO WARN THAT THIS OLDER DOCUMENTATION MAY NOT BE COMPLETE OR POORLY READABLE.
+:::
+
+<br/><br/><br/>
+
+## Overview
+
+| Methods       |
+| ------------- |
+| [load](#load) |
+
+## Methods
+
+#### • load()
+
+> Returns: `void`
+>
+> | Parameter | Type                          |
+> | --------- | :---------------------------- |
+> | manager   | [Manager](../classes/manager) |
+
+<Tabs>
+    <TabItem value="Using Plugins" label="Using Plugins" default>
+        ```javascript
+        const { Manager } = require("magmastream");
+        const MyPlugin = require("my-magmastream-plugin");
+
+        const manager = new Manager({
+        plugins: [new MyPlugin({ foo: "bar" })],
+    });
+        ```
+    </TabItem>
+    <TabItem value="Writing Plugins" label="Writing Plugins" default>
+        ```javascript
+        const { Plugin } = require("magmastream");
+
+        module.exports = class MyPlugin extends Plugin {
+        constructor(options) {
+        super();
+        this.options = options; // will be { foo: 'bar' }
+    }
+
+        load(manager) {}
+    };
+        ```
+    </TabItem>
+</Tabs>

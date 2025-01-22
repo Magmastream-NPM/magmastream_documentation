@@ -1,0 +1,51 @@
+---
+id: structure
+title: Structure
+description: Structure
+slug: /structure
+---
+
+<br/><br/><br/>
+
+:::danger
+🚨 THIS DOCUMENTATION IS FOR VERSION =\<2.6.1. WE RECOMMEND USING THE LATEST VERSION FOR SUPPORT REASONS. WE ALSO WARN THAT THIS OLDER DOCUMENTATION MAY NOT BE COMPLETE OR POORLY READABLE.
+:::
+
+<br/><br/><br/>
+
+## Overview
+
+| Methods                  |
+| ------------------------ |
+| [extend](#static-extend) |
+| [get](#static-get)       |
+
+## Methods
+
+#### • `static` extend()
+
+> Extends a class.
+>
+> **Type Parameters:**
+>
+> - K: keyof [Extendable](#extendable)
+> - T: [`Extendable[K]`](#extendable)
+>
+> | Parameter | Type                                        |
+> | --------- | :------------------------------------------ |
+> | name      | K                                           |
+> | extender  | (target: [`Extendable[k]`](#extendable)): T |
+
+#### • `static` get()
+
+> Get a structure from available structures by name.
+>
+> **Type Parameters:**
+>
+> - K: keyof [Extendable](#extendable)
+>
+> Returns: [`Extendable[K]`](#extendable)
+>
+> | Parameter | Type |
+> | --------- | :--- |
+> | name      | K    |

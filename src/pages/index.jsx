@@ -4,13 +4,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
-import Heading from '@theme/Heading';
 import styles from './index.module.css';
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import React, {useState} from "react";
-import Tippy from "@tippyjs/react";
-import {ClipboardIcon} from "@heroicons/react/24/outline";
+import React from "react";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -18,7 +13,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
           <img
-            src="https://i.imgur.com/piWkPK6.png"
+            src="/img/logo.ico"
             height="250"
           />
           <h1 className="fire-header_nye2">
@@ -34,7 +29,7 @@ export default function Home() {
 
   return (
     <Layout
-      title={`🔥 ${siteConfig.title}`}
+      title={`🔥 Homepage`}
     >
       <HomepageHeader />
       <main>

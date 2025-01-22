@@ -30,14 +30,12 @@ const Statistics = () => {
 
         const fetchData = async () => {
             try {
-                // Odczyt danych z localStorage
                 const storedRepoData = localStorage.getItem('repoData');
                 const storedContributorsData = localStorage.getItem('contributorsData');
 
                 let repoJson = null;
                 let contributorsJson = null;
 
-                // Sprawdzanie czy dane w cache są młodsze niż 1 godzina
                 if (storedRepoData) {
                     const cachedRepoData = JSON.parse(storedRepoData);
                     if (Date.now() - cachedRepoData.timestamp < 3600000) {
@@ -52,7 +50,6 @@ const Statistics = () => {
                     }
                 }
 
-                // Jeśli dane nie są dostępne lub są starsze niż 1 godzina, pobieramy je z API
                 if (!repoJson) {
                     const repoResponse = await fetch('https://api.github.com/repos/Magmastream-NPM/magmastream');
                     repoJson = await repoResponse.json();
@@ -68,11 +65,9 @@ const Statistics = () => {
                 const registryResponse = await fetch('https://registry.npmjs.org/magmastream');
                 const registryJson = await registryResponse.json();
 
-                // Pobieranie danych z npm API (bez cache, bo dane są dynamiczne)
                 const npmResponse = await fetch('https://api.npmjs.org/downloads/range/2020-01-01:2100-12-31/magmastream');
                 const npmJson = await npmResponse.json();
 
-                // Ustawianie danych w stanie
                 setRegistryData(registryJson);
                 setRepoData(repoJson);
                 setContributorsData(contributorsJson);
@@ -175,7 +170,6 @@ const Statistics = () => {
 };
 
 import Layout from '@theme/Layout';
-import {useColorMode} from "@docusaurus/theme-common";
 import Heading from "@theme/Heading";
 
 function StatisticsPage() {

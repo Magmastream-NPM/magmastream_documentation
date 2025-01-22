@@ -1,0 +1,429 @@
+---
+id: manager
+title: Manager
+description: Magmastream's Manager, the ultimate command post for unleashing the power of Lavalink like a boss, guaranteed to make you go "Whoa!" like the most mind-blowing meme.
+slug: /manager
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<br/><br/><br/>
+
+:::danger
+🚨 THIS DOCUMENTATION IS FOR VERSION =\<2.6.1. WE RECOMMEND USING THE LATEST VERSION FOR SUPPORT REASONS. WE ALSO WARN THAT THIS OLDER DOCUMENTATION MAY NOT BE COMPLETE OR POORLY READABLE.
+:::
+
+<br/><br/><br/>
+
+## Constructor
+
+<Tabs>
+    <TabItem value="Manager" label="Manager" default>
+        ```js
+        new Magmastream.Manager(options: ManagerOptions)
+        ```
+
+        ## Properties
+
+        | Options                     | Type                                       | Description                                                                                                                                                                    |
+        |-----------------------------|:-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | `cliendId`                  | `string`                                   | The client ID to use.                                                                                                                                                          |
+        | `nodes`                     | [`nodeOptions[]`](./node.mdx)         | The array of nodes to connect to.                                                                                                                                              |
+        | `autoPlay`                  | `boolean`                                  | Whether players should automatically play the next song.                                                                                                                       |
+        | `usePriority`               | `boolean`                                  | Whether to use priority mode for selecting nodes.                                                                                                                              |
+        | `useNode`                   | [useNodeOption](../typedefs/useNodeOption.md) | Which node should the manager use in first?                                                                                                                                    |
+        | `plugins`                   | [`plugin[]`](./plugin.mdx)            | An array of plugins to use.                                                                                                                                                    |
+        | `trackPartial`              | `string[]`                                 | An array of track properties to keep. `track` will always be present.                                                                                                          |
+        | `defaultSearchPlatform`     | `string`                                   | The search platform to use to query songs.                                                                                                                                     |
+        | `replaceYouTubeCredentials` | `boolean`                                  | Whether the YouTube video titles should be replaced if the Author does not exactly match.                                                                                      |
+        | `lastFmApiKey`              | `string`                                   | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts) |
+        | `send`                      | [`function`](#send)                        | Function to send data to the websocket.                                                                                                                                        |
+
+        #### send
+
+        > Function to send data to the websocket.
+        > <br/>Returns: `void`
+        >
+        > | Parameter | Type                             |
+        > |-----------|:---------------------------------|
+        > | `id`      | `string`                         |
+        > | `payload` | [Payload{}](../typedefs/payload.md) |
+    </TabItem>
+</Tabs>
+
+## Overview
+
+| Properties                        | Methods                               | Events                                  |
+|-----------------------------------|:--------------------------------------|-----------------------------------------|
+| [nodes](#nodes)                   | [create](#create)                     | [debug](#debug)                         |
+| [options](#options)               | [createNode](#createnode)             | [nodeCreate](#nodecreate)               |
+| [players](#players)               | [decodeTrack](#decodetrack)           | [nodeDestroy](#nodedestroy)             |
+| [useableNodes](#get-useablenodes) | [decodeTracks](#decodetracks)         | [nodeConnect](#nodeconnect)             |
+|                                   | [destroy](#destroy)                   | [nodeReconnect](#nodereconnect)         |
+|                                   | [destroyNode](#sdestroynode)          | [nodeDisconnect](#nodedisconnect)       |
+|                                   | [get](#get)                           | [nodeError](#nodeerror)                 |
+|                                   | [init](#init)                         | [nodeRaw](#noderaw)                     |
+|                                   | [search](#search)                     | [playerCreate](#playercreate)           |
+|                                   | [updateVoiceState](#updatevoicestate) | [playerDestroy](#playerdestroy)         |
+|                                   |                                       | [playerStateUpdate](#playerstateupdate) |
+|                                   |                                       | [playerMove](#playermove)               |
+|                                   |                                       | [playerDisconnect](#playerdisconnect)   |
+|                                   |                                       | [queueEnd](#queueend)                   |
+|                                   |                                       | [trackStart](#trackstart)               |
+|                                   |                                       | [trackEnd](#trackend)                   |
+|                                   |                                       | [trackStuck](#trackstuck)               |
+|                                   |                                       | [trackError](#trackerror)               |
+|                                   |                                       | [socketClosed](#socketclosed)           |
+|                                   |                                       | [playerStateUpdate](#playerstateupdate) |
+|                                   |                                       | [segmentsLoaded](#segmentsloaded)       |
+|                                   |                                       | [segmentSkipped](#segmentskipped)       |
+|                                   |                                       | [chapterStarted](#chapterstarted)       |
+|                                   |                                       | [chaptersLoaded](#chaptersloaded)       |
+
+### Properties
+
+#### • nodes
+
+> The map of nodes.
+>
+> | Type                                        | Value                          |
+> | ------------------------------------------- | :----------------------------- |
+> | Collection\<string, [Node](./node.mdx)> | new Collection\<string, [Node](./node.mdx)>() |
+
+#### • options
+
+> The options that were set.
+>
+> | Type                           |
+> |--------------------------------|
+> | [ManagerOptions](#constructor) |
+
+#### • players
+
+> The map of players.
+>
+> | Type                                            | Value                                                 |
+> |-------------------------------------------------|:------------------------------------------------------|
+> | Collection\<string, [Player](./player.mdx)> | new Collection\<string, [Player](./player.mdx)>() |
+
+#### • `get` useableNodes
+
+> | Type                    |
+> | ----------------------- |
+> | [Node](./node.mdx) |
+
+### Methods
+
+#### • create()
+
+> Creates a player or returns one if it already exists.
+>
+> Returns: [Player](./player.mdx)
+>
+> | Parameter | Type                                           |
+> | --------- | :--------------------------------------------- |
+> | options   | [PlayerOptions](./player.mdx#constructor) |
+
+#### • createNode()
+
+> Creates a node or returns one if it already exists.
+>
+> Returns: [Node](./node.mdx)
+>
+> | Parameter | Type                                       |
+> | --------- | :----------------------------------------- |
+> | options   | [NodeOptions](./node.mdx#constructor) |
+
+#### • decodeTrack()
+
+> Decodes the base64 encoded track and returns a TrackData.
+>
+> Returns: Promise\<[TrackData](../typedefs/trackData.md)>
+>
+> | Parameter | Type   |
+> | --------- | :----- |
+> | track     | `string` |
+
+#### • decodeTracks()
+
+> Decodes the base64 encoded tracks and returns a TrackData array.
+>
+> Returns: Promise\<[TrackData](../typedefs/trackData.md)`[]`>
+>
+> | Parameter | Type       |
+> | --------- |:-----------|
+> | tracks    | `string[]` |
+
+#### • destroy()
+
+> Destroys a player if it exists.
+>
+> Returns: `void`
+>
+> | Parameter | Type   |
+> | --------- | :----- |
+> | guild     | `string` |
+
+#### • destroyNode()
+
+> Destroys a node if it exists.
+>
+> Returns: `void`
+>
+> | Parameter  | Type   |
+> | ---------- | :----- |
+> | identifier | `string` |
+
+#### • get()
+
+> Returns a player or undefined if it does not exist.
+>
+> Returns: [Player](./player.mdx) | `undefined`
+>
+> | Parameter | Type   |
+> | --------- | :----- |
+> | guild     | `string` |
+
+#### • init()
+
+> Initiates the Manager.
+>
+> Returns: `this`
+>
+> | Parameter | Type   |
+> | --------- | :----- |
+> | clientId  | `string` |
+
+#### • search()
+
+> Searches the enabled sources based off the URL or the `source` property.
+>
+> Returns: Promise\<[SearchResult](../typedefs/searchResult.md)>
+>
+> | Parameter            | Type                                               |
+> | -------------------- |:---------------------------------------------------|
+> | query                | [SearchQuery](../typedefs/searchQuery.md) \| `string` |
+> | `Optional` requester | `unknown`                                            |
+
+#### • updateVoiceState()
+
+> Sends voice data to the Lavalink server.
+>
+> Returns: `void`
+>
+> | Parameter | Type                                   |
+> | --------- | :------------------------------------- |
+> | data      | [VoicePacket](../typedefs/voicePacket.md) |
+
+### Events
+
+#### • debug
+
+> Emitted when the Manager has a debug message.
+>
+> | Parameter | Type     |
+> |-----------|:---------|
+> | info      | `string` |
+
+#### • nodeCreate
+
+> Emitted when a Node is created.
+>
+> | Parameter | Type                    |
+> | --------- | :---------------------- |
+> | node      | [Node](./node.mdx) |
+
+#### • nodeDestroy
+
+> Emitted when a Node is destroyed.
+>
+> | Parameter | Type                    |
+> | --------- | :---------------------- |
+> | node      | [Node](./node.mdx) |
+
+#### • nodeConnect
+
+> Emitted when a Node connects.
+>
+> | Parameter | Type                    |
+> | --------- | :---------------------- |
+> | node      | [Node](./node.mdx) |
+
+#### • nodeReconnect
+
+> Emitted when a Node reconnects.
+>
+> | Parameter | Type                    |
+> | --------- | :---------------------- |
+> | node      | [Node](./node.mdx) |
+
+#### • nodeDisconnect
+
+> Emitted when a Node disconnects.
+>
+> | Parameter | Type                              |
+> | --------- | :-------------------------------- |
+> | node      | [Node](./node.mdx)           |
+> | reason    | `{ code: number , reason: string }` |
+
+#### • nodeError
+
+> Emitted when a Node has an error.
+>
+> | Parameter | Type                    |
+> | --------- | :---------------------- |
+> | node      | [Node](./node.mdx) |
+> | error     | `Error`                   |
+
+#### • nodeRaw
+
+> Emitted whenever any Lavalink event is received.
+>
+> | Parameter | Type    |
+> | --------- | :------ |
+> | payload   | `unknown` |
+
+#### • playerCreate
+
+> Emitted when a player is created.
+>
+> | Parameter | Type                        |
+> | --------- | :-------------------------- |
+> | player    | [Player](./player.mdx) |
+
+#### • playerDestroy
+
+> Emitted when a player is destroyed.
+>
+> | Parameter | Type                        |
+> | --------- | :-------------------------- |
+> | player    | [Player](./player.mdx) |
+
+#### • playerStateUpdate
+
+> Emitted when a player was updated.
+>
+> | Parameter | Type                                                         |
+> |-----------|:-------------------------------------------------------------|
+> | oldPlayer | [Player](./player.mdx)                                  |
+> | newPlayer | [Player](./player.mdx)                                  |
+> | event     | [PlayerStateUpdateEvent](../typedefs/playerStateUpdateEvent.md) |
+
+#### • playerMove
+
+> Emitted when a player is moved to a new voice channel.
+>
+> | Parameter  | Type                        |
+> |------------| :-------------------------- |
+> | player     | [Player](./player.mdx) |
+> | intChannel | string                      |
+> | newChannel | string                      |
+
+#### • playerDisconnect
+
+> Emitted when a player is moved to a new voice channel.
+>
+> | Parameter  | Type                        |
+> |------------| :-------------------------- |
+> | player     | [Player](./player.mdx) |
+> | oldChannel | string                      |
+
+#### • queueEnd
+
+> Emitted when a player queue ends.
+>
+> | Parameter | Type                                                                         |
+> |-----------|:-----------------------------------------------------------------------------|
+> | player    | [Player](./player.mdx)                                                  |
+> | track     | [Track](../typedefs/track.md) \| [UnresolvedTrack](../typedefs/unresolvedTrack.md) |
+> | payload   | [TrackEndEvent](../typedefs/trackEndEvent.md)                                   |
+
+#### • trackStart
+
+> Emitted when a track starts.
+>
+> | Parameter | Type                                           |
+> | --------- | :--------------------------------------------- |
+> | player    | [Player](./player.mdx)                    |
+> | track     | [Track](../typedefs/track.md)                     |
+> | payload   | [TrackStartEvent](../typedefs/trackStartEvent.md) |
+
+#### • trackEnd
+
+> Emitted when a track ends.
+>
+> | Parameter | Type                                       |
+> | --------- | :----------------------------------------- |
+> | player    | [Player](./player.mdx)                |
+> | track     | [Track](../typedefs/track.md)                 |
+> | payload   | [TrackEndEvent](../typedefs/trackEndEvent.md) |
+
+#### • trackStuck
+
+> Emitted when a track gets stuck during playback.
+>
+> | Parameter | Type                                           |
+> | --------- | :--------------------------------------------- |
+> | player    | [Player](./player.mdx)                    |
+> | track     | [Track](../typedefs/track.md)                     |
+> | payload   | [TrackStuckEvent](../typedefs/trackStuckEvent.md) |
+
+#### • trackError
+
+> Emitted when a track has an error during playback.
+>
+> | Parameter | Type                                                   |
+> | --------- | :----------------------------------------------------- |
+> | player    | [Player](./player.mdx)                            |
+> | track     | [Track](../typedefs/track.md)                             |
+> | payload   | [TrackExceptionEvent](../typedefs/trackExceptionEvent.md) |
+
+#### • socketClosed
+
+> Emitted when a voice connection is closed.
+>
+> | Parameter | Type                                                     |
+> | --------- | :------------------------------------------------------- |
+> | player    | [Player](./player.mdx)                              |
+> | payload   | [WebSocketClosedEvent](../typedefs/webSocketClosedEvent.md) |
+
+#### • segmentsLoaded
+
+> Emitted when a track has loaded segments.
+>
+> | Parameter | Type                                                                 |
+> | --------- | :------------------------------------------------------------------- |
+> | player    | [Player](./player.mdx)                                          |
+> | track     | [Track](../typedefs/track.md)                                           |
+> | payload   | [SponsorBlockSegmentsLoaded](../typedefs/sponsorBlockSegmentsLoaded.md) |
+
+#### • segmentSkipped
+
+> Emitted when a track has skipped a segment.
+>
+> | Parameter | Type                                                                 |
+> | --------- | :------------------------------------------------------------------- |
+> | player    | [Player](./player.mdx)                                          |
+> | track     | [Track](../typedefs/track.md)                                           |
+> | payload   | [SponsorBlockSegmentSkipped](../typedefs/sponsorBlockSegmentSkipped.md) |
+
+#### • chapterStarted
+
+> Emitted when a track has started a chapter.
+>
+> | Parameter | Type                                                                 |
+> | --------- | :------------------------------------------------------------------- |
+> | player    | [Player](./player.mdx)                                          |
+> | track     | [Track](../typedefs/track.md)                                           |
+> | payload   | [SponsorBlockChapterStarted](../typedefs/sponsorBlockChapterStarted.md) |
+
+#### • chaptersLoaded
+
+> Emitted when a track has loaded chapters.
+>
+> | Parameter | Type                                                                 |
+> | --------- | :------------------------------------------------------------------- |
+> | player    | [Player](./player.mdx)                                          |
+> | track     | [Track](../typedefs/track.md)                                           |
+> | payload   | [SponsorBlockChaptersLoaded](../typedefs/sponsorBlockChaptersLoaded.md) |
