@@ -14,7 +14,7 @@
 | ------------ | ------------------------------- | ------------------------------------------ |
 | `encoded`    | `string`                        | The base64 encoded track.                  |
 | `info`       | [TrackDataInfo](#trackdatainfo) | The detailed information of the track.     |
-| `pluginInfo` | `Record\<string, string>`        | Additional track info provided by plugins. |
+| `pluginInfo` | `Record\<string, string>`       | Additional track info provided by plugins. |
 
 ## TrackDataInfo
 

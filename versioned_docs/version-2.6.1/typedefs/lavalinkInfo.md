@@ -11,7 +11,7 @@
 ### Overview
 
 | Fields           | Type               | Description                   |
-|------------------|:-------------------|-------------------------------|
+| ---------------- | :----------------- | ----------------------------- |
 | `version`        | [object](#version) | `Version information`         |
 | `buildTime`      | `number`           | `Build time`                  |
 | `git`            | [object](#git)     | `Git information`             |
@@ -24,7 +24,7 @@
 ### Version
 
 | Fields       | Type     |
-|--------------|:---------|
+| ------------ | :------- |
 | `semver`     | `string` |
 | `major`      | `number` |
 | `minor`      | `number` |
@@ -34,14 +34,14 @@
 ### Git
 
 | Fields       | Type     |
-|--------------|:---------|
+| ------------ | :------- |
 | `branch`     | `string` |
 | `commit`     | `string` |
 | `commitTime` | `number` |
 
 ### Plugins
 
-| Fields       | Type     |
-|--------------|:---------|
-| `name`       | `string` |
-| `version`    | `string` |
+| Fields    | Type     |
+| --------- | :------- |
+| `name`    | `string` |
+| `version` | `string` |

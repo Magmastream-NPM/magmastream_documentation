@@ -12,7 +12,7 @@
 
 > Represents an equalizer band.
 >
-> | Properties | Type | Description |
-> |--------------------------------------------------------------------------|:---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-> | band                                                                     | number                                                                                 | The index of the equalizer band.                                                                |
-> | gain                                                                     | number                                                                                 | The gain value of the equalizer band.                                                           |
+> | Properties | Type   | Description                           |
+> | ---------- | :----- | ------------------------------------- |
+> | band       | number | The index of the equalizer band.      |
+> | gain       | number | The gain value of the equalizer band. |

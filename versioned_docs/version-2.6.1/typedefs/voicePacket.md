@@ -10,10 +10,10 @@
 
 ### Overview
 
-| Properties | Type                                                   |
-| ---------- | ------------------------------------------------------ |
+| Properties | Type                                                    |
+| ---------- | ------------------------------------------------------- |
 | `d`        | Partial\<[Object](#object)> & [VoiceEvent](#voiceevent) |
-| `t`        | `string`                                               |
+| `t`        | `string`                                                |
 
 #### Object
 

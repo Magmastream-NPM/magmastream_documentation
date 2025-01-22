@@ -26,10 +26,6 @@ const sidebars = {
         description: "And to start, take a moment to familiarize yourself with the module..."
       },
       items: [
-        {
-          type: 'doc',
-            id: 'Getting-started/general-information',
-        },
           {
             type: 'category',
             label: '👀 Examples',
@@ -38,9 +34,10 @@ const sidebars = {
               description: "Here are examples that you can implement in your discord application at the start"
             },
             items: [
+              'Getting-started/Examples/configuration',
               'Getting-started/Examples/index-js',
               'Getting-started/Examples/play-command',
-              'Getting-started/Examples/events'
+              'Getting-started/Examples/events',
             ],
           }
       ],

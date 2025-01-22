@@ -48,6 +48,6 @@
 
 > The title to search against.
 >
-> | Description            | Returns         |
-> | ---------------------- | --------------- |
+> | Description            | Returns          |
+> | ---------------------- | ---------------- |
 > | Resolves into a Track. | `Promise\<void>` |

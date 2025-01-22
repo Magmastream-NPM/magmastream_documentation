@@ -128,8 +128,8 @@
 
 > Add your own data to the track.
 >
-> | Type                    |
-> | ----------------------- |
+> | Type                     |
+> | ------------------------ |
 > | Record\<string, unknown> |
 
 ### Methods

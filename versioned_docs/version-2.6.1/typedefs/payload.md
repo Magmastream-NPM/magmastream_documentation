@@ -11,7 +11,7 @@
 ### Overview
 
 | Options | Type           | Description    |
-| ------- |:---------------| -------------- |
+| ------- | :------------- | -------------- |
 | `op`    | `number`       | `The OP code.` |
 | `d`     | [object{}](#d) |                |
 
