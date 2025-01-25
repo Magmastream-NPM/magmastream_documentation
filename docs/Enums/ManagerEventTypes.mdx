@@ -9,110 +9,164 @@ sidebar_label: ManagerEventTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-```typescript
-export enum ManagerEventTypes 
-```
+<Tabs>
+	<TabItem value="npm" label="Enumeration Members" default>
+        |                                                                                                                     |                                                                                                                |                                                                                                                    |
+        | :------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [Debug](#debug)                         | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [NodeCreate](#nodeCreate)         | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [NodeDestroy](#nodeDestroy)           |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [NodeConnect](#nodeConnect)             | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [NodeReconnect](#nodeReconnect)   | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [NodeDisconnect](#nodeDisconnect)     |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [NodeError](#nodeError)                 | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [NodeRaw](#nodeRaw)               | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [PlayerCreate](#playerCreate)         |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [NodeRaw](#nodeRaw)                     | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [PlayerCreate](#playerCreate)     | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [PlayerDestroy](#playerDestroy)       |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [PlayerStateUpdate](#playerStateUpdate) | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [PlayerMove](#playerMove)         | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [PlayerDisconnect](#playerDisconnect) |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [QueueEnd](#queueEnd)                   | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [SocketClosed](#socketClosed)     | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [TrackStart](#trackStart)             |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [TrackEnd](#trackEnd)                   | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [TrackStuck](#trackStuck)         | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [TrackError](#trackError)             |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [SegmentsLoaded](#segmentsLoaded)       | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [SegmentSkipped](#segmentsLoaded) | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> [ChapterStarted](#chapterStarted)     |
+        | <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }}/> [ChaptersLoaded](#chaptersLoaded)       |                                                                                                                |                                                                                                                    |
+	</TabItem>
+</Tabs>
 
 ## <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em'}}/> Members
 
 ### Debug = "debug" {#debug}
 
+<span className="info badge">info: string</span>
+
 ---
 
 ### NodeCreate = "nodeCreate" {#nodeCreate}
+
+<span className="info badge">node: Node</span>
 
 ---
 
 ### NodeDestroy = "nodeDestroy" {#nodeDestroy}
 
+<span className="info badge">node: Node</span>
+
 ---
 
 ### NodeConnect = "nodeConnect" {#nodeConnect}
+
+<span className="info badge">node: Node</span>
 
 ---
 
 ### NodeReconnect = "nodeReconnect" {#nodeReconnect}
 
+<span className="info badge">node: Node</span>
+
 ---
 
 ### NodeDisconnect = "nodeDisconnect" {#nodeDisconnect}
+
+<span className="info badge">node: Node</span> <span className="info badge">reason: code?: number, reason?: string</span>
 
 ---
 
 ### NodeError = "nodeError" {#nodeError}
 
+<span className="info badge">node: Node</span> <span className="info badge">error: Error</span>
+
 ---
 
 ### NodeRaw = "nodeRaw" {#nodeRaw}
+
+<span className="info badge">payload: unkown</span>
 
 ---
 
 ### PlayerCreate = "playerCreate" {#playerCreate}
 
+<span className="info badge">player: Player </span>
+
 ---
 
 ### PlayerDestroy = "playerDestroy" {#playerDestroy}
+
+<span className="info badge">player: Player</span>
 
 ---
 
 ### PlayerStateUpdate = "playerStateUpdate" {#playerStateUpdate}
 
+<span className="info badge">oldPlayer: Player</span> <span className="info badge">newPlayer: Player</span> <span className="info badge">changeType: PlayerStateUpdateEvent</span>
+
 ---
 
 ### PlayerMove = "playerMove" {#playerMove}
+
+<span className="info badge">player: Player</span> <span className="info badge">initChannel: string</span> <span className="info badge">newChannel: string</span>
 
 ---
 
 ### PlayerDisconnect = "playerDisconnect" {#playerDisconnect}
 
+<span className="info badge">player: Player</span> <span className="info badge">oldChannel: string</span>
+
 ---
 
 ### QueueEnd = "queueEnd" {#queueEnd}
+
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack </span> <span className="info badge">payload: TrackEndEvent</span>
 
 ---
 
 ### SocketClosed = "socketClosed" {#socketClosed}
 
+<span className="info badge">player: Player</span> <span className="info badge">payload: WebSocketClosedEvent</span>
+
 ---
 
 ### TrackStart = "trackStart" {#trackStart}
+
+<span className="info badge">player: Player</span> <span className="info badge">track: Track </span> <span className="info badge">payload: TrackStartEvent</span>
 
 ---
 
 ### TrackEnd = "trackEnd" {#trackEnd}
 
----
-
-### TrackEndReason = "trackEndReason" {#trackEndReason}
-
----
-
-### TrackEndReasonRaw = "trackEndReasonRaw" {#trackEndReasonRaw}
-
----
-
-### TrackEndReasonData = "trackEndReasonData" {#trackEndReasonData}
+<span className="info badge">player: Player</span> <span className="info badge">track: Track</span> <span className="info badge">payload: TrackEndEvent</span>
 
 ---
 
 ### TrackStuck = "trackStuck" {#trackStuck}
 
+<span className="info badge">player: Player</span> <span className="info badge">track: Track</span> <span className="info badge">payload: TrackStuckEvent</span>
+
 ---
 
 ### TrackError = "trackError" {#trackError}
+
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack</span> <span className="info badge">payload: TrackExceptionEvent</span>
 
 ---
 
 ### SegmentsLoaded = "segmentsLoaded" {#segmentsLoaded}
 
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack</span> <span className="info badge">payload: SponsorBlockSegmentsLoaded</span>
+
+> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+
 ---
 
 ### SegmentSkipped = "segmentSkipped" {#segmentSkipped}
+
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack</span> <span className="info badge">payload: SponsorBlockSegmentSkipped</span>
+
+> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
 
 ---
 
 ### ChapterStarted = "chapterStarted" {#chapterStarted}
 
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack</span> <span className="info badge">payload: SponsorBlockChapterStarted</span>
+
+> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+
 ---
 
 ### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
+
+<span className="info badge">player: Player</span> <span className="info badge">track: Track | UnresolvedTrack</span> <span className="info badge">payload: SponsorBlockChaptersLoaded</span>
+
+> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)

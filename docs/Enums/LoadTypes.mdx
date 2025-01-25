@@ -9,25 +9,50 @@ sidebar_label: LoadTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-```typescript
-export enum LoadTypes 
-```
+<Tabs>
+	<TabItem value="npm" label="Enumeration Members" default>
+        |                                                                                              |                                                                                                    |                                                                                                |
+        | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
+        | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> Track](#track) | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> Playlist](#playlist) | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> Search](#search) |
+        | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> Empty](#empty) | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em' }} /> Error](#error)       |                                                                                                |
+	</TabItem>
+</Tabs>
 
-## <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.6em'}}/> Members
 
 ### Track = "track" {#track}
+
+<span className="info badge">Track</span>
+> A track has been loaded.
 
 ---
 
 ### Playlist = "playlist" {#playlist}
 
+<span className="info badge">Track []</span>
+> A playlist has been loaded.
+
 ---
+
 ### Search = "search" {#search}
+
+<span className="info badge">Track</span>
+> A search result has been loaded.
 
 ---
 
 ### Empty = "empty" {#empty}
 
+<span className="info badge">Empty data</span>
+> No result has been found / loaded.
+
+> See [lavalink empty data example <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://lavalink.dev/api/rest.html#empty-result-data).
+
 ---
 
+
 ### Error = "error" {#error}
+
+<span className="info badge">Error data</span>
+> An error / exception occurred.
+
+> See [lavalink error data example <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://lavalink.dev/api/rest.html#error-result-data).
