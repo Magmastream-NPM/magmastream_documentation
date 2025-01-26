@@ -17,15 +17,7 @@ const config = {
   title: "Magmastream",
   tagline: description,
   favicon: "img/logo.ico",
-  plugins: [
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        showLastUpdateTime: false, // Disable last update time to avoid git errors
-        showLastUpdateAuthor: false, // Disable last update author
-      },
-    ],
-  ],
+
   customFields: {
     usedBy: [
       {
@@ -125,8 +117,9 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           editUrl:
             "https://github.com/magmastream-npm/magmastream_documentation/tree/main/",
         },
