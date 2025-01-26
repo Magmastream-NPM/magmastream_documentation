@@ -3,7 +3,7 @@ id: manager
 title: Manager
 description: Manager
 slug: /classes/manager
-sidebar_position: 2
+sidebar_position: 1
 sidebar_label: Manager
 ---
 
@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 ## Constructor
 
 <Tabs>
-    <TabItem value="Manager" label="Manager" default>
+    <TabItem value="Manager" label="Manager : options" default>
         ```js
         new Magmastream.Manager(options: ManagerOptions)
         ```
@@ -38,12 +38,12 @@ import TabItem from '@theme/TabItem';
         <Tabs>
             <TabItem value="Parameters" label="Parameters" default>
 
-> Function to send data to the websocket.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `id`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to.       |
-> | `payload`                                      | [`Payload`](../Typedefs/Payload.mdx)                                                              | The payload to send                           |
+                > Function to send data to the websocket.
+                >
+                > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+                > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+                > | `id`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to.       |
+                > | `payload`                                      | [`Payload`](../Typedefs/Payload.mdx)                                                              | The payload to send                           |
 
             </TabItem>
             <TabItem value="Default usage" label="Default usage" default>
@@ -66,13 +66,13 @@ import TabItem from '@theme/TabItem';
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-regular fa-calendar"/> Events | <i className="fa-solid fa-arrow-right-from-bracket"/> Typedefs |
-| :------------------------------------------ | :------------------------------------------------- | :--------------------------------------------- | :------------------------------------------------------------- |
-| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              |                                                                |
+|:--------------------------------------------|:---------------------------------------------------|:-----------------------------------------------|:---------------------------------------------------------------|
+| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              |  [`playerOptions{}`](#playeroptions)                                                              |
 | [nodes](#nodes)                             | [createNode()](#createnode)                        | [chaptersLoaded](#chaptersloaded)              |                                                                |
-| [options](#options)                         | [decodeTrack()](#decodeTrack)                      | [debug](#debug)                                |                                                                |
-|                                             | [decodeTracks()](#decodeTracks)                    | [nodeConnect](#nodeconnect)                    |                                                                |
+| [options](#options)                         | [decodeTrack()](#decodetrack)                      | [debug](#debug)                                |                                                                |
+|                                             | [decodeTracks()](#decodetracks)                    | [nodeConnect](#nodeconnect)                    |                                                                |
 |                                             | [destroy()](#destroy)                              | [nodeCreate](#nodecreate)                      |                                                                |
-|                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodedestroy)                    |                                                                |
+|                                             | [destroyNode()](#destroynode)                      | [nodeDestroy](#nodedestroy)                    |                                                                |
 |                                             | [init()](#init)                                    | [nodeDisconnect](#nodedisconnect)              |                                                                |
 |                                             | [get()](#get)                                      | [nodeError](#nodeerror)                        |                                                                |
 |                                             | [on()](#on)                                        | [nodeRaw](#noderaw)                            |                                                                |
@@ -135,19 +135,23 @@ import TabItem from '@theme/TabItem';
 
 ### createNode()
 
-> Removes the audio effects and resets the filter status.<br/><br/>
-> This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
-> It is also a convenient way to disable all audio effects without having to manually reset each filter individually.
+> Creates a new node or returns an existing one if it already exists.<br/><br/>
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+> Returns: [`Node`](../Classes/Node.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `options`                                      | [`nodeOptions{}`](#nodeoptions)    | The options to create the node with.        |
 
 ### decodeTrack()
 
-> Applies the distortion audio effect to the player.<br/><br/>
-> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
-> transformation to the audio signal.
+> Decodes a base64 encoded track and returns a TrackData.<br/><br/>
 >
-> Returns: [this](#properties)
+> Returns: [`Node`](../Classes/Node.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
 
 ### decodeTracks()
 
