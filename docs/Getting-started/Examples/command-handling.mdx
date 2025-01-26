@@ -79,12 +79,12 @@ This page details how to complete **Step 2**. Make sure to also complete the oth
         client.login(config.token);
         ```
 
-        We recommend attaching a `.commands` property to your client instance so that you can access your commands in other files. The rest of the examples in this guide will follow this convention. For TypeScript users, we recommend extending the base Client class to add this property, [casting <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://www.typescripttutorial.net/typescript-tutorial/type-casting/), or [augmenting the module type <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
+        We recommend attaching a `.commands` property to your client instance so that you can access your commands in other files. The rest of the examples in this guide will follow this convention. For TypeScript users, we recommend extending the base Client class to add this property, [casting <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://www.typescripttutorial.net/typescript-tutorial/type-casting/), or [augmenting the module type <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
 
         :::tip
-        - The [`fs`](https://nodejs.org/api/fs.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> module is Node's native file system module. `fs` is used to read the `commands` directory and identify our command files.
-        - The [`path`](https://nodejs.org/api/path.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> module is Node's native path utility module. `path` helps construct paths to access files and directories. One of the advantages of the path module is that it automatically detects the operating system and uses the appropriate joiners.
-        - The [`Collection`](https://discord.js.org/docs/packages/collection/stable/Collection:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class extends JavaScript's native [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class, and includes more extensive, useful functionality. `Collection` is used to store and efficiently retrieve commands for execution.
+        - The [`fs`](https://nodejs.org/api/fs.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> module is Node's native file system module. `fs` is used to read the `commands` directory and identify our command files.
+        - The [`path`](https://nodejs.org/api/path.html)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> module is Node's native path utility module. `path` helps construct paths to access files and directories. One of the advantages of the path module is that it automatically detects the operating system and uses the appropriate joiners.
+        - The [`Collection`](https://discord.js.org/docs/packages/collection/stable/Collection:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> class extends JavaScript's native [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> class, and includes more extensive, useful functionality. `Collection` is used to store and efficiently retrieve commands for execution.
         :::
 
         Next, using the modules imported above, dynamically retrieve your command files with a few more additions to the `index.js` file:
@@ -129,13 +129,13 @@ This page details how to complete **Step 2**. Make sure to also complete the oth
 
         ## Receiving command interactions
 
-        You will receive an interaction for every slash command executed. To respond to a command, you need to create a listener for the [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> event that will execute code when your application receives an interaction. Place the code below in the `index.js` file you created earlier.
+        You will receive an interaction for every slash command executed. To respond to a command, you need to create a listener for the [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> event that will execute code when your application receives an interaction. Place the code below in the `index.js` file you created earlier.
         ```javascript showLineNumbers
         client.on(Events.InteractionCreate, interaction => {
             console.log(interaction);
         });
         ```
-        Not every interaction is a slash command (e.g. `MessageComponent` interactions). Make sure to only handle slash commands in this function by making use of the [`BaseInteraction#isChatInputCommand()`](https://discord.js.org/docs/packages/discord.js/stable/BaseInteraction:Class#isChatInputCommand)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> method to exit the handler if another type is encountered. This method also provides typeguarding for TypeScript users, narrowing the type from `BaseInteraction` to [`ChatInputCommandInteraction`](https://discord.js.org/docs/packages/discord.js/stable/ChatInputCommandInteraction:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>.
+        Not every interaction is a slash command (e.g. `MessageComponent` interactions). Make sure to only handle slash commands in this function by making use of the [`BaseInteraction#isChatInputCommand()`](https://discord.js.org/docs/packages/discord.js/stable/BaseInteraction:Class#isChatInputCommand)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> method to exit the handler if another type is encountered. This method also provides typeguarding for TypeScript users, narrowing the type from `BaseInteraction` to [`ChatInputCommandInteraction`](https://discord.js.org/docs/packages/discord.js/stable/ChatInputCommandInteraction:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>.
 
         ```javascript ${2} showLineNumbers
         client.on(Events.InteractionCreate, interaction => {
@@ -149,7 +149,7 @@ This page details how to complete **Step 2**. Make sure to also complete the oth
 
         ## Executing slash commands
 
-        When your bot receives a [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> event, the interaction object contains all the information you need to dynamically retrieve and execute your commands!
+        When your bot receives a [`Client#interactionCreate`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class#interactionCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> event, the interaction object contains all the information you need to dynamically retrieve and execute your commands!
 
         Let's take a look at the `play` command again. Note the execute() function that will reply to the interaction with "Playing your song/playlist!".
 
@@ -164,7 +164,7 @@ This page details how to complete **Step 2**. Make sure to also complete the oth
             }
         }
         ```
-        First, you need to get the matching command from the `client.commands` Collection based on the `interaction.commandName`. If no matching command is found, log an error to the console and ignore the event. Then we pass your [`Client`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> instance as parameter into the execute() function.
+        First, you need to get the matching command from the `client.commands` Collection based on the `interaction.commandName`. If no matching command is found, log an error to the console and ignore the event. Then we pass your [`Client`](https://discord.js.org/docs/packages/discord.js/stable/Client:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> instance as parameter into the execute() function.
 
         ```javascript ${1,3-27} showLineNumbers
         client.on(Events.InteractionCreate, async interaction => {
@@ -210,4 +210,4 @@ This page details how to complete **Step 2**. Make sure to also complete the oth
 
 ## Resulting code
 
-If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).

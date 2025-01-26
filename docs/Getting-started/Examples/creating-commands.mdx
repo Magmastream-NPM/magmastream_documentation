@@ -68,7 +68,7 @@ discord-bot/
 
         ## Individual command files (slash commands)
 
-        Create a new folder inside the `src/` folder, named `commands` and a subfolder named `music` inside it, which is where you'll store all of your music command files. You'll be using the [`SlashCommandBuilder`](https://discord.js.org/docs/packages/builders/1.10.0/SlashCommandBuilder:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> class to construct the command definitions.
+        Create a new folder inside the `src/` folder, named `commands` and a subfolder named `music` inside it, which is where you'll store all of your music command files. You'll be using the [`SlashCommandBuilder`](https://discord.js.org/docs/packages/builders/1.10.0/SlashCommandBuilder:Class)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> class to construct the command definitions.
 
         At a minimum, the definition of a event file must have only a name.
 
@@ -80,7 +80,7 @@ discord-bot/
         ```
         A slash command also requires a function to run when the command is used, to respond to the interaction. Using an interaction response method confirms to Discord that your bot successfully received the interaction, and has responded to the user. Discord enforces this to ensure that all slash commands provide a good user experience (UX). Failing to respond will cause Discord to show that the command failed, even if your bot is performing other actions as a result.
 
-        The simplest way to acknowledge and respond to an interaction is the `interaction.reply()` method. Other methods of replying are covered on the [Response methods <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://discordjs.guide/slash-commands/response-methods.html#ephemeral-responses) page later in this section.
+        The simplest way to acknowledge and respond to an interaction is the `interaction.reply()` method. Other methods of replying are covered on the [Response methods <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://discordjs.guide/slash-commands/response-methods.html#ephemeral-responses) page later in this section.
 
         ```javascript showLineNumbers
         async execute(client, interaction) {
@@ -198,7 +198,7 @@ discord-bot/
         </Tabs>
 
         :::tip
-        ℹ️  [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> is how you export data in Node.js so that you can [`require()`](https://nodejs.org/api/modules.html#modules_require_id)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/> it in other files.
+        ℹ️  [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> is how you export data in Node.js so that you can [`require()`](https://nodejs.org/api/modules.html#modules_require_id)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> it in other files.
         :::
 
         That's it for your basic play command. Below is what your project directory should look like:
@@ -228,4 +228,4 @@ For now let's move on to the code you'll need for command handling, to load the 
 
 ## Resulting code
 
-If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.6em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/basic_js/src).
