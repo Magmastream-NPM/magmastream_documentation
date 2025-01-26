@@ -4,122 +4,131 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
-const description = "Magmastream is an easy-to-use and useful music module for your discord app.";
-const baseUrl = 'https://docs.magmastream.com';
-const title = 'Magmastream - Ignite the Symphony of Sonic Harmony!';
+const description =
+  "Magmastream is an easy-to-use and useful music module for your discord app.";
+const baseUrl = "https://docs.magmastream.com";
+const title = "Magmastream - Ignite the Symphony of Sonic Harmony!";
 const discordSupportLink = "https://discord.gg/Nq5gTGUfwa";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Magmastream',
+  title: "Magmastream",
   tagline: description,
-  favicon: 'img/logo.ico',
-
+  favicon: "img/logo.ico",
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        showLastUpdateTime: false, // Disable last update time to avoid git errors
+        showLastUpdateAuthor: false, // Disable last update author
+      },
+    ],
+  ],
   customFields: {
     usedBy: [
       {
         name: "Lava Jukebox",
         icon: "/usedbyicons/lava-jukebox.png",
         link: "https://discord.com/api/oauth2/authorize?client_id=887651843742793779&permissions=-1&redirect_uri=https%3A%2F%2Fdiscord.gg%2F4ZaXbbYSTZ&response_type=code&scope=guilds.join%20bot%20applications.commands",
-        creator: "Abel Purnwasy"
+        creator: "Abel Purnwasy",
       },
       {
         name: "Stal",
         icon: "/usedbyicons/stal.png",
         link: "https://discord.com/oauth2/authorize?client_id=923938180263182356&scope=bot%20applications.commands&permissions=27648861246",
-        creator: "memte"
+        creator: "memte",
       },
       {
         name: "Lunio",
         icon: "/usedbyicons/lunio.png",
         link: "https://discord.com/oauth2/authorize?client_id=945030475779551415&permissions=61991952&scope=bot+applications.commands",
-        creator: "vexi"
+        creator: "vexi",
       },
       {
         name: "JukeDisc",
         icon: "/usedbyicons/jukedisc.png",
         link: "https://discord.com/oauth2/authorize?client_id=1109751797549105176&permissions=968552214080&scope=bot+applications.commands",
-        creator: "Theo"
+        creator: "Theo",
       },
       {
         name: "Cool Music",
         icon: "/usedbyicons/cool-music.png",
         link: "https://discord.com/oauth2/authorize?client_id=923529398425096193&permissions=12888394808&redirect_uri=https%3A%2F%2Fdiscord.gg%2Fcool-music-support-925619107460698202&response_type=code&scope=bot%20identify%20applications.commands",
-        creator: "Itz Random"
+        creator: "Itz Random",
       },
       {
         name: "Soundy",
         icon: "/usedbyicons/soundy.png",
         link: "https://discord.com/oauth2/authorize?client_id=1168385371294420992&scope=bot&permissions=298818334009",
-        creator: "iaMJ"
+        creator: "iaMJ",
       },
       {
         name: "Bot muzyczny",
         icon: "/usedbyicons/bot-muzyczny.png",
         link: "https://discord.com/oauth2/authorize?client_id=840892428613320726&permissions=8&scope=bot%20applications.commands",
-        creator: "kwelo"
+        creator: "kwelo",
       },
       {
         name: "HamBot",
         icon: "/usedbyicons/hambot.png",
         link: "https://discord.com/oauth2/authorize?client_id=1049314312776335390",
-        creator: "yanishamburger"
+        creator: "yanishamburger",
       },
-    ]
+    ],
   },
 
   stylesheets: [
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css',
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
   ],
 
   url: baseUrl,
-  baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'throw',
-  onDuplicateRoutes: 'throw',
-  organizationName: 'Magmastream-NPM',
-  projectName: 'magmastream',
+  baseUrl: "/",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
+  onDuplicateRoutes: "throw",
+  organizationName: "Magmastream-NPM",
+  projectName: "magmastream",
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         sitemap: {
-          lastmod: 'date',
-          changefreq: 'weekly',
+          lastmod: "date",
+          changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
-          filename: 'sitemap.xml',
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
           createSitemapItems: async (params) => {
-            const {defaultCreateSitemapItems, ...rest} = params;
+            const { defaultCreateSitemapItems, ...rest } = params;
             const items = await defaultCreateSitemapItems(rest);
-            return items.filter((item) => !item.url.includes('/page/'));
+            return items.filter((item) => !item.url.includes("/page/"));
           },
         },
         docs: {
-          lastVersion: 'current',
+          lastVersion: "current",
           versions: {
             current: {
-              label: 'v2.7.5 (current)',
+              label: "v2.7.5 (current)",
             },
-            '2.6.1': {
-              label: 'v2.6.1',
-              path: '2.6.1',
-              banner: 'unmaintained',
+            "2.6.1": {
+              label: "v2.6.1",
+              path: "2.6.1",
+              banner: "unmaintained",
               noIndex: false,
             },
           },
 
-          sidebarPath: './sidebars.js',
+          sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           editUrl:
-            'https://github.com/magmastream-npm/magmastream_documentation/tree/main/',
+            "https://github.com/magmastream-npm/magmastream_documentation/tree/main/",
         },
         blog: false,
         // blog: {
@@ -138,164 +147,180 @@ const config = {
         //   onUntruncatedBlogPosts: 'warn',
         // },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
   ],
 
   themeConfig: {
-    image: 'img/magmastream-social-card-dark.jpg',
+    image: "img/magmastream-social-card-dark.jpg",
     colorMode: {
-      defaultMode: 'dark',
-      respectPrefersColorScheme: true
+      defaultMode: "dark",
+      respectPrefersColorScheme: true,
     },
     metadata: [
-      {name: 'apple-mobile-web-app-title', content: title},
-      {name: 'application-name', content: title},
-      {name: 'theme-color', content: '#ff8c00'},
+      { name: "apple-mobile-web-app-title", content: title },
+      { name: "application-name", content: title },
+      { name: "theme-color", content: "#ff8c00" },
 
-      {name: 'apple-mobile-web-app-capable', content: 'yes'},
-      {name: 'mobile-web-app-capable', content: 'yes'},
-      {name: 'apple-mobile-web-app-status-bar-style', content: 'black'},
-      {name: 'audience', content: 'all'},
-      {name: 'author', content: `Magmastream`},
-      {name: 'coverage', content: 'Worldwide'},
-      {name: 'description', content: description},
-      {name: 'designer', content: `realdarek`},
-      {name: 'distribution', content: 'Global'},
-      {name: 'googlebot', content: 'index,follow'},
-      {name: 'HandheldFriendly', content: 'True'},
-      {name: 'identifier-URL', content: baseUrl},
-      {name: 'keywords', content: 'discord, bot, discord music bot, documentation, guide, lavalink, magmastream, music, music bot, music module, music system, musicbot, musicmodule, musicstream, musicstreaming, musicstreamingbot' },
-      {name: 'owner', content: `sxm_abel`},
-      {name: 'rating', content: 'safe for kids'},
-      {name: 'revisit-after', content: '7 days'},
-      {name: 'robots', content: 'archive,follow,imageindex,index,odp,snippet,translate'},
-      {name: 'shortlink', content: baseUrl},
-      {name: 'subject', content: 'Documentation website for discord-api-types'},
-      {name: 'summary', content: description},
-      {name: 'target', content: 'all'},
-      {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:creator', content: 'sxm_abel'},
-      {name: 'twitter:site', content: 'realdarek'},
-      {name: 'twitter:title', content: 'Magmastream - Ignite the Symphony of Sonic Harmony!'},
-      {name: 'twitter:description', content: description},
-      {name: 'url', content: baseUrl},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {property: 'og:description', content: description},
-      {property: 'og:image:alt', content: 'OpenGraphImage'},
-      {property: 'og:image:height', content: '640'},
-      {property: 'og:image:width', content: '1280'},
-      {property: 'og:locale', content: 'en_US'},
-      {property: 'og:site_name', content: title},
-      {property: 'og:title', content: 'Magmastream - Ignite the Symphony of Sonic Harmony!'},
-      {property: 'og:type', content: 'article'},
-      {property: 'og:url', content: baseUrl}
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
+      { name: "audience", content: "all" },
+      { name: "author", content: `Magmastream` },
+      { name: "coverage", content: "Worldwide" },
+      { name: "description", content: description },
+      { name: "designer", content: `realdarek` },
+      { name: "distribution", content: "Global" },
+      { name: "googlebot", content: "index,follow" },
+      { name: "HandheldFriendly", content: "True" },
+      { name: "identifier-URL", content: baseUrl },
+      {
+        name: "keywords",
+        content:
+          "discord, bot, discord music bot, documentation, guide, lavalink, magmastream, music, music bot, music module, music system, musicbot, musicmodule, musicstream, musicstreaming, musicstreamingbot",
+      },
+      { name: "owner", content: `sxm_abel` },
+      { name: "rating", content: "safe for kids" },
+      { name: "revisit-after", content: "7 days" },
+      {
+        name: "robots",
+        content: "archive,follow,imageindex,index,odp,snippet,translate",
+      },
+      { name: "shortlink", content: baseUrl },
+      {
+        name: "subject",
+        content: "Documentation website for discord-api-types",
+      },
+      { name: "summary", content: description },
+      { name: "target", content: "all" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:creator", content: "sxm_abel" },
+      { name: "twitter:site", content: "realdarek" },
+      {
+        name: "twitter:title",
+        content: "Magmastream - Ignite the Symphony of Sonic Harmony!",
+      },
+      { name: "twitter:description", content: description },
+      { name: "url", content: baseUrl },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { property: "og:description", content: description },
+      { property: "og:image:alt", content: "OpenGraphImage" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:width", content: "1280" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:site_name", content: title },
+      {
+        property: "og:title",
+        content: "Magmastream - Ignite the Symphony of Sonic Harmony!",
+      },
+      { property: "og:type", content: "article" },
+      { property: "og:url", content: baseUrl },
     ],
     navbar: {
       hideOnScroll: true,
-      title: 'Magmastream',
+      title: "Magmastream",
       logo: {
-        src: 'img/logo.svg',
+        src: "img/logo.svg",
       },
       items: [
         {
-          to: '/',
-          label: 'Homepage',
-          position: 'left',
-          activeBaseRegex: '^/$'
+          to: "/",
+          label: "Homepage",
+          position: "left",
+          activeBaseRegex: "^/$",
         },
         {
-          to: '/docs/intro',
-          label: 'Documentation',
-          position: 'left',
-          activeBaseRegex: '^/docs'
+          to: "/docs/intro",
+          label: "Documentation",
+          position: "left",
+          activeBaseRegex: "^/docs",
         },
         {
-          to: '/statistics',
-          label: 'Statistics',
-          position: 'left',
-          activeBaseRegex: '^/statistics'
+          to: "/statistics",
+          label: "Statistics",
+          position: "left",
+          activeBaseRegex: "^/statistics",
         },
         {
-          to: '/usedby',
-          label: 'Used by',
-          position: 'left',
-          activeBaseRegex: '^/usedby'
+          to: "/usedby",
+          label: "Used by",
+          position: "left",
+          activeBaseRegex: "^/usedby",
         },
         {
-          type: 'docsVersionDropdown',
-          position: 'right',
+          type: "docsVersionDropdown",
+          position: "right",
           dropdownItemsAfter: [
             {
-              to: '/versions',
-              label: 'All versions'
-            }
+              to: "/versions",
+              label: "All versions",
+            },
           ],
           dropdownActiveClassDisabled: true,
         },
         {
           href: discordSupportLink,
-          position: 'right',
-          className: 'fa-brands fa-discord fa-lg',
-          'aria-label': 'Discord support server',
-          target: '_blank',
+          position: "right",
+          className: "fa-brands fa-discord fa-lg",
+          "aria-label": "Discord support server",
+          target: "_blank",
         },
         {
-          href: 'https://github.com/magmastream-npm',
-          position: 'right',
-          className: 'fa-brands fa-github fa-lg',
-          'aria-label': 'GitHub company',
-          target: '_blank',
+          href: "https://github.com/magmastream-npm",
+          position: "right",
+          className: "fa-brands fa-github fa-lg",
+          "aria-label": "GitHub company",
+          target: "_blank",
         },
         {
-          type: 'search',
-          position: 'right',
+          type: "search",
+          position: "right",
         },
       ],
     },
     footer: {
       logo: {
-        alt: 'Powered By Docusaurus',
-        src: '/img/docusaurus.png',
-        target: '_blank',
-        href: 'https://docusaurus.io/',
+        alt: "Powered By Docusaurus",
+        src: "/img/docusaurus.png",
+        target: "_blank",
+        href: "https://docusaurus.io/",
         width: 180,
-        height: 90
+        height: 90,
       },
       links: [
         {
-          title: 'Documentations',
+          title: "Documentations",
           items: [
             {
-              label: 'Introduction',
-              to: '/docs/intro',
+              label: "Introduction",
+              to: "/docs/intro",
             },
             {
-              label: 'Installation',
-              to: '/docs/installation',
+              label: "Installation",
+              to: "/docs/installation",
             },
             {
-              label: 'Migrations',
-              to: '/docs/migrations',
+              label: "Migrations",
+              to: "/docs/migrations",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Discord',
+              label: "Discord",
               href: discordSupportLink,
             },
             {
-              label: 'Github',
-              href: 'https://github.com/magmastream-npm',
+              label: "Github",
+              href: "https://github.com/magmastream-npm",
             },
             {
-              label: 'Credits',
-              href: 'https://github.com/MenuDocs/erela.js',
+              label: "Credits",
+              href: "https://github.com/MenuDocs/erela.js",
             },
           ],
         },
@@ -307,11 +332,11 @@ const config = {
       darkTheme: prismThemes.oneDark,
     },
     algolia: {
-      appId: 'Q8WSIPIGO0',
-      apiKey: '881e233a9268c14bf9877519ab6cf473',
-      indexName: 'magmastream',
+      appId: "Q8WSIPIGO0",
+      apiKey: "881e233a9268c14bf9877519ab6cf473",
+      indexName: "magmastream",
     },
-  }
+  },
 };
 
 export default config;
