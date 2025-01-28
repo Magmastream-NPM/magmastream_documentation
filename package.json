@@ -1,6 +1,6 @@
 {
   "name": "magmastream-docs",
-  "version": "0.0.0",
+  "version": "2.7.5",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
