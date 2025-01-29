@@ -147,7 +147,7 @@ import TabItem from '@theme/TabItem';
 
 > Decodes a base64 encoded track and returns a TrackData.<br/><br/>
 >
-> Returns: [`Node`](../Classes/Node.mdx)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](#trackdata)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
@@ -155,58 +155,59 @@ import TabItem from '@theme/TabItem';
 
 ### decodeTracks()
 
-> Applies the eight dimension audio effect.<br/><br/>
-> This filter applies a rotationHz of 0.2 to the player.
+> Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/><br/>
+> Emits a debug event with the tracks being decoded.
 >
-> Returns: [this](#properties)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](#trackdata)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `tracks`                                        | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
+
 
 ### destroy()
 
-> Returns the status of the specified filter.<br/>
+> Destroys a player if it exists and cleans up inactive players.<br/>
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `filter`                                       | [`availableFilters''`](#availablefilters) | The filter to get the status of.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
 ### destroyNode()
 
-> Applies the nightcore audio effect.<br/><br/>
-> This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
+> Destroys a node if it exists. Emits a debug event if the node is found and destroyed.<br/>
 >
-> Returns: [this](#properties)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The identifier of the node to destroy.        |
 
 ### init()
 
-> Applies the distortion audio effect to the player.<br/><br/>
-> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
-> If no options are provided, the filter will be reset and the distortion effect will
-> be disabled.
+> Initiates the Manager.<br/><br/>
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
-> | `distortion`                                   | [`distortionOptions{}`](#distortionoptions) | The distortion options to apply.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                           | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The Discord client ID (required).             |
 
 ### get()
 
-> Sets the equalizer bands and updates the filters on the player.<br/><br/>
-> This method updates the player's equalizer settings by applying the provided
-> bands configuration. The equalizer is an array of Band objects, each containing
-> a band number and a gain value. The method ensures that the filters are updated
-> after setting the equalizer, to reflect the changes in audio output.
+> Returns a player or undefined if it does not exist.<br/>
 >
-> Returns: [this](#properties)
+> Returns: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
 > | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `bands`                                        | [`Band[]`](../Typedefs/Band.mdx)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)    | The guild ID of the player to retrieve. |
 
 ### on()
 
-> Applies the karaoke options specified by the filter.<br/><br/>
+> Attaches an event listener to the manager.<br/><br/>
 > This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
 > If no options are provided, the filter will be reset and the karaoke effect will be disabled.
 >
@@ -214,7 +215,8 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `karaoke`                                      | [`karaokeOptions{}`](#karaokeoptions)  | The karaoke options to apply.                 |
+> | `event`                                      | [events](#events)  | The event to listen for.                 |
+> | `listener`                                      | [`karaokeOptions{}`](#karaokeoptions)  |  The function to call when the event is emitted.                 |
 
 ### savePlayerState()
 
