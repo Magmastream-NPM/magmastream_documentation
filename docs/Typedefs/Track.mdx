@@ -9,3 +9,49 @@ sidebar_label: Track
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# Track typedefs
+
+## track{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                                 |
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------|
+| `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `sourceName`                                   | [TrackSourceTypes](../Enums/TrackSourceTypes.mdx)                                                                                                  |                                                                                               |
+| `title`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `duration`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                 |                                                                                               |
+| `isrc`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `isSeekable`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                 |                                                                                               |
+| `isStream`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                  |                                                                                               |
+| `uri`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |                                                                                               |
+| `thumbnail`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) |                                               |
+| `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class)                                                                                                  |                                                                                               |
+| `displayThumbnail()`                           | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [displayThumbnail()](#displaythumbnail)                                                                                                  |                                                                                               |
+| `pluginInfo`                                   | [TrackPluginInfo](#trackplugininfo)                                                                                                  |                                                                                               |
+| `customData`                                   | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>                                                                                                  |                                                                                               |
+
+
+## trackData{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        | <i className="fa-solid fa-list"/> Description |
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| `encoded`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                             | The track information.                        |
+| `info`                                         | [`trackDataInfo{}`](#trackdatainfo)                                                                                                                                                                           | The detailed information of the track.        |
+| `pluginInfo`                                   | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)> | Additional track info provided by plugins.    |
+
+## trackDataInfo{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              |
+|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `isSeekable`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+| `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `length`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   |
+| `isrc`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `isStream`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+| `title`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `uri`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `sourceName`                                   | [`TrackSourceName`](../Enums/TrackSourceTypes.mdx)                                                               |

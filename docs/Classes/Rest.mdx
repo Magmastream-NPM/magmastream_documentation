@@ -5,3 +5,137 @@ description: Rest
 slug: /classes/rest
 sidebar_label: Rest
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor
+
+<Tabs>
+    <TabItem value="rest" label="Rest : options" default>
+        ```js
+        new Magmastream.Rest(node: Node, manager: Manager)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+        | `node`                                         | [`Node`](./Node.mdx#constructor)       | The node                                      |
+        | `manager`                                      | [`Manager`](./Manager.mdx#constructor) | The Manager instance.                         |
+    </TabItem>
+</Tabs>
+
+## Table of contents
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
+|:--------------------------------------------|:---------------------------------------------------|
+| [manager](#manager)                         | [delete()](#delete)                                |
+|                                             | [destroyPlayer()](#destroyplayer)                  |
+|                                             | [get()](#get)                                      |
+|                                             | [getAllPlayers()](#getallplayers)                  |
+|                                             | [patch()](#patch)                                  |
+|                                             | [post()](#post)                                    |
+|                                             | [put()](#put)                                      |
+|                                             | [setSessionId()](#setsessionid)                    |
+|                                             | [updatePlayer()](#updateplayer)                    |
+|                                             | [updateSession()](#updatesession)                  |
+
+## Properties
+
+### manager
+
+> The Manager instance.
+>
+> Returns: [`Manager`](./Manager.mdx)
+
+## Methods
+
+### delete()
+
+> Sends a DELETE request to the server to destroy the player.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
+
+### destroyPlayer()
+
+> Sends a DELETE request to the server to destroy the player.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
+
+### get()
+
+> Sends a GET request to the specified endpoint and returns the response data.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `endpoint`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the GET request to.        |
+
+
+### getAllPlayers()
+
+> Retrieves all the players that are currently running on the node.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+
+### path()
+
+> Sends a PATCH request to update player related data.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `options`                                       | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions) | The options to update the player with.              |
+
+### put()
+
+> Sends a PUT request to the specified endpoint and returns the response data.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `endpoint`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the PUT request to.              |
+> |  `body`                                              | unknown                                          | The data to send in the request body.                                              |
+
+### setSessionId()
+
+> Sets the session ID.<br/><br/>
+> This method is used to set the session ID after a resume operation is done.
+>
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
+> | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID to set.              |
+
+### updatePlayer()
+
+> Sends a PATCH request to update player related data.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
+> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+> | `options`                                        | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions)       | The options to update the player with. |
+
+### updateSession()
+
+> Updates the session status for resuming.<br/><br/>
+> This method sends a PATCH request to update the session's resuming status and timeout.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description            |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
+> | `resuming`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Indicates whether the session should be set to resuming. |
+> | `timeout`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout duration for the session resume.             |
