@@ -5,3 +5,139 @@ description: Queue
 slug: /classes/queue
 sidebar_label: Queue
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor
+
+<Tabs>
+    <TabItem value="queue" label="Queue : options" default>
+        ```js
+        new Magmastream.Queue(guildId: string, manager: Manager)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                   | <i className="fa-solid fa-list"/> Description      |
+        | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------- |
+        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)   | The guild ID                                       |
+        | `manager`                                      | [`Manager`](./Manager.mdx)                                                                                                                                                               | The Manager instance.                              |
+
+    </TabItem>
+
+</Tabs>
+
+## Table of contents
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
+|:--------------------------------------------|:---------------------------------------------------|
+| [current](#current)                         | [add()](#add)                                      |
+| [guildId](#player)                          | [clear()](#clear)                                  |
+| [manager](#karaoke)                         | [duration()](#duration)                            |
+| [previous](#previous)                       | [remove()](#remove)                                |
+|                                             | [roundRobinShuffle()](#roundRobinShuffle)          |
+|                                             | [shuffle()](#shuffle)                              |
+|                                             | [size()](#size)                                    |
+|                                             | [totalsize()](#totalsize)                          |
+|                                             | [userBlockShuffle()](#userBlockShuffle)            |
+
+## Properties
+
+### current
+
+> The current track
+>
+> Returns: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### guildId
+
+> The guild ID property.
+>
+> Returns:  [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
+
+### manager
+
+> The Manager instance.
+>
+> Returns: [`Manager`](./Manager.mdx)
+
+### previous
+
+> The previous track
+>
+> Returns: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+## Methods
+
+### add()
+
+> Adds a track to the queue.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                             | <i className="fa-solid fa-list"/> Description                                                             |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
+> | `track`                                        | ([`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)) \| ([`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack))[] | The track or tracks to add. Can be a single `Track` or an array of `Track`s.                              |
+> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                  | The position to add the track(s) at. If not provided, the track(s) will be added at the end of the queue. |
+
+
+### clear()
+
+> Clears the queue.<br/><br/>
+> This will remove all tracks from the queue and emit a state update event.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### duration()
+
+> The total duration of the queue in milliseconds.<br/><br/>
+> This includes the duration of the currently playing track.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### remove()
+
+> Removes track(s) from the queue.
+>
+> Returns: ([`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack))[]
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:-----------------------------------------------------------------|:----------------------------------------------|
+> | `startOrPosition`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | If a single number is provided, it will be treated as the position of the track to remove.<br/>If two numbers are provided, they will be used as the start and end of a range of tracks to remove.              |
+> | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Optional, end of the range of tracks to remove. |
+
+### roundRobinShuffle()
+
+> Shuffles the queue to play tracks requested by each user one by one.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### shuffle()
+
+> Shuffles the queue.<br/><br/>
+> This will randomize the order of the tracks in the queue and emit a state update event.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### size()
+
+> The size of tracks in the queue.<br/><br/>
+> This does not include the currently playing track.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### totalSize()
+
+> The total size of tracks in the queue including the current track.<br/><br/>
+> This includes the current track if it is not null.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
+> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+
+### userBlockShuffle()
+
+> Shuffles the queue to play tracks requested by each user one block at a time.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
