@@ -1,8 +1,8 @@
 ---
-id: manager
+id: Manager
 title: Manager
 description: Manager
-slug: /classes/manager
+slug: /classes/Manager
 sidebar_position: 1
 sidebar_label: Manager
 ---
@@ -21,10 +21,10 @@ import TabItem from '@theme/TabItem';
         | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                | <i className="fa-solid fa-list"/> Description                                                                                                                                         |
         |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
         | `autoPlay`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether players should automatically play the next song.                                                                                                                          |
-        | `autoPlaySearchPlatform`                   | [`SearchPlatform`](#searchplatform)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
-        | `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUser.id](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The client ID to use.                                                                                                                                                             |
+        | `autoPlaySearchPlatform`                   | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
+        | `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The client ID to use.                                                                                                                                                             |
         | `clientName`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                 | Value to use for the `Client-Name` header.                                                                                                                                        |
-        | `defaultSearchPlatform`                    | [`SearchPlatform`](#searchplatform)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
+        | `defaultSearchPlatform`                    | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
         | `lastFmApiKey`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [apiKey](https://www.last.fm/api/authentication)                                       | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts) |
         | `nodes`                                    | [`Node[]`](../Typedefs/NodeOptions.mdx)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
         | `plugins`                                  | [`Plugin[]`](./Plugin.mdx)                                                                                                                                                                        | A array of plugins to use.                                                                                                                                                        |
@@ -67,12 +67,12 @@ import TabItem from '@theme/TabItem';
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-regular fa-calendar"/> Events | <i className="fa-solid fa-arrow-right-from-bracket"/> Typedefs |
 |:--------------------------------------------|:---------------------------------------------------|:-----------------------------------------------|:---------------------------------------------------------------|
-| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              |  [`playerOptions{}`](#playeroptions)                                                              |
-| [nodes](#nodes)                             | [createNode()](#createnode)                        | [chaptersLoaded](#chaptersloaded)              |                                                                |
-| [options](#options)                         | [decodeTrack()](#decodetrack)                      | [debug](#debug)                                |                                                                |
-|                                             | [decodeTracks()](#decodetracks)                    | [nodeConnect](#nodeconnect)                    |                                                                |
-|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodecreate)                      |                                                                |
-|                                             | [destroyNode()](#destroynode)                      | [nodeDestroy](#nodedestroy)                    |                                                                |
+| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              | [`playerOptions{}`](./Player.mdx#playeroptions)                |
+| [nodes](#nodes)                             | [createNode()](#createnode)                        | [chaptersLoaded](#chaptersloaded)              | [`nodeOptions{}`](./Node.mdx#nodeoptions)                      |
+| [options](#options)                         | [decodeTrack()](#decodetrack)                      | [debug](#debug)                                | [`trackData{}`](../Typedefs/Track.mdx#trackdata)                           |
+|                                             | [decodeTracks()](#decodetracks)                    | [nodeConnect](#nodeconnect)                    | [`searchResult{}`](../Typedefs/Search.mdx#searchresult)          |
+|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodecreate)                      | [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)            |
+|                                             | [destroyNode()](#destroynode)                      | [nodeDestroy](#nodedestroy)                    | [`playerOptions{}`](./Player.mdx#playeroptions)                                                               |
 |                                             | [init()](#init)                                    | [nodeDisconnect](#nodedisconnect)              |                                                                |
 |                                             | [get()](#get)                                      | [nodeError](#nodeerror)                        |                                                                |
 |                                             | [on()](#on)                                        | [nodeRaw](#noderaw)                            |                                                                |
@@ -87,12 +87,10 @@ import TabItem from '@theme/TabItem';
 |                                             |                                                    | [segmentsLoaded](#segmentsloaded)              |                                                                |
 |                                             |                                                    | [socketClosed](#socketclosed)                  |                                                                |
 |                                             |                                                    | [trackEnd](#trackend)                          |                                                                |
-|                                             |                                                    | [trackEndReason](#trackendreason)              |                                                                |
-|                                             |                                                    | [trackEndReasonData](#trackendreasondata)      |                                                                |
-|                                             |                                                    | [trackEndReasonRaw](#trackendreasonraw)        |                                                                |
-|                                             |                                                    | [trackError](#trackerror)                      |                                                                |
-|                                             |                                                    | [trackStart](#trackstart)                      |                                                                |
-|                                             |                                                    | [trackStuck](#trackstuck)                      |                                                                |
+|                                             |                                                    | [trackError](#trackerror)              |                                                                |
+|                                             |                                                    | [trackStart](#trackstart)      |                                                                |
+|                                             |                                                    | [trackStuck](#trackstuck)        |                                                                |
+
 
 ## Properties
 
@@ -118,36 +116,36 @@ import TabItem from '@theme/TabItem';
 
 > The options that were set.
 >
-> Returns: [`karaokeOptions{}`](#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [ManagerOptions](#constructor)
 
 ## Methods
 
 ### create()
 
-> Creates a player or returns one if it already exists.<br/><br/>
+> Creates a player or returns one if it already exists.<br/>
 > This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
 >
 > Returns: [`Player`](./Player.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`playerOptions{}`](#playeroptions)    | The options to create the player with.        |
+> | `options`                                      | [`playerOptions{}`](./Player.mdx#playeroptions)    | The options to create the player with.        |
 
 ### createNode()
 
-> Creates a new node or returns an existing one if it already exists.<br/><br/>
+> Creates a new node or returns an existing one if it already exists.
 >
 > Returns: [`Node`](../Classes/Node.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`nodeOptions{}`](#nodeoptions)    | The options to create the node with.        |
+> | `options`                                      | [`nodeOptions{}`](./Node.mdx#constructor)    | The options to create the node with.        |
 
 ### decodeTrack()
 
-> Decodes a base64 encoded track and returns a TrackData.<br/><br/>
+> Decodes a base64 encoded track and returns a TrackData.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](#trackdata)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track.mdx#trackdata)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
@@ -155,10 +153,10 @@ import TabItem from '@theme/TabItem';
 
 ### decodeTracks()
 
-> Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/><br/>
+> Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/>
 > Emits a debug event with the tracks being decoded.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](#trackdata)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track.mdx#trackdata)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
@@ -167,17 +165,17 @@ import TabItem from '@theme/TabItem';
 
 ### destroy()
 
-> Destroys a player if it exists and cleans up inactive players.<br/>
+> Destroys a player if it exists and cleans up inactive players.
 >
 > Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
+> | `guildId`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
 ### destroyNode()
 
-> Destroys a node if it exists. Emits a debug event if the node is found and destroyed.<br/>
+> Destroys a node if it exists. Emits a debug event if the node is found and destroyed.
 >
 > Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
@@ -187,7 +185,7 @@ import TabItem from '@theme/TabItem';
 
 ### init()
 
-> Initiates the Manager.<br/><br/>
+> Initiates the Manager.
 >
 > Returns: [this](#properties)
 >
@@ -197,7 +195,7 @@ import TabItem from '@theme/TabItem';
 
 ### get()
 
-> Returns a player or undefined if it does not exist.<br/>
+> Returns a player or undefined if it does not exist.
 >
 > Returns: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
 >
@@ -207,117 +205,720 @@ import TabItem from '@theme/TabItem';
 
 ### on()
 
-> Attaches an event listener to the manager.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+> Attaches an event listener to the manager.
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `event`                                      | [events](#events)  | The event to listen for.                 |
-> | `listener`                                      | [`karaokeOptions{}`](#karaokeoptions)  |  The function to call when the event is emitted.                 |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                           | <i className="fa-solid fa-list"/> Description   |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+> | `event`                                        | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }}/> ManagerEventType](../Enums/ManagerEventTypes.mdx) | The event to listen for.                        |
+> | `listener`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)                            | The function to call when the event is emitted. |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on('trackStart', (player, track) => {
+            console.log(`Now playing ${track.title} in ${player.guildId}`);
+        });
+        ```
+    </TabItem>
+</Tabs>
+
 
 ### savePlayerState()
 
-> Applies the karaoke options specified by the filter.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+> Saves player states to the JSON file.
 >
-> Returns: [this](#properties)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------- | :-------------------------------------------- |
-> | `rotation`                                     | [`rotationOptions{}`](#rotationoptions) | The rotation options to apply.                |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to save            |
 
 ### search()
 
-> Applies the timescale options specified by the filter.<br/><br/>
-> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
-> adjustments to modify the playback characteristics of the audio.
+> Searches the enabled sources based off the URL or the `source` property.
 >
-> Returns: [this](#properties)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.               |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)                                 | Query to search.                              |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who triggered the search.            |
 
 ### updateVoiceState()
 
-> Applies the vibrato options specified by the filter.<br/><br/>
-> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
-> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
+> Sends voice data to the Lavalink server.
 >
-> Returns: [this](#properties)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.               |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `data`                                         | [VoicePacket](#voicepacket) \| [VoiceServer](#voiceserver) \| [VoiceState](#voicestate) | The timescale options to apply.               |
+
+<Tabs>
+    <TabItem value="Example required for use" label="Example required to use" default>
+        ```js
+        const { Client } = require('discord.js');
+        const { Manager } = require('magmastream');
+
+        const client = new Client({
+            ...ClientOptions
+        })
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        // Required for magmastream to work
+        client.on(Events.Raw, (data) => {
+            manager.updateVoiceState(data);
+        })
+        ```
+    </TabItem>
+</Tabs>
 
 ### useableNodes()
 
-> Applies the slow motion audio effect.<br/><br/>
-> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+<span className="info badge">get</span>
+
+> Returns the node to use based on the configured [useNode](#constructor) and [usePriority](#constructor) options.<br/><br/>
+> If [usePriority](#constructor) is true, the node is chosen based on priority, otherwise it is chosen based on the [useNode](#constructor) option.<br/>
+> If [useNode](#constructor) is "leastLoad", the node with the lowest load is chosen, if it is "leastPlayers", the node with the fewest players is chosen.<br/>
+> If [usePriority](#constructor) is false and [useNode](#constructor) is not set, the node with the lowest load is chosen.
 >
-> Returns: [this](#properties)
+> Returns: [`Node`](../Classes/Node.mdx)
 
-## Typedefs
+## Events
 
-### distortionOptions\{}
+### ChapterStarted
 
-> Distortion options object as a parameter, which can be used to customize the distortion effect.
+<span className="info badge">[ManagerEventTypes : ChapterStarted](../Enums/ManagerEventTypes.mdx#chapterStarted)</span>
+
+> Emitted when a track has started a chapter.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description       |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------------- |
-> | `sinOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine offset value for the distortion effect.    |
-> | `sinScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine scale value for the distortion effect.     |
-> | `cosOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine offset value for the distortion effect.  |
-> | `cosScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine scale value for the distortion effect.   |
-> | `tanOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent offset value for the distortion effect. |
-> | `tanScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent scale value for the distortion effect.  |
-> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset value for the distortion effect.         |
-> | `scale`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The scale value for the distortion effect.          |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                              |
+> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock.mdx#chapterStarted) |
 
-### karaokeOptions\{}
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
 
-> Options for applying karaoke effect to audio.
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.ChapterStarted, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### ChaptersLoaded
+
+<span className="info badge">[ManagerEventTypes : ChaptersLoaded](../Enums/ManagerEventTypes.mdx#chaptersLoaded)</span>
+
+> Emitted when a track has loaded chapters.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `level`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The level of karaoke effect.                  |
-> | `monoLevel`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The mono level of karaoke effect.             |
-> | `filterBand`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter band of karaoke effect.            |
-> | `filterWidth`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter width of karaoke effect.           |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                               |
+> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock.mdx#chaptersLoaded) |
 
-### rotationOptions\{}
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
 
-> Options for applying rotation effect to audio.
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.ChapterStarted, (player, track, payload) => {
+        //Your code
+    })
+        ```
+    </TabItem>
+</Tabs>
+
+### Debug
+
+<span className="info badge">[ManagerEventTypes : Debug](../Enums/ManagerEventTypes.mdx#debug)</span>
+
+> Emitted when a track has loaded chapters.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `rotationHz`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rotation speed in Hertz (Hz).             |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|
+> | `info`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |
 
-### timescaleOptions\{}
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
 
-> Options for adjusting the timescale of audio.
+        const manager = new Manager({
+        ...ManagerOptions
+    })
+
+        manager.on(ManagerEventTypes.Debug, (info) => {
+            console.log(`Debug from magmastream: ${info}`);
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeConnect
+
+<span className="info badge">[ManagerEventTypes : NodeConnect](../Enums/ManagerEventTypes.mdx#nodeConnect)</span>
+
+> Emitted when a Node connects.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `speed`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The speed factor for the timescale.           |
-> | `pitch`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The pitch factor for the timescale.           |
-> | `rate`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rate factor for the timescale.            |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `node`                                       | [`Node`](./Node.mdx)                                       |
 
-### vibratoOptions\{}
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
 
-> Options for applying vibrato effect to audio.
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeConnect, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeCreate
+
+<span className="info badge">[ManagerEventTypes : NodeCreate](../Enums/ManagerEventTypes.mdx#nodeCreate)</span>
+
+> Emitted when a Node is created.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `frequency`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The frequency of the vibrato effect.          |
-> | `depth`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The depth of the vibrato effect.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `node`                                       | [`Node`](./Node.mdx)                                       |
 
-### availableFilters''
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
 
-> Available filters for the player.
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeCreate, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeDestroy
+
+<span className="info badge">[ManagerEventTypes : NodeDestroy](../Enums/ManagerEventTypes.mdx#nodeDestroy)</span>
+
+> Emitted when a Node is destroyed.
 >
-> `bassboost` `distort` `eightD` `karaoke` `nightcore` `slowmo` `soft` `trebleBass` `tv` `vaporwave`
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `node`                                       | [`Node`](./Node.mdx)                                       |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeDestroy, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeDisconnect
+
+<span className="info badge">[ManagerEventTypes : NodeDisconnect](../Enums/ManagerEventTypes.mdx#nodeDisconnect)</span>
+
+> Emitted when a Node is disconnects.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                 |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                                                                                                                                                                                                   |
+> | `reason`                                       | \{ code: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) } |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeDisconnect, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeError
+
+<span className="info badge">[ManagerEventTypes : NodeError](../Enums/ManagerEventTypes.mdx#nodeError)</span>
+
+> Emitted when a Node has an error.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `node`                                       | [`Node`](./Node.mdx)                                       |
+> |  `error`                                              | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)                                                               |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeError, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeRaw
+
+<span className="info badge">[ManagerEventTypes : NodeRaw](../Enums/ManagerEventTypes.mdx#nodeRaw)</span>
+
+> Emitted whenever any Lavalink event is received.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `payload`                                       | unknown                                       |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeRaw, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### NodeReconnect
+
+<span className="info badge">[ManagerEventTypes : NodeReconnect](../Enums/ManagerEventTypes.mdx#nodeReconnect)</span>
+
+> Emitted when a Node reconnects.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `node`                                       | [`Node`](./Node.mdx)                                       |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeReconnect, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### PlayerCreate
+
+<span className="info badge">[ManagerEventTypes : PlayerCreate](../Enums/ManagerEventTypes.mdx#playerCreate)</span>
+
+> Emitted when a player is created.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.PlayerCreate, (player) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### PlayerDestroy
+
+<span className="info badge">[ManagerEventTypes : PlayerDestroy](../Enums/ManagerEventTypes.mdx#playerDestroy)</span>
+
+> Emitted when a player is destroyed.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.PlayerDestroy, (player) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### PlayerDisconnect
+
+<span className="info badge">[ManagerEventTypes : PlayerDisconnect](../Enums/ManagerEventTypes.mdx#playerDisconnect)</span>
+
+> Emitted when a Player disconnects.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                          |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                        |
+> | `oldChannel`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.PlayerDisconnect, (player, oldChannel) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### PlayerMove
+
+<span className="info badge">[ManagerEventTypes : PlayerMove](../Enums/ManagerEventTypes.mdx#playerMove)</span>
+
+> Emitted when a player is moved to a new voice channel.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                               |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                             |
+> | `initChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
+> | `newChannel`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.NodeDisconnect, (player, initChannel, newChannel) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### PlayerStateUpdate
+
+<span className="info badge">[ManagerEventTypes : PlayerStateUpdate](../Enums/ManagerEventTypes.mdx#playerStateUpdate)</span>
+
+> Emitted when the state of the player has been changed either player paused/resumed or the loop modes have been toggled on or off.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           |
+> |:-----------------------------------------------|:-----------------------------------------------------------------|
+> | `oldPlayer`                                    | [`Player`](./Player.mdx)                                         |
+> | `newPlayer`                                    | [`Player`](./Player.mdx)                                         |
+> | `changeType`                                   | [`PlayerStateUpdateEvent{}`](../Typedefs/Player.mdx#stateupdateevnt) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.PlayerStateUpdate, (oldPlayer, newPlayer, changeType) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### QueueEnd
+
+<span className="info badge">[ManagerEventTypes : QueueEnd](../Enums/ManagerEventTypes.mdx#queueEnd)</span>
+
+> Emitted when a player queue ends.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
+> |:-----------------------------------------------|:-------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                   |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.#unresolvedtrack)                       |
+> | `payload`                                      | [`TrackEndEvent`](../Typedefs/Track.mdx#trackendevent) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.QueueEnd, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### SegmentSkipped
+
+<span className="info badge">[ManagerEventTypes : SegmentSkipped](../Enums/ManagerEventTypes.mdx#segmentSkipped)</span>
+
+> Emitted when a track has skipped a segment.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                         |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                       |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock.mdx#segmentskipped)                  |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.SegmentSkipped, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### SegmentsLoaded
+
+<span className="info badge">[ManagerEventTypes : SegmentsLoaded](../Enums/ManagerEventTypes.mdx#segmentsLoaded)</span>
+
+> Emitted when a track has loaded segments.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                         |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                       |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock.mdx#segmentsloaded)                  |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.SegmentsLoaded, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### SocketClosed
+
+<span className="info badge">[ManagerEventTypes : SocketClosed](../Enums/ManagerEventTypes.mdx#socketClosed)</span>
+
+> Emitted when a voice connection is closed.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
+> |:-----------------------------------------------|:---------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+> | `payload`                                               | [`WebSocketClosedEvent`](../Typedefs/WebSocket.mdx#closedevent)                                                               |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.SocketClosed, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### TrackEnd
+
+<span className="info badge">[ManagerEventTypes : TrackEnd](../Enums/ManagerEventTypes.mdx#trackEnd)</span>
+
+> Emitted when a track ends.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
+> |:-----------------------------------------------|:-------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                   |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
+> | `payload`                                      | [`TrackEndEvent`](../Typedefs/Track.mdx#trackendevent) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.TrackEnd, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### TrackError
+
+<span className="info badge">[ManagerEventTypes : TrackError](../Enums/ManagerEventTypes.mdx#trackError)</span>
+
+> Emitted when a track has an error during playback.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
+> |:-----------------------------------------------|:-------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                   |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                     |
+> | `payload`                                      | [`TrackExceptionEvent`](../Typedefs/Track.mdx#trackexceptionevent) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.TrackError, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### TrackStart
+
+<span className="info badge">[ManagerEventTypes : TrackStart](../Enums/ManagerEventTypes.mdx#trackStart)</span>
+
+> Emitted when a track starts.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
+> |:-----------------------------------------------|:-------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                   |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
+> | `payload`                                      | [`TrackStartEvent`](../Typedefs/Track.mdx#trackstartevent) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.TrackStart, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
+### TrackStuck
+
+<span className="info badge">[ManagerEventTypes : TrackStuck](../Enums/ManagerEventTypes.mdx#trackStuck)</span>
+
+> Emitted when a track gets stuck during playback.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
+> |:-----------------------------------------------|:-------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                   |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
+> | `payload`                                      | [`TrackStuckEvent`](../Typedefs/Track.mdx#trackstuckevent) |
+
+<Tabs>
+    <TabItem value="Example usage" label="Example usage" default>
+        ```js
+        const { Manager, ManagerEventTypes } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        manager.on(ManagerEventTypes.TrackStuck, (player, track, payload) => {
+            //Your code
+        })
+        ```
+    </TabItem>
+</Tabs>
+
