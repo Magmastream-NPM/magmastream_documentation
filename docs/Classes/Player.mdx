@@ -42,140 +42,140 @@ import TabItem from '@theme/TabItem';
 | [guildId](#guildid)                         | [disconnect()](#disconnect)                        | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions)   |
 | [isAutoplay](#isautoplay)                   | [get()](#get)                                      | [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions)       |
 | [manager](#manager)                         | [getRecommended()](#getrecommended)                | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters)   |
-| [node](#node)                               | [getRepeatState()](#getrepeatstate)                |                                                                    |
-| [nowPlayingMessage](#nowplayingmessage)     | [getSponsorBlock()](#getsponsorblock)              |                                                                    |
-| [paused](#paused)                           | [init()](#init)                                    |                                                                    |
-| [playing](#playing)                         | [pause()](#pause)                                  |                                                                    |
-| [position](#position)                       | [play()](#play)                                    |                                                                    |
-| [queue](#queue)                             | [previous()](#previous)                            |                                                                    |
-| [queueRepeat](#queueRepeat)                 | [restart()](#restart)                              |                                                                    |
-| [state](#state)                             | [search()](#search)                                |                                                                    |
-| [textChannel](#textChannel)                 | [seek()](#seek)                                    |                                                                    |
-| [trackRepeat](#trackRepeat)                 | [set()](#set)                                      |                                                                    |
-| [voiceChannel](#voiceChannel)               | [setAutoplay()](#setautoplay)                      |                                                                    |
-| [voiceState](#voiceState)                   | [setDynamicRepeat()](#setdynamicrepeat)            |                                                                    |
-| [volume](#volume)                           | [setNowPlayingMessage()](#setnowplayingmessage)    |                                                                    |
-|                                             | [setQueueRepeat()](#setqueuerepeat)                |                                                                    |
+| [node](#node)                               | [getSponsorBlock()](#getsponsorblock)              |                                                                    |
+| [nowPlayingMessage](#nowplayingmessage)     |                                  |                                                                    |
+| [paused](#paused)                           | [pause()](#pause)                                  |                                                                    |
+| [playing](#playing)                         | [play()](#play)                                    |                                                                    |
+| [position](#position)                       | [previous()](#previous)                            |                                                                    |
+| [queue](#queue)                             | [restart()](#restart)                              |                                                                    |
+| [queueRepeat](#queueRepeat)                 | [search()](#search)                                |                                                                    |
+| [state](#state)                             | [seek()](#seek)                                    |                                                                    |
+| [textChannel](#textChannel)                 | [set()](#set)                                      |                                                                    |
+| [trackRepeat](#trackRepeat)                 | [setAutoplay()](#setautoplay)                      |                                                                    |
+| [voiceChannel](#voiceChannel)               | [setDynamicRepeat()](#setdynamicrepeat)            |                                                                    |
+| [voiceState](#voiceState)                   | [setNowPlayingMessage()](#setnowplayingmessage)    |                                                                    |
+| [volume](#volume)                           | [setQueueRepeat()](#setqueuerepeat)                |                                                                    |
 |                                             | [setSponsorBlock()](#setsponsorblock)              |                                                                    |
 |                                             | [setTextChannel()](#settextchannel)                |                                                                    |
 |                                             | [setTrackRepeat()](#settrackrepeat)                |                                                                    |
 |                                             | [setVoiceChannel()](#setvoicechannel)              |                                                                    |
 |                                             | [setVolume()](#setvolume)                          |                                                                    |
 |                                             | [stop()](#stop)                                    |                                                                    |
+|                                             |                                                    |                                                                    |
 
 ## Properties
 
 ### autoplayTries
 
-> Get the distortion filter options
+> The number of times to try autoplay before emitting queueEnd.
 >
-> Returns: [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | `3 (default value)`
 
 ### bands
 
-> Get the equalizer filter options
+> The equalizer bands array.
 >
-> Returns: [`Band[]`](../Typedefs/Filters.mdx#band)
+> Returns: [number[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### dynamicRepeat
 
-> Get the karaoke filter options
+> Whether the queue repeats and shuffles after each song.
 >
-> Returns: [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### guildId
 
-> The guild player
+> The guild ID for the player.
 >
-> Returns: [`Player`](./Player.mdx#properties)
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
 
 ### isAutoplay
 
-> Get the rotation filter options
+> The autoplay state of the player.
 >
-> Returns: [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### manager
 
-> Get the timescale filter options
+> The Manager for the player.
 >
-> Returns: [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`Manager`](./Manager.mdx)
 
 ### node
 
-> Get the vibrato filter options
+> The Node for the Player.
 >
-> Returns: [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`Node`](./Node.mdx)
 
 ### nowPlayingMessage
 
-> Get the volume the player
+> The now playing message for the player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
 
 ### paused
 
-> Get the volume the player
+> Whether the player is paused.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### playing
 
-> Get the volume the player
+> Whether the player is playing.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### position
 
-> Get the volume the player
+>  The time the player is in the track.
 >
 > Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### queue
 
-> Get the volume the player
+>  The Queue for the Player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [`Queue`](./Queue.mdx)
 
 ### queueRepeat
 
-> Get the volume the player
+> Whether the queue repeats the queue.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### state
 
-> Get the volume the player
+> The current state of the player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> StateTypes](../Enums/StateTypes.mdx)
 
 ### textChannel
 
-> Get the volume the player
+> The text channel id for the player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
 
 ### trackRepeat
 
-> Get the volume the player
+> Whether the queue repeats the track.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### voiceChannel
 
-> Get the volume the player
+> The voice channel id for the player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
 
 ### voiceState
 
-> Get the volume the player
+> The voice state object from Discord.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Returns: [`VoiceState{}`](../Typedefs/Voice.mdx#voicestate)
 
 ### volume
 
-> Get the volume the player
+> The volume for the player.
 >
 > Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
@@ -184,221 +184,309 @@ import TabItem from '@theme/TabItem';
 
 ### connect()
 
-> Apply the bass boost audio effect.<br/><br/>
-> This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
+> Connect to the voice channel.
 >
 > Returns: [this](#properties)
 
 ### deleteSponsorBlock()
 
-> Removes the audio effects and resets the filter status.<br/><br/>
-> This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
-> It is also a convenient way to disable all audio effects without having to manually reset each filter individually.
+> Deletes the sponsorblock for the player. This will remove all sponsorblock segments that have been set for the player.
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
 
 ### destroy()
 
-> Applies the distortion audio effect to the player.<br/><br/>
-> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
-> transformation to the audio signal.
+> Destroys the player.
 >
-> Returns: [this](#properties)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `disconnect`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it.              |
 
 ### disconnect()
 
-> Applies the eight dimension audio effect.<br/><br/>
-> This filter applies a rotationHz of 0.2 to the player.
+> Disconnects the player from the voice channel.
 >
 > Returns: [this](#properties)
 
 ### get()
 
-> Returns the status of the specified filter.<br/>
+> Retrieves custom data associated with a given key.
 >
 > Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters) | The filter to get the status of.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |
 
 ### getRecommended()
 
-> Applies the nightcore audio effect.<br/><br/>
-> This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
+> Gets recommended tracks and returns an array of tracks.
 >
-> Returns: [this](#properties)
-
-### getRepeatState()
-
-> Applies the distortion audio effect to the player.<br/><br/>
-> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
-> If no options are provided, the filter will be reset and the distortion effect will
-> be disabled.
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`track[]`>](../Typedefs/Track.mdx#track)
 >
-> Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
-> | `distortion`                                   | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | The distortion options to apply.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                                                                                                                               | The track to find recommendations for.        |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
 
 ### getSponsorBlock()
 
-> Sets the equalizer bands and updates the filters on the player.<br/><br/>
-> This method updates the player's equalizer settings by applying the provided
-> bands configuration. The equalizer is an array of Band objects, each containing
-> a band number and a gain value. The method ensures that the filters are updated
-> after setting the equalizer, to reflect the changes in audio output.
+> Gets the sponsorblock for the player.
 >
-> Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
-> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
-
-### init()
-
-> Applies the karaoke options specified by the filter.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
->
-> Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `karaoke`                                      | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions)  | The karaoke options to apply.                 |
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/SponsorBlock.mdx#sponsorblocksegment)
 
 ### pause()
 
-> Applies the karaoke options specified by the filter.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+> Pauses or resumes the current track.
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------- | :-------------------------------------------- |
-> | `rotation`                                     | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | The rotation options to apply.                |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
+> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |
 
 ### play()
 
-> Applies the timescale options specified by the filter.<br/><br/>
-> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
-> adjustments to modify the playback characteristics of the audio.
+> Plays the next track.<br/><br/>
+> If a track is provided, it will be played. Otherwise, the next track in the queue will be played.<br/>
+> If the queue is not empty, but the current track has not finished yet, it will be replaced with the provided track.
 >
-> Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+<Tabs>
+    <TabItem value="playwithqueue" label="Start playing after add track to queue" default>
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.queue.add(searchResponse.tracks);
+
+        player.play();
+        ```
+    </TabItem>
+    <TabItem value="playwithtrack" label="Start playing with track">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `track`                                        |  [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.play(searchResponse.tracks[0]);
+        ```
+    </TabItem>
+    <TabItem value="playwithoptions" label="Start playing with play options">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `options`                                        |  [`PlayOptions`](../Typedefs/Player.mdx#playoptions)                                                |
+    </TabItem>
+    <TabItem value="playwithtrackandoptions" label="Start playing with track and options">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `track`                                        |  [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+        | `options`                                      |  [`PlayOptions`](../Typedefs/Player.mdx#playoptions)                                                  |
+
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.play(searchResponse.tracks[0], {
+            ...PlayOptions
+        });
+        ```
+    </TabItem>
+</Tabs>
 
 ### previous()
 
-> Applies the vibrato options specified by the filter.<br/><br/>
-> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
-> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
+> Goes back to the previous song in the queue.
 >
 > Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
 
 ### restart()
 
-> Applies the slow motion audio effect.<br/><br/>
-> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+> Restarts the current track to the start.<br/><br/>
+> If there's no current track and there are tracks in the queue, it plays the next track.
 >
-> Returns: [this](#properties)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### search()
 
-> Applies the soft audio effect to the player.<br/><br/>
-> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
-> by reducing the gain of certain frequency bands.
+> Same as Manager#search() but a shortcut on the player itself.
 >
-> Returns: [this](#properties)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)                                 | Query to search.                              |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.           |
 
 ### seek()
 
-> Applies the treble bass audio effect.<br/><br/>
-> This filter applies a treble boost and a bass boost to the audio.
+> Seeks to the specified position in the current track.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |
 
 ### set()
 
-> Applies the television audio effect.<br/><br/>
-> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
+> Set custom data.
 >
-> Returns: [this](#properties)
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |
+> | `value`                                        | unknown                                                                                           | The value to set the data to.                 |
+
 
 ### setAutoplay()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the autoplay-state of the player.<br/><br/>
+> Autoplay is a feature that makes the player play a recommended track when the current track ends.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
+> | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |
+> | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |
+> | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |
 
 ### setDynamicRepeat()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the queue to repeat and shuffles the queue after each song.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not          |
+> | `ms`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |
 
 ### setNowPlayingMessage()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the now playing message.
 >
-> Returns: [this](#properties)
+> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+> | `message`                                | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.           |
 
 ### setQueueRepeat()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the queue repeat.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not           |
 
 ### setSponsorBlock()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the sponsorblock for the player. This will set the sponsorblock segments for the player to the given segments.
 >
-> Returns: [this](#properties)
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
+> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided.                                              |
 
 ### setTextChannel()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the player text channel.<br/><br/>
+> This method updates the text channel associated with the player. It also emits a player state update event indicating the change in the channel.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
+> | `channel`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                                              |
+
 
 ### setTrackRepeat()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the track repeat mode.<br/><br/>
+> When track repeat is enabled, the current track will replay after it ends.<br/>
+> Disables queueRepeat and dynamicRepeat modes if enabled.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not           |
+
 
 ### setVoiceChannel()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the player voice channel.<br/><br/>
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
+> | `channel`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                                              |
+
 
 ### setVolume()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Sets the player volume.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |
 
 ### stop()
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Stops the current track, optionally give an amount to skip to, e.g 5 would play the 5th song.
 >
 > Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+> | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to skip, e.g 5 would play the 5th song. |

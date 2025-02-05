@@ -250,7 +250,7 @@ import TabItem from '@theme/TabItem';
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
 > | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)                                 | Query to search.                              |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who triggered the search.            |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.           |
 
 ### updateVoiceState()
 
@@ -260,7 +260,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:----------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `data`                                         | [VoicePacket](#voicepacket) \| [VoiceServer](#voiceserver) \| [VoiceState](#voicestate) | The timescale options to apply.               |
+> | `data`                                         | [VoicePacket](../Typedefs/Voice.mdx#voicepacket) \| [VoiceServer](../Typedefs/Voice.mdx#voiceserver) \| [VoiceState](../Typedefs/Voice.mdx#voicestate) | The timescale options to apply.               |
 
 <Tabs>
     <TabItem value="Example required for use" label="Example required to use" default>
