@@ -718,6 +718,12 @@ blockquote a:has(code):hover code {
   margin-bottom: 1rem;
 }
 
+.badge a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px dashed currentColor;
+}
+
 .info {
   background-color: #00131d !important;
   border-color: #002235 !important;
