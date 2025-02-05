@@ -1,8 +1,404 @@
 ---
-id: player
+id: Player
 title: Player
 description: Player
-slug: /classes/player
-sidebar_position: 4
+slug: /classes/Player
+sidebar_position: 1
 sidebar_label: Player
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor
+
+<Tabs>
+    <TabItem value="player" label="Player : options" default>
+        ```js
+        new Magmastream.Player(options: PlayerOptions)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                     | <i className="fa-solid fa-list"/> Description |
+        | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+        | `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should deaf itself.             |
+        | `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should mute itself.             |
+        | `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [NodeIdentifier](./Node.mdx#constructor)                                                              | The node the Player uses.                     |
+        | `textChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)    | The text channel the Player belongs to.       |
+        | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                          | The initial volume the Player will use.       |
+        | `voiceChannel`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)  | The voice channel the Player belongs to.      |
+        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                     | The guild ID the Player belongs to.           |
+
+    </TabItem>
+
+</Tabs>
+
+## Table of contents
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-solid fa-arrow-right-from-bracket"/> Typedefs     |
+|:--------------------------------------------|:---------------------------------------------------|:-------------------------------------------------------------------|
+| [autoplayTries](#autoplaytries)             | [connect()](#connect)                              | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) |
+| [bands](#bands)                             | [deleteSponsorBlock()](#deletesponsorblock)        | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions)       |
+| [dynamicRepeat](#dynamicrepeat)             | [destroy()](#destroy)                              | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions)     |
+| [guildId](#guildid)                         | [disconnect()](#disconnect)                        | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions)   |
+| [isAutoplay](#isautoplay)                   | [get()](#get)                                      | [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions)       |
+| [manager](#manager)                         | [getRecommended()](#getrecommended)                | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters)   |
+| [node](#node)                               | [getRepeatState()](#getrepeatstate)                |                                                                    |
+| [nowPlayingMessage](#nowplayingmessage)     | [getSponsorBlock()](#getsponsorblock)              |                                                                    |
+| [paused](#paused)                           | [init()](#init)                                    |                                                                    |
+| [playing](#playing)                         | [pause()](#pause)                                  |                                                                    |
+| [position](#position)                       | [play()](#play)                                    |                                                                    |
+| [queue](#queue)                             | [previous()](#previous)                            |                                                                    |
+| [queueRepeat](#queueRepeat)                 | [restart()](#restart)                              |                                                                    |
+| [state](#state)                             | [search()](#search)                                |                                                                    |
+| [textChannel](#textChannel)                 | [seek()](#seek)                                    |                                                                    |
+| [trackRepeat](#trackRepeat)                 | [set()](#set)                                      |                                                                    |
+| [voiceChannel](#voiceChannel)               | [setAutoplay()](#setautoplay)                      |                                                                    |
+| [voiceState](#voiceState)                   | [setDynamicRepeat()](#setdynamicrepeat)            |                                                                    |
+| [volume](#volume)                           | [setNowPlayingMessage()](#setnowplayingmessage)    |                                                                    |
+|                                             | [setQueueRepeat()](#setqueuerepeat)                |                                                                    |
+|                                             | [setSponsorBlock()](#setsponsorblock)              |                                                                    |
+|                                             | [setTextChannel()](#settextchannel)                |                                                                    |
+|                                             | [setTrackRepeat()](#settrackrepeat)                |                                                                    |
+|                                             | [setVoiceChannel()](#setvoicechannel)              |                                                                    |
+|                                             | [setVolume()](#setvolume)                          |                                                                    |
+|                                             | [stop()](#stop)                                    |                                                                    |
+
+## Properties
+
+### autoplayTries
+
+> Get the distortion filter options
+>
+> Returns: [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### bands
+
+> Get the equalizer filter options
+>
+> Returns: [`Band[]`](../Typedefs/Filters.mdx#band)
+
+### dynamicRepeat
+
+> Get the karaoke filter options
+>
+> Returns: [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### guildId
+
+> The guild player
+>
+> Returns: [`Player`](./Player.mdx#properties)
+
+### isAutoplay
+
+> Get the rotation filter options
+>
+> Returns: [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### manager
+
+> Get the timescale filter options
+>
+> Returns: [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### node
+
+> Get the vibrato filter options
+>
+> Returns: [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### nowPlayingMessage
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### paused
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### playing
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### position
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### queue
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### queueRepeat
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### state
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### textChannel
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### trackRepeat
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### voiceChannel
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### voiceState
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### volume
+
+> Get the volume the player
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+
+## Methods
+
+### connect()
+
+> Apply the bass boost audio effect.<br/><br/>
+> This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
+>
+> Returns: [this](#properties)
+
+### deleteSponsorBlock()
+
+> Removes the audio effects and resets the filter status.<br/><br/>
+> This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
+> It is also a convenient way to disable all audio effects without having to manually reset each filter individually.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+
+### destroy()
+
+> Applies the distortion audio effect to the player.<br/><br/>
+> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
+> transformation to the audio signal.
+>
+> Returns: [this](#properties)
+
+### disconnect()
+
+> Applies the eight dimension audio effect.<br/><br/>
+> This filter applies a rotationHz of 0.2 to the player.
+>
+> Returns: [this](#properties)
+
+### get()
+
+> Returns the status of the specified filter.<br/>
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters) | The filter to get the status of.              |
+
+### getRecommended()
+
+> Applies the nightcore audio effect.<br/><br/>
+> This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
+>
+> Returns: [this](#properties)
+
+### getRepeatState()
+
+> Applies the distortion audio effect to the player.<br/><br/>
+> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
+> If no options are provided, the filter will be reset and the distortion effect will
+> be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
+> | `distortion`                                   | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | The distortion options to apply.              |
+
+### getSponsorBlock()
+
+> Sets the equalizer bands and updates the filters on the player.<br/><br/>
+> This method updates the player's equalizer settings by applying the provided
+> bands configuration. The equalizer is an array of Band objects, each containing
+> a band number and a gain value. The method ensures that the filters are updated
+> after setting the equalizer, to reflect the changes in audio output.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
+> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+
+### init()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `karaoke`                                      | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions)  | The karaoke options to apply.                 |
+
+### pause()
+
+> Applies the karaoke options specified by the filter.<br/><br/>
+> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
+> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------- | :-------------------------------------------- |
+> | `rotation`                                     | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | The rotation options to apply.                |
+
+### play()
+
+> Applies the timescale options specified by the filter.<br/><br/>
+> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
+> adjustments to modify the playback characteristics of the audio.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
+
+### previous()
+
+> Applies the vibrato options specified by the filter.<br/><br/>
+> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
+> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
+
+### restart()
+
+> Applies the slow motion audio effect.<br/><br/>
+> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+>
+> Returns: [this](#properties)
+
+### search()
+
+> Applies the soft audio effect to the player.<br/><br/>
+> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
+> by reducing the gain of certain frequency bands.
+>
+> Returns: [this](#properties)
+
+### seek()
+
+> Applies the treble bass audio effect.<br/><br/>
+> This filter applies a treble boost and a bass boost to the audio.
+>
+> Returns: [this](#properties)
+
+### set()
+
+> Applies the television audio effect.<br/><br/>
+> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
+>
+> Returns: [this](#properties)
+
+### setAutoplay()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setDynamicRepeat()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setNowPlayingMessage()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setQueueRepeat()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setSponsorBlock()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setTextChannel()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setTrackRepeat()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setVoiceChannel()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### setVolume()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)
+
+### stop()
+
+> Applies the vaporwave audio effect.<br/><br/>
+> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+>
+> Returns: [this](#properties)

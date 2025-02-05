@@ -1,9 +1,8 @@
 ---
-id: filters
+id: Filters
 title: Filters
 description: Filters
-slug: /classes/filters
-sidebar_position: 2
+slug: /classes/Filters
 sidebar_label: Filters
 ---
 
@@ -13,7 +12,7 @@ import TabItem from '@theme/TabItem';
 ## Constructor
 
 <Tabs>
-    <TabItem value="Filters" label="Filters" default>
+    <TabItem value="filters" label="Filters : options" default>
         ```js
         new Magmastream.Filters(player: Player)
         ```
@@ -30,12 +29,12 @@ import TabItem from '@theme/TabItem';
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-solid fa-arrow-right-from-bracket"/> Typedefs |
 | :------------------------------------------ | :------------------------------------------------- | :------------------------------------------------------------- |
-| [distortion](#distortion)                   | [bassBoost()](#bassboost)                          | [`distortionOptions{}`](#distortionoptions)                    |
-| [equalizer](#equalizer)                     | [clearFilters()](#clearfilters)                    | [`karaokeOptions{}`](#karaokeoptions)                          |
-| [karaoke](#karaoke)                         | [distort()](#distort)                              | [`rotationOptions{}`](#rotationoptions)                        |
-| [player](#player)                           | [eightD()](#eightd)                                | [`timescaleOptions{}`](#timescaleoptions)                      |
-| [rotation](#rotation)                       | [getFilterStatus()](#getfilterstatus)              | [`vibratoOptions{}`](#vibratooptions)                          |
-| [timescale](#timescale)                     | [nightcore()](#nightcore)                          | [`availableFilters''`](#availablefilters)                      |
+| [distortion](#distortion)                   | [bassBoost()](#bassboost)                          | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions)                    |
+| [equalizer](#equalizer)                     | [clearFilters()](#clearfilters)                    | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions)                          |
+| [karaoke](#karaoke)                         | [distort()](#distort)                              | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions)                        |
+| [player](#player)                           | [eightD()](#eightd)                                | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions)                      |
+| [rotation](#rotation)                       | [getFilterStatus()](#getfilterstatus)              | [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions)                          |
+| [timescale](#timescale)                     | [nightcore()](#nightcore)                          | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters)                      |
 | [vibrato](#vibrato)                         | [setDistortion()](#setdistortion)                  |                                                                |
 | [volume](#volume)                           | [setEqualizer()](#setequalizer)                    |                                                                |
 |                                             | [setKaraoke()](#setkaraoke)                        |                                                                |
@@ -54,19 +53,19 @@ import TabItem from '@theme/TabItem';
 
 > Get the distortion filter options
 >
-> Returns: [`distortionOptions{}`](#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### equalizer
 
 > Get the equalizer filter options
 >
-> Returns: [`Band[]`](../Typedefs/Band.mdx)
+> Returns: [`Band[]`](../Typedefs/Filters.mdx#band)
 
 ### karaoke
 
 > Get the karaoke filter options
 >
-> Returns: [`karaokeOptions{}`](#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### player
 
@@ -78,19 +77,19 @@ import TabItem from '@theme/TabItem';
 
 > Get the rotation filter options
 >
-> Returns: [`rotationOptions{}`](#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### timescale
 
 > Get the timescale filter options
 >
-> Returns: [`timescaleOptions{}`](#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### vibrato
 
 > Get the vibrato filter options
 >
-> Returns: [`vibratoOptions{}`](#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Returns: [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### volume
 
@@ -138,7 +137,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `filter`                                       | [`availableFilters''`](#availablefilters) | The filter to get the status of.              |
+> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters) | The filter to get the status of.              |
 
 ### nightcore()
 
@@ -158,7 +157,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
-> | `distortion`                                   | [`distortionOptions{}`](#distortionoptions) | The distortion options to apply.              |
+> | `distortion`                                   | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | The distortion options to apply.              |
 
 ### setEqualizer()
 
@@ -172,7 +171,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
 > | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `bands`                                        | [`Band[]`](../Typedefs/Band.mdx)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band)       | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
 
 ### setKaraoke()
 
@@ -184,7 +183,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `karaoke`                                      | [`karaokeOptions{}`](#karaokeoptions)  | The karaoke options to apply.                 |
+> | `karaoke`                                      | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions)  | The karaoke options to apply.                 |
 
 ### setRotation()
 
@@ -196,7 +195,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------- | :-------------------------------------------- |
-> | `rotation`                                     | [`rotationOptions{}`](#rotationoptions) | The rotation options to apply.                |
+> | `rotation`                                     | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | The rotation options to apply.                |
 
 ### setTimescale()
 
@@ -208,7 +207,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.               |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
 
 ### setVibrato()
 
@@ -220,7 +219,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](#timescaleoptions) | The timescale options to apply.               |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
 
 ### slowmo()
 
@@ -257,64 +256,3 @@ import TabItem from '@theme/TabItem';
 > This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
 >
 > Returns: [this](#properties)
-
-## Typedefs
-
-### distortionOptions\{}
-
-> Distortion options object as a parameter, which can be used to customize the distortion effect.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description       |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------------- |
-> | `sinOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine offset value for the distortion effect.    |
-> | `sinScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sine scale value for the distortion effect.     |
-> | `cosOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine offset value for the distortion effect.  |
-> | `cosScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The cosine scale value for the distortion effect.   |
-> | `tanOffset`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent offset value for the distortion effect. |
-> | `tanScale`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The tangent scale value for the distortion effect.  |
-> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset value for the distortion effect.         |
-> | `scale`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The scale value for the distortion effect.          |
-
-### karaokeOptions\{}
-
-> Options for applying karaoke effect to audio.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `level`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The level of karaoke effect.                  |
-> | `monoLevel`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The mono level of karaoke effect.             |
-> | `filterBand`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter band of karaoke effect.            |
-> | `filterWidth`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The filter width of karaoke effect.           |
-
-### rotationOptions\{}
-
-> Options for applying rotation effect to audio.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `rotationHz`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rotation speed in Hertz (Hz).             |
-
-### timescaleOptions\{}
-
-> Options for adjusting the timescale of audio.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `speed`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The speed factor for the timescale.           |
-> | `pitch`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The pitch factor for the timescale.           |
-> | `rate`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The rate factor for the timescale.            |
-
-### vibratoOptions\{}
-
-> Options for applying vibrato effect to audio.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `frequency`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The frequency of the vibrato effect.          |
-> | `depth`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The depth of the vibrato effect.              |
-
-### availableFilters''
-
-> Available filters for the player.
->
-> `bassboost` `distort` `eightD` `karaoke` `nightcore` `slowmo` `soft` `trebleBass` `tv` `vaporwave`
