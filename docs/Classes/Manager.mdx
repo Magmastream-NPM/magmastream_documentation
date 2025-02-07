@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
         | `send`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [send()](#send)                                                                          | Function to send data to the websocket.                                                                                                                                           |
         | `trackPartial`                             | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                  | An array of track properties to keep. `track` will always be present.                                                                                                                                                                                  |
         | `usePriority`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                                                                                    | Use priority mode over least amount of player or load?                                                                                                                                                                                  |
-        | `useNode`                                  | [`useNode`](../Enums/UseNodeOptions.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
+        | `useNode`                                  | [`UseNode`](../Enums/UseNodeOptions.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
 
         ### send()
         <Tabs>
@@ -127,9 +127,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`Player`](./Player.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`playerOptions{}`](../Typedefs/Player.mdx#playeroptions)    | The options to create the player with.        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                    | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:----------------------------------------------------------|:----------------------------------------------|
+> | `options`                                      | [`playerOptions{}`](../Typedefs/Player.mdx#playeroptions) | The options to create the player with.        |
 
 ### createNode()
 
@@ -137,9 +137,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`Node`](../Classes/Node.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node.mdx#nodeoptions)    | The options to create the node with.        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:----------------------------------------------------|:----------------------------------------------|
+> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node.mdx#nodeoptions) | The options to create the node with.          |
 
 ### decodeTrack()
 
@@ -158,9 +158,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track.mdx#trackdata)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `tracks`                                        | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `tracks`                                       | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
 
 
 ### destroy()
@@ -171,7 +171,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `guildId`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
 ### destroyNode()
 
@@ -199,9 +199,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
-> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)    | The guild ID of the player to retrieve. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to retrieve.       |
 
 ### on()
 
@@ -209,10 +209,10 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                           | <i className="fa-solid fa-list"/> Description   |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                         | <i className="fa-solid fa-list"/> Description   |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
 > | `event`                                        | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }}/> ManagerEventType](../Enums/ManagerEventTypes.mdx) | The event to listen for.                        |
-> | `listener`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)                            | The function to call when the event is emitted. |
+> | `listener`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)                          | The function to call when the event is emitted. |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -249,8 +249,8 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)                                 | Query to search.                              |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.           |
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)           | Query to search.                              |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
 
 ### updateVoiceState()
 
@@ -258,9 +258,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `data`                                         | [VoicePacket](../Typedefs/Voice.mdx#voicepacket) \| [VoiceServer](../Typedefs/Voice.mdx#voiceserver) \| [VoiceState](../Typedefs/Voice.mdx#voicestate) | The timescale options to apply.               |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                 | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `data`                                         | VoicePacket \| VoiceServer \| VoiceState | The timescale options to apply.               |
 
 <Tabs>
     <TabItem value="Example required for use" label="Example required to use" default>
@@ -303,11 +303,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has started a chapter.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                       |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                              |
-> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock.mdx#chapterStarted) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock.mdx#sponsorblockchapterstarted)                            |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -331,11 +331,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has loaded chapters.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                       |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                               |
-> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock.mdx#chaptersLoaded) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock.mdx#sponsorblockchaptersloaded)                            |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -386,9 +386,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node connects.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `node`                                       | [`Node`](./Node.mdx)                                       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
+> |:-----------------------------------------------|:---------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                   |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -412,9 +412,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node is created.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `node`                                       | [`Node`](./Node.mdx)                                       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
+> |:-----------------------------------------------|:---------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                   |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -438,9 +438,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node is destroyed.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `node`                                       | [`Node`](./Node.mdx)                                       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
+> |:-----------------------------------------------|:---------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                   |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -464,9 +464,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node is disconnects.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                 |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | `node`                                         | [`Node`](./Node.mdx)                                                                                                                                                                                                   |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                  |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                                                                                                                                                                                                    |
 > | `reason`                                       | \{ code: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) } |
 
 <Tabs>
@@ -491,10 +491,10 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node has an error.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `node`                                       | [`Node`](./Node.mdx)                                       |
-> |  `error`                                              | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)                                                               |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                          |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                                                                            |
+> | `error`                                        | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -518,9 +518,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted whenever any Lavalink event is received.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `payload`                                       | unknown                                       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
+> |:-----------------------------------------------|:---------------------------------------|
+> | `payload`                                      | unknown                                |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -544,9 +544,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Node reconnects.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `node`                                       | [`Node`](./Node.mdx)                                       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
+> |:-----------------------------------------------|:---------------------------------------|
+> | `node`                                         | [`Node`](./Node.mdx)                   |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -622,9 +622,9 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a Player disconnects.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                          |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                               |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                             |
 > | `oldChannel`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
 
 <Tabs>
@@ -677,11 +677,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when the state of the player has been changed either player paused/resumed or the loop modes have been toggled on or off.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           |
-> |:-----------------------------------------------|:-----------------------------------------------------------------|
-> | `oldPlayer`                                    | [`Player`](./Player.mdx)                                         |
-> | `newPlayer`                                    | [`Player`](./Player.mdx)                                         |
-> | `changeType`                                   | [`PlayerStateUpdateEvent{}`](../Typedefs/Player.mdx#stateupdateevnt) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                               |
+> |:-----------------------------------------------|:---------------------------------------------------------------------|
+> | `oldPlayer`                                    | [`Player`](./Player.mdx)                                             |
+> | `newPlayer`                                    | [`Player`](./Player.mdx)                                             |
+> | `changeType`                                   | [`PlayerStateUpdateEvent{}`](../Typedefs/Player.mdx#playerStateUpdate) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -705,11 +705,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a player queue ends.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
-> |:-----------------------------------------------|:-------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                   |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.#unresolvedtrack)                       |
-> | `payload`                                      | [`TrackEndEvent`](../Typedefs/Track.mdx#trackendevent) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                              |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.#unresolvedtrack) |
+> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track.mdx#trackendevent)                                              |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -733,11 +733,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has skipped a segment.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                         |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                       |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock.mdx#segmentskipped)                  |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                           |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock.mdx#sponsorblocksegmentskipped)          |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -761,11 +761,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has loaded segments.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                         |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                       |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock.mdx#segmentsloaded)                  |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                           |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock.mdx#sponsorblocksegmentsloaded)          |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -789,10 +789,10 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a voice connection is closed.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         |
-> |:-----------------------------------------------|:---------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                       |
-> | `payload`                                               | [`WebSocketClosedEvent`](../Typedefs/WebSocket.mdx#closedevent)                                                               |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                            |
+> |:-----------------------------------------------|:------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                          |
+> | `payload`                                      | [`WebSocketClosedEvent{}`](../Typedefs/WebSocket.mdx#websocketclosedevent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -816,11 +816,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track ends.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
-> |:-----------------------------------------------|:-------------------------------------------------------|
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                   |
+> |:-----------------------------------------------|:---------------------------------------------------------|
 > | `player`                                       | [`Player`](./Node.mdx)                                   |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
-> | `payload`                                      | [`TrackEndEvent`](../Typedefs/Track.mdx#trackendevent) |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                 |
+> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track.mdx#trackendevent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -844,11 +844,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has an error during playback.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
-> |:-----------------------------------------------|:-------------------------------------------------------|
-> | `player`                                       | [`Player`](./Node.mdx)                                   |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack)                     |
-> | `payload`                                      | [`TrackExceptionEvent`](../Typedefs/Track.mdx#trackexceptionevent) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                                                                   |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
+> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track.mdx#trackexceptionevent)                                     |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -872,11 +872,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track starts.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
-> |:-----------------------------------------------|:-------------------------------------------------------|
-> | `player`                                       | [`Player`](./Node.mdx)                                   |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
-> | `payload`                                      | [`TrackStartEvent`](../Typedefs/Track.mdx#trackstartevent) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
+> |:-----------------------------------------------|:-------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                       |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                     |
+> | `payload`                                      | [`TrackStartEvent{}`](../Typedefs/Track.mdx#trackstartevent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -900,11 +900,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track gets stuck during playback.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 |
-> |:-----------------------------------------------|:-------------------------------------------------------|
-> | `player`                                       | [`Player`](./Node.mdx)                                   |
-> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                      |
-> | `payload`                                      | [`TrackStuckEvent`](../Typedefs/Track.mdx#trackstuckevent) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
+> |:-----------------------------------------------|:-------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Node.mdx)                                       |
+> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                     |
+> | `payload`                                      | [`TrackStuckEvent{}`](../Typedefs/Track.mdx#trackstuckevent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>

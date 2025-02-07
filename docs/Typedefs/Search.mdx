@@ -10,3 +10,38 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Search typedefs
+
+## searchQuery{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| `source`                                       | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                   | The source to search from.                    |
+| `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The query to search for.                      |
+
+## searchResult{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description     |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------------------------------------------|
+| `loadType`                                     | [`LoadType`](../Enums/LoadTypes.mdx)                | The load type of the result.                      |
+| `tracks`                                       | [`Track[]`](../Typedefs/Track.mdx#track)            | The array of tracks from the result               |
+| `playlist`                                     | [`TrackSourceTypes`](../Enums/TrackSourceTypes.mdx) | The playlist info if the load type is 'playlist'. |
+
+## playlistData{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+|:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| `name`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                    | The playlist name.                            |
+| `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | Requester of playlist.                        |
+| `playlistInfo`                                 | [`PlaylistInfoData{}`](#playlistinfodata)                                                      | More playlist information.                    |
+| `duration`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                    | The length of the playlist.                   |
+| `tracks`                                       | [`Track[]`](../Typedefs/Track.mdx#track)                                                                                                                             | The songs of the playlist.                    |\
+
+## playlistInfoData{}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Url to playlist.                              |
+| `type`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Type is always playlist in that case.         |
+| `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | ArtworkUrl of playlist                        |
+| `totalTracks`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of total tracks in playlist            |
+| `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Author of playlist                            |
