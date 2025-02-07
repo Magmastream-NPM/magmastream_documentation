@@ -22,17 +22,18 @@ import TabItem from '@theme/TabItem';
         | `node`                                         | [`Node`](./Node.mdx#constructor)       | The node                                      |
         | `manager`                                      | [`Manager`](./Manager.mdx#constructor) | The Manager instance.                         |
     </TabItem>
+
 </Tabs>
 
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
-|:--------------------------------------------|:---------------------------------------------------|
+| :------------------------------------------ | :------------------------------------------------- |
 | [manager](#manager)                         | [delete()](#delete)                                |
 |                                             | [destroyPlayer()](#destroyplayer)                  |
 |                                             | [get()](#get)                                      |
 |                                             | [getAllPlayers()](#getallplayers)                  |
-|                                             | [patch()](#path)                                  |
+|                                             | [patch()](#path)                                   |
 |                                             | [post()](#post)                                    |
 |                                             | [put()](#put)                                      |
 |                                             | [setSessionId()](#setsessionid)                    |
@@ -56,7 +57,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
 ### destroyPlayer()
@@ -66,7 +67,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
 ### get()
@@ -75,10 +76,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `endpoint`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the GET request to.        |
-
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `endpoint`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the GET request to.      |
 
 ### getAllPlayers()
 
@@ -92,9 +92,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `options`                                       | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions) | The options to update the player with.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------- | :-------------------------------------------- |
+> | `options`                                      | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions) | The options to update the player with.        |
 
 ### put()
 
@@ -102,10 +102,10 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `endpoint`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the PUT request to.              |
-> |  `body`                                              | unknown                                          | The data to send in the request body.                                              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `endpoint`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the PUT request to.      |
+> | `body`                                         | unknown                                                                                           | The data to send in the request body.         |
 
 ### setSessionId()
 
@@ -114,9 +114,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
-> | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID to set.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `sessionId`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID to set.                        |
 
 ### updatePlayer()
 
@@ -124,9 +124,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
-> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `options`                                        | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions)       | The options to update the player with. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------- | :-------------------------------------------- |
+> | `options`                                      | [`playOptions{}`](../Typedefs/Rest.mdx#playoptions) | The options to update the player with.        |
 
 ### updateSession()
 
@@ -136,6 +136,6 @@ import TabItem from '@theme/TabItem';
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description            |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 > | `resuming`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Indicates whether the session should be set to resuming. |
 > | `timeout`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout duration for the session resume.             |

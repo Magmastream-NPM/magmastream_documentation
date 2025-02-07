@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 ## track{}
 
 | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        | <i className="fa-solid fa-list"/> Description                                         |
-|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------|
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------ |
 | `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                             | The base64 encoded track.                                                             |
 | `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                             | The artwork url of the track.                                                         |
 | `sourceName`                                   | [TrackSourceTypes](../Enums/TrackSourceTypes.mdx)                                                                                                                                                             | The track source name.                                                                |
@@ -33,12 +33,11 @@ import TabItem from '@theme/TabItem';
 | `customData`                                   | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)> | Add your own data to the track.                                                       |
 
 ### displayThumbnail()
+
 <Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        console.log(track.displayThumbnail());
-        ```
-    </TabItem>
+	<TabItem value="Example usage" label="Example usage" default>
+		```js console.log(track.displayThumbnail()); ```
+	</TabItem>
 </Tabs>
 
 ## unresolvedTrack{}
@@ -46,7 +45,7 @@ import TabItem from '@theme/TabItem';
 > Unresolved tracks can't be played normally, they will resolve before playing into a Track.
 
 | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                                                                                                         | <i className="fa-solid fa-list"/> Description                                |
-|:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- |
 | `title`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                              | The title to search against.                                                 |
 | `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                              | The author to search against.                                                |
 | `duration`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                                                                                              | The duration to search within 1500 milliseconds of the results from YouTube. |
@@ -55,7 +54,7 @@ import TabItem from '@theme/TabItem';
 ## trackData{}
 
 | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        | <i className="fa-solid fa-list"/> Description |
-|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 | `encoded`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                             | The track information.                        |
 | `info`                                         | [`trackDataInfo{}`](#trackdatainfo)                                                                                                                                                                           | The detailed information of the track.        |
 | `pluginInfo`                                   | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)> | Additional track info provided by plugins.    |
@@ -63,7 +62,7 @@ import TabItem from '@theme/TabItem';
 ## trackDataInfo{}
 
 | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              |
-|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
 | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
 | `isSeekable`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
 | `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |

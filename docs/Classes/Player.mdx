@@ -35,7 +35,7 @@ import TabItem from '@theme/TabItem';
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
-|:--------------------------------------------|:---------------------------------------------------|
+| :------------------------------------------ | :------------------------------------------------- |
 | [autoplayTries](#autoplaytries)             | [connect()](#connect)                              |
 | [bands](#bands)                             | [deleteSponsorBlock()](#deletesponsorblock)        |
 | [dynamicRepeat](#dynamicrepeat)             | [destroy()](#destroy)                              |
@@ -125,13 +125,13 @@ import TabItem from '@theme/TabItem';
 
 ### position
 
->  The time the player is in the track.
+> The time the player is in the track.
 >
 > Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### queue
 
->  The Queue for the Player.
+> The Queue for the Player.
 >
 > Returns: [`Queue`](./Queue.mdx)
 
@@ -177,7 +177,6 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
-
 ## Methods
 
 ### connect()
@@ -198,9 +197,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `disconnect`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                  |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it. |
 
 ### disconnect()
 
@@ -215,7 +214,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |
 
 ### getRecommended()
@@ -225,7 +224,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`track[]`>](../Typedefs/Track.mdx#track)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                                                                                                                               | The track to find recommendations for.        |
 > | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
 
@@ -242,7 +241,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
 > | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |
 
 ### play()
@@ -331,6 +330,7 @@ import TabItem from '@theme/TabItem';
         });
         ```
     </TabItem>
+
 </Tabs>
 
 ### previous()
@@ -353,9 +353,9 @@ import TabItem from '@theme/TabItem';
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)                                 | Query to search.                              |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.           |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)           | Query to search.                              |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
 
 ### seek()
 
@@ -364,7 +364,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |
 
 ### set()
@@ -374,10 +374,9 @@ import TabItem from '@theme/TabItem';
 > Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |
 > | `value`                                        | unknown                                                                                           | The value to set the data to.                 |
-
 
 ### setAutoplay()
 
@@ -387,7 +386,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
 > | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |
 > | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |
 > | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |
@@ -398,10 +397,10 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not          |
-> | `ms`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not                     |
+> | `ms`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |
 
 ### setNowPlayingMessage()
 
@@ -409,9 +408,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-> | `message`                                | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.           |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `message`                                      | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.       |
 
 ### setQueueRepeat()
 
@@ -419,9 +418,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not           |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
 
 ### setSponsorBlock()
 
@@ -429,9 +428,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
-> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided.                                              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
+> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
+> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
 
 ### setTextChannel()
 
@@ -440,10 +439,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
-> | `channel`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                                              |
-
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                      |
 
 ### setTrackRepeat()
 
@@ -453,10 +451,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
-> | `repeat`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not           |
-
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
 
 ### setVoiceChannel()
 
@@ -464,10 +461,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
-> | `channel`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                                              |
-
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                     |
 
 ### setVolume()
 
@@ -476,7 +472,7 @@ import TabItem from '@theme/TabItem';
 > Returns: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------- |
 > | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |
 
 ### stop()
@@ -485,6 +481,6 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------- |
 > | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to skip, e.g 5 would play the 5th song. |

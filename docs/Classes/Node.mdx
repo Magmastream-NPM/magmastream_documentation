@@ -40,7 +40,7 @@ import TabItem from '@theme/TabItem';
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods  |
-|:--------------------------------------------|:----------------------------------------------------|
+| :------------------------------------------ | :-------------------------------------------------- |
 | [socket](#socket)                           | [address()](#address)                               |
 | [stats](#stats)                             | [connected()](#connected)                           |
 | [manager](#manager)                         | [connect()](#connect)                               |
@@ -135,20 +135,21 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :---------------------------------------- | :-------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx) | The player to delete the sponsorblocks for.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `player`                                       | [`Player`](./Player.mdx)               | The player to delete the sponsorblocks for.   |
 
 ### destroy()
 
 > Destroys the Node and all players connected with it.<br/><br/>
 > This method will:
-> - Destroy all players connected to the node
-> - Close the WebSocket connection
-> - Remove all event listeners on the WebSocket
-> - Clear the reconnect timeout
-> - Emit a "nodeDestroy" event with the node as the argument
-> - Destroy the node from the manager
+>
+> -   Destroy all players connected to the node
+> -   Close the WebSocket connection
+> -   Remove all event listeners on the WebSocket
+> -   Clear the reconnect timeout
+> -   Emit a "nodeDestroy" event with the node as the argument
+> -   Destroy the node from the manager
 >
 > Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
@@ -158,9 +159,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type      | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------ | :-------------------------------------------- |
-> | `url`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
 
 ### extractSpotifyTrackID()
 
@@ -168,9 +169,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description                                                                                      |
-> | :--------------------------------------------- | :------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `url`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | The URL to extract the artist ID from. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
 
 ### fetchInfo()
 
@@ -184,9 +185,9 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/Node.mdx#sponsorblocksegment)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------- | :-------------------------------------------- |
-> | `player`                                     | [`Player`](./Player.mdx) | The player to get the sponsor blocks for.                |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `player`                                       | [`Player`](./Player.mdx)               | The player to get the sponsor blocks for.     |
 
 ### loadSessionIds()
 
@@ -201,10 +202,10 @@ import TabItem from '@theme/TabItem';
 >
 > Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description |
-> |:-----------------------------------------------|:--------------------------------------------------------------------|:----------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.     |
-> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided.                                              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
+> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
+> | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.                                                 |
+> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
 
 ### updateSessionId()
 
