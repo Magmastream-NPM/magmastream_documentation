@@ -143,7 +143,7 @@ const config = {
   ],
 
   themeConfig: {
-    image: "img/magmastream-social-card-dark.jpg",
+    image: "https://i.imgur.com/TCdtEF3.png",
     colorMode: {
       defaultMode: "dark",
       respectPrefersColorScheme: true,
@@ -195,9 +195,7 @@ const config = {
       { name: "url", content: baseUrl },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { property: "og:description", content: description },
-      { property: "og:image:alt", content: "OpenGraphImage" },
-      { property: "og:image:height", content: "640" },
-      { property: "og:image:width", content: "1280" },
+      { property: "og:image", content: "https://i.imgur.com/TCdtEF3.png" },
       { property: "og:locale", content: "en_US" },
       { property: "og:site_name", content: title },
       {
