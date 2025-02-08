@@ -6,6 +6,10 @@
   background: #ff6e00;
 }
 
+hr {
+  background-color: transparent;
+  border-bottom: 1px dashed #444950;
+}
 
 .thin-scrollbar::-webkit-scrollbar-thumb {
   background: #ff6e00 !important;
@@ -722,6 +726,10 @@ blockquote a:has(code):hover code {
   text-decoration: none;
   color: inherit;
   border-bottom: 1px dashed currentColor;
+}
+
+.tableOfContents_bqdL .badge {
+  display: none;
 }
 
 .info {

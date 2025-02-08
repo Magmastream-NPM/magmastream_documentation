@@ -1,15 +1,15 @@
 ---
-id: Filters
-title: Filters
-description: Filters
-slug: /classes/Filters
+id: filters-class
+title: Class : Filters
+description: The Filters class provides methods for applying audio effects to the player.
+slug: /class/Filters
 sidebar_label: Filters
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor
+## Constructor {#constructor}
 
 <Tabs>
     <TabItem value="filters" label="Filters : options" default>
@@ -17,81 +17,104 @@ import TabItem from '@theme/TabItem';
         new Magmastream.Filters(player: Player)
         ```
 
-| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-| :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-| `player`                                       | [`Player`](./Player.mdx#constructor)   | The guild player.                             |
-
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+        | `player`                                       | [`Player`](./Player.mdx#constructor)   | The guild player.                             |
     </TabItem>
-
 </Tabs>
 
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
-| :------------------------------------------ | :------------------------------------------------- |
-| [distortion](#distortion)                   | [bassBoost()](#bassboost)                          |
-| [equalizer](#equalizer)                     | [clearFilters()](#clearfilters)                    |
-| [karaoke](#karaoke)                         | [distort()](#distort)                              |
-| [player](#player)                           | [eightD()](#eightd)                                |
-| [rotation](#rotation)                       | [getFilterStatus()](#getfilterstatus)              |
-| [timescale](#timescale)                     | [nightcore()](#nightcore)                          |
-| [vibrato](#vibrato)                         | [setDistortion()](#setdistortion)                  |
-| [volume](#volume)                           | [setEqualizer()](#setequalizer)                    |
-|                                             | [setKaraoke()](#setkaraoke)                        |
-|                                             | [setRotation()](#setrotation)                      |
-|                                             | [setTimescale()](#settimescale)                    |
-|                                             | [setVibrato()](#setvibrato)                        |
+|:--------------------------------------------|:---------------------------------------------------|
+| [distortion](#distortion)                   | [bassBoost()](#bassBoost)                          |
+| [equalizer](#equalizer)                     | [china()](#china)                                  |
+| [karaoke](#karaoke)                         | [chipmunk()](#chipmunk)                            |
+| [player](#player)                           | [clearFilters()](#clearFilters)                    |
+| [rotation](#rotation)                       | [darthvader()](#darthvader)                        |
+| [timescale](#timescale)                     | [daycore()](#daycore)                              |
+| [vibrato](#vibrato)                         | [distort()](#distort)                              |
+| [volume](#volume)                           | [doubletime()](#doubletime)                        |
+| [filterStatus](#filterStatus)               | [earrape()](#earrape)                              |
+|                                             | [eightD()](#eightD)                                |
+|                                             | [electronic()](#electronic)                        |
+|                                             | [getFilterStatus()](#getFilterStatus)              |
+|                                             | [nightcore()](#nightcore)                          |
+|                                             | [party()](#party)                                  |
+|                                             | [pop()](#pop)                                      |
+|                                             | [radio()](#radio)                                  |
+|                                             | [setDistortion()](#setDistortion)                  |
+|                                             | [setEqualizer()](#setEqualizer)                    |
+|                                             | [setKaraoke()](#setKaraoke)                        |
+|                                             | [setRotation()](#setRotation)                      |
+|                                             | [setTimescale()](#setTimescale)                    |
+|                                             | [setVibrato()](#setVibrato)                        |
 |                                             | [slowmo()](#slowmo)                                |
 |                                             | [soft()](#soft)                                    |
-|                                             | [trebleBass()](#treblebass)                        |
+|                                             | [tremolo()](#tremolo)                              |
+|                                             | [trebleBass()](#trebleBass)                        |
 |                                             | [tv()](#tv)                                        |
 |                                             | [vaporwave()](#vaporwave)                          |
 
 ## Properties
 
-### distortion
+### distortion {#distortion}
 
 > Get the distortion filter options
 >
 > Returns: [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### equalizer
+---
+
+### equalizer {#equalizer}
 
 > Get the equalizer filter options
 >
 > Returns: [`Band[]`](../Typedefs/Filters.mdx#band)
 
-### karaoke
+---
+
+### karaoke {#karaoke}
 
 > Get the karaoke filter options
 >
 > Returns: [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### player
+---
+
+### player {#player}
 
 > The guild player
 >
 > Returns: [`Player`](./Player.mdx)
 
-### rotation
+---
+
+### rotation {#rotation}
 
 > Get the rotation filter options
 >
 > Returns: [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### timescale
+---
+
+### timescale {#timescale}
 
 > Get the timescale filter options
 >
 > Returns: [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### vibrato
+---
+
+### vibrato {#vibrato}
 
 > Get the vibrato filter options
 >
 > Returns: [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### volume
+---
+
+### volume {#volume}
 
 > Get the volume the player
 >
@@ -99,7 +122,7 @@ import TabItem from '@theme/TabItem';
 
 ## Methods
 
-### bassBoost()
+### bassBoost() {#bassBoost}
 
 > Apply the bass boost audio effect.<br/><br/>
 > This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
