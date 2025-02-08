@@ -46,25 +46,25 @@ import TabItem from '@theme/TabItem';
 
 > The current track
 >
-> Returns: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### guildId
 
 > The guild ID property.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
 
 ### manager
 
 > The Manager instance.
 >
-> Returns: [`Manager`](./Manager.mdx)
+> Return: [`Manager`](./Manager.mdx)
 
 ### previous
 
 > The previous track
 >
-> Returns: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ## Methods
 
@@ -72,7 +72,7 @@ import TabItem from '@theme/TabItem';
 
 > Adds a track to the queue.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                             | <i className="fa-solid fa-list"/> Description                                                             |
 > | :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
@@ -84,20 +84,20 @@ import TabItem from '@theme/TabItem';
 > Clears the queue.<br/><br/>
 > This will remove all tracks from the queue and emit a state update event.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### duration()
 
 > The total duration of the queue in milliseconds.<br/><br/>
 > This includes the duration of the currently playing track.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### remove()
 
 > Removes track(s) from the queue.
 >
-> Returns: ([`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack))[]
+> Return: ([`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack))[]
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                                                                                                                                      |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -108,35 +108,35 @@ import TabItem from '@theme/TabItem';
 
 > Shuffles the queue to play tracks requested by each user one by one.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### shuffle()
 
 > Shuffles the queue.<br/><br/>
 > This will randomize the order of the tracks in the queue and emit a state update event.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### size()
 
 > The size of tracks in the queue.<br/><br/>
 > This does not include the currently playing track.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### totalSize()
 
 > The total size of tracks in the queue including the current track.<br/><br/>
 > This includes the current track if it is not null.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description                                                                                      |
 > | :--------------------------------------------- | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band) | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+> | `bands`                                        | [`Band[]`] | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
 
 ### userBlockShuffle()
 
 > Shuffles the queue to play tracks requested by each user one block at a time.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)

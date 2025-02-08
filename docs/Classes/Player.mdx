@@ -67,115 +67,115 @@ import TabItem from '@theme/TabItem';
 
 > The number of times to try autoplay before emitting queueEnd.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | `3 (default value)`
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | `3 (default value)`
 
 ### bands
 
 > The equalizer bands array.
 >
-> Returns: [number[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### dynamicRepeat
 
 > Whether the queue repeats and shuffles after each song.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### guildId
 
 > The guild ID for the player.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
 
 ### isAutoplay
 
 > The autoplay state of the player.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### manager
 
 > The Manager for the player.
 >
-> Returns: [`Manager`](./Manager.mdx)
+> Return: [`Manager`](./Manager.mdx)
 
 ### node
 
 > The Node for the Player.
 >
-> Returns: [`Node`](./Node.mdx)
+> Return: [`Node`](./Node.mdx)
 
 ### nowPlayingMessage
 
 > The now playing message for the player.
 >
-> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+> Return: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
 
 ### paused
 
 > Whether the player is paused.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### playing
 
 > Whether the player is playing.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### position
 
 > The time the player is in the track.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ### queue
 
 > The Queue for the Player.
 >
-> Returns: [`Queue`](./Queue.mdx)
+> Return: [`Queue`](./Queue.mdx)
 
 ### queueRepeat
 
 > Whether the queue repeats the queue.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### state
 
 > The current state of the player.
 >
-> Returns: [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> StateTypes](../Enums/StateTypes.mdx)
+> Return: [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> StateTypes](../Enums/StateTypes.mdx)
 
 ### textChannel
 
 > The text channel id for the player.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
 
 ### trackRepeat
 
 > Whether the queue repeats the track.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### voiceChannel
 
 > The voice channel id for the player.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
 
 ### voiceState
 
 > The voice state object from Discord.
 >
-> Returns: VoiceState
+> Return: VoiceState
 
 ### volume
 
 > The volume for the player.
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ## Methods
 
@@ -183,19 +183,19 @@ import TabItem from '@theme/TabItem';
 
 > Connect to the voice channel.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 
 ### deleteSponsorBlock()
 
 > Deletes the sponsorblock for the player. This will remove all sponsorblock segments that have been set for the player.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
 
 ### destroy()
 
 > Destroys the player.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                  |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
@@ -205,13 +205,13 @@ import TabItem from '@theme/TabItem';
 
 > Disconnects the player from the voice channel.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 
 ### get()
 
 > Retrieves custom data associated with a given key.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -221,7 +221,7 @@ import TabItem from '@theme/TabItem';
 
 > Gets recommended tracks and returns an array of tracks.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`track[]`>](../Typedefs/Track.mdx#track)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`track[]`>](../Typedefs/Track.mdx#track)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -232,13 +232,13 @@ import TabItem from '@theme/TabItem';
 
 > Gets the sponsorblock for the player.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/SponsorBlock.mdx#sponsorblocksegment)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/SponsorBlock.mdx#sponsorblocksegment)
 
 ### pause()
 
 > Pauses or resumes the current track.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
@@ -250,7 +250,7 @@ import TabItem from '@theme/TabItem';
 > If a track is provided, it will be played. Otherwise, the next track in the queue will be played.<br/>
 > If the queue is not empty, but the current track has not finished yet, it will be replaced with the provided track.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 <Tabs>
     <TabItem value="playwithqueue" label="Start playing after add track to queue" default>
@@ -337,20 +337,20 @@ import TabItem from '@theme/TabItem';
 
 > Goes back to the previous song in the queue.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 
 ### restart()
 
 > Restarts the current track to the start.<br/><br/>
 > If there's no current track and there are tracks in the queue, it plays the next track.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### search()
 
 > Same as Manager#search() but a shortcut on the player itself.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -361,7 +361,7 @@ import TabItem from '@theme/TabItem';
 
 > Seeks to the specified position in the current track.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -371,7 +371,7 @@ import TabItem from '@theme/TabItem';
 
 > Set custom data.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -383,7 +383,7 @@ import TabItem from '@theme/TabItem';
 > Sets the autoplay-state of the player.<br/><br/>
 > Autoplay is a feature that makes the player play a recommended track when the current track ends.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
@@ -395,7 +395,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the queue to repeat and shuffles the queue after each song.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
@@ -406,7 +406,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the now playing message.
 >
-> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+> Return: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -416,7 +416,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the queue repeat.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -426,7 +426,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the sponsorblock for the player. This will set the sponsorblock segments for the player to the given segments.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
 > | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
@@ -437,7 +437,7 @@ import TabItem from '@theme/TabItem';
 > Sets the player text channel.<br/><br/>
 > This method updates the text channel associated with the player. It also emits a player state update event indicating the change in the channel.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -449,7 +449,7 @@ import TabItem from '@theme/TabItem';
 > When track repeat is enabled, the current track will replay after it ends.<br/>
 > Disables queueRepeat and dynamicRepeat modes if enabled.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -459,7 +459,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the player voice channel.<br/><br/>
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -469,7 +469,7 @@ import TabItem from '@theme/TabItem';
 
 > Sets the player volume.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------- |
@@ -479,7 +479,7 @@ import TabItem from '@theme/TabItem';
 
 > Stops the current track, optionally give an amount to skip to, e.g 5 would play the 5th song.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------- |

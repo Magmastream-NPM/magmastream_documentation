@@ -1,7 +1,7 @@
 ---
-id: Manager
-title: Manager
-description: Manager
+id: manager-class
+title: "Class : Manager"
+description: The Manager class is the main class that manages all the players and nodes.
 slug: /classes/Manager
 sidebar_position: 0
 sidebar_label: Manager
@@ -10,7 +10,7 @@ sidebar_label: Manager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor
+## Constructor {#constructor}
 
 <Tabs>
     <TabItem value="manager" label="Manager : options" default>
@@ -23,9 +23,10 @@ import TabItem from '@theme/TabItem';
         | `autoPlay`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether players should automatically play the next song.                                                                                                                          |
         | `autoPlaySearchPlatform`                   | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
         | `clientName`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                 | Value to use for the `Client-Name` header.                                                                                                                                        |
+        | `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id)                                                                                                |  The client ID to use.                                                                                                                                     |
         | `defaultSearchPlatform`                    | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
         | `lastFmApiKey`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [apiKey](https://www.last.fm/api/authentication)                                       | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts). |
-        | `nodes`                                    | [`Node[]`](../Typedefs/Node.mdx#nodeoptions)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
+        | `nodes`                                    | [`Node[]`](../Typedefs/Node/Node.mdx#nodeOptions)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
         | `plugins`                                  | [`Plugin[]`](./Plugin.mdx)                                                                                                                                                                        | A array of plugins to use.                                                                                                                                                        |
         | `replaceYouTubeCredentials`                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether the YouTube video titles should be replaced if the Author does not exactly match.                                                                                         |
         | `send`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [send()](#send)                                                                          | Function to send data to the websocket.                                                                                                                                           |
@@ -99,7 +100,7 @@ import TabItem from '@theme/TabItem';
 
 > The map of players.
 >
-> Returns: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
+> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
 
 ### nodes
 
@@ -107,7 +108,7 @@ import TabItem from '@theme/TabItem';
 
 > The map of nodes.
 >
-> Returns: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
+> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
 
 ### options
 
@@ -115,7 +116,7 @@ import TabItem from '@theme/TabItem';
 
 > The options that were set.
 >
-> Returns: [ManagerOptions](#constructor)
+> Return: [ManagerOptions](#constructor)
 
 ## Methods
 
@@ -124,7 +125,7 @@ import TabItem from '@theme/TabItem';
 > Creates a player or returns one if it already exists.<br/>
 > This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
 >
-> Returns: [`Player`](./Player.mdx)
+> Return: [`Player`](./Player.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------- | :-------------------------------------------- |
@@ -134,17 +135,17 @@ import TabItem from '@theme/TabItem';
 
 > Creates a new node or returns an existing one if it already exists.
 >
-> Returns: [`Node`](../Classes/Node.mdx)
+> Return: [`Node`](../Classes/Node.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node.mdx#nodeoptions) | The options to create the node with.          |
+> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/Node.mdx#nodeOptions) | The options to create the node with.          |
 
 ### decodeTrack()
 
 > Decodes a base64 encoded track and returns a TrackData.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track.mdx#trackdata)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track.mdx#trackdata)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -155,7 +156,7 @@ import TabItem from '@theme/TabItem';
 > Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/>
 > Emits a debug event with the tracks being decoded.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track.mdx#trackdata)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track.mdx#trackdata)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -165,7 +166,7 @@ import TabItem from '@theme/TabItem';
 
 > Destroys a player if it exists and cleans up inactive players.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -175,7 +176,7 @@ import TabItem from '@theme/TabItem';
 
 > Destroys a node if it exists. Emits a debug event if the node is found and destroyed.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -185,7 +186,7 @@ import TabItem from '@theme/TabItem';
 
 > Initiates the Manager.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                           | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -195,17 +196,17 @@ import TabItem from '@theme/TabItem';
 
 > Loads player states from the JSON file.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                         | <i className="fa-solid fa-list"/> Description             |
 > | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-> | `nodeId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [node identifier](/docs/Classes/Node.mdx) | The ID of the node to load player states from (required). |
+> | `nodeId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [node identifier](./Node.mdx) | The ID of the node to load player states from (required). |
 
 ### get()
 
 > Returns a player or undefined if it does not exist.
 >
-> Returns: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
+> Return: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -215,7 +216,7 @@ import TabItem from '@theme/TabItem';
 
 > Attaches an event listener to the manager.
 >
-> Returns: [this](#properties)
+> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                         | <i className="fa-solid fa-list"/> Description   |
 > | :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
@@ -243,7 +244,7 @@ import TabItem from '@theme/TabItem';
 
 > Saves player states to the JSON file.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -253,7 +254,7 @@ import TabItem from '@theme/TabItem';
 
 > Searches the enabled sources based off the URL or the `source` property.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
@@ -264,7 +265,7 @@ import TabItem from '@theme/TabItem';
 
 > Sends voice data to the Lavalink server.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :--------------------------------------- | :-------------------------------------------- |
@@ -302,7 +303,7 @@ import TabItem from '@theme/TabItem';
 > If [useNode](#constructor) is "leastLoad", the node with the lowest load is chosen, if it is "leastPlayers", the node with the fewest players is chosen.<br/>
 > If [usePriority](#constructor) is false and [useNode](#constructor) is not set, the node with the lowest load is chosen.
 >
-> Returns: [`Node`](../Classes/Node.mdx)
+> Return: [`Node`](./Node.mdx)
 
 ## Events
 

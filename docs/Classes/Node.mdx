@@ -61,25 +61,25 @@ import TabItem from '@theme/TabItem';
 
 > The socket for the node.
 >
-> Returns: [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### stats
 
 > The stats for the node.
 >
-> Returns: [`NodeStats`](../Typedefs/Node.mdx#stats)
+> Return: [`NodeStats`](../Typedefs/Node.mdx#stats)
 
 ### manager
 
 > The manager for the node.
 >
-> Returns: [`Manager`](./Manager.mdx)
+> Return: [`Manager`](./Manager.mdx)
 
 ### sessionId
 
 > The node's session ID.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### rest
 
@@ -87,13 +87,13 @@ import TabItem from '@theme/TabItem';
 
 > The REST instance.
 >
-> Returns: [`Rest`](./Rest.mdx)
+> Return: [`Rest`](./Rest.mdx)
 
 ### info
 
 > Actual Lavalink information of the node.
 >
-> Returns: [`LavalinkInfo`](../Typedefs/Node.mdx#lavalinkinfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [`LavalinkInfo`](../Typedefs/Node.mdx#lavalinkinfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ## Methods
 
@@ -101,7 +101,7 @@ import TabItem from '@theme/TabItem';
 
 > Returns the address for this node.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ### connected()
 
@@ -109,7 +109,7 @@ import TabItem from '@theme/TabItem';
 
 > Returns if connected to the Node.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
 ### connect()
 
@@ -119,7 +119,7 @@ import TabItem from '@theme/TabItem';
 > If the node has no session ID but the `resumeStatus` option is true, it will use the session ID<br/>
 > stored in the sessionIds.json file if it exists.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### createSessionIdsFile()
 
@@ -127,13 +127,13 @@ import TabItem from '@theme/TabItem';
 > store the session IDs for each node. The session IDs are used to identify
 > the node when resuming a session.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### deleteSponsorBlock()
 
 > Deletes the sponsorblock segments for a player.<br/>
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
@@ -151,13 +151,13 @@ import TabItem from '@theme/TabItem';
 > -   Emit a "nodeDestroy" event with the node as the argument
 > -   Destroy the node from the manager
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### extractSpotifyArtistID()
 
 > Extracts the Spotify artist ID from a URL.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -167,7 +167,7 @@ import TabItem from '@theme/TabItem';
 
 > Extracts the Spotify track ID from a URL.
 >
-> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
@@ -177,13 +177,13 @@ import TabItem from '@theme/TabItem';
 
 > Fetches Lavalink node information.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`LavalinkInfo`>](../Typedefs/Node.mdx#lavalinkinfo)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`LavalinkInfo`>](../Typedefs/Node.mdx#lavalinkinfo)
 
 ### getSponsorBlock()
 
 > Gets the current sponsorblock segments for a player.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/Node.mdx#sponsorblocksegment)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/Node.mdx#sponsorblocksegment)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
@@ -194,13 +194,13 @@ import TabItem from '@theme/TabItem';
 > Loads session IDs from the sessionIds.json file if it exists.<br/><br/>
 > The session IDs are used to resume sessions for each node.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
 ### setSponsorBlock()
 
 > Sets the sponsorblock segments for a player.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
 > | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
@@ -212,4 +212,4 @@ import TabItem from '@theme/TabItem';
 > Updates the session ID in the sessionIds.json file.<br/><br/>
 > This method is called after the session ID has been updated, and it writes the new session ID to the sessionIds.json file.
 >
-> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)

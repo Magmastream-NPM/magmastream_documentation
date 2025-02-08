@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-## Table of contents
+## Table of contents {#toc}
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
 |:--------------------------------------------|:---------------------------------------------------|
@@ -62,7 +62,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the distortion filter options
 >
-> Returns: [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`distortionOptions{}`](../Typedefs/Filters/distortionOptions.mdx) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ---
 
@@ -70,7 +70,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the equalizer filter options
 >
-> Returns: [`Band[]`](../Typedefs/Filters.mdx#band)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Band[]`](../Typedefs/Filters/Band.mdx)
 
 ---
 
@@ -78,7 +78,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the karaoke filter options
 >
-> Returns: [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`karaokeOptions{}`](../Typedefs/Filters/karaokeOptions.mdx) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ---
 
@@ -86,7 +86,7 @@ import TabItem from '@theme/TabItem';
 
 > The guild player
 >
-> Returns: [`Player`](./Player.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx)
 
 ---
 
@@ -94,7 +94,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the rotation filter options
 >
-> Returns: [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`rotationOptions{}`](../Typedefs/Filters/rotationOptions.mdx) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ---
 
@@ -102,7 +102,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the timescale filter options
 >
-> Returns: [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`timescaleOptions{}`](../Typedefs/Filters/timescaleOptions.mdx) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ---
 
@@ -110,7 +110,7 @@ import TabItem from '@theme/TabItem';
 
 > Get the vibrato filter options
 >
-> Returns: [`vibratoOptions{}`](../Typedefs/Filters.mdx#vibratooptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`vibratoOptions{}`](../Typedefs/Filters/vibratoOptions.mdx) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ---
 
@@ -118,164 +118,217 @@ import TabItem from '@theme/TabItem';
 
 > Get the volume the player
 >
-> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
 ## Methods
 
 ### bassBoost() {#bassBoost}
 
-> Apply the bass boost audio effect.<br/><br/>
-> This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
+> Applies the bass boost effect by setting an equalizer with boosted bass frequencies.<br/><br/>
+> This method enhances the lower frequencies of the audio, giving the audio a deep and powerful bass response.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### clearFilters()
+### china() {#china}
 
-> Removes the audio effects and resets the filter status.<br/><br/>
-> This method is useful for removing all audio effects and resetting the filter status to its default state. <br/>
-> It is also a convenient way to disable all audio effects without having to manually reset each filter individually.
+> Apply the china audio effect.
 >
-> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### distort()
+### chipmunk() {#chipmunk}
 
-> Applies the distortion audio effect to the player.<br/><br/>
-> This filter applies a distortion effect to the audio by applying a sine, cosine, and tangent <br/>
-> transformation to the audio signal.
+> Apply the chipmunk audio effect.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### eightD()
 
-> Applies the eight dimension audio effect.<br/><br/>
-> This filter applies a rotationHz of 0.2 to the player.
+### clearFilters() {#clearFilters}
+
+> Clears all filters applied to the audio.<br/><br/>
+> This method resets all filter settings to their default values and removes any active filters from the player.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
 
-### getFilterStatus()
+### darthvader() {#darthvader}
 
-> Returns the status of the specified filter.<br/>
+> Applies the darthvader effect to the audio.
 >
-> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### daycore() {#daycore}
+
+> Applies the daycore effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### distort() {#distort}
+
+> Applies a distortion effect to the audio.<br/><br/>
+> This method applies a distortion effect by adjusting various distortion parameters. <br/>
+> It can make the audio sound rougher and more intense.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### doubletime() {#dobletime}
+
+> Applies the doubletime effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### earrape() {#earrape}
+
+> Applies the earrape effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### eightD() {#eightD}
+
+> Applies the "8D audio" effect by setting a rotation filter.<br/><br/>
+> This method creates the "8D audio" effect, which gives the illusion of sound moving around the listener's head. It applies a subtle rotation effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### getFilterStatus(filter) {#getFilterStatus}
+
+> Retrieves the status of a specific filter.<br/><br/>
+> This method returns whether a specific filter is currently applied or not.
+>
+> <i class="fa-solid fa-right-to-bracket"></i> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :--------------------------------------------------------------- | :-------------------------------------------- |
-> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters.mdx#availablefilters) | The filter to get the status of.              |
+> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters/availableFilters.mdx) | The filter to check.              |
 
-### nightcore()
+### nightcore() {#nightcore}
 
-> Applies the nightcore audio effect.<br/><br/>
-> This filter sets the timescale of the player to 1.1 speed, 1.125 pitch, and 1.05 rate.
+> Applies the nightcore effect by adjusting the speed and pitch of the audio.<br/><br/>
+> This method increases the tempo and pitch of the audio, giving it a faster and higher-pitched sound, characteristic of the nightcore genre.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### setDistortion()
+### party() {#party}
 
-> Applies the distortion audio effect to the player.<br/><br/>
-> This method takes an optional `distortionOptions` object as a parameter, which can be used to customize the distortion effect.
-> If no options are provided, the filter will be reset and the distortion effect will
-> be disabled.
+> Applies the party effect to the audio.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### pop() {#pop}
+
+> Applies the pop effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### radio() {#radio}
+
+> Applies the radio effect to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### setDistortion(distortion) {#setDistortion}
+
+> Sets the distortion effect on the audio.<br/><br/>
+> This method applies a distortion effect to the audio, which adds an aggressive, rough texture to the sound.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :----------------------------------------------------------------- | :-------------------------------------------- |
-> | `distortion`                                   | [`distortionOptions{}`](../Typedefs/Filters.mdx#distortionoptions) | The distortion options to apply.              |
+> | `distortion`                                   | [`distortionOptions{}`](../Typedefs/Filters/distortionOptions.mdx) | The distortion options to apply.              |
 
-### setEqualizer()
+### setEqualizer(bands) {#setEqualizer}
 
-> Sets the equalizer bands and updates the filters on the player.<br/><br/>
-> This method updates the player's equalizer settings by applying the provided
-> bands configuration. The equalizer is an array of Band objects, each containing
+> Sets the equalizer bands for the player.<br/><br/>
+> This method updates the player's equalizer settings by applying the provided bands configuration. The equalizer is an array of Band objects, each containing
 > a band number and a gain value. The method ensures that the filters are updated
 > after setting the equalizer, to reflect the changes in audio output.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description                                                                                      |
 > | :--------------------------------------------- | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
-> | `bands`                                        | [`Band[]`](../Typedefs/Filters.mdx#band) | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
+> | `bands`                                        | [`Band[]`](../Typedefs/Filters/Band.mdx) | The equalizer bands to apply. Each band includes a band number and a gain value. If no bands are provided, the equalizer is reset. |
 
-### setKaraoke()
+### setKaraoke(karaoke) {#setKaraoke}
 
-> Applies the karaoke options specified by the filter.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+> Sets the karaoke effect on the audio.<br/><br/>
+> This method adjusts the player's audio output to apply a karaoke effect, which may include filtering out vocals or adjusting levels for optimal karaoke performance.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-> | `karaoke`                                      | [`karaokeOptions{}`](../Typedefs/Filters.mdx#karaokeoptions) | The karaoke options to apply.                 |
+> | `karaoke`                                      | [`karaokeOptions{}`](../Typedefs/Filters/karaokeOptions.mdx) | The karaoke settings to apply (level, mono level, filter band, etc.).                 |
 
-### setRotation()
+### setRotation(rotation) {#setRotation}
 
-> Applies the karaoke options specified by the filter.<br/><br/>
-> This method takes an optional `karaokeOptions` object as a parameter, which can be used to customize the karaoke effect.
-> If no options are provided, the filter will be reset and the karaoke effect will be disabled.
+> Sets the rotation effect on the audio.<br/><br/>
+> This method applies a rotation effect to the audio, creating the illusion of sound moving around the listener's head.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------- | :-------------------------------------------- |
-> | `rotation`                                     | [`rotationOptions{}`](../Typedefs/Filters.mdx#rotationoptions) | The rotation options to apply.                |
+> | `rotation`                                     | [`rotationOptions{}`](../Typedefs/Filters/rotationOptions.mdx) | The rotation settings (rotationHz).                |
 
-### setTimescale()
+### setTimescale(timescale) {#setTimescale}
 
-> Applies the timescale options specified by the filter.<br/><br/>
-> This method sets the timescale of the audio player using the provided timescale options. Timescale options may include speed, pitch, and rate
-> adjustments to modify the playback characteristics of the audio.
+> Sets the timescale (speed, pitch, rate) for the audio.<br/><br/>
+> This method adjusts the speed, pitch, and rate of the audio, allowing for effects such as faster or slower playback, pitch shifts, and time dilation.
 >
-> Returns: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :--------------------------------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
-
-### setVibrato()
-
-> Applies the vibrato options specified by the filter.<br/><br/>
-> This method takes an optional `vibratoOptions` object as a parameter, which can be used to customize the vibrato effect.
-> If no options are provided, the filter will be reset and the vibrato effect will be disabled.
->
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :--------------------------------------------------------------- | :-------------------------------------------- |
-> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters.mdx#timescaleoptions) | The timescale options to apply.               |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters/timescaleOptions.mdx) | The timescale settings to apply (speed, pitch, rate).               |
+
+### setVibrato(timescale) {#setVibrato}
+
+> Sets the vibrato effect on the audio.<br/><br/>
+> This method applies a vibrato effect to the audio, which creates a wobble in the pitch by modulating it at a specified frequency and depth.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :--------------------------------------------------------------- | :-------------------------------------------- |
+> | `timescale`                                    | [`timescaleOptions{}`](../Typedefs/Filters/timescaleOptions.mdx) | The vibrato settings to apply (frequency and depth).               |
 
 ### slowmo()
 
-> Applies the slow motion audio effect.<br/><br/>
-> This filter sets the timescale of the player to 0.7 speed, 1.0 pitch, and 0.8 rate.
+> Applies the slow-motion effect by reducing the speed and pitch of the audio.<br/><br/>
+> This method slows down the audio, giving it a slower and more relaxed feel.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### soft()
+### soft() {#soft}
 
-> Applies the soft audio effect to the player.<br/><br/>
-> This method sets the equalizer bands to the values defined in the `softEqualizer` array, which is designed to create a softer sound effect
-> by reducing the gain of certain frequency bands.
+> Applies a soft equalizer to give the audio a smoother sound.<br/><br/>
+> This method adjusts the equalizer settings to soften the frequencies and give the audio a more mellow tone.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### trebleBass()
+### tremolo() {#tremolo}
 
-> Applies the treble bass audio effect.<br/><br/>
-> This filter applies a treble boost and a bass boost to the audio.
+> Applies the doubletime effect to the audio.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### tv()
+### trebleBass() {#trebleBass}
 
-> Applies the television audio effect.<br/><br/>
-> This filter applies a equalizer effect designed to make the audio sound like it is coming from a television.
+> Applies the "treble and bass boost" effect to the audio.<br/><br/>
+> This method adjusts the equalizer to boost both the treble (high frequencies) and bass (low frequencies), giving the audio a more balanced and enhanced sound.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 
-### vaporwave()
+### tv() {#tv}
 
-> Applies the vaporwave audio effect.<br/><br/>
-> This filter applies a timescale effect with a pitch of 0.55 and an equalizer effect designed to create a vaporwave sound effect.
+> Applies a TV-like equalizer effect to the audio.<br/><br/>
+> This method adjusts the equalizer to give the audio a "TV" effect, which may simulate the audio quality heard from television speakers.
 >
-> Returns: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
+
+### vaporwave() {#vaporwave}
+
+> Applies the vaporwave effect by adjusting the equalizer and pitch.<br/><br/>
+> This method applies a vaporwave-style equalizer, with softer tones, and adjusts the pitch to give the audio a dreamy, nostalgic feel.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
