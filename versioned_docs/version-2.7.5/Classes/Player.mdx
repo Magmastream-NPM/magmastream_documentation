@@ -1,0 +1,486 @@
+---
+id: Player
+title: Player
+description: Player
+slug: /classes/Player
+sidebar_position: 1
+sidebar_label: Player
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor
+
+<Tabs>
+    <TabItem value="player" label="Player : options" default>
+        ```js
+        new Magmastream.Player(options: PlayerOptions)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                     | <i className="fa-solid fa-list"/> Description |
+        | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+        | `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should deaf itself.             |
+        | `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should mute itself.             |
+        | `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [NodeIdentifier](./Node.mdx#constructor)                                                              | The node the Player uses.                     |
+        | `textChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)    | The text channel the Player belongs to.       |
+        | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                          | The initial volume the Player will use.       |
+        | `voiceChannel`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)  | The voice channel the Player belongs to.      |
+        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                     | The guild ID the Player belongs to.           |
+
+    </TabItem>
+
+</Tabs>
+
+## Table of contents
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
+| :------------------------------------------ | :------------------------------------------------- |
+| [autoplayTries](#autoplaytries)             | [connect()](#connect)                              |
+| [bands](#bands)                             | [deleteSponsorBlock()](#deletesponsorblock)        |
+| [dynamicRepeat](#dynamicrepeat)             | [destroy()](#destroy)                              |
+| [guildId](#guildid)                         | [disconnect()](#disconnect)                        |
+| [isAutoplay](#isautoplay)                   | [get()](#get)                                      |
+| [manager](#manager)                         | [getRecommended()](#getrecommended)                |
+| [node](#node)                               | [getSponsorBlock()](#getsponsorblock)              |
+| [nowPlayingMessage](#nowplayingmessage)     | [pause()](#pause)                                  |
+| [paused](#paused)                           | [play()](#play)                                    |
+| [playing](#playing)                         | [previous()](#previous)                            |
+| [position](#position)                       | [restart()](#restart)                              |
+| [queue](#queue)                             | [search()](#search)                                |
+| [queueRepeat](#queueRepeat)                 | [seek()](#seek)                                    |
+| [state](#state)                             | [set()](#set)                                      |
+| [textChannel](#textChannel)                 | [setAutoplay()](#setautoplay)                      |
+| [trackRepeat](#trackRepeat)                 | [setDynamicRepeat()](#setdynamicrepeat)            |
+| [voiceChannel](#voiceChannel)               | [setNowPlayingMessage()](#setnowplayingmessage)    |
+| [voiceState](#voiceState)                   | [setQueueRepeat()](#setqueuerepeat)                |
+| [volume](#volume)                           | [setSponsorBlock()](#setsponsorblock)              |
+|                                             | [setTextChannel()](#settextchannel)                |
+|                                             | [setTrackRepeat()](#settrackrepeat)                |
+|                                             | [setVoiceChannel()](#setvoicechannel)              |
+|                                             | [setVolume()](#setvolume)                          |
+|                                             | [stop()](#stop)                                    |
+
+## Properties
+
+### autoplayTries
+
+> The number of times to try autoplay before emitting queueEnd.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | `3 (default value)`
+
+### bands
+
+> The equalizer bands array.
+>
+> Returns: [number[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### dynamicRepeat
+
+> Whether the queue repeats and shuffles after each song.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### guildId
+
+> The guild ID for the player.
+>
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
+
+### isAutoplay
+
+> The autoplay state of the player.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### manager
+
+> The Manager for the player.
+>
+> Returns: [`Manager`](./Manager.mdx)
+
+### node
+
+> The Node for the Player.
+>
+> Returns: [`Node`](./Node.mdx)
+
+### nowPlayingMessage
+
+> The now playing message for the player.
+>
+> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+
+### paused
+
+> Whether the player is paused.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### playing
+
+> Whether the player is playing.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### position
+
+> The time the player is in the track.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### queue
+
+> The Queue for the Player.
+>
+> Returns: [`Queue`](./Queue.mdx)
+
+### queueRepeat
+
+> Whether the queue repeats the queue.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### state
+
+> The current state of the player.
+>
+> Returns: [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> StateTypes](../Enums/StateTypes.mdx)
+
+### textChannel
+
+> The text channel id for the player.
+>
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
+
+### trackRepeat
+
+> Whether the queue repeats the track.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+### voiceChannel
+
+> The voice channel id for the player.
+>
+> Returns: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
+
+### voiceState
+
+> The voice state object from Discord.
+>
+> Returns: VoiceState
+
+### volume
+
+> The volume for the player.
+>
+> Returns: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+## Methods
+
+### connect()
+
+> Connect to the voice channel.
+>
+> Returns: [this](#properties)
+
+### deleteSponsorBlock()
+
+> Deletes the sponsorblock for the player. This will remove all sponsorblock segments that have been set for the player.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
+
+### destroy()
+
+> Destroys the player.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                  |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
+> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it. |
+
+### disconnect()
+
+> Disconnects the player from the voice channel.
+>
+> Returns: [this](#properties)
+
+### get()
+
+> Retrieves custom data associated with a given key.
+>
+> Returns: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |
+
+### getRecommended()
+
+> Gets recommended tracks and returns an array of tracks.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`track[]`>](../Typedefs/Track.mdx#track)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx#track)                                                                                                                               | The track to find recommendations for.        |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
+
+### getSponsorBlock()
+
+> Gets the sponsorblock for the player.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/SponsorBlock.mdx#sponsorblocksegment)
+
+### pause()
+
+> Pauses or resumes the current track.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
+> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |
+
+### play()
+
+> Plays the next track.<br/><br/>
+> If a track is provided, it will be played. Otherwise, the next track in the queue will be played.<br/>
+> If the queue is not empty, but the current track has not finished yet, it will be replaced with the provided track.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+<Tabs>
+    <TabItem value="playwithqueue" label="Start playing after add track to queue" default>
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.queue.add(searchResponse.tracks);
+
+        player.play();
+        ```
+    </TabItem>
+    <TabItem value="playwithtrack" label="Start playing with track">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `track`                                        |  [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.play(searchResponse.tracks[0]);
+        ```
+    </TabItem>
+    <TabItem value="playwithoptions" label="Start playing with play options">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `options`                                        |  [`PlayOptions`](../Typedefs/Player.mdx#playoptions)                                                |
+    </TabItem>
+    <TabItem value="playwithtrackandoptions" label="Start playing with track and options">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
+        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
+        | `track`                                        |  [`Track`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack`](../Typedefs/Track.mdx#unresolvedtrack) |
+        | `options`                                      |  [`PlayOptions`](../Typedefs/Player.mdx#playoptions)                                                  |
+
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.play(searchResponse.tracks[0], {
+            ...PlayOptions
+        });
+        ```
+    </TabItem>
+
+</Tabs>
+
+### previous()
+
+> Goes back to the previous song in the queue.
+>
+> Returns: [this](#properties)
+
+### restart()
+
+> Restarts the current track to the start.<br/><br/>
+> If there's no current track and there are tracks in the queue, it plays the next track.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### search()
+
+> Same as Manager#search() but a shortcut on the player itself.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)           | Query to search.                              |
+> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
+
+### seek()
+
+> Seeks to the specified position in the current track.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |
+
+### set()
+
+> Set custom data.
+>
+> Returns: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |
+> | `value`                                        | unknown                                                                                           | The value to set the data to.                 |
+
+### setAutoplay()
+
+> Sets the autoplay-state of the player.<br/><br/>
+> Autoplay is a feature that makes the player play a recommended track when the current track ends.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
+> | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |
+> | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |
+> | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |
+
+### setDynamicRepeat()
+
+> Sets the queue to repeat and shuffles the queue after each song.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not                     |
+> | `ms`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |
+
+### setNowPlayingMessage()
+
+> Sets the now playing message.
+>
+> Returns: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `message`                                      | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.       |
+
+### setQueueRepeat()
+
+> Sets the queue repeat.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
+
+### setSponsorBlock()
+
+> Sets the sponsorblock for the player. This will set the sponsorblock segments for the player to the given segments.
+>
+> Returns: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
+> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
+> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
+
+### setTextChannel()
+
+> Sets the player text channel.<br/><br/>
+> This method updates the text channel associated with the player. It also emits a player state update event indicating the change in the channel.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                      |
+
+### setTrackRepeat()
+
+> Sets the track repeat mode.<br/><br/>
+> When track repeat is enabled, the current track will replay after it ends.<br/>
+> Disables queueRepeat and dynamicRepeat modes if enabled.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
+
+### setVoiceChannel()
+
+> Sets the player voice channel.<br/><br/>
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                     |
+
+### setVolume()
+
+> Sets the player volume.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------- |
+> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |
+
+### stop()
+
+> Stops the current track, optionally give an amount to skip to, e.g 5 would play the 5th song.
+>
+> Returns: [this](#properties)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------- |
+> | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to skip, e.g 5 would play the 5th song. |

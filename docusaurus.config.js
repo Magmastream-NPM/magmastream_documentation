@@ -100,13 +100,19 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "v2.7.5 (current)",
+              label: "v2.8 (current)",
+            },
+            "2.7.5": {
+              label: "v2.7.5",
+              path: "2.7.5",
+              banner: "none",
+              noIndex: false,
             },
             "2.6.1": {
               label: "v2.6.1",
               path: "2.6.1",
               banner: "unmaintained",
-              noIndex: false,
+              noIndex: true,
             },
           },
 

@@ -9,4 +9,4 @@ sidebar_label: ⭐ Introduction
 
 # Introduction page
 
-Documentation for 2.8.0 is under development
+nothing there yet
