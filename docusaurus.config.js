@@ -120,8 +120,8 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
 
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           editUrl:
             "https://github.com/magmastream-npm/magmastream_documentation/tree/main/",
         },
