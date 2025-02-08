@@ -8,7 +8,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const description =
   "Magmastream is an easy-to-use and useful music module for your discord app.";
-const baseUrl = "https://docs.magmastream.com";
+const baseUrl = "https://magmastream.com";
 const title = "Magmastream - Ignite the Symphony of Sonic Harmony!";
 const discordSupportLink = "https://discord.gg/Nq5gTGUfwa";
 
