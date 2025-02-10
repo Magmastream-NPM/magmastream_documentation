@@ -57,7 +57,7 @@ export default function Version() {
                                 </Link>
                             </td>
                             <td>
-                                <Link to={`${repoUrl}/releases/tag/${latestVersion.label}`}>
+                                <Link to={`${repoUrl}/releases/tag/${latestVersion.label.split(' ')[0]}`}>
                                     <ReleaseNotesLabel />
                                 </Link>
                             </td>

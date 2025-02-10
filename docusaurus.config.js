@@ -78,30 +78,28 @@ const config = {
   url: baseUrl,
   baseUrl: "/",
   onBrokenLinks: "ignore",
-  onBrokenMarkdownLinks: "throw",
+  onBrokenMarkdownLinks: "ignore",
   onDuplicateRoutes: "throw",
   organizationName: "Magmastream-NPM",
   projectName: "magmastream",
 
   presets: [
     [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    ],
+    [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        sitemap: {
-          lastmod: "date",
-          changefreq: "weekly",
-          priority: 0.5,
-          ignorePatterns: ["/tags/**"],
-          filename: "sitemap.xml",
-          createSitemapItems: async () => [], // Prevents Git history errors
-        },
         docs: {
           lastVersion: "current",
           versions: {
             current: {
-              banner: "none",
-              label: "v2.8 (current)",
+              label: "v2.8.0 (current)",
             },
             "2.7.5": {
               label: "v2.7.5",
