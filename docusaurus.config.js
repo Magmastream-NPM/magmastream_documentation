@@ -78,19 +78,13 @@ const config = {
   url: baseUrl,
   baseUrl: "/",
   onBrokenLinks: "ignore",
+  onBrokenAnchors: "ignore",
   onBrokenMarkdownLinks: "ignore",
   onDuplicateRoutes: "throw",
   organizationName: "Magmastream-NPM",
   projectName: "magmastream",
 
   presets: [
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'weekly',
-        priority: 0.5,
-      },
-    ],
     [
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
@@ -123,6 +117,11 @@ const config = {
           showLastUpdateTime: true,
           editUrl:
             "https://github.com/magmastream-npm/magmastream_documentation/tree/main/",
+        },
+        sitemap: {
+          lastmod: 'date',
+          priority: null,
+          changefreq: null,
         },
         blog: false,
         // blog: {
@@ -327,6 +326,7 @@ const config = {
       appId: "VTNNHXUUFZ",
       apiKey: "ab7a3c6f384023aadfb37f6f9bc980bb",
       indexName: "docs",
+      contextualSearch: true,
     },
   },
 };
