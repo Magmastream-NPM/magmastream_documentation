@@ -100,6 +100,7 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
+              banner: "none",
               label: "v2.8 (current)",
             },
             "2.7.5": {
@@ -325,9 +326,9 @@ const config = {
       darkTheme: prismThemes.oneDark,
     },
     algolia: {
-      appId: "Q8WSIPIGO0",
-      apiKey: "881e233a9268c14bf9877519ab6cf473",
-      indexName: "magmastream",
+      appId: "VTNNHXUUFZ",
+      apiKey: "689b6273fb82c5fed4dac52f31096e82",
+      indexName: "magmastream_com_vtnnhxuufz_articles",
     },
   },
 };
