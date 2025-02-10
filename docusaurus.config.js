@@ -77,7 +77,7 @@ const config = {
 
   url: baseUrl,
   baseUrl: "/",
-  onBrokenLinks: "warn",
+  onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "throw",
   onDuplicateRoutes: "throw",
   organizationName: "Magmastream-NPM",
