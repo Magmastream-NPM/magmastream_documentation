@@ -21,18 +21,18 @@ import TabItem from '@theme/TabItem';
         | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                | <i className="fa-solid fa-list"/> Description                                                                                                                                         |
         |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
         | `autoPlay`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether players should automatically play the next song.                                                                                                                          |
-        | `autoPlaySearchPlatform`                   | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
+        | `autoPlaySearchPlatform`                   | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> SearchPlatform](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
         | `clientName`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                 | Value to use for the `Client-Name` header.                                                                                                                                        |
         | `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id)                                                                                                |  The client ID to use.                                                                                                                                     |
-        | `defaultSearchPlatform`                    | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
+        | `defaultSearchPlatform`                    | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> SearchPlatform](../Enums/SearchPlatform.mdx)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
         | `lastFmApiKey`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [apiKey](https://www.last.fm/api/authentication)                                       | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts). |
-        | `nodes`                                    | [`Node[]`](../Typedefs/Node/Node.mdx#nodeOptions)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
+        | `nodes`                                    | [`Node[]`](../Typedefs/Node/nodeOptions.mdx#nodeOptions)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
         | `plugins`                                  | [`Plugin[]`](./Plugin.mdx)                                                                                                                                                                        | A array of plugins to use.                                                                                                                                                        |
         | `replaceYouTubeCredentials`                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether the YouTube video titles should be replaced if the Author does not exactly match.                                                                                         |
         | `send`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [send()](#send)                                                                          | Function to send data to the websocket.                                                                                                                                           |
         | `trackPartial`                             | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                  | An array of track properties to keep. `track` will always be present.                                                                                                                                                                                  |
         | `usePriority`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                                                                                    | Use priority mode over least amount of player or load?                                                                                                                                                                                  |
-        | `useNode`                                  | [`UseNode`](../Enums/UseNodeOptions.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
+        | `useNode`                                  | [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> UseNode](../Enums/UseNodeOptions.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
 
         ### send()
         <Tabs>
@@ -43,7 +43,7 @@ import TabItem from '@theme/TabItem';
                 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
                 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
                 > | `id`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to.       |
-                > | `payload`                                      | [`Payload`](../Typedefs/Payload.mdx)                                                              | The payload to send                           |
+                > | `payload`                                      | [`Payload`](../Typedefs/Manager/Payload.mdx)                                                              | The payload to send                           |
 
             </TabItem>
             <TabItem value="Default usage" label="Default usage" default>
@@ -66,157 +66,177 @@ import TabItem from '@theme/TabItem';
 ## Table of contents
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-regular fa-calendar"/> Events |
-| :------------------------------------------ | :------------------------------------------------- | :--------------------------------------------- |
-| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterstarted)              |
-| [nodes](#nodes)                             | [createNode()](#createnode)                        | [chaptersLoaded](#chaptersloaded)              |
-| [options](#options)                         | [decodeTrack()](#decodetrack)                      | [debug](#debug)                                |
-|                                             | [decodeTracks()](#decodetracks)                    | [nodeConnect](#nodeconnect)                    |
-|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodecreate)                      |
-|                                             | [destroyNode()](#destroynode)                      | [nodeDestroy](#nodedestroy)                    |
-|                                             | [get()](#get)                                      | [nodeDisconnect](#nodedisconnect)              |
-|                                             | [init()](#init)                                    | [nodeError](#nodeerror)                        |
-|                                             | [loadPlayerStates()](#loadplayerstates)            | [nodeRaw](#noderaw)                            |
-|                                             | [on()](#on)                                        | [nodeReconnect](#nodereconnect)                |
-|                                             | [savePlayerState()](#saveplayerstate)              | [playerCreate](#playercreate)                  |
-|                                             | [search()](#search)                                | [playerDestroy](#playerdestroy)                |
-|                                             | [updateVoiceState()](#updatevoicestate)            | [playerDisconnect](#playerdisconnect)          |
-|                                             | [useableNodes()](#useablenodes)                    | [playerMove](#playermove)                      |
-|                                             |                                                    | [playerStateUpdate](#playerstateupdate)        |
-|                                             |                                                    | [queueEnd](#queueend)                          |
-|                                             |                                                    | [segmentSkipped](#segmentskipped)              |
-|                                             |                                                    | [segmentsLoaded](#segmentsloaded)              |
-|                                             |                                                    | [socketClosed](#socketclosed)                  |
-|                                             |                                                    | [trackEnd](#trackend)                          |
-|                                             |                                                    | [trackError](#trackerror)                      |
-|                                             |                                                    | [trackStart](#trackstart)                      |
-|                                             |                                                    | [trackStuck](#trackstuck)                      |
-|                                             |                                                    |                                                |
+|:--------------------------------------------|:---------------------------------------------------|:-----------------------------------------------|
+| [players](#players)                         | [create()](#create)                                | [chapterStarted](#chapterStarted)              |
+| [nodes](#nodes)                             | [createNode()](#createNode)                        | [chaptersLoaded](#chaptersLoaded)              |
+| [options](#options)                         | [decodeTrack()](#decodeTrack)                      | [debug](#debug)                                |
+|                                             | [decodeTracks()](#decodeTracks)                    | [nodeConnect](#nodeConnect)                    |
+|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodeCreate)                      |
+|                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodeDestroy)                    |
+|                                             | [get()](#get)                                      | [nodeDisconnect](#nodeDisconnect)              |
+|                                             | [init()](#init)                                    | [nodeError](#nodeError)                        |
+|                                             | [loadPlayerStates()](#loadPlayerStates)            | [nodeRaw](#nodeRaw)                            |
+|                                             | [on()](#on)                                        | [nodeReconnect](#nodeReconnect)                |
+|                                             | [savePlayerState()](#savePlayerState)              | [playerCreate](#playerCreate)                  |
+|                                             | [search()](#search)                                | [playerDestroy](#playerDestroy)                |
+|                                             | [updateVoiceState()](#updateVoiceState)            | [playerDisconnect](#playerDisconnect)          |
+|                                             | [useableNode()](#useableNode)                      | [playerMove](#playerMove)                      |
+|                                             |                                                    | [playerStateUpdate](#playerStateUpdate)        |
+|                                             |                                                    | [queueEnd](#queueEnd)                          |
+|                                             |                                                    | [segmentSkipped](#segmentSkipped)              |
+|                                             |                                                    | [segmentsLoaded](#segmentsLoaded)              |
+|                                             |                                                    | [socketClosed](#socketClosed)                  |
+|                                             |                                                    | [trackEnd](#trackEnd)                          |
+|                                             |                                                    | [trackError](#trackError)                      |
+|                                             |                                                    | [trackStart](#trackStart)                      |
+|                                             |                                                    | [trackStuck](#trackStuck)                      |
 
 ## Properties
 
-### players
+### players {#players}
 
 <span className="info badge">readonly</span>
 
 > The map of players.
 >
-> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
 
-### nodes
+---
+
+### nodes {#nodes}
 
 <span className="info badge">readonly</span>
 
 > The map of nodes.
 >
-> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
 
-### options
+---
+
+### options {#options}
 
 <span className="info badge">readonly</span>
 
 > The options that were set.
 >
-> Return: [ManagerOptions](#constructor)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`managerOptions{}`](../Typedefs/Manager/managerOptions.mdx#managerOptions)
 
 ## Methods
 
-### create()
+### create(options) {#create}
 
-> Creates a player or returns one if it already exists.<br/>
-> This filter sets the equalizer bands to the values defined in the `bassBoostEqualizer` array.
+> Creates a player or returns one if it already exists.
 >
-> Return: [`Player`](./Player.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`playerOptions{}`](../Typedefs/Player.mdx#playeroptions) | The options to create the player with.        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                  | <i className="fa-solid fa-list"/> Description |
+> |:-----------------------------------------------|:------------------------------------------------------------------------|:----------------------------------------------|
+> | `options`                                      | [`playerOptions{}`](../Typedefs/Player/playerOptions.mdx#playerOptions) | The options to create the player with.        |
 
-### createNode()
+---
+
+### createNode(options) {#createNode}
 
 > Creates a new node or returns an existing one if it already exists.
 >
-> Return: [`Node`](../Classes/Node.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Node`](../Classes/Node.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------- | :-------------------------------------------- |
-> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/Node.mdx#nodeOptions) | The options to create the node with.          |
+> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The options to create the node with.          |
 
-### decodeTrack()
+---
+
+### decodeTrack(track) {#decodeTrack}
 
 > Decodes a base64 encoded track and returns a TrackData.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track.mdx#trackdata)
+> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track/trackData.mdx#trackData)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
 
-### decodeTracks()
+---
+
+### decodeTracks(tracks) {#decodeTracks}
 
 > Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/>
 > Emits a debug event with the tracks being decoded.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track.mdx#trackdata)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track/trackData.mdx#trackData)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `tracks`                                       | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [base64](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |
 
-### destroy()
+---
+
+### destroy(guildId) {#destroy}
 
 > Destroys a player if it exists and cleans up inactive players.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |
 
-### destroyNode()
+---
+
+### destroyNode(identifier) {#destroyNode}
 
 > Destroys a node if it exists. Emits a debug event if the node is found and destroyed.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The identifier of the node to destroy.        |
+> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The identifier of the node to destroy.        |
 
-### init()
+---
+
+### init(clientId) {#init}
 
 > Initiates the Manager.
 >
-> Return: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                           | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The Discord client ID (required).             |
 
-### loadPlayerStates()
+---
+
+### loadPlayerStates(nodeId) {#loadPlayerStates}
 
 > Loads player states from the JSON file.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                         | <i className="fa-solid fa-list"/> Description             |
-> | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
-> | `nodeId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [node identifier](./Node.mdx) | The ID of the node to load player states from (required). |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description             |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+> | `nodeId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The ID of the node to load player states from (required). |
 
-### get()
+---
+
+### get(guildId) {#get}
 
 > Returns a player or undefined if it does not exist.
 >
-> Return: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `guild`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to retrieve.       |
+> | `guildId`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to retrieve.       |
 
-### on()
+---
+
+### on(event, listener) {#on}
 
 > Attaches an event listener to the manager.
 >
-> Return: [this](#properties)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                         | <i className="fa-solid fa-list"/> Description   |
 > | :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- |
@@ -240,32 +260,38 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
-### savePlayerState()
+---
+
+### savePlayerState(guildId) {#savePlayerState}
 
 > Saves player states to the JSON file.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to save            |
 
-### search()
+---
+
+### search(query, requester) {#search}
 
 > Searches the enabled sources based off the URL or the `source` property.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search.mdx#searchresult)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search/searchResult.mdx#searchResult)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search.mdx#searchquery)           | Query to search.                              |
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx#searchQuery)           | Query to search.                              |
 > | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
 
-### updateVoiceState()
+---
+
+### updateVoiceState(data) {#updateVoiceState}
 
 > Sends voice data to the Lavalink server.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :--------------------------------------- | :-------------------------------------------- |
@@ -274,7 +300,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
     <TabItem value="Example required for use" label="Example required to use" default>
         ```js
-        const { Client } = require('discord.js');
+        const { Client, Events } = require('discord.js');
         const { Manager } = require('magmastream');
 
         const client = new Client({
@@ -294,7 +320,9 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
-### useableNodes()
+---
+
+### useableNode() {#useableNode}
 
 <span className="info badge">get</span>
 
@@ -303,21 +331,21 @@ import TabItem from '@theme/TabItem';
 > If [useNode](#constructor) is "leastLoad", the node with the lowest load is chosen, if it is "leastPlayers", the node with the fewest players is chosen.<br/>
 > If [usePriority](#constructor) is false and [useNode](#constructor) is not set, the node with the lowest load is chosen.
 >
-> Return: [`Node`](./Node.mdx)
+> Return: [`Node`](../Typedefs/Node/Node.mdx)
 
 ## Events
 
 ### ChapterStarted
 
-<span className="info badge">[ManagerEventTypes : ChapterStarted](../Enums/ManagerEventTypes.mdx#chapterStarted)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> ChapterStarted](../Enums/ManagerEventTypes.mdx#chapterStarted)</span>
 
 > Emitted when a track has started a chapter.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock.mdx#sponsorblockchapterstarted)                |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted)                |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -336,17 +364,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### ChaptersLoaded
 
-<span className="info badge">[ManagerEventTypes : ChaptersLoaded](../Enums/ManagerEventTypes.mdx#chaptersLoaded)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> ChaptersLoaded](../Enums/ManagerEventTypes.mdx#chaptersLoaded)</span>
 
 > Emitted when a track has loaded chapters.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock.mdx#sponsorblockchaptersloaded)                |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded)                |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -365,9 +395,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### Debug
 
-<span className="info badge">[ManagerEventTypes : Debug](../Enums/ManagerEventTypes.mdx#debug)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> Debug](../Enums/ManagerEventTypes.mdx#debug)</span>
 
 > Emitted when a track has loaded chapters.
 >
@@ -393,9 +425,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeConnect
 
-<span className="info badge">[ManagerEventTypes : NodeConnect](../Enums/ManagerEventTypes.mdx#nodeConnect)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeConnect](../Enums/ManagerEventTypes.mdx#nodeConnect)</span>
 
 > Emitted when a Node connects.
 >
@@ -420,9 +454,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeCreate
 
-<span className="info badge">[ManagerEventTypes : NodeCreate](../Enums/ManagerEventTypes.mdx#nodeCreate)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeCreate](../Enums/ManagerEventTypes.mdx#nodeCreate)</span>
 
 > Emitted when a Node is created.
 >
@@ -447,9 +483,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeDestroy
 
-<span className="info badge">[ManagerEventTypes : NodeDestroy](../Enums/ManagerEventTypes.mdx#nodeDestroy)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeDestroy](../Enums/ManagerEventTypes.mdx#nodeDestroy)</span>
 
 > Emitted when a Node is destroyed.
 >
@@ -474,9 +512,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeDisconnect
 
-<span className="info badge">[ManagerEventTypes : NodeDisconnect](../Enums/ManagerEventTypes.mdx#nodeDisconnect)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeDisconnect](../Enums/ManagerEventTypes.mdx#nodeDisconnect)</span>
 
 > Emitted when a Node is disconnects.
 >
@@ -502,9 +542,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeError
 
-<span className="info badge">[ManagerEventTypes : NodeError](../Enums/ManagerEventTypes.mdx#nodeError)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeError](../Enums/ManagerEventTypes.mdx#nodeError)</span>
 
 > Emitted when a Node has an error.
 >
@@ -530,9 +572,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeRaw
 
-<span className="info badge">[ManagerEventTypes : NodeRaw](../Enums/ManagerEventTypes.mdx#nodeRaw)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeRaw](../Enums/ManagerEventTypes.mdx#nodeRaw)</span>
 
 > Emitted whenever any Lavalink event is received.
 >
@@ -557,9 +601,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### NodeReconnect
 
-<span className="info badge">[ManagerEventTypes : NodeReconnect](../Enums/ManagerEventTypes.mdx#nodeReconnect)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> NodeReconnect](../Enums/ManagerEventTypes.mdx#nodeReconnect)</span>
 
 > Emitted when a Node reconnects.
 >
@@ -584,9 +630,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### PlayerCreate
 
-<span className="info badge">[ManagerEventTypes : PlayerCreate](../Enums/ManagerEventTypes.mdx#playerCreate)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> PlayerCreate](../Enums/ManagerEventTypes.mdx#playerCreate)</span>
 
 > Emitted when a player is created.
 >
@@ -611,9 +659,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### PlayerDestroy
 
-<span className="info badge">[ManagerEventTypes : PlayerDestroy](../Enums/ManagerEventTypes.mdx#playerDestroy)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> PlayerDestroy](../Enums/ManagerEventTypes.mdx#playerDestroy)</span>
 
 > Emitted when a player is destroyed.
 >
@@ -638,9 +688,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### PlayerDisconnect
 
-<span className="info badge">[ManagerEventTypes : PlayerDisconnect](../Enums/ManagerEventTypes.mdx#playerDisconnect)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> PlayerDisconnect](../Enums/ManagerEventTypes.mdx#playerDisconnect)</span>
 
 > Emitted when a Player disconnects.
 >
@@ -666,9 +718,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### PlayerMove
 
-<span className="info badge">[ManagerEventTypes : PlayerMove](../Enums/ManagerEventTypes.mdx#playerMove)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> PlayerMove](../Enums/ManagerEventTypes.mdx#playerMove)</span>
 
 > Emitted when a player is moved to a new voice channel.
 >
@@ -695,9 +749,11 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### PlayerStateUpdate
 
-<span className="info badge">[ManagerEventTypes : PlayerStateUpdate](../Enums/ManagerEventTypes.mdx#playerStateUpdate)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> PlayerStateUpdate](../Enums/ManagerEventTypes.mdx#playerStateUpdate)</span>
 
 > Emitted when the state of the player has been changed either player paused/resumed or the loop modes have been toggled on or off.
 >
@@ -705,7 +761,7 @@ import TabItem from '@theme/TabItem';
 > | :--------------------------------------------- | :--------------------------------------------------------------------- |
 > | `oldPlayer`                                    | [`Player`](./Player.mdx)                                               |
 > | `newPlayer`                                    | [`Player`](./Player.mdx)                                               |
-> | `changeType`                                   | [`PlayerStateUpdateEvent{}`](../Typedefs/Player.mdx#playerStateUpdate) |
+> | `changeType`                                   | [`playerStateUpdateEvent{}`](../Typedefs/Player/playerStateUpdate.mdx#playerStateUpdate) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -724,17 +780,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### QueueEnd
 
-<span className="info badge">[ManagerEventTypes : QueueEnd](../Enums/ManagerEventTypes.mdx#queueEnd)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> QueueEnd](../Enums/ManagerEventTypes.mdx#queueEnd)</span>
 
 > Emitted when a player queue ends.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
 > | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                                              |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.#unresolvedtrack) |
-> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track.mdx#trackendevent)                                              |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)                                              |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -753,17 +811,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### SegmentSkipped
 
-<span className="info badge">[ManagerEventTypes : SegmentSkipped](../Enums/ManagerEventTypes.mdx#segmentSkipped)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> SegmentSkipped](../Enums/ManagerEventTypes.mdx#segmentSkipped)</span>
 
 > Emitted when a track has skipped a segment.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                                           |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock.mdx#sponsorblocksegmentskipped)          |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped)          |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -782,17 +842,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### SegmentsLoaded
 
-<span className="info badge">[ManagerEventTypes : SegmentsLoaded](../Enums/ManagerEventTypes.mdx#segmentsLoaded)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> SegmentsLoaded](../Enums/ManagerEventTypes.mdx#segmentsLoaded)</span>
 
 > Emitted when a track has loaded segments.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                                           |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock.mdx#sponsorblocksegmentsloaded)          |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded)          |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -811,16 +873,18 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### SocketClosed
 
-<span className="info badge">[ManagerEventTypes : SocketClosed](../Enums/ManagerEventTypes.mdx#socketClosed)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> SocketClosed](../Enums/ManagerEventTypes.mdx#socketClosed)</span>
 
 > Emitted when a voice connection is closed.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                     |
 > | :--------------------------------------------- | :------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                                   |
-> | `payload`                                      | [`WebSocketClosedEvent{}`](../Typedefs/WebSocket.mdx#websocketclosedevent) |
+> | `payload`                                      | [`WebSocketClosedEvent{}`](../Typedefs/WebSocket.mdx#webSocketClosedEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -839,17 +903,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### TrackEnd
 
-<span className="info badge">[ManagerEventTypes : TrackEnd](../Enums/ManagerEventTypes.mdx#trackEnd)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> TrackEnd](../Enums/ManagerEventTypes.mdx#trackEnd)</span>
 
 > Emitted when a track ends.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                   |
 > | :--------------------------------------------- | :------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Node.mdx)                                   |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                 |
-> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track.mdx#trackendevent) |
+> | `player`                                       | [`Player`](./Player.mdx)                                   |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                 |
+> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -868,17 +934,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### TrackError
 
-<span className="info badge">[ManagerEventTypes : TrackError](../Enums/ManagerEventTypes.mdx#trackError)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> TrackError](../Enums/ManagerEventTypes.mdx#trackError)</span>
 
 > Emitted when a track has an error during playback.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Node.mdx)                                                                                   |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.mdx#unresolvedtrack) |
-> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track.mdx#trackexceptionevent)                                     |
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                   |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent)                                     |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -897,17 +965,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### TrackStart
 
-<span className="info badge">[ManagerEventTypes : TrackStart](../Enums/ManagerEventTypes.mdx#trackStart)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> TrackStart](../Enums/ManagerEventTypes.mdx#trackStart)</span>
 
 > Emitted when a track starts.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
 > | :--------------------------------------------- | :----------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Node.mdx)                                       |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                     |
-> | `payload`                                      | [`TrackStartEvent{}`](../Typedefs/Track.mdx#trackstartevent) |
+> | `player`                                       | [`Player`](./Player.mdx)                                       |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                     |
+> | `payload`                                      | [`TrackStartEvent{}`](../Typedefs/Track/trackStartEvent.mdx#trackStartEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -926,17 +996,19 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
+---
+
 ### TrackStuck
 
-<span className="info badge">[ManagerEventTypes : TrackStuck](../Enums/ManagerEventTypes.mdx#trackStuck)</span>
+<span className="info badge">[ManagerEventTypes : <i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> TrackStuck](../Enums/ManagerEventTypes.mdx#trackStuck)</span>
 
 > Emitted when a track gets stuck during playback.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
 > | :--------------------------------------------- | :----------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Node.mdx)                                       |
-> | `track`                                        | [`Track{}`](../Typedefs/Track.mdx#track)                     |
-> | `payload`                                      | [`TrackStuckEvent{}`](../Typedefs/Track.mdx#trackstuckevent) |
+> | `track`                                        | [`Track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                     |
+> | `payload`                                      | [`TrackStuckEvent{}`](../Typedefs/Track/trackStuckEvent.mdx#trackStuckEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>

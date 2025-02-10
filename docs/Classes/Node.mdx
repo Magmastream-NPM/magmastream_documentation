@@ -1,8 +1,8 @@
 ---
-id: Node
-title: Node
-description: Node
-slug: /classes/node
+id: node-class
+title: "Class : Node"
+description: The Node class represents a Lavalink node.
+slug: /classes/Node
 sidebar_label: Node
 ---
 
@@ -44,74 +44,90 @@ import TabItem from '@theme/TabItem';
 | [socket](#socket)                           | [address()](#address)                               |
 | [stats](#stats)                             | [connected()](#connected)                           |
 | [manager](#manager)                         | [connect()](#connect)                               |
-| [sessionId](#sessionid)                     | [createSessionIdsFile()](#createsessionidsfile)     |
-| [rest](#rest)                               | [deleteSponsorBlock()](#deletesponsorblock)         |
+| [sessionId](#sessionId)                     | [createSessionIdsFile()](#createSessionIdsFile)     |
+| [rest](#rest)                               | [deleteSponsorBlock()](#deleteSponsorBlock)         |
 | [info](#timescale)                          | [destroy()](#destroy)                               |
-|                                             | [extractSpotifyArtistID()](#extractspotifyartistid) |
-|                                             | [extractSpotifyTrackID()](#extractspotifytrackid)   |
-|                                             | [fetchInfo()](#fetchinfo)                           |
-|                                             | [getSponsorBlock()](#getsponsorblock)               |
-|                                             | [loadSessionIds()](#loadsessionids)                 |
-|                                             | [setSponsorBlock()](#setsponsorblock)               |
-|                                             | [updateSessionId()](#updatesessionid)               |
+|                                             | [extractSpotifyArtistID()](#extractSpotifyArtistID) |
+|                                             | [extractSpotifyTrackID()](#extractSpotifyTrackID)   |
+|                                             | [fetchInfo()](#fetchInfo)                           |
+|                                             | [getSponsorBlock()](#getSponsorBlock)               |
+|                                             | [loadSessionIds()](#loadSessionIds)                 |
+|                                             | [setSponsorBlock()](#setSponsorBlock)               |
+|                                             | [updateSessionId()](#updateSessionId)               |
 
 ## Properties
 
-### socket
+### socket {#socket}
 
 > The socket for the node.
 >
-> Return: [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### stats
+---
+
+### stats {#stats}
 
 > The stats for the node.
 >
-> Return: [`NodeStats`](../Typedefs/Node/Node.mdx#stats)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`NodeStats`](../Typedefs/Node/nodeStats.mdx#nodeStats)
 
-### manager
+---
+
+### manager {#manager}
 
 > The manager for the node.
 >
-> Return: [`Manager`](./Manager.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Manager`](./Manager.mdx)
 
-### sessionId
+---
+
+### sessionId {#sessionId}
 
 > The node's session ID.
 >
-> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-### rest
+---
+
+### rest {#rest}
 
 <span className="info badge">readonly</span>
 
 > The REST instance.
 >
-> Return: [`Rest`](./Rest.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Rest`](./Rest.mdx)
 
-### info
+---
+
+### info {#info}
 
 > Actual Lavalink information of the node.
 >
-> Return: [`LavalinkInfo`](../Typedefs/Node/Node.mdx#lavalinkinfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`lavalinkInfo{}`](../Typedefs/LavalinkInfo.mdx#lavalinkInfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ## Methods
 
-### address()
+### address() {#address}
+
+<span className="info badge">get</span>
 
 > Returns the address for this node.
 >
-> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### connected()
+---
+
+### connected() {#connected}
 
 <span className="info badge">get</span>
 
 > Returns if connected to the Node.
 >
-> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 
-### connect()
+---
+
+### connect() {#connect}
 
 > Connects to the Node.<br/><br/>
 > If the node is already connected, this method will do nothing.<br/>
@@ -119,27 +135,33 @@ import TabItem from '@theme/TabItem';
 > If the node has no session ID but the `resumeStatus` option is true, it will use the session ID<br/>
 > stored in the sessionIds.json file if it exists.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
-### createSessionIdsFile()
+---
+
+### createSessionIdsFile() {#createSessionIdsFile}
 
 > Creates the sessionIds.json file if it doesn't exist. This file is used to
 > store the session IDs for each node. The session IDs are used to identify
 > the node when resuming a session.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
-### deleteSponsorBlock()
+---
+
+### deleteSponsorBlock(player) {#deleteSponsorBlock}
 
 > Deletes the sponsorblock segments for a player.<br/>
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)               | The player to delete the sponsorblocks for.   |
 
-### destroy()
+---
+
+### destroy() {#destroy}
 
 > Destroys the Node and all players connected with it.<br/><br/>
 > This method will:
@@ -151,65 +173,79 @@ import TabItem from '@theme/TabItem';
 > -   Emit a "nodeDestroy" event with the node as the argument
 > -   Destroy the node from the manager
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
-### extractSpotifyArtistID()
+---
+
+### extractSpotifyArtistID(url) {#extractSpotifyArtistID}
 
 > Extracts the Spotify artist ID from a URL.
 >
-> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
 
-### extractSpotifyTrackID()
+---
+
+### extractSpotifyTrackID(url) {#extractSpotifyTrackID}
 
 > Extracts the Spotify track ID from a URL.
 >
-> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
 > | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
 
-### fetchInfo()
+---
+
+### fetchInfo() {#fetchInfo}
 
 > Fetches Lavalink node information.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`LavalinkInfo`>](../Typedefs/Node/Node.mdx#lavalinkinfo)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lavalinkInfo{}`>](../Typedefs/LavalinkInfo.mdx#lavalinkInfo)
 
-### getSponsorBlock()
+---
+
+### getSponsorBlock(player) {#getSponsorBlock}
 
 > Gets the current sponsorblock segments for a player.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`SponsorBlockSegment[]`>](../Typedefs/Node/Node.mdx#sponsorblocksegment)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)               | The player to get the sponsor blocks for.     |
 
-### loadSessionIds()
+---
+
+### loadSessionIds() {#loadSessionIds}
 
 > Loads session IDs from the sessionIds.json file if it exists.<br/><br/>
 > The session IDs are used to resume sessions for each node.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
-### setSponsorBlock()
+---
+
+### setSponsorBlock(player, segments) {#setSponsorBlock}
 
 > Sets the sponsorblock segments for a player.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
 > | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
 > | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.                                                 |
-> | `segments`                                     | [`SponsorBlockSegment[]`](../Typedefs/Node/Node.mdx#sponsorblocksegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
+> | `segments`                                     | [`sponsorBlockSegment[]`](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
 
-### updateSessionId()
+---
+
+### updateSessionId() {#updateSessionId}
 
 > Updates the session ID in the sessionIds.json file.<br/><br/>
 > This method is called after the session ID has been updated, and it writes the new session ID to the sessionIds.json file.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)

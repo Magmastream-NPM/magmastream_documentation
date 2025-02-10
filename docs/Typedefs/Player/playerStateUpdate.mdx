@@ -1,36 +1,24 @@
 ---
-id: Player
-title: Player
-description: Player
-slug: /typedefs/Player
-sidebar_label: Player
+id: player-typedefs-playerStateUpdate
+title: "Typedefs : Player : playerStateUpdate"
+description: Player state update options.
+slug: /typedefs/Player/playerStateUpdate
+sidebar_label: playerStateUpdate
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Player typedefs
+#
 
-## playerOptions{}
-
-| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
-|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-| `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should deaf itself.             |
-| `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should mute itself.             |
-| `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [NodeIdentifier](./Node.mdx#constructor)                                                             | The node the Player uses.                     |
-| `textChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)   | The text channel the Player belongs to.       |
-| `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                         | The initial volume the Player will use.       |
-| `voiceChannel`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The voice channel the Player belongs to.      |
-| `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                    | The guild ID the Player belongs to.           |
-
-## playerStateUpdate{}
+### playerStateUpdate <span className="info badge">object</span> {#playerStateUpdate}
 
 | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
 |:-----------------------------------------------|:--------------------------------------------------------------|
-| `changeType`                                   | [`PlayerStateEventTypes`](../Enums/PlayerStateEventTypes.mdx) |
-| `details`                                      | [`PlayerStateUpdateDetails`](#playerstateupdatedetails)       |
+| `changeType`                                   | [`PlayerStateEventTypes`](../../Enums/PlayerStateEventTypes.mdx) |
+| `details`                                      | [`PlayerStateUpdateDetails`](#playerStateUpdateDetails)       |
 
-## PlayerStateUpdateDetails
+## PlayerStateUpdateDetails {#playerStateUpdateDetails}
 
 <Tabs>
     <TabItem value="AutoplayChangeEvent" label="AutoplayChangeEvent" default>
@@ -63,13 +51,13 @@ import TabItem from '@theme/TabItem';
         | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
         |:-----------------------------------------------|:--------------------------------------------------------------|
         | `changeType`                                   | "add" \| "remove" \| "clear" \| "shuffle" \| "roundRobin" \| "userBlock" \| "autoPlayAdd" |
-        | `tracks`                                      | [`Track{}`](../Typedefs/Track.mdx#track) \| [`UnresolvedTrack{}`](../Typedefs/Track.#unresolvedtrack)      |
+        | `tracks`                                      | [`Track{}`](../Track/Track.mdx#track) \| [`UnresolvedTrack{}`](../Track/unresolvedTrack.mdx#unresolvedtrack)      |
     </TabItem>
     <TabItem value="TrackChangeEvent" label="TrackChangeEvent">
         | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
         |:-----------------------------------------------|:--------------------------------------------------------------|
         | `changeType`                                   | "start" \| "end" \| "previous" \| "timeUpdate" \| "autoPlay" |
-        | `track`                                      |  [`Track{}`](../Typedefs/Track.mdx#track)      |
+        | `track`                                      |  [`Track{}`](../Track/Track.mdx#track)      |
         | `previousTime`                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)                |
         | `currentTime`                       |  [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)               |
     </TabItem>

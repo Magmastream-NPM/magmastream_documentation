@@ -1,0 +1,28 @@
+---
+id: track-typedefs-trackExceptionEvent
+title: "Typedefs : Track : trackExceptionEvent"
+description: Track exception event.
+slug: /typedefs/Track/trackExceptionEvent
+sidebar_label: trackExceptionEvent
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+#
+
+### trackExceptionEvent <span className="info badge">object</span> {#trackExceptionEvent}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        |
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                                      | "TrackExceptionEvent"                                                                                                            |
+| `guildId`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                                                                                                                                                                           |
+| `exception`                                   | [`Exception`](#exception)    |
+
+### exception <span className="info badge">object</span> {#exception}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        |
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `message`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                            |
+| `severity`                                         | [`SeverityTypes`](../../Enums/SeverityTypes.mdx)                                                                                                                                                                           |
+| `cause`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                           |

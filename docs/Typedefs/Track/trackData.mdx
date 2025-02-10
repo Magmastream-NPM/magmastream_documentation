@@ -1,0 +1,35 @@
+---
+id: track-typedefs-trackData
+title: "Typedefs : Track : trackData"
+description: Track data options.
+slug: /typedefs/Track/trackData
+sidebar_label: trackData
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+#
+
+### trackData <span className="info badge">object</span> {#trackData}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                        | <i className="fa-solid fa-list"/> Description |
+| :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+| `encoded`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                             | The track information.                        |
+| `info`                                         | [`trackDataInfo{}`](#trackDataInfo)                                                                                                                                                                           | The detailed information of the track.        |
+| `pluginInfo`                                   | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)> | Additional track info provided by plugins.    |
+
+### trackDataInfo <span className="info badge">object</span> {#trackDataInfo}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              |
+| :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- |
+| `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `isSeekable`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+| `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `length`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   |
+| `isrc`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `isStream`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+| `title`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `uri`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   |
+| `sourceName`                                   | [`TrackSourceName`](../../Enums/TrackSourceTypes.mdx)                                                  |

@@ -1,0 +1,56 @@
+---
+id: manager-typedefs-managerOptions
+title: "Typedefs : Manager : managerOptions"
+description: Options for the manager.
+slug: /typedefs/manager/managerOptions
+sidebar_label: managerOptions
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+#
+
+### managerOptions <span className="info badge">object</span> {#managerOptions}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                | <i className="fa-solid fa-list"/> Description                                                                                                                                         |
+|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `autoPlay`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether players should automatically play the next song.                                                                                                                          |
+| `autoPlaySearchPlatform`                   | [`SearchPlatform`](../../Enums/SearchPlatform.mdx)                                                                                                                                                               | The search platform autoplay should use. Failback to Youtube if not found.                                                                                                        |
+| `clientName`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                 | Value to use for the `Client-Name` header.                                                                                                                                        |
+| `clientId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [ClientUserId](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id)                                                                                                |  The client ID to use.                                                                                                                                     |
+| `defaultSearchPlatform`                    | [`SearchPlatform`](../../Enums/SearchPlatform.mdx)                                                                                                                                                               | The default search platform to use.                                                                                                                                               |
+| `lastFmApiKey`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [apiKey](https://www.last.fm/api/authentication)                                       | The last.fm API key. If you need to create one go [here](https://www.last.fm/api/account/create) or if you already have one, get it from [here](https://www.last.fm/api/accounts). |
+| `nodes`                                    | [`Node[]`](../Node/nodeOptions.mdx#nodeOptions)                                                                                                                                                           | The array of nodes to connect to.                                                                                                                                                 |
+| `plugins`                                  | [`Plugin[]`](../../Classes/Plugin.mdx)                                                                                                                                                                        | A array of plugins to use.                                                                                                                                                        |
+| `replaceYouTubeCredentials`                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                               | Whether the YouTube video titles should be replaced if the Author does not exactly match.                                                                                         |
+| `send`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) as [send()](#send)                                                                          | Function to send data to the websocket.                                                                                                                                           |
+| `trackPartial`                             | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                                                                                  | An array of track properties to keep. `track` will always be present.                                                                                                                                                                                  |
+| `usePriority`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                                                                                    | Use priority mode over least amount of player or load?                                                                                                                                                                                  |
+| `useNode`                                  | [`UseNode`](../../Enums/UseNodeOptions.mdx)                                                                                                                                                                                                  |  Use the least amount of players or least load?                                                                                                                                                                                 |
+
+### send()
+<Tabs>
+    <TabItem value="Parameters" label="Parameters" default>
+
+        > Function to send data to the websocket.
+        >
+        > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
+        > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
+        > | `id`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The ID of the node to send the data to.       |
+        > | `payload`                                      | [`Payload`](../Manager/Payload.mdx)                                                              | The payload to send                           |
+
+    </TabItem>
+    <TabItem value="Default usage" label="Default usage" default>
+        ```js
+            new Magmastream.Manager({
+                ...ManagerOptions,
+                send: (id, payload) => {
+                    const guild = client.guilds.cache.get(id);
+                    // NOTE: FOR ERIS YOU NEED JSON.stringify() THE PAYLOAD
+                    if (guild) guild.shard.send(payload);
+                },
+            })
+        ```
+    </TabItem>
+</Tabs>
