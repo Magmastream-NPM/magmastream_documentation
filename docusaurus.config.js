@@ -158,7 +158,7 @@ const config = {
       { name: "apple-mobile-web-app-title", content: title },
       { name: "application-name", content: title },
       { name: "theme-color", content: "#ff8c00" },
-
+      { name: "algolia-site-verification", content: "C79C7151130DE594"},
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
