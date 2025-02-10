@@ -327,8 +327,8 @@ const config = {
     },
     algolia: {
       appId: "VTNNHXUUFZ",
-      apiKey: "689b6273fb82c5fed4dac52f31096e82",
-      indexName: "magmastream_com_vtnnhxuufz_articles",
+      apiKey: "ab7a3c6f384023aadfb37f6f9bc980bb",
+      indexName: "docs",
     },
   },
 };
