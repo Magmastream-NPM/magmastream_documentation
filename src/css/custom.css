@@ -725,7 +725,8 @@ blockquote a:has(code):hover code {
 }
 
 .badge a {
-  text-decoration: none;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
   color: inherit;
   border-bottom: 1px dashed currentColor;
 }

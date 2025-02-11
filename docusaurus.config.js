@@ -290,11 +290,11 @@ const config = {
             },
             {
               label: "Installation",
-              to: "/docs/installation",
+              to: "/docs/getting-started/installation",
             },
             {
-              label: "Migrations",
-              to: "/docs/migrations",
+              label: "Migrations (nothing there for now)",
+              to: "/docs/intro",
             },
           ],
         },
@@ -323,9 +323,9 @@ const config = {
       darkTheme: prismThemes.oneDark,
     },
     algolia: {
-      appId: "VTNNHXUUFZ",
-      apiKey: "ab7a3c6f384023aadfb37f6f9bc980bb",
-      indexName: "docs",
+      appId: "0DINHQMAE4",
+      apiKey: "1fc388650de4bef4176d19c8ee8a654c",
+      indexName: "magmastream",
       contextualSearch: true,
     },
   },

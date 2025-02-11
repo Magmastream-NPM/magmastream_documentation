@@ -10,7 +10,7 @@ sidebar_label: Player
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor
+## Constructor {#constructor}
 
 <Tabs>
     <TabItem value="player" label="Player : options" default>
@@ -18,50 +18,51 @@ import TabItem from '@theme/TabItem';
         new Magmastream.Player(options: PlayerOptions)
         ```
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                     | <i className="fa-solid fa-list"/> Description |
-        | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-        | `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should deaf itself.             |
-        | `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                        | If the player should mute itself.             |
-        | `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [NodeIdentifier](./Node.mdx#constructor)                                                              | The node the Player uses.                     |
-        | `textChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)    | The text channel the Player belongs to.       |
-        | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                          | The initial volume the Player will use.       |
-        | `voiceChannel`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)  | The voice channel the Player belongs to.      |
-        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                     | The guild ID the Player belongs to.           |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+        |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                    | The guild ID the Player belongs to.           |
+        | `textChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)   | The text channel the Player belongs to.       |
+        | `voiceChannel`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The voice channel the Player belongs to.      |
+        | `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../../Classes/Node.mdx#constructor)                                                 | The node the Player uses.                     |
+        | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                         | The initial volume the Player will use.       |
+        | `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should mute itself.             |
+        | `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should deaf itself.             |
 
     </TabItem>
 
 </Tabs>
 
-## Table of contents
+## Table of contents {#toc}
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
-| :------------------------------------------ | :------------------------------------------------- |
+|:--------------------------------------------|:---------------------------------------------------|
 | [autoplayTries](#autoPlayTries)             | [connect()](#connect)                              |
 | [bands](#bands)                             | [deleteSponsorBlock()](#deleteSponsorBlock)        |
 | [dynamicRepeat](#dynamicRepeat)             | [destroy()](#destroy)                              |
-| [guildId](#guildId)                         | [disconnect()](#disconnect)                        |
-| [isAutoplay](#isAutoplay)                   | [get()](#get)                                      |
-| [manager](#manager)                         | [getRecommended()](#getRecommended)                |
-| [node](#node)                               | [getSponsorBlock()](#getSponsorBlock)              |
-| [nowPlayingMessage](#nowPlayingMessage)     | [pause()](#pause)                                  |
-| [paused](#paused)                           | [play()](#play)                                    |
-| [playing](#playing)                         | [previous()](#previous)                            |
-| [position](#position)                       | [restart()](#restart)                              |
-| [queue](#queue)                             | [search()](#search)                                |
-| [queueRepeat](#queueRepeat)                 | [seek()](#seek)                                    |
-| [state](#state)                             | [set()](#set)                                      |
-| [textChannel](#textChannel)                 | [setAutoplay()](#setAutoplay)                      |
-| [trackRepeat](#trackRepeat)                 | [setDynamicRepeat()](#setDynamicRepeat)            |
-| [voiceChannel](#voiceChannel)               | [setNowPlayingMessage()](#setNowPlayingMessage)    |
-| [voiceState](#voiceState)                   | [setQueueRepeat()](#setQueueRepeat)                |
-| [volume](#volume)                           | [setSponsorBlock()](#setSponsorBlock)              |
-|                                             | [setTextChannel()](#setTextChannel)                |
+| [filters](#filters)                         | [disconnect()](#disconnect)                        |
+| [guildId](#guildId)                         | [get()](#get)                                      |
+| [isAutoplay](#isAutoplay)                   | [getRecommended()](#getRecommended)                |
+| [manager](#manager)                         | [getSponsorBlock()](#getSponsorBlock)              |
+| [node](#node)                               | [pause()](#pause)                                  |
+| [nowPlayingMessage](#nowPlayingMessage)     | [play()](#play)                                    |
+| [paused](#paused)                           | [previous()](#previous)                            |
+| [playing](#playing)                         | [restart()](#restart)                              |
+| [position](#position)                       | [search()](#search)                                |
+| [queue](#queue)                             | [seek()](#seek)                                    |
+| [queueRepeat](#queueRepeat)                 | [set()](#set)                                      |
+| [state](#state)                             | [setAutoplay()](#setAutoplay)                      |
+| [textChannel](#textChannel)                 | [setDynamicRepeat()](#setDynamicRepeat)            |
+| [trackRepeat](#trackRepeat)                 | [setNowPlayingMessage()](#setNowPlayingMessage)    |
+| [voiceChannel](#voiceChannel)               | [setQueueRepeat()](#setQueueRepeat)                |
+| [voiceState](#voiceState)                   | [setSponsorBlock()](#setSponsorBlock)              |
+| [volume](#volume)                           | [setTextChannel()](#setTextChannel)                |
 |                                             | [setTrackRepeat()](#setTrackRepeat)                |
 |                                             | [setVoiceChannel()](#setVoiceChannel)              |
 |                                             | [setVolume()](#setVolume)                          |
 |                                             | [stop()](#stop)                                    |
 
-## Properties
+
+## Properties {#properties}
 
 ### autoplayTries {#autoPlayTries}
 
@@ -84,6 +85,14 @@ import TabItem from '@theme/TabItem';
 > Whether the queue repeats and shuffles after each song.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+
+---
+
+### filters {#filters}
+
+> The filters applied to the audio.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Filters`](./Filters.mdx)
 
 ---
 
@@ -171,7 +180,7 @@ import TabItem from '@theme/TabItem';
 
 > The current state of the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [<i className="fa-regular fa-rectangle-list" style={{ fontSize: '0.8em' }} /> StateTypes](../Enums/StateTypes.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [<i className="fa-solid fa-bars-staggered" /> StateTypes](../Enums/StateTypes.mdx)
 
 ---
 
@@ -179,7 +188,7 @@ import TabItem from '@theme/TabItem';
 
 > The text channel id for the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
 
 ---
 
@@ -195,7 +204,7 @@ import TabItem from '@theme/TabItem';
 
 > The voice channel id for the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
 
 ---
 
@@ -213,7 +222,7 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 
-## Methods
+## Methods {#methods}
 
 ### connect() {#connect}
 
@@ -237,9 +246,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                  |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- |
-> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                  | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | If `true`, disconnects the player from the voice channel before destroying it. |     <i className="fa-solid fa-check"/>      |
 
 ---
 
@@ -257,9 +266,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: The data associated with the key, cast to the specified type.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -269,10 +278,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`Track[]`>](../Typedefs/Track/Track.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `track`                                        | [`Track`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                                                                                               | The track to find recommendations for.        |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                                                                         | The track to find recommendations for.        |     <i className="fa-solid fa-xmark"/>      |
+> | `requester`                                    | [`User`](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [`ClientUser`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |     <i className="fa-solid fa-check"/>      |
 
 ---
 
@@ -280,7 +289,7 @@ import TabItem from '@theme/TabItem';
 
 > Gets the sponsorblock for the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx#sponsorBlockSegment)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
 
 ---
 
@@ -290,9 +299,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------ |
-> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:-------------------------------------------:|
+> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -327,9 +336,9 @@ import TabItem from '@theme/TabItem';
     </TabItem>
     <TabItem value="playwithtrack" label="Start playing with track">
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
-        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
-        | `track`                                        |  [`Track`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                       | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+        | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |     <i className="fa-solid fa-xmark"/>      |
 
 
         ```js
@@ -351,16 +360,16 @@ import TabItem from '@theme/TabItem';
     </TabItem>
     <TabItem value="playwithoptions" label="Start playing with play options">
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
-        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
-        | `options`                                        |  [`PlayOptions`](../Typedefs/Player/playOptions.mdx#playOptions)                                                |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                            | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:------------------------------------------------------------------|:-------------------------------------------:|
+        | `options`                                      | [`playOptions{}`](../Typedefs/Player/playOptions.mdx#playOptions) |     <i className="fa-solid fa-xmark"/>      |
     </TabItem>
     <TabItem value="playwithtrackandoptions" label="Start playing with track and options">
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
-        |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|
-        | `track`                                        |  [`Track`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-        | `options`                                      |  [`PlayOptions`](../Typedefs/Player/playOptions.mdx#playOptions)                                                  |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                     | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+        | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`UnresolvedTrack`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |     <i className="fa-solid fa-xmark"/>      |
+        | `options`                                      | [`playOptions{}`](../Typedefs/Player/playOptions.mdx#playOptions)                                                                          |     <i className="fa-solid fa-xmark"/>      |
 
 
         ```js
@@ -382,7 +391,6 @@ import TabItem from '@theme/TabItem';
         });
         ```
     </TabItem>
-
 </Tabs>
 
 ---
@@ -410,10 +418,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search/searchResult.mdx#searchResult)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx#searchQuery)           | Query to search.                              |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                   | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx#searchQuery)   | Query to search.                              |     <i className="fa-solid fa-xmark"/>      |
+> | `requester`                                    | [`User`](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [`ClientUser`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |     <i className="fa-solid fa-check"/>      |
 
 ---
 
@@ -423,9 +431,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -435,10 +443,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |
-> | `value`                                        | unknown                                                                                           | The value to set the data to.                 |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |     <i className="fa-solid fa-xmark"/>      |
+> | `value`                                        | unknown                                                                                           | The value to set the data to.                 |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -449,11 +457,11 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
-> | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |
-> | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |
-> | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |     <i className="fa-solid fa-xmark"/>      |
+> | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |     <i className="fa-solid fa-xmark"/>      |
+> | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -463,10 +471,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not                     |
-> | `ms`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------:|
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not                     |     <i className="fa-solid fa-xmark"/>      |
+> | `ms`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -476,9 +484,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `message`                                      | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.       |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `message`                                      | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.       |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -488,9 +496,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -500,9 +508,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
-> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
-> | `segments`                                     | [`sponsorBlockSegment[]`](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx#sponsorBlockSegment) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- | :-------------------------------------------: |
+> | `segments`                                     | [`sponsorBlockSegment[]`](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |    <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -513,9 +521,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                  | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildTextChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                     | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                      |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -527,9 +535,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -539,9 +547,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildVoiceChannelID](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                     |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                     |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -551,9 +559,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------- |
-> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-------------------------------------------:|
+> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -563,6 +571,6 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------- |
-> | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to skip, e.g 5 would play the 5th song. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-------------------------------------------:|
+> | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to skip, e.g 5 would play the 5th song. |     <i className="fa-solid fa-check"/>      |

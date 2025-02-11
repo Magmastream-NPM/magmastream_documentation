@@ -9,7 +9,7 @@ sidebar_label: Node
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor
+## Constructor {#constructor}
 
 <Tabs>
     <TabItem value="node" label="Node : options" default>
@@ -17,19 +17,19 @@ import TabItem from '@theme/TabItem';
         new Magmastream.Node(options: NodeOptions)
         ```
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                         |
-        | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |
-        | `host`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The host for the node.                                                |
-        | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The identifier for the node.                                          |
-        | `password`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The password for the node.                                            |
-        | `port`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The port for the node.                                                |
-        | `priority`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | Priority of the node.                                                 |
-        | `requestTimeout`                               | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout used for api calls.                                       |
-        | `retryAmount`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryAmount for the node.                                         |
-        | `retryDelay`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryDelay for the node.                                          |
-        | `resumeStatus`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to resume the previous session.                               |
-        | `resumeTimeout`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time the lavalink server will wait before it removes the player.  |
-        | `secure`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the host uses SSL.                                            |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                        |
+        |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+        | `host`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The host for the node.                                               |
+        | `port`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The port for the node.                                               |
+        | `password`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The password for the node.                                           |
+        | `secure`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the host uses SSL.                                           |
+        | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The identifier for the node.                                         |
+        | `retryAmount`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryAmount for the node.                                        |
+        | `retryDelay`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryDelay for the node.                                         |
+        | `resumeStatus`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to resume the previous session.                              |
+        | `resumeTimeout`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time the lavalink server will wait before it removes the player. |
+        | `requestTimeout`                               | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout used for api calls.                                      |
+        | `priority`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | Priority of the node.                                                |
 
 
 
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
 
 </Tabs>
 
-## Table of contents
+## Table of contents {#toc}
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods  |
 | :------------------------------------------ | :-------------------------------------------------- |
@@ -55,7 +55,7 @@ import TabItem from '@theme/TabItem';
 |                                             | [setSponsorBlock()](#setSponsorBlock)               |
 |                                             | [updateSessionId()](#updateSessionId)               |
 
-## Properties
+## Properties {#properties}
 
 ### socket {#socket}
 
@@ -69,7 +69,7 @@ import TabItem from '@theme/TabItem';
 
 > The stats for the node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`NodeStats`](../Typedefs/Node/nodeStats.mdx#nodeStats)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`nodeStats{}`](../Typedefs/Node/nodeStats.mdx#nodeStats)
 
 ---
 
@@ -105,7 +105,7 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [`lavalinkInfo{}`](../Typedefs/LavalinkInfo.mdx#lavalinkInfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
-## Methods
+## Methods {#methods}
 
 ### address() {#address}
 
@@ -155,9 +155,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)               | The player to delete the sponsorblocks for.   |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- | :-----------------------------------------: |
+> | `player`                                       | [`Player`](./Player.mdx)               | The player to delete the sponsorblocks for.   |   <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -183,9 +183,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -195,9 +195,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The URL to extract the artist ID from.        |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -215,9 +215,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)               | The player to get the sponsor blocks for.     |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:---------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                       | [`Player`](./Player.mdx)               | The player to get the sponsor blocks for.     |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -236,10 +236,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             |
-> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.                                                 |
-> | `segments`                                     | [`sponsorBlockSegment[]`](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- | :-----------------------------------------: |
+> | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.                                                 |    <i className="fa-solid fa-xmark"/>      |
+> | `segments`                                     | [`sponsorBlockSegment[]`](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |   <i className="fa-solid fa-xmark"/>      |
 
 ---
 

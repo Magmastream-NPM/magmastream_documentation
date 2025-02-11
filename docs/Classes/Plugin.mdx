@@ -9,36 +9,36 @@ sidebar_label: Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Table of contents
+## Table of contents {#toc}
 
 | <i className="fa-solid fa-boxes-stacked"/> Methods |
-| :------------------------------------------------- |
+|:---------------------------------------------------|
 | [load()](#load)                                    |
 | [unload()](#unload)                                |
 
-## Methods
+## Methods {#methods}
 
-### load()
+### load(manager) {#load}
 
 > Load the plugin.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager                                       |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager for plugin                                      |
 
-### unload()
+### unload(manager) {#unload}
 
 > Unload the plugin.
 >
-> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager                                       |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager for plugin                                      |
 
-## Example usage
+## Example usage {#exampleUsage}
 
 <Tabs>
     <TabItem value="usage" label="Using plugins" default>
