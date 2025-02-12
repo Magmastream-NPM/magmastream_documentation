@@ -45,7 +45,7 @@ import TabItem from '@theme/TabItem';
 
 > The current track
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ### guildId {#guildId}
 
@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
 
 > The previous track
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
 
 ## Methods {#methods}
 
@@ -73,10 +73,10 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                                                                                             | <i className="fa-solid fa-list"/> Description                                                             | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | ([`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack)) \| ([`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack))[] | The track or tracks to add. Can be a single `Track` or an array of `Track`s.                              |     <i className="fa-solid fa-xmark"/>      |
-> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                                                                                  | The position to add the track(s) at. If not provided, the track(s) will be added at the end of the queue. |     <i className="fa-solid fa-check"/>      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                         | <i className="fa-solid fa-list"/> Description                                                             | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)[] | The track or tracks to add. Can be a single `Track` or an array of `Track`s.                              |     <i className="fa-solid fa-xmark"/>      |
+> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                              | The position to add the track(s) at. If not provided, the track(s) will be added at the end of the queue. |     <i className="fa-solid fa-check"/>      |
 
 ### clear() {#clear}
 
@@ -96,7 +96,7 @@ import TabItem from '@theme/TabItem';
 
 > Removes track(s) from the queue.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: ([`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack))[]
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)[]
 
 <Tabs>
     <TabItem value="removewithposition" label="Remove track with position" default>

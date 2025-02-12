@@ -77,14 +77,14 @@ import TabItem from '@theme/TabItem';
 |                                             | [destroy()](#destroy)                              | [nodeCreate](#nodeCreate)                      |
 |                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodeDestroy)                    |
 |                                             | [get()](#get)                                      | [nodeDisconnect](#nodeDisconnect)              |
-|                                             | [init()](#init)                                    | [nodeError](#nodeError)                        |
-|                                             | [loadPlayerStates()](#loadPlayerStates)            | [nodeRaw](#nodeRaw)                            |
-|                                             | [on()](#on)                                        | [nodeReconnect](#nodeReconnect)                |
-|                                             | [savePlayerState()](#savePlayerState)              | [playerCreate](#playerCreate)                  |
-|                                             | [search()](#search)                                | [playerDestroy](#playerDestroy)                |
-|                                             | [updateVoiceState()](#updateVoiceState)            | [playerDisconnect](#playerDisconnect)          |
-|                                             | [useableNode()](#useableNode)                      | [playerMove](#playerMove)                      |
-|                                             |                                                    | [playerStateUpdate](#playerStateUpdate)        |
+|                                             | [handleShutdown()](#handleShutdown)                | [nodeError](#nodeError)                        |
+|                                             | [init()](#init)                                    | [nodeRaw](#nodeRaw)                            |
+|                                             | [loadPlayerStates()](#loadPlayerStates)            | [nodeReconnect](#nodeReconnect)                |
+|                                             | [on()](#on)                                        | [playerCreate](#playerCreate)                  |
+|                                             | [savePlayerState()](#savePlayerState)              | [playerDestroy](#playerDestroy)                |
+|                                             | [search()](#search)                                | [playerDisconnect](#playerDisconnect)          |
+|                                             | [updateVoiceState()](#updateVoiceState)            | [playerMove](#playerMove)                      |
+|                                             | [useableNode()](#useableNode)                      | [playerStateUpdate](#playerStateUpdate)        |
 |                                             |                                                    | [queueEnd](#queueEnd)                          |
 |                                             |                                                    | [segmentSkipped](#segmentSkipped)              |
 |                                             |                                                    | [segmentsLoaded](#segmentsLoaded)              |
@@ -243,6 +243,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+### handleShutdown() {#handleShutdown}
+
+> Handles the shutdown of the process by saving all active player's states and optionally cleaning up inactive players.<br/><br/>
+> This function is called when the process is about to exit.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+---
+
 ### on(event, listener: () => \{}) {#on}
 
 > Attaches an event listener to the manager.
@@ -352,11 +361,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has started a chapter.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted)                |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
+> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -383,11 +392,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has loaded chapters.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                 |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded)                |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
+> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -799,11 +808,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a player queue ends.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                |
-> | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                              |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)                                              |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                 |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                               |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)           |
+> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -830,11 +839,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has skipped a segment.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                           |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped)          |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
+> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -861,11 +870,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has loaded segments.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                             |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                           |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded)          |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
+> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
+> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>
@@ -953,11 +962,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has an error during playback.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                   |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                   |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`unresolvedTrack{}`](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack) |
-> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent)                                     |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                   |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                 |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                             |
+> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>

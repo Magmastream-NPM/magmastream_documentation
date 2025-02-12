@@ -40,7 +40,7 @@ import TabItem from '@theme/TabItem';
 ## Table of contents {#toc}
 
 | <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods  |
-| :------------------------------------------ | :-------------------------------------------------- |
+|:--------------------------------------------|:----------------------------------------------------|
 | [socket](#socket)                           | [address()](#address)                               |
 | [stats](#stats)                             | [connected()](#connected)                           |
 | [manager](#manager)                         | [connect()](#connect)                               |
@@ -50,6 +50,7 @@ import TabItem from '@theme/TabItem';
 |                                             | [extractSpotifyArtistID()](#extractSpotifyArtistID) |
 |                                             | [extractSpotifyTrackID()](#extractSpotifyTrackID)   |
 |                                             | [fetchInfo()](#fetchInfo)                           |
+|                                             | [getLyrics()](#getLyrics)                           |
 |                                             | [getSponsorBlock()](#getSponsorBlock)               |
 |                                             | [loadSessionIds()](#loadSessionIds)                 |
 |                                             | [setSponsorBlock()](#setSponsorBlock)               |
@@ -206,6 +207,20 @@ import TabItem from '@theme/TabItem';
 > Fetches Lavalink node information.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lavalinkInfo{}`>](../Typedefs/LavalinkInfo.mdx#lavalinkInfo)
+
+---
+
+### getLyrics(track, skipTrackSource) {#getLyrics}
+
+> Fetches the lyrics of a track from the Lavalink node.<br/><br/>
+> This method uses the `lavalyrics-plugin` to fetch the lyrics. If the plugin is not available, it will throw a RangeError.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lyrics{}`>](../Typedefs/Node/lyrics.mdx#lyrics)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                        | The track to fetch the lyrics for.            |     <i className="fa-solid fa-xmark"/>      |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip using the track's source URL. |     <i className="fa-solid fa-check"/>      |
 
 ---
 
