@@ -1,0 +1,22 @@
+---
+id: player-typedefs-playerOptions
+title: "Typedefs : Player : playerOptions"
+description: Options for the player.
+slug: /typedefs/Player/playerOptions
+sidebar_label: playerOptions
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## playerOptions <span className="info badge">object</span> {#playerOptions}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                    | The guild ID the Player belongs to.           |
+| `textChannelId`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)   | The text channel the Player belongs to.       |
+| `voiceChannelId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The voice channel the Player belongs to.      |
+| `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../../Classes/Node.mdx#constructor)                                                 | The node the Player uses.                     |
+| `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                         | The initial volume the Player will use.       |
+| `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should mute itself.             |
+| `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                       | If the player should deaf itself.             |

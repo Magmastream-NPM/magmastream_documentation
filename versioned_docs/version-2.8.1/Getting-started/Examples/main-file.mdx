@@ -1,0 +1,83 @@
+---
+id: main-file
+title: Creating the main file
+description: Creating the main file
+slug: /getting-started/examples/main-file
+sidebar_position: 2
+sidebar_label: 📜 Creating the main file
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Creating the main file
+
+:::tip
+💡 This page assumes you've already prepared the [configuration files](/docs/getting-started/examples/configuration) from the previous page. We're using the `config.js` approach, however feel free to substitute your own!
+:::
+
+Open your code editor and create a new file. We suggest that you save the file as `index.js`, but you may name it whatever you wish.
+
+Here's the base code to get you started:
+
+```javascript showLineNumbers
+const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Manager, UseNodeOptions, SearchPlatform } = require('magmastream');
+const config = require('./config.js');
+
+// Create a new client instance
+const client = new Client({
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.MessageContent],
+});
+
+// Assign Manager to the client
+client.manager = new Manager({
+	autoPlay: true, // Optional! - Recommanded to be true
+	usePriority: false, // Optional! - Recommanded if you have more than 1 node
+	replaceYouTubeCredentials: true, // Optional! - Recommanded to be true
+	lastFmApiKey: config.lastFmApiKey, // Optional!
+	trackPartial: ['pluginInfo', 'title', 'author', 'duration', 'uri', 'requester', 'artworkUrl', 'sourceName', 'identifier', 'artistUrl'], // Optional!
+	useNode: UseNodeOptions.LeastLoad, // Optional!
+	defaultSearchPlatform: SearchPlatform.YouTube, // Optional! - Assuming YouTube is enabled on Lavalink
+	autoPlaySearchPlatform: SearchPlatform.Spotify, // Optional! - Assuming Spotify is enabled on Lavalink
+	nodes: config.nodes,
+	send: async (id, payload) => {
+		const guild = client.guilds.cache.get(id);
+		if (guild) await guild.shard.send(payload);
+	},
+});
+
+client.on(Events.Raw, (data) => {
+    client.manager.updateVoiceState(data);
+})
+
+client.once(Events.ClientReady, (client) => {
+	console.log(`Ready! Logged in as ${client.user.tag}`);
+});
+
+// Log in the client
+client.login(config.token);
+```
+
+This code creates a client instance of Discord and Magmastream for your Discord bot and logs in to Discord. The `GatewayIntentBits.Guilds`, `GatewayIntentBits.GuildVoiceStates`, and `GatewayIntentBits.MessageContent` intents are essential for the bot to receive updates about guilds, voice states, and message content, ensuring it can interact effectively with users and manage voice channels wich is required by magmastream.
+
+:::tip
+💡 The term "guild" is used by the Discord API and in discord.js to refer to a Discord server.
+:::
+
+Intents also define which events Discord should send to your bot, and you may wish to enable more than just the minimum. You can read more about the other intents on the [Intents topic<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://discordjs.guide/popular-topics/intents.html#privileged-intents).
+
+## Running your application
+
+Open your terminal and run `node index.js` to start the process. If you see "Ready!" after a few seconds, your' good to go!
+The next step is to start adding slash commands to develop your bot's functionality.
+
+:::tip
+💡 You can open your `package.json` file and edit the `"main": "index.js"` field to point to your main file. You can then run `node .` in your terminal to start the process!
+
+After closing the process with `Ctrl + C`, you can press the up arrow on your keyboard to bring up the latest commands you've run. Pressing up and then enter after closing the process is a quick way to start it up again.
+:::
+
+## Resulting code
+
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/25f070007c1819fc4cb5fa0b8c3939320119d8e2/src).

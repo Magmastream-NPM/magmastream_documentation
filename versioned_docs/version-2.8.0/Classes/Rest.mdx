@@ -1,0 +1,176 @@
+---
+id: rest
+title: Rest
+description: Rest
+slug: /classes/rest
+sidebar_label: Rest
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor {#constructor}
+
+<Tabs>
+    <TabItem value="rest" label="Rest : options" default>
+        ```js
+        new Magmastream.Rest(node: Node, manager: Manager)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+        | `node`                                         | [`Node`](./Node.mdx#constructor)       | The node                                      |
+        | `manager`                                      | [`Manager`](./Manager.mdx#constructor) | The Manager instance.                         |
+    </TabItem>
+</Tabs>
+
+## Table of contents {#toc}
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
+|:--------------------------------------------|:---------------------------------------------------|
+| [manager](#manager)                         | [delete()](#delete)                                |
+| [password](#password)                       | [destroyPlayer()](#destroyPplayer)                 |
+| [node](#node)                               | [get()](#get)                                      |
+| [url](#url)                                 | [getAllPlayers()](#getAllplayers)                  |
+| [sessionId](#sessionId)                     | [patch()](#path)                                   |
+|                                             | [post()](#post)                                    |
+|                                             | [put()](#put)                                      |
+|                                             | [setSessionId()](#setSessionId)                    |
+|                                             | [updatePlayer()](#updatePlayer)                    |
+|                                             | [updateSession()](#updateSession)                  |
+
+## Properties {#properties}
+
+### manager {#manager}
+
+> The Manager instance.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Manager`](./Manager.mdx)
+
+---
+
+### password {#password}
+
+> Password of the node.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+---
+
+### node {#node}
+
+> The node for the Rest.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Node`](./Node.mdx)
+
+---
+
+### url {#url}
+
+> The url of the node.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+---
+
+### sessionId {#sessionId}
+
+> The sessionId of the Node.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+## Methods {#methods}
+
+### delete(endpoint) {#delete}
+
+> Sends a DELETE request to the server to destroy the player.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `endpoint`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the DELETE request to.   |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### destroyPlayer(guildId) {#destroyPlayer}
+
+> Sends a DELETE request to the server to destroy the player.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### get(endpoint) {#get}
+
+> Sends a GET request to the specified endpoint and returns the response data.
+>
+> <i className="fa-solid fa-right-to-bracket" /> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `endpoint`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the GET request to.      |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### getAllPlayers() {#getAllPlayers}
+
+> Retrieves all the players that are currently running on the node.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+
+---
+
+### put(endpoint, body) {#put}
+
+> Sends a PUT request to the specified endpoint and returns the response data.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `endpoint`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint to send the PUT request to.      |     <i className="fa-solid fa-xmark"/>      |
+> | `body`                                         | unknown                                                                                           | The data to send in the request body.         |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### setSessionId(sessionId) {#setSessionId}
+
+> Sets the session ID.<br/><br/>
+> This method is used to set the session ID after a resume operation is done.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `sessionId`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID to set.                        |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### updatePlayer(options) {#updatePlayer}
+
+> Sends a PATCH request to update player related data.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                          | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `options`                                      | [`playOptions{}`](../Typedefs/Rest/playOptions.mdx#playOptions) | The options to update the player with.        |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### updateSession(resuming, timeout) {#updateSession}
+
+> Updates the session status for resuming.<br/><br/>
+> This method sends a PATCH request to update the session's resuming status and timeout.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description            | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-------------------------------------------:|
+> | `resuming`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Indicates whether the session should be set to resuming. |     <i className="fa-solid fa-xmark"/>      |
+> | `timeout`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout duration for the session resume.             |     <i className="fa-solid fa-xmark"/>      |
