@@ -93,7 +93,19 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "v2.8.0 (current)",
+              label: "v2.8.2 (current)",
+            },
+            "2.8.1": {
+              label: "v2.8.1",
+              path: "2.8.1",
+              banner: "none",
+              noIndex: false,
+            },
+            "2.8.0": {
+              label: "v2.8.0",
+              path: "2.8.0",
+              banner: "none",
+              noIndex: false,
             },
             "2.7.5": {
               label: "v2.7.5",
