@@ -1,5 +1,7 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useEffect, useState } from 'react';
+import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 import styles from './Statistics.module.css';
 
@@ -75,16 +77,14 @@ const Statistics = () => {
             } catch (error) {
                 console.error('Błąd podczas pobierania danych:', error);
             } finally {
-                setLoading(false);
+                setTimeout(() => {
+                    setLoading(false);
+                }, 4000)
             }
         };
 
         fetchData();
     }, [isBrowser]);
-
-    if (loading) {
-        return <div style={{ height: '100%', display: 'flex', justifyContent: "center", alignContent: 'center'}}>Loading</div>;
-    }
 
     return (
             <main className={styles.main}>
@@ -96,74 +96,105 @@ const Statistics = () => {
                     }}>
                         Statistics
                     </Heading>
-                    <div className={styles.grid}>
-                        {repoData && (
-                            <>
-                                <div className={styles.card}>
-                                    <h2>⭐ Stars</h2>
-                                    <p>{formatNumber(repoData.stargazers_count)} stars</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>👀 Watchers</h2>
-                                    <p>{formatNumber(repoData.subscribers_count)} watchers</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>🍴 Forks</h2>
-                                    <p>{formatNumber(repoData.forks_count)} forks</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>🚨 Open issues</h2>
-                                    <p>{formatNumber(repoData.open_issues_count)} issues</p>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                    <div className={styles.grid}>
-                        {repoData && (
-                            <>
-                                <div className={styles.card}>
-                                    <h2>⌚ Github Created at</h2>
-                                    <p>{formatDate(repoData.created_at)}</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>⬆️ Github Updated at</h2>
-                                    <p>{formatDate(repoData.updated_at)}</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>➡️ Github Pushed at</h2>
-                                    <p>{formatDate(repoData.pushed_at)}</p>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                    <div className={styles.grid}>
-                        {repoData && (
-                            <>
-                                <div className={styles.card}>
-                                    <h2>⌚ NPM Created at</h2>
-                                    <p>{formatDate(registryData.time.created)}</p>
-                                </div>
-                                <div className={styles.card}>
-                                    <h2>⬆️ NPM Modified at</h2>
-                                    <p>{formatDate(registryData.time.modified)}</p>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                    <div className={styles.grid}>
-                        {contributorsData && (
+                    <SkeletonTheme baseColor="#0a0a0a" highlightColor="#111112">
+                        <div className={styles.grid}>
                             <div className={styles.card}>
-                                <h2>👥 Contributors</h2>
-                                <p>{formatNumber(contributorsData.length)} contributors</p>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>⭐ Stars</h2>
+                                        <p>{formatNumber(repoData.stargazers_count)} stars</p>
+                                    </>
+                                )}
                             </div>
-                        )}
-                        {npmData && (
                             <div className={styles.card}>
-                                <h2>⬇️ Downloads</h2>
-                                <p>{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads</p>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>👀 Watchers</h2>
+                                        <p>{formatNumber(repoData.subscribers_count)} watchers</p>
+                                    </>
+                                )}
                             </div>
-                        )}
-                    </div>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>🍴 Forks</h2>
+                                        <p>{formatNumber(repoData.forks_count)} forks</p>
+                                    </>
+                                )}
+                            </div>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>🚨 Open issues</h2>
+                                        <p>{formatNumber(repoData.open_issues_count)} issues</p>
+                                    </>
+                                )}
+                            </div>
+
+                        </div>
+                        <div className={styles.grid}>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>⌚ Github Created at</h2>
+                                        <p>{formatDate(repoData.created_at)}</p>
+                                    </>
+                                )}
+                            </div>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>⬆️ Github Updated at</h2>
+                                        <p>{formatDate(repoData.updated_at)}</p>
+                                    </>
+                                )}
+                            </div>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>➡️ Github Pushed at</h2>
+                                        <p>{formatDate(repoData.pushed_at)}</p>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        <div className={styles.grid}>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>⌚ NPM Created at</h2>
+                                        <p>{formatDate(registryData.time.created)}</p>
+                                    </>
+                                )}
+                            </div>
+                            <div className={styles.card}>
+                                {loading ? <Skeleton height={75} /> : (
+                                    <>
+                                        <h2>⬆️ NPM Modified at</h2>
+                                        <p>{formatDate(registryData.time.modified)}</p>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        <div className={styles.grid}>
+                                <div className={styles.card}>
+                                    {loading ? <Skeleton height={75} /> : (
+                                        <>
+                                            <h2>👥 Contributors</h2>
+                                            <p>{formatNumber(contributorsData.length)} contributors</p>
+                                        </>
+                                    )}
+                                </div>
+                                <div className={styles.card}>
+                                    {loading ? <Skeleton height={75} /> : (
+                                        <>
+                                            <h2>⬇️ Downloads</h2>
+                                            <p>{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads</p>
+                                        </>
+                                    )}
+                                </div>
+                        </div>
+                    </SkeletonTheme>
                 </div>
             </main>
     );

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './Statistics.module.css';
 import Link from "@docusaurus/Link";
 import LoadingSkeleton from "../../Common/LoadingSkeleton";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 
 const formatNumber = (number) => number.toLocaleString();
 
@@ -60,35 +61,29 @@ const Statistics = () => {
 			} catch (error) {
 				console.error('Błąd podczas pobierania danych:', error);
 			} finally {
-				setLoading(false);
+				setTimeout(() => {
+					setLoading(false);
+				}, 4000)
 			}
 		};
 
 		fetchData();
 	}, [isBrowser]);
 
-	if (loading) {
-		return <LoadingSkeleton />;
-	}
-
 	return (
 		<ul>
-			{npmData && (
-				<li className={styles.downloads}>
-					{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads
-				</li>
-			)}
-			{repoData && (
-				<>
-					<li className={styles.stars}>{formatNumber(repoData.stargazers_count)}+ stars</li>
-					<li className={styles.forks}>{formatNumber(repoData.forks_count)}+ forks</li>
-				</>
-			)}
-			{contributorsData && (
-				<li className={styles.contributors}>
-					{formatNumber(contributorsData.length)}+ contributors
-				</li>
-			)}
+			<SkeletonTheme baseColor="#0a0a0a" highlightColor="#111112">
+				{loading ? <Skeleton count={4} style={{
+					marginLeft: '-2rem'
+				}} /> : (
+					<>
+						<li className={styles.downloads}>{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads</li>
+						<li className={styles.stars}>{formatNumber(repoData.stargazers_count)}+ stars</li>
+						<li className={styles.forks}>{formatNumber(repoData.forks_count)}+ forks</li>
+						<li className={styles.contributors}>{formatNumber(contributorsData.length)}+ contributors</li>
+					</>
+				)}
+			</SkeletonTheme>
 			<li className={styles.more}>
 				<Link to="/statistics">More statistics <i className="fa-solid fa-arrow-up-right-from-square fa-xs"/></Link>
 			</li>

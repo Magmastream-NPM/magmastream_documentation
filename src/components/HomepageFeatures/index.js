@@ -117,12 +117,14 @@ const HomePageFeatures = ({ siteConfig }) => (
                             {siteConfig.tagline}
                             <br />
                             <i className="fa-solid fa-check" style={{
-                                color: '#b85b13'
-                            }}></i> Deezer & Spotify Support Powered by LavaSrc
+                                color: '#b85b13',
+                                marginRight: '0.4rem'
+                            }}></i><a href={"/docs/enums/SearchPlatform"}>Multiple Sources</a> Powered by <a href={"https://github.com/topi314/LavaSrc"}>LavaSrc</a>
                             <br />
                             <i className="fa-solid fa-check" style={{
-                                color: '#b85b13'
-                            }}></i> Unleash Your Music Across All Major Platforms, From SoundCloud to Spotify and Beyond!
+                                color: '#b85b13',
+                                marginRight: '0.4rem'
+                            }}></i>Unleash Your Music Across All Major Platforms, From SoundCloud to Spotify and Beyond!
                         </div>
                     </div>
                 </div>
