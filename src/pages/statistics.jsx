@@ -125,7 +125,7 @@ const Statistics = () => {
                             <div className={styles.card}>
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
-                                        <h2>🚨 Open issues</h2>
+                                        <h2>🚨 Open issues/pull requests</h2>
                                         <p>{formatNumber(repoData.open_issues_count)} issues</p>
                                     </>
                                 )}
