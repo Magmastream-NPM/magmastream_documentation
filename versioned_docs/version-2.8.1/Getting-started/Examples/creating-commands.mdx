@@ -152,7 +152,7 @@ discord-bot/
                                 volume: 100,
                             });
                             // Connect to the voice channel if the player is not already connected
-                            if (player.state !== StateTypes.Disconnected) player.connect();
+                            if (player.state !== StateTypes.Connected) player.connect();
                         } catch (error) {
                             return await interaction
                                 .editReply(`An error occurred while creating the player: ${error.message}`)
@@ -228,4 +228,4 @@ For now let's move on to the code you'll need for command handling, to load the 
 
 ## Resulting code
 
-If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/25f070007c1819fc4cb5fa0b8c3939320119d8e2/src).
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/65c2f19922912f9e5a0f5fe4bf0e578c683035c0/src).
