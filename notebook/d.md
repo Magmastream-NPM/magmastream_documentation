@@ -1,0 +1,7 @@
+|                                                                 |                                                                     |                                                                   |
+|-----------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|
+| [<i className="fa-solid fa-music" /> Track](#track)             | [<i className="fa-solid fa-heading" /> Title](#title)               | [<i className="fa-solid fa-barcode" /> Identifier](#identifier)   |
+| [<i className="fa-solid fa-user" /> Author](#author)            | [<i className="fa-solid fa-clock" /> Duration](#duration)           | [<i className="fa-solid fa-tag" /> Isrc](#isrc)                   |
+| [<i className="fa-solid fa-forward" /> IsSeekable](#isSeekable) | [<i className="fa-solid fa-broadcast-tower" /> IsStream](#isStream) | [<i className="fa-solid fa-link" /> Uri](#uri)                    |
+| [<i className="fa-solid fa-image" /> ArtworkUrl](#artworkUrl)   | [<i className="fa-solid fa-database" /> SourceName](#sourceName)    | [<i className="fa-solid fa-photo-video" /> Thumbnail](#thumbnail) |
+| [<i className="fa-solid fa-user-tag" /> Requester](#requester)  | [<i className="fa-solid fa-plug" /> PluginInfo](#pluginInfo)        | [<i className="fa-solid fa-cogs" /> CustomData](#customData)      |

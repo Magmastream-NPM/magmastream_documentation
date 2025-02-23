@@ -17,9 +17,9 @@ import TabItem from '@theme/TabItem';
         new Magmastream.Filters(player: Player)
         ```
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-        | `player`                                       | [`Player`](./Player.mdx#constructor)   | The guild player.                             |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:---------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+        | `player`                                       | [`Player`](./Player.mdx#constructor)   | The guild player.                             |     <i className="fa-solid fa-xmark"/>      |
     </TabItem>
 </Tabs>
 
@@ -55,6 +55,7 @@ import TabItem from '@theme/TabItem';
 |                                             | [tremolo()](#tremolo)                              |
 |                                             | [trebleBass()](#trebleBass)                        |
 |                                             | [tv()](#tv)                                        |
+|                                             | [updateFilters()](#updateFilters)                  |
 |                                             | [vaporwave()](#vaporwave)                          |
 
 ## Properties {#properties}
@@ -123,32 +124,57 @@ import TabItem from '@theme/TabItem';
 
 ## Methods {#methods}
 
-### bassBoost() {#bassBoost}
+### bassBoost(status) {#bassBoost}
 
-> Applies the bass boost effect by setting an equalizer with boosted bass frequencies.<br/><br/>
-> This method enhances the lower frequencies of the audio, giving the audio a deep and powerful bass response.
+<span className="warning badge">async function</span>
+
+> Toggles the bass boost effect on the audio.<br/><br/>
+> This method applies or removes a bass boost effect by adjusting the equalizer settings. When enabled, it enhances the low frequencies of the audio, providing a richer and deeper sound.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the bass boost effect. |     <i className="fa-solid fa-xmark"/>      |
+
 
 ---
 
-### china() {#china}
+### china(status) {#china}
 
-> Apply the china audio effect.
+<span className="warning badge">async function</span>
+
+> Toggles the "China" effect on the audio.<br/><br/>
+> This method applies or removes a filter that reduces the pitch of the audio by half, changing the speed or rate. This creates a "hollow" or "echoey" sound.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the china effect. |     <i className="fa-solid fa-xmark"/>      |
+
 
 ---
 
-### chipmunk() {#chipmunk}
+### chipmunk(status) {#chipmunk}
 
-> Apply the chipmunk audio effect.
+<span className="warning badge">async function</span>
+
+> Toggles the chipmunk effect on the audio.<br/><br/>
+> This method applies or removes a chipmunk effect by adjusting the timescale settings. When enabled, it increases the speed, pitch, and rate of the audio, resulting in a high-pitched, fast playback similar to the sound of a chipmunk.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the chipmunk effect. |     <i className="fa-solid fa-xmark"/>      |
+
 
 ---
 
 ### clearFilters() {#clearFilters}
+
+<span className="warning badge">async function</span>
 
 > Clears all filters applied to the audio.<br/><br/>
 > This method resets all filter settings to their default values and removes any active filters from the player.
@@ -157,54 +183,89 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### darthvader() {#darthvader}
+### darthvader(status) {#darthvader}
+
+<span className="warning badge">async function</span>
 
 > Applies the darthvader effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the darthvader effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### daycore() {#daycore}
+### daycore(status) {#daycore}
+
+<span className="warning badge">async function</span>
 
 > Applies the daycore effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
-
----
-
-### distort() {#distort}
-
-> Applies a distortion effect to the audio.<br/><br/>
-> This method applies a distortion effect by adjusting various distortion parameters. <br/>
-> It can make the audio sound rougher and more intense.
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the daycore effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### doubletime() {#dobletime}
+### distort(status) {#distort}
+
+<span className="warning badge">async function</span>
+
+> Toggles the distortion effect on the audio.<br/><br/>
+> This method applies or removes a distortion effect by adjusting the distortion settings. When enabled, it adds a rougher, more intense quality to the sound by altering the audio signal to create a more jagged, irregular waveform.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the distort effect. |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### doubletime(status) {#dobletime}
+
+<span className="warning badge">async function</span>
 
 > Applies the doubletime effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description       | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the doubletime effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### earrape() {#earrape}
+### earrape(status) {#earrape}
+
+<span className="warning badge">async function</span>
 
 > Applies the earrape effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the earrape effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### eightD() {#eightD}
+### eightD(status) {#eightD}
+
+<span className="warning badge">async function</span>
 
 > Applies the "8D audio" effect by setting a rotation filter.<br/><br/>
 > This method creates the "8D audio" effect, which gives the illusion of sound moving around the listener's head. It applies a subtle rotation effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description   | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the eightD effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -217,49 +278,74 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `filter`                                       | [`availableFilters''`](../Typedefs/Filters/availableFilters.mdx) | The filter to check.                          |     <i className="fa-solid fa-xmark"/>      |
+> | `filter`                                       | [<i className="fa-solid fa-bars-staggered" /> AvailableFilters](../Enums/AvailableFilters.mdx) | The filter to check.                          |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### nightcore() {#nightcore}
+### nightcore(status) {#nightcore}
 
-> Applies the nightcore effect by adjusting the speed and pitch of the audio.<br/><br/>
-> This method increases the tempo and pitch of the audio, giving it a faster and higher-pitched sound, characteristic of the nightcore genre.
+<span className="warning badge">async function</span>
+
+> Toggles the nightcore effect on the audio.<br/><br/>
+> This method applies or removes a nightcore effect by adjusting the timescale settings. When enabled, it increases the speed and pitch of the audio, giving it a more upbeat and energetic feel.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description      | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the nightcore effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### party() {#party}
+### party(status) {#party}
+
+<span className="warning badge">async function</span>
 
 > Applies the party effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
-
----
-
-### pop() {#pop}
-
-> Applies the pop effect to the audio.
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the party effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### radio() {#radio}
+### pop(status) {#pop}
+
+<span className="warning badge">async function</span>
+
+> Toggles the party effect on the audio.<br/><br/>
+> This method applies or removes a party effect by adjusting the equalizer settings. When enabled, it enhances the bass and treble frequencies, providing a more energetic and lively sound.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the pop effect.  |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### radio(status) {#radio}
+
+<span className="warning badge">async function</span>
 
 > Applies the radio effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the radio effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
 ### setDistortion(distortion) {#setDistortion}
 
 > Sets the distortion effect on the audio.<br/><br/>
-> This method applies a distortion effect to the audio, which adds an aggressive, rough texture to the sound.
+> This method applies a distortion effect to the audio, which adds a rougher, more intense quality to the sound. The effect is created by altering the audio signal to create a more jagged, irregular waveform.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description                                 | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------------------:|
@@ -269,25 +355,23 @@ import TabItem from '@theme/TabItem';
 
 ### setEqualizer(bands) {#setEqualizer}
 
-> Sets the equalizer bands for the player.<br/><br/>
-> This method updates the player's equalizer settings by applying the provided bands configuration. The equalizer is an array of Band objects, each containing
-> a band number and a gain value. The method ensures that the filters are updated
-> after setting the equalizer, to reflect the changes in audio output.
+> Sets the equalizer on the audio.<br/><br/>
+> This method adjusts the equalization curve of the player's audio output, allowing you to control the frequency response.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description                                                                                | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `bands`                                        | [`Band[]`](../Typedefs/Filters/Band.mdx) | The equalizer bands to apply. Each band includes a band number and a gain value. If nothing are provided, the equalizer is reset. |     <i className="fa-solid fa-check"/>      |
+> | `bands`                                        | [`Band[]`](../Typedefs/Filters/Band.mdx) | The equalizer bands to apply (band, gain). |     <i className="fa-solid fa-check"/>      |
 
 ---
 
 ### setKaraoke(karaoke) {#setKaraoke}
 
-> Sets the karaoke effect on the audio.<br/><br/>
-> This method adjusts the player's audio output to apply a karaoke effect, which may include filtering out vocals or adjusting levels for optimal karaoke performance.
+> Sets the karaoke options to the audio.<br/><br/>
+> This method adjusts the audio so that it sounds like a karaoke song, with the original vocals removed. Note that not all songs can be successfully made into karaoke tracks, and some tracks may not sound as good.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       | <i className="fa-solid fa-list"/> Description                                                                        | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
@@ -298,9 +382,9 @@ import TabItem from '@theme/TabItem';
 ### setRotation(rotation) {#setRotation}
 
 > Sets the rotation effect on the audio.<br/><br/>
-> This method applies a rotation effect to the audio, creating the illusion of sound moving around the listener's head.
+> This method applies a rotation effect to the audio, which simulates the sound moving around the listener's head. This effect can create a dynamic and immersive audio experience by altering the directionality of the sound.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                         | <i className="fa-solid fa-list"/> Description                                       | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:---------------------------------------------------------------|:------------------------------------------------------------------------------------|:-------------------------------------------:|
@@ -310,10 +394,10 @@ import TabItem from '@theme/TabItem';
 
 ### setTimescale(timescale) {#setTimescale}
 
-> Sets the timescale (speed, pitch, rate) for the audio.<br/><br/>
-> This method adjusts the speed, pitch, and rate of the audio, allowing for effects such as faster or slower playback, pitch shifts, and time dilation.
+> Sets the timescale of the audio.<br/><br/>
+> This method adjusts the speed and pitch of the audio, allowing you to control the playback speed.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description                                                          | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
@@ -324,9 +408,9 @@ import TabItem from '@theme/TabItem';
 ### setVibrato(timescale) {#setVibrato}
 
 > Sets the vibrato effect on the audio.<br/><br/>
-> This method applies a vibrato effect to the audio, which creates a wobble in the pitch by modulating it at a specified frequency and depth.
+> This method applies a vibrato effect to the audio, which adds a wavering, pulsing quality to the sound. The effect is created by rapidly varying the pitch of the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------|:-----------------------------------------------------|:-------------------------------------------:|
@@ -334,65 +418,105 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### setVolume(volume) {#setVolume}
+### slowmo(status) {#slowmo}
 
-> Sets the volume effect on the audio.<br/><br/>
+<span className="warning badge">async function</span>
+
+> Toggles the slowmo effect on the audio.<br/><br/>
+> This method applies or removes a slowmo effect by adjusting the timescale settings. When enabled, it slows down the audio while keeping the pitch the same, giving it a more relaxed and calming feel.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------|:-----------------------------------------------------|:-------------------------------------------:|
-> | `volume`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of volume for the audio |     <i className="fa-solid fa-xmark"/>      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description   | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the status effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### slowmo() {#slowmo}
+### soft(status) {#soft}
 
-> Applies the slow-motion effect by reducing the speed and pitch of the audio.<br/><br/>
-> This method slows down the audio, giving it a slower and more relaxed feel.
+<span className="warning badge">async function</span>
+
+> Applies a soft equalizer effect to the audio.<br/><br/>
+> This method applies or removes a soft equalizer effect by adjusting the equalizer settings. When enabled, it reduces the bass and treble frequencies, giving the audio a softer and more mellow sound.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the soft effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### soft() {#soft}
+### tremolo(status) {#tremolo}
 
-> Applies a soft equalizer to give the audio a smoother sound.<br/><br/>
-> This method adjusts the equalizer settings to soften the frequencies and give the audio a more mellow tone.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
-
----
-
-### tremolo() {#tremolo}
+<span className="warning badge">async function</span>
 
 > Applies the doubletime effect to the audio.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
-
----
-
-### trebleBass() {#trebleBass}
-
-> Applies the "treble and bass boost" effect to the audio.<br/><br/>
-> This method adjusts the equalizer to boost both the treble (high frequencies) and bass (low frequencies), giving the audio a more balanced and enhanced sound.
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the termolo effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### tv() {#tv}
+### trebleBass(status) {#trebleBass}
 
-> Applies a TV-like equalizer effect to the audio.<br/><br/>
-> This method adjusts the equalizer to give the audio a "TV" effect, which may simulate the audio quality heard from television speakers.
+<span className="warning badge">async function</span>
+
+> Applies the treble/bass equalizer effect to the audio.<br/><br/>
+> This method applies or removes a treble/bass equalizer effect by adjusting the equalizer settings. When enabled, it enhances the treble and bass frequencies, giving the audio a more balanced sound.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the treble bass effect. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### vaporwave() {#vaporwave}
+### tv(status) {#tv}
+
+<span className="warning badge">async function</span>
+
+> Toggles the TV equalizer effect on the audio.<br/><br/>
+> This method applies or removes a TV equalizer effect by adjusting the equalizer settings. When enabled, it enhances specific frequency bands to mimic the audio characteristics typically found in television audio outputs.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the tv effect.   |     <i className="fa-solid fa-xmark"/>      |
+
+---
+
+### updateFilters() {#updateFilters}
+
+<span className="warning badge">async function</span>
+
+> Updates the player's audio filters.<br/><br/>
+> This method sends a request to the player's node to update the filter settings
+> based on the current properties of the [`Filters`](./Filters.mdx) instance. The filters include
+> distortion, equalizer, karaoke, rotation, timescale, vibrato, and volume. Once
+> the request is sent, it ensures that the player's audio output reflects the
+> changes in filter settings.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+
+---
+
+### vaporwave(status) {#vaporwave}
+
+<span className="warning badge">async function</span>
 
 > Applies the vaporwave effect by adjusting the equalizer and pitch.<br/><br/>
 > This method applies a vaporwave-style equalizer, with softer tones, and adjusts the pitch to give the audio a dreamy, nostalgic feel.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](./Filters.mdx)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](./Filters.mdx)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description      | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-------------------------------------------:|
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to enable or disable the vaporwave effect. |     <i className="fa-solid fa-xmark"/>      |
+
