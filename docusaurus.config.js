@@ -68,6 +68,18 @@ const config = {
         link: "https://discord.com/oauth2/authorize?client_id=1049314312776335390",
         creator: "yanishamburger",
       },
+      {
+        name: "Miyu",
+        icon: "/usedbyicons/miyu.png",
+        link: "https://discord.com/oauth2/authorize?client_id=1277180179273482280&permissions=572851999731703&response_type=code&integration_type=0&scope=identify+applications.commands+bot",
+        creator: "Kenver"
+      },
+      {
+        name: "Savage Bot",
+        icon: "/usedbyicons/savage-bot.png",
+        link: "https://discord.com/oauth2/authorize?client_id=823703707522433054&permissions=8&scope=bot%20applications.commands",
+        creator: "Savage"
+      }
     ],
   },
 
@@ -92,6 +104,12 @@ const config = {
         docs: {
           lastVersion: "current",
           versions: {
+            dev: {
+              label: "v2.8.4 (dev)",
+              path: "dev",
+              banner: "unreleased",
+              noIndex: true,
+            },
             current: {
               label: "v2.8.2 (current)",
             },
