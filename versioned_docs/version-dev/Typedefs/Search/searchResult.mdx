@@ -1,0 +1,18 @@
+---
+id: search-typedefs-searchResult
+title: "Typedefs : Search : searchResult"
+description: Search result options.
+slug: /typedefs/Search/searchResult
+sidebar_label: searchResult
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### searchResult <span className="info badge">object</span> {#searchResult}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description     |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------------------------------------------|
+| `loadType`                                     | [`LoadType`](../../Enums/LoadTypes.mdx)                | The load type of the result.                      |
+| `tracks`                                       | [`Track[]`](../Track/Track.mdx#track)            | The array of tracks from the result               |
+| `playlist`                                     | [`TrackSourceTypes`](../../Enums/TrackSourceTypes.mdx) | The playlist info if the load type is 'playlist'. |
