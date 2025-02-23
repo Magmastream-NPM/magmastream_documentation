@@ -84,6 +84,11 @@ export default function Version() {
                                         <DocumentationLabel />
                                     </Link>
                                 </td>
+                                <td>
+                                    <Link href={`${repoUrl}/tree/${devVersion.name}`}>
+                                        Source code
+                                    </Link>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
