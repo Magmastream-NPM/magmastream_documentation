@@ -104,14 +104,14 @@ const config = {
         docs: {
           lastVersion: "current",
           versions: {
+            current: {
+              label: "v2.8.4 (current)"
+            },
             dev: {
               label: "v2.9.0 (dev)",
               path: "dev",
               banner: "unreleased",
               noIndex: true,
-            },
-            current: {
-              label: "v2.8.4 (current)",
             },
             "2.8.2": {
               label: "v2.8.2",
