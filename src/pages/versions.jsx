@@ -23,8 +23,8 @@ export default function Version() {
     } = useDocusaurusContext();
     const versions = useVersions(docsPluginId);
     const latestVersion = useLatestVersion(docsPluginId);
-    const currentVersion = versions.find(
-        (version) => version.name === 'current',
+    const devVersion = versions.find(
+        (version) => version.name === 'dev',
     );
     const pastVersions = versions.filter(
         (version) => version !== latestVersion && version.name !== 'current',
@@ -66,7 +66,7 @@ export default function Version() {
                     </table>
                 </div>
 
-                {currentVersion !== latestVersion && (
+                {devVersion !== latestVersion && (
                     <div className="margin-bottom--lg">
                         <Heading as="h3" id="latest">
                                 Next version (Unreleased)
@@ -78,9 +78,9 @@ export default function Version() {
                         <table>
                             <tbody>
                             <tr>
-                                <th>{currentVersion.label}</th>
+                                <th>{devVersion.label}</th>
                                 <td>
-                                    <Link to={`${currentVersion.path}/intro`}>
+                                    <Link to={`${devVersion.path}/intro`}>
                                         <DocumentationLabel />
                                     </Link>
                                 </td>
