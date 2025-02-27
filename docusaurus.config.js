@@ -105,31 +105,37 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "v2.8.4 (current)"
+              label: "v2.8.5 (current)"
+            },
+            "2.8.4": {
+              label: "v2.8.4",
+              path: "2.8.4",
+              banner: "none",
+              noIndex: false,
             },
             "2.8.2": {
               label: "v2.8.2",
               path: "2.8.2",
               banner: "none",
-              noIndex: false,
+              noIndex: true,
             },
             "2.8.1": {
               label: "v2.8.1",
               path: "2.8.1",
               banner: "none",
-              noIndex: false,
+              noIndex: true,
             },
             "2.8.0": {
               label: "v2.8.0",
               path: "2.8.0",
               banner: "none",
-              noIndex: false,
+              noIndex: true,
             },
             "2.7.5": {
               label: "v2.7.5",
               path: "2.7.5",
               banner: "none",
-              noIndex: false,
+              noIndex: true,
             },
             "2.6.1": {
               label: "v2.6.1",

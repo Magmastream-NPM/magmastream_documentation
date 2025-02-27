@@ -1,0 +1,32 @@
+---
+id: manager-typedefs-payload
+title: "Typedefs : Manager : Payload"
+description: Payload options for the manager.
+slug: /typedefs/manager/Payload
+sidebar_label: Payload
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> Payload is an object that contains [`payloadOptions{}`](#payloadOptions)
+
+## payloadOptions <span className="info badge">object</span> {#payloadOptions}
+
+> Represents a payload.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ |
+> | `op`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) |
+> | `d`                                            | [`dOptions{}`](#dOptions)                                                                                       |
+
+## dOptions <span className="info badge">object</span> {#dOptions}
+
+> Represents a `d` object.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                             |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+> | `guild_id`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                  |
+> | `channel_id`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) |
+> | `self_mute`                                    | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                |
+> | `self_deaf`                                    | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                |
