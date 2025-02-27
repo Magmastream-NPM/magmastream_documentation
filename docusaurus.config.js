@@ -81,6 +81,16 @@ const config = {
         creator: "Savage"
       }
     ],
+    versionGitLink: {
+      "current": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.5", // 2.8.5
+      "2.8.4": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v.2.8.4",
+      "2.8.2": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.2",
+      "2.8.1": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.1",
+      "2.8.0": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.0",
+      "2.7.5": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.7.5",
+      "2.6.1": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1",
+      "dev": "https://github.com/Magmastream-NPM/magmastream/tree/dev"
+    }
   },
 
   stylesheets: [

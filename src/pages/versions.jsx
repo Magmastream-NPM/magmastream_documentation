@@ -6,6 +6,7 @@ import {
 } from '@docusaurus/plugin-content-docs/client';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import {useEffect} from "react";
 
 const docsPluginId = undefined;
 
@@ -19,7 +20,7 @@ function ReleaseNotesLabel() {
 
 export default function Version() {
     const {
-        siteConfig: {organizationName, projectName},
+        siteConfig: {organizationName, projectName, customFields},
     } = useDocusaurusContext();
     const versions = useVersions(docsPluginId);
     const latestVersion = useLatestVersion(docsPluginId);
@@ -29,7 +30,10 @@ export default function Version() {
     const pastVersions = versions.filter(
         (version) => version !== latestVersion && version.name !== 'current' && version.name !== 'dev',
     );
-    const repoUrl = `https://github.com/${organizationName}/${projectName}`;
+
+    useEffect(() => {
+        console.log(latestVersion)
+    }, []);
 
     return (
         <Layout
@@ -57,7 +61,7 @@ export default function Version() {
                                 </Link>
                             </td>
                             <td>
-                                <Link to={`${repoUrl}/releases/tag/${latestVersion.label.split(' ')[0]}`}>
+                                <Link to={customFields.versionGitLink[latestVersion.name]}>
                                     <ReleaseNotesLabel />
                                 </Link>
                             </td>
@@ -85,7 +89,7 @@ export default function Version() {
                                     </Link>
                                 </td>
                                 <td>
-                                    <Link href={`${repoUrl}/tree/${devVersion.name}`}>
+                                    <Link href={customFields.versionGitLink[devVersion.name]}>
                                         Source code
                                     </Link>
                                 </td>
@@ -115,7 +119,7 @@ export default function Version() {
                                         </Link>
                                     </td>
                                     <td>
-                                        <Link href={`${repoUrl}/releases/tag/v${version.name}`}>
+                                        <Link href={customFields.versionGitLink[version.name]}>
                                             <ReleaseNotesLabel />
                                         </Link>
                                     </td>
