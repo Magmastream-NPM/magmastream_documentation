@@ -17,10 +17,11 @@ import TabItem from '@theme/TabItem';
         new Magmastream.Rest(node: Node, manager: Manager)
         ```
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
-        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-        | `node`                                         | [`Node`](./Node.mdx#constructor)       | The node                                      |
-        | `manager`                                      | [`Manager`](./Manager.mdx#constructor) | The Manager instance.                         |
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+        | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- | :-----------------------------------------: |
+        | `node`                                         | [`Node`](./Node.mdx#constructor)       | The node                                      | <i className="fa-solid fa-xmark"/>           |
+        | `manager`                                      | [`Manager`](./Manager.mdx#constructor) | The Manager instance.                         | <i className="fa-solid fa-xmark"/>           |
+
     </TabItem>
 </Tabs>
 
@@ -83,6 +84,8 @@ import TabItem from '@theme/TabItem';
 
 ### delete(endpoint) {#delete}
 
+<span className="warning badge">async function</span>
+
 > Sends a DELETE request to the server to destroy the player.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
@@ -94,6 +97,8 @@ import TabItem from '@theme/TabItem';
 ---
 
 ### destroyPlayer(guildId) {#destroyPlayer}
+
+<span className="warning badge">async function</span>
 
 > Sends a DELETE request to the server to destroy the player.
 >
@@ -107,6 +112,8 @@ import TabItem from '@theme/TabItem';
 
 ### get(endpoint) {#get}
 
+<span className="warning badge">async function</span>
+
 > Sends a GET request to the specified endpoint and returns the response data.
 >
 > <i className="fa-solid fa-right-to-bracket" /> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
@@ -119,6 +126,8 @@ import TabItem from '@theme/TabItem';
 
 ### getAllPlayers() {#getAllPlayers}
 
+<span className="warning badge">async function</span>
+
 > Retrieves all the players that are currently running on the node.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
@@ -126,6 +135,8 @@ import TabItem from '@theme/TabItem';
 ---
 
 ### put(endpoint, body) {#put}
+
+<span className="warning badge">async function</span>
 
 > Sends a PUT request to the specified endpoint and returns the response data.
 >
@@ -140,6 +151,8 @@ import TabItem from '@theme/TabItem';
 
 ### setSessionId(sessionId) {#setSessionId}
 
+<span className="warning badge">async function</span>
+
 > Sets the session ID.<br/><br/>
 > This method is used to set the session ID after a resume operation is done.
 >
@@ -153,6 +166,8 @@ import TabItem from '@theme/TabItem';
 
 ### updatePlayer(options) {#updatePlayer}
 
+<span className="warning badge">async function</span>
+
 > Sends a PATCH request to update player related data.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\<unknown>
@@ -164,6 +179,8 @@ import TabItem from '@theme/TabItem';
 ---
 
 ### updateSession(resuming, timeout) {#updateSession}
+
+<span className="warning badge">async function</span>
 
 > Updates the session status for resuming.<br/><br/>
 > This method sends a PATCH request to update the session's resuming status and timeout.

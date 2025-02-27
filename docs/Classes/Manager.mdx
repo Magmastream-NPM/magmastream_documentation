@@ -132,7 +132,7 @@ import TabItem from '@theme/TabItem';
 
 > The options that were set.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`managerOptions{}`](../Typedefs/Manager/managerOptions.mdx#managerOptions)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`managerOptions{}`](../Typedefs/Manager/managerOptions.mdx)
 
 ## Methods {#methods}
 
@@ -142,9 +142,9 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `options`                                      | [`playerOptions{}`](../Typedefs/Player/playerOptions.mdx#playerOptions) | The options to create the player with.        |     <i className="fa-solid fa-xmark"/>      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `options`                                      | [`playerOptions{}`](../Typedefs/Player/playerOptions.mdx) | The options to create the player with.        |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -154,33 +154,37 @@ import TabItem from '@theme/TabItem';
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [`Node`](../Classes/Node.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                          | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The options to create the node with.          |     <i className="fa-solid fa-xmark"/>      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/nodeOptions.mdx) | The options to create the node with.          |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
 ### decodeTrack(track) {#decodeTrack}
 
+<span className="warning badge">async function</span>
+
 > Decodes a base64 encoded track and returns a TrackData.
 >
-> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track/trackData.mdx#trackData)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track/trackData.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
 > | `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`base64`](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
 ### decodeTracks(tracks) {#decodeTracks}
 
+<span className="warning badge">async function</span>
+
 > Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/>
 > Emits a debug event with the tracks being decoded.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track/trackData.mdx#trackData)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track/trackData.mdx)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                      | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
 > | `tracks`                                       | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`base64`](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |     <i className="fa-solid fa-xmark"/>      |
 
 ---
@@ -191,7 +195,7 @@ import TabItem from '@theme/TabItem';
 
 > Destroys a player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
@@ -205,23 +209,24 @@ import TabItem from '@theme/TabItem';
 
 > Destroys a node if it exists. Emits a debug event if the node is found and destroyed.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The identifier of the node to destroy.        |     <i className="fa-solid fa-xmark"/>      |
+> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx) | The identifier of the node to destroy.        |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
-### init(clientId) {#init}
+### init(clientId, clusterId) {#init}
 
 > Initiates the Manager.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`ClientUser.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The Discord client ID (required).             |     <i className="fa-solid fa-xmark"/>      |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                              | <i className="fa-solid fa-list"/> Description                                      | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`ClientUser.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The Discord client ID (required).                                                  |     <i className="fa-solid fa-xmark"/>      |
+> | `clusterId`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                   | The cluster ID which runs the current process (required). Default 0 if no provided |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -231,7 +236,7 @@ import TabItem from '@theme/TabItem';
 
 > Loads player states from the JSON file.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description             | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-------------------------------------------:|
@@ -253,8 +258,11 @@ import TabItem from '@theme/TabItem';
 
 ### handleShutdown() {#handleShutdown}
 
+<span className="warning badge">async function</span>
+
 > Handles the shutdown of the process by saving all active player's states and optionally cleaning up inactive players.<br/><br/>
-> This function is called when the process is about to exit.
+> This function is called when the process is about to exit.<br/>
+> It iterates through all players and calls [savePlayerState](#savePlayerState) to save their states. Optionally, it also calls cleanupInactivePlayers (private function) to remove any stale player state files. After saving and cleaning up, it exits the process.
 >
 > <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 
@@ -292,9 +300,11 @@ import TabItem from '@theme/TabItem';
 
 ### savePlayerState(guildId) {#savePlayerState}
 
+<span className="warning badge">async function</span>
+
 > Saves player states to the JSON file.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
@@ -304,13 +314,15 @@ import TabItem from '@theme/TabItem';
 
 ### search(query, requester) {#search}
 
+<span className="warning badge">async function</span>
+
 > Searches the enabled sources based off the URL or the `source` property.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search/searchResult.mdx#searchResult)
+> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search/searchResult.mdx)
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx#searchQuery) | Query to search.                              |     <i className="fa-solid fa-xmark"/>      |
+> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx) | Query to search.                              |     <i className="fa-solid fa-xmark"/>      |
 > | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class)   | The user who requested the track.             |     <i className="fa-solid fa-check"/>      |
 
 ---
@@ -371,11 +383,11 @@ import TabItem from '@theme/TabItem';
 
 > Emitted when a track has started a chapter.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
-> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted) |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                    |
+> |:-----------------------------------------------|:------------------------------------------------------------------------------------------|
+> | `player`                                       | [`Player`](./Player.mdx)                                                                  |
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx)                                           |
+> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx) |
 
 <Tabs>
     <TabItem value="Example usage" label="Example usage" default>

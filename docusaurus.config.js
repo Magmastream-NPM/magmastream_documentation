@@ -107,12 +107,6 @@ const config = {
             current: {
               label: "v2.8.4 (current)"
             },
-            dev: {
-              label: "v2.9.0 (dev)",
-              path: "dev",
-              banner: "unreleased",
-              noIndex: true,
-            },
             "2.8.2": {
               label: "v2.8.2",
               path: "2.8.2",
@@ -141,6 +135,12 @@ const config = {
               label: "v2.6.1",
               path: "2.6.1",
               banner: "unmaintained",
+              noIndex: true,
+            },
+            dev: {
+              label: "dev",
+              path: "dev",
+              banner: "unreleased",
               noIndex: true,
             },
           },
