@@ -27,7 +27,7 @@ export default function Version() {
         (version) => version.name === 'dev',
     );
     const pastVersions = versions.filter(
-        (version) => version !== latestVersion && version.name !== 'current',
+        (version) => version !== latestVersion && version.name !== 'current' && version.name !== 'dev',
     );
     const repoUrl = `https://github.com/${organizationName}/${projectName}`;
 
