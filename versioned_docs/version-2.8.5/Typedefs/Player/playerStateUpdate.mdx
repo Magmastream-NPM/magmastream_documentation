@@ -1,0 +1,75 @@
+---
+id: player-typedefs-playerStateUpdate
+title: "Typedefs : Player : playerStateUpdate"
+description: Player state update options.
+slug: /typedefs/Player/playerStateUpdate
+sidebar_label: playerStateUpdate
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### playerStateUpdate <span className="info badge">object</span> {#playerStateUpdate}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+|:-----------------------------------------------|:--------------------------------------------------------------|
+| `changeType`                                   | [<i className="fa-solid fa-bars-staggered" /> PlayerStateEventTypes](../../Enums/PlayerStateEventTypes.mdx) |
+| `details`                                      | [`PlayerStateUpdateDetails`](#playerStateUpdateDetails)       |
+
+## PlayerStateUpdateDetails {#playerStateUpdateDetails}
+
+<Tabs>
+    <TabItem value="AutoplayChangeEvent" label="AutoplayChangeEvent" default>
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `previousAutoplay`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+        | `currentAutoplay`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)       |
+    </TabItem>
+    <TabItem value="ConnectionChangeEvent" label="ConnectionChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `changeType`                                   | "connect" \| "disconnect" |
+        | `previousConnection`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+        | `currentConnection`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)       |
+    </TabItem>
+    <TabItem value="RepeatChangeEvent" label="RepeatChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `changeType`                                   | "dynamic" \| "track" \| "queue" \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) |
+        | `previousRepeat`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) |
+        | `currentRepeat`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)       |
+    </TabItem>
+    <TabItem value="PauseChangeEvent" label="PauseChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `previousPause`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) |
+        | `currentPause`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)      |
+    </TabItem>
+    <TabItem value="QueueChangeEvent" label="QueueChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `changeType`                                   | "add" \| "remove" \| "clear" \| "shuffle" \| "roundRobin" \| "userBlock" \| "autoPlayAdd" |
+        | `tracks`                                      | [`Track{}`](../Track/Track.mdx#track) \| [`UnresolvedTrack{}`](../Track/unresolvedTrack.mdx#unresolvedtrack)      |
+    </TabItem>
+    <TabItem value="TrackChangeEvent" label="TrackChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `changeType`                                   | "start" \| "end" \| "previous" \| "timeUpdate" \| "autoPlay" |
+        | `track`                                      |  [`Track{}`](../Track/Track.mdx#track)      |
+        | `previousTime`                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)                |
+        | `currentTime`                       |  [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)               |
+    </TabItem>
+    <TabItem value="VolumeChangeEvent" label="VolumeChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `previousVolume`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) |
+        | `currentVolume`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)       |
+    </TabItem>
+    <TabItem value="ChannelChangeEvent" label="ChannelChangeEvent">
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        |
+        |:-----------------------------------------------|:--------------------------------------------------------------|
+        | `changeType`                                   | "text" \| "voice" |
+        | `previousChannel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)       |
+        | `currentChannel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)       |
+    </TabItem>
+</Tabs>

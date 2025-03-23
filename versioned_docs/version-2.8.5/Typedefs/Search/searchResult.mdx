@@ -1,0 +1,38 @@
+---
+id: search-typedefs-searchResult
+title: "Typedefs : Search : searchResult"
+description: Search result options.
+slug: /typedefs/Search/searchResult
+sidebar_label: searchResult
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+### searchResult <span className="info badge">object</span> {#searchResult}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type  | <i className="fa-solid fa-list"/> Description     | <i className="fa-solid fa-flask"/> Optional |
+|:-----------------------------------------------|:----------------------------------------|:--------------------------------------------------|:-------------------------------------------:|
+| `loadType`                                     | [`LoadType`](../../Enums/LoadTypes.mdx) | The load type of the result.                      |     <i className="fa-solid fa-xmark"/>      |
+| `tracks`                                       | [`Track[]`](../Track/Track.mdx#track)   | The array of tracks from the result               |     <i className="fa-solid fa-xmark"/>      |
+| `playlist`                                     | [`PlaylistData{}`](#playlistData)       | The playlist info if the load type is 'playlist'. |     <i className="fa-solid fa-check"/>      |
+
+### playlistData <span className="info badge">object</span> {#playlistData}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+|:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+| `name`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                    | The playlist name                             |     <i className="fa-solid fa-xmark"/>      |
+| `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | Requester of playlist                         |     <i className="fa-solid fa-xmark"/>      |
+| `playlistInfo`                                 | [`PlaylistInfoData{}[]`](#playlistInfoData)                                                                                                                          | More playlist information.                    |     <i className="fa-solid fa-xmark"/>      |
+| `duration`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                    | The length of the playlist.                   |     <i className="fa-solid fa-xmark"/>      |
+| `tracks`                                       | [`Track[]`](../Track/Track.mdx#track)                                                                                                                                | The songs of the playlist.                    |     <i className="fa-solid fa-xmark"/>      |
+
+### playlistInfoData <span className="info badge">object</span> {#playlistInfoData}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+| `url`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Url to playlist                               |     <i className="fa-solid fa-xmark"/>      |
+| `type`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Type is always plaaylist in that case         |     <i className="fa-solid fa-xmark"/>      |
+| `artworkUrl`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | ArtworkUrl of playlist                        |     <i className="fa-solid fa-xmark"/>      |
+| `totalTracks`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of total tracks in playlist            |     <i className="fa-solid fa-xmark"/>      |
+| `author`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Author of playlist                            |     <i className="fa-solid fa-xmark"/>      |
