@@ -96,7 +96,6 @@ const config = {
       "2.8.0": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.0",
       "2.7.5": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.7.5",
       "2.6.1": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1",
-      "dev": "https://github.com/Magmastream-NPM/magmastream/tree/dev"
     }
   },
 
@@ -165,13 +164,7 @@ const config = {
               path: "2.6.1",
               banner: "unmaintained",
               noIndex: true,
-            },
-            dev: {
-              label: "dev",
-              path: "dev",
-              banner: "unreleased",
-              noIndex: true,
-            },
+            }
           },
 
           sidebarPath: "./sidebars.js",
