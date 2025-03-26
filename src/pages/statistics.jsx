@@ -97,7 +97,7 @@ const Statistics = () => {
                         Statistics
                     </Heading>
                     <SkeletonTheme baseColor="#0a0a0a" highlightColor="#111112">
-                        <div className={styles.grid}>
+                        <div className={styles.gridStats}>
                             <div className={styles.card}>
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
@@ -132,7 +132,7 @@ const Statistics = () => {
                             </div>
 
                         </div>
-                        <div className={styles.grid}>
+                        <div className={styles.gridStats}>
                             <div className={styles.card}>
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
@@ -158,7 +158,7 @@ const Statistics = () => {
                                 )}
                             </div>
                         </div>
-                        <div className={styles.grid}>
+                        <div className={styles.gridStats}>
                             <div className={styles.card}>
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
@@ -176,7 +176,7 @@ const Statistics = () => {
                                 )}
                             </div>
                         </div>
-                        <div className={styles.grid}>
+                        <div className={styles.gridStats}>
                                 <div className={styles.card}>
                                     {loading ? <Skeleton height={75} /> : (
                                         <>
