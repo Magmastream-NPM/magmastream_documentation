@@ -79,6 +79,12 @@ const config = {
         icon: "/usedbyicons/savage-bot.png",
         link: "https://discord.com/oauth2/authorize?client_id=823703707522433054&permissions=8&scope=bot%20applications.commands",
         creator: "Savage"
+      },
+      {
+        name: "rive",
+        icon: "/usedbyicons/rive.png",
+        link: "https://discord.com/oauth2/authorize?client_id=1350601402325405806",
+        creator: "pomice"
       }
     ],
     versionGitLink: {
