@@ -24,11 +24,8 @@ export default function Version() {
     } = useDocusaurusContext();
     const versions = useVersions(docsPluginId);
     const latestVersion = useLatestVersion(docsPluginId);
-    const devVersion = versions.find(
-        (version) => version.name === 'dev',
-    );
     const pastVersions = versions.filter(
-        (version) => version !== latestVersion && version.name !== 'current' && version.name !== 'dev',
+        (version) => version !== latestVersion && version.name !== 'current',
     );
 
     useEffect(() => {
@@ -69,35 +66,6 @@ export default function Version() {
                         </tbody>
                     </table>
                 </div>
-
-                {devVersion !== latestVersion && (
-                    <div className="margin-bottom--lg">
-                        <Heading as="h3" id="latest">
-                                Next version (Unreleased)
-                        </Heading>
-                        <p>
-                                Here you can find the documentation for work-in-process
-                                unreleased version.
-                        </p>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <th>{devVersion.label}</th>
-                                <td>
-                                    <Link to={`${devVersion.path}/intro`}>
-                                        <DocumentationLabel />
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link href={customFields.versionGitLink[devVersion.name]}>
-                                        Source code
-                                    </Link>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                )}
 
                 {(pastVersions.length > 0) && (
                     <div className="margin-bottom--lg">
