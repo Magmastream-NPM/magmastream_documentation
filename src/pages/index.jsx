@@ -57,7 +57,7 @@ export default function Home() {
                           backgroundColor: "transparent",
                           borderColor: "transparent"
                       }}
-                      to="/docs/intro">
+                      to="https://github.com/Magmastream-NPM">
                       Github <i className="fa-solid fa-arrow-right-from-bracket fa-xs"></i>
                   </Link>
               </div>
