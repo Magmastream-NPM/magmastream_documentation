@@ -120,7 +120,7 @@ discord-bot/
                         let player = client.manager.get(interaction.guild.id);
 
                         // Check if the user is in the same voice channel as the bot
-                        if (player && interaction.member.voice.channel.id !== player.voiceChannel) {
+                        if (player && interaction.member.voice.channel.id !== player.voiceChannelId) {
                             return await interaction
                                 .reply("You need to be in the same voice channel as the bot to use this command.")
                                 .catch((error) => console.log(`[ERROR] Failed to send message ${error.message} to channel: ${interaction.channel.id}`));
