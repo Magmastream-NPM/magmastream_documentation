@@ -85,6 +85,12 @@ const config = {
         icon: "/usedbyicons/rive.png",
         link: "https://discord.com/oauth2/authorize?client_id=1350601402325405806",
         creator: "pomice"
+      },
+      {
+        name: "lost",
+        icon: "/usedbyicons/lost.png",
+        link: "https://discord.com/oauth2/authorize?client_id=1280681209604739204",
+        creator: "pomice"
       }
     ],
     versionGitLink: {
