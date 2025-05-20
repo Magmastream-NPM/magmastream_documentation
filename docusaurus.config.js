@@ -94,7 +94,7 @@ const config = {
       }
     ],
     versionGitLink: {
-      "current": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.6",
+      "current": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.7",
       "2.8.5": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.5",
       "2.8.4": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v.2.8.4",
       "2.8.2": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.2",
@@ -127,7 +127,7 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "v2.8.6 (current)"
+              label: "v2.8.7 (current)"
             },
             "2.8.5": {
               label: "v2.8.5",
