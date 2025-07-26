@@ -11,35 +11,19 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
 	<TabItem value="npm" label="Enumeration members" default>
-  |                                                                                      |                                                                                |                                                                                      |
-  |:-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-  | <i className="fa-solid fa-bars-staggered" /> [ChapterStarted](#chapterStarted)       | <i className="fa-solid fa-bars-staggered" /> [ChaptersLoaded](#chaptersLoaded) | <i className="fa-solid fa-bars-staggered" /> [Debug](#debug)                         |
-  | <i className="fa-solid fa-bars-staggered" /> [LyricsFoundEvent](#lyricsFoundEvent)   | <i className="fa-solid fa-bars-staggered" /> [LyricsLineEvent](#lyricsLineEvent) | <i className="fa-solid fa-bars-staggered" /> [LyricsNotFoundEvent](#lyricsNotFoundEvent) |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeConnect](#nodeConnect)             | <i className="fa-solid fa-bars-staggered" /> [NodeCreate](#nodeCreate)         | <i className="fa-solid fa-bars-staggered" /> [NodeDestroy](#nodeDestroy)             |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeDisconnect](#nodeDisconnect)       | <i className="fa-solid fa-bars-staggered" /> [NodeError](#nodeError)           | <i className="fa-solid fa-bars-staggered" /> [NodeRaw](#nodeRaw)                     |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeReconnect](#nodeReconnect)         | <i className="fa-solid fa-bars-staggered" /> [PlayerCreate](#playerCreate)     | <i className="fa-solid fa-bars-staggered" /> [PlayerDestroy](#playerDestroy)         |
-  | <i className="fa-solid fa-bars-staggered" /> [PlayerDisconnect](#playerDisconnect)   | <i className="fa-solid fa-bars-staggered" /> [PlayerMove](#playerMove)         | <i className="fa-solid fa-bars-staggered" /> [PlayerRestored](#playerRestored)       |
-  | <i className="fa-solid fa-bars-staggered" /> [PlayerStateUpdate](#playerStateUpdate) | <i className="fa-solid fa-bars-staggered" /> [QueueEnd](#queueEnd)             | <i className="fa-solid fa-bars-staggered" /> [RestoreComplete](#restoreComplete)     |
-  | <i className="fa-solid fa-bars-staggered" /> [SegmentSkipped](#segmentSkipped)       | <i className="fa-solid fa-bars-staggered" /> [SegmentsLoaded](#segmentsLoaded) | <i className="fa-solid fa-bars-staggered" /> [SocketClosed](#socketClosed)           |
-  | <i className="fa-solid fa-bars-staggered" /> [TrackEnd](#trackEnd)                   | <i className="fa-solid fa-bars-staggered" /> [TrackError](#trackError)         | <i className="fa-solid fa-bars-staggered" /> [TrackStart](#trackStart)               |
-  | <i className="fa-solid fa-bars-staggered" /> [TrackStuck](#trackStuck)               | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverConnect](#voiceReceiverConnect) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverDisconnect](#voiceReceiverDisconnect) |
-  | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverEndSpeaking](#voiceReceiverEndSpeaking) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverError](#voiceReceiverError) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverStartSpeaking](#voiceReceiverStartSpeaking) |
-</TabItem>
+        |                                                                                      |                                                                                |                                                                                    |
+        |:-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+        | <i className="fa-solid fa-bars-staggered" /> [Debug](#debug)                         | <i className="fa-solid fa-bars-staggered" /> [NodeCreate](#nodeCreate)         | <i className="fa-solid fa-bars-staggered" /> [NodeDestroy](#nodeDestroy)           |
+        | <i className="fa-solid fa-bars-staggered" /> [NodeConnect](#nodeConnect)             | <i className="fa-solid fa-bars-staggered" /> [NodeReconnect](#nodeReconnect)   | <i className="fa-solid fa-bars-staggered" /> [NodeDisconnect](#nodeDisconnect)     |
+        | <i className="fa-solid fa-bars-staggered" /> [NodeError](#nodeError)                 | <i className="fa-solid fa-bars-staggered" /> [NodeRaw](#nodeRaw)               | <i className="fa-solid fa-bars-staggered" /> [PlayerCreate](#playerCreate)         |
+        | <i className="fa-solid fa-bars-staggered" /> [NodeRaw](#nodeRaw)                     | <i className="fa-solid fa-bars-staggered" /> [PlayerCreate](#playerCreate)     | <i className="fa-solid fa-bars-staggered" /> [PlayerDestroy](#playerDestroy)       |
+        | <i className="fa-solid fa-bars-staggered" /> [PlayerStateUpdate](#playerStateUpdate) | <i className="fa-solid fa-bars-staggered" /> [PlayerMove](#playerMove)         | <i className="fa-solid fa-bars-staggered" /> [PlayerDisconnect](#playerDisconnect) |
+        | <i className="fa-solid fa-bars-staggered" /> [QueueEnd](#queueEnd)                   | <i className="fa-solid fa-bars-staggered" /> [SocketClosed](#socketClosed)     | <i className="fa-solid fa-bars-staggered" /> [TrackStart](#trackStart)             |
+        | <i className="fa-solid fa-bars-staggered" /> [TrackEnd](#trackEnd)                   | <i className="fa-solid fa-bars-staggered" /> [TrackStuck](#trackStuck)         | <i className="fa-solid fa-bars-staggered" /> [TrackError](#trackError)             |
+        | <i className="fa-solid fa-bars-staggered" /> [SegmentsLoaded](#segmentsLoaded)       | <i className="fa-solid fa-bars-staggered" /> [SegmentSkipped](#segmentsLoaded) | <i className="fa-solid fa-bars-staggered" /> [ChapterStarted](#chapterStarted)     |
+        | <i className="fa-solid fa-bars-staggered" /> [ChaptersLoaded](#chaptersLoaded)       |                                                                                |                                                                                    |
+	</TabItem>
 </Tabs>
-
-### ChapterStarted = "chapterStarted" {#chapterStarted}
-
-<span className="info badge">info: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
-
----
-
-### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
-
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [SponsorBlockChaptersLoaded](../Classes/Player.mdx)</span>
-
----
 
 ### Debug = "debug" {#debug}
 

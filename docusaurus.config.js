@@ -72,37 +72,45 @@ const config = {
         name: "Miyu",
         icon: "/usedbyicons/miyu.png",
         link: "https://discord.com/oauth2/authorize?client_id=1277180179273482280&permissions=572851999731703&response_type=code&integration_type=0&scope=identify+applications.commands+bot",
-        creator: "Kenver"
+        creator: "Kenver",
       },
       {
         name: "Savage Bot",
         icon: "/usedbyicons/savage-bot.png",
         link: "https://discord.com/oauth2/authorize?client_id=823703707522433054&permissions=8&scope=bot%20applications.commands",
-        creator: "Savage"
+        creator: "Savage",
       },
       {
         name: "rive",
         icon: "/usedbyicons/rive.png",
         link: "https://discord.com/oauth2/authorize?client_id=1350601402325405806",
-        creator: "pomice"
+        creator: "pomice",
       },
       {
         name: "lost",
         icon: "/usedbyicons/lost.png",
         link: "https://discord.com/oauth2/authorize?client_id=1280681209604739204",
-        creator: "pomice"
-      }
+        creator: "pomice",
+      },
     ],
     versionGitLink: {
-      "current": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.7",
-      "2.8.5": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.5",
-      "2.8.4": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v.2.8.4",
-      "2.8.2": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.2",
-      "2.8.1": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.1",
-      "2.8.0": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.0",
-      "2.7.5": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.7.5",
-      "2.6.1": "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1",
-    }
+      current:
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.7",
+      "2.8.5":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.5",
+      "2.8.4":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v.2.8.4",
+      "2.8.2":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.2",
+      "2.8.1":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.1",
+      "2.8.0":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.8.0",
+      "2.7.5":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.7.5",
+      "2.6.1":
+        "https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1",
+    },
   },
 
   stylesheets: [
@@ -127,7 +135,13 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "v2.8.7 (current)"
+              label: "v2.9.0 (current)",
+            },
+            "2.8.7": {
+              label: "v2.8.7",
+              path: "2.8.7",
+              banner: "none",
+              noIndex: false,
             },
             "2.8.5": {
               label: "v2.8.5",
@@ -170,7 +184,7 @@ const config = {
               path: "2.6.1",
               banner: "unmaintained",
               noIndex: true,
-            }
+            },
           },
 
           sidebarPath: "./sidebars.js",
@@ -183,7 +197,7 @@ const config = {
             "https://github.com/magmastream-npm/magmastream_documentation/tree/main/",
         },
         sitemap: {
-          lastmod: 'date',
+          lastmod: "date",
           priority: null,
           changefreq: null,
         },
@@ -220,7 +234,7 @@ const config = {
       { name: "apple-mobile-web-app-title", content: title },
       { name: "application-name", content: title },
       { name: "theme-color", content: "#ff8c00" },
-      { name: "algolia-site-verification", content: "C79C7151130DE594"},
+      { name: "algolia-site-verification", content: "C79C7151130DE594" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
       { name: "mobile-web-app-capable", content: "yes" },
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
