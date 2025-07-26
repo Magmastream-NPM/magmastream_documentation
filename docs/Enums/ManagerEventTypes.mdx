@@ -1,6 +1,6 @@
 ---
 id: enums-ManagerEventTypes
-title: "Enums : ManagerEventTypes"
+title: 'Enums : ManagerEventTypes'
 description: ManagerEventTypes enumerations
 slug: /enums/ManagerEventTypes
 sidebar_label: ManagerEventTypes
@@ -29,21 +29,47 @@ import TabItem from '@theme/TabItem';
 
 ### ChapterStarted = "chapterStarted" {#chapterStarted}
 
-<span className="info badge">info: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">payload: [SponsorBlockChaptersStarted](../Typedefs/SponsorBlock/sponsorBlockChaptersStarted.mdx#sponsorBlockChaptersStarted)</span>
 
 ---
 
 ### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [SponsorBlockChaptersLoaded](../Classes/Player.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">payload: [SponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded)</span>
 
 ---
 
 ### Debug = "debug" {#debug}
 
 <span className="info badge">info: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+
+---
+
+### LyricsFoundEvent = "lyricsFoundEvent" {#lyricsFoundEvent}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/Node/lyricsFoundEvent.mdx#lyricsFoundEvent)</span>
+
+---
+
+### LyricsLineEvent = "lyricsLineEvent" {#lyricsLineEvent}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">payload: [LyricsLineEvent](../Typedefs/Node/lyricsLineEvent.mdx#lyricsLineEvent)</span>
+
+---
+
+### LyricsNotFoundEvent = "lyricsNotFoundEvent" {#lyricsNotFoundEvent}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">payload: [LyricsNotFountEvent](../Typedefs/Node/lyricsNotFountEvent.mdx#lyricsNotFountEvent)</span>
 
 ---
 
@@ -73,13 +99,20 @@ import TabItem from '@theme/TabItem';
 
 ### NodeDisconnect = "nodeDisconnect" {#nodeDisconnect}
 
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span> <span className="info badge">reason: code?: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason?: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+ <span className="info badge">
+	reason: code?: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason?:
+	[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+</span>
 
 ---
 
 ### NodeError = "nodeError" {#nodeError}
 
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span> <span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span>
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+ <span className="info badge">
+	error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
+</span>
 
 ---
 
@@ -103,25 +136,63 @@ import TabItem from '@theme/TabItem';
 
 ### PlayerStateUpdate = "playerStateUpdate" {#playerStateUpdate}
 
-<span className="info badge">oldPlayer: [Player](../Classes/Player.mdx)</span> <span className="info badge">newPlayer: [Player](../Classes/Player.mdx)</span> <span className="info badge">changeType: [PlayerStateUpdateEvent](../Typedefs/Player/playerStateUpdate.mdx#playerStateUpdate)</span>
+<span className="info badge">oldPlayer: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">newPlayer: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	changeType: [PlayerStateUpdateEvent](../Typedefs/Player/playerStateUpdate.mdx#playerStateUpdate)
+</span>
 
 ---
 
 ### PlayerMove = "playerMove" {#playerMove}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">initChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span> <span className="info badge">newChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">
+	oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+</span> <span className="info badge">newChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+
+---
+
+### PlayerRestored = "playerRestored" {#playerRestored}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
 ### PlayerDisconnect = "playerDisconnect" {#playerDisconnect}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+</span>
 
 ---
 
 ### QueueEnd = "queueEnd" {#queueEnd}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx) </span> <span className="info badge">payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx){' '}
+</span> 
+<span className="info badge">payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)</span>
+
+---
+
+### RestoreComplete = "restoreComplete" {#restoreComplete}
+
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+
+---
+
+### SegmentSkipped = "segmentSkipped" {#segmentSkipped}
+
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+
+---
+
+### SegmentsLoaded = "segmentsLoaded" {#segmentsLoaded}
+
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
@@ -133,31 +204,51 @@ import TabItem from '@theme/TabItem';
 
 ### TrackStart = "trackStart" {#trackStart}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) </span> <span className="info badge">payload: [trackStartEvent{}](../Typedefs/Track/trackStartEvent.mdx#trackStartEvent)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) </span> 
+<span className="info badge">
+	payload: [trackStartEvent{}](../Typedefs/Track/trackStartEvent.mdx#trackStartEvent)
+</span>
 
 ---
 
 ### TrackEnd = "trackEnd" {#trackEnd}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span> <span className="info badge">payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span> 
+<span className="info badge">
+	payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)
+</span>
 
 ---
 
 ### TrackStuck = "trackStuck" {#trackStuck}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span> <span className="info badge">payload: [trackStuckEvent{}](../Typedefs/Track/trackStuckEvent.mdx#trackStuckEvent)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
+<span className="info badge">
+	payload: [trackStuckEvent{}](../Typedefs/Track/trackStuckEvent.mdx#trackStuckEvent)
+</span>
 
 ---
 
 ### TrackError = "trackError" {#trackError}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)</span> <span className="info badge">payload: [trackExceptionEvent{}](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span> 
+<span className="info badge">payload: [trackExceptionEvent{}](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent)</span>
 
 ---
 
 ### SegmentsLoaded = "segmentsLoaded" {#segmentsLoaded}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)</span> <span className="info badge">payload:  [sponsorBlockSegmentsLoaded{}](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+ <span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span>
+ <span className="info badge">payload: [sponsorBlockSegmentsLoaded{}](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded)</span>
 
 > Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
 
@@ -165,7 +256,11 @@ import TabItem from '@theme/TabItem';
 
 ### SegmentSkipped = "segmentSkipped" {#segmentSkipped}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)</span> <span className="info badge">payload: [sponsorBlockSegmentSkipped](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span> 
+<span className="info badge">payload: [sponsorBlockSegmentSkipped](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped)</span>
 
 > Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
 
@@ -173,7 +268,11 @@ import TabItem from '@theme/TabItem';
 
 ### ChapterStarted = "chapterStarted" {#chapterStarted}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)</span> <span className="info badge">payload: [sponsorBlockChapterStarted](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+ <span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span> 
+<span className="info badge">payload: [sponsorBlockChapterStarted](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted)</span>
 
 > Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
 
@@ -181,8 +280,36 @@ import TabItem from '@theme/TabItem';
 
 ### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)</span> <span className="info badge">payload: [sponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/.mdx#sponsorBlockChaptersLoaded)</span>
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span>
+ <span className="info badge">payload: [sponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/.mdx#sponsorBlockChaptersLoaded)</span>
 
 > Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
 
 ---
+
+### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">
+	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
+</span>
+ <span className="info badge">payload: [sponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/.mdx#sponsorBlockChaptersLoaded)</span>
+
+> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+
+---
+
+ {/* VoiceReceiverDisconnect = "voiceReceiverDisconnect",
+	
+	VoiceReceiverConnect = "voiceReceiverConnect",
+	
+	VoiceReceiverError = "voiceReceiverError",
+	
+	VoiceReceiverStartSpeaking = "voiceReceiverStartSpeaking",
+	
+	VoiceReceiverEndSpeaking = "voiceReceiverEndSpeaking", */}
+
+   
