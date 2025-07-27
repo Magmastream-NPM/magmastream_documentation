@@ -39,11 +39,12 @@ Storing data in a `config.js` file is a common way of keeping your sensitive val
                 host: "", // required
                 port: 9999, // required
                 password: "", // required
-                secure: false, // optional
-                retryAmount: 500, // optional
-                retryDelay: 300000, // optional
-                resumeStatus: true, // optional
-                resumeTimeout: 300, // optional
+                useSSL: false, // optional
+                maxRetryAttempts: 500, // optional
+                retryDelayMs: 300000, // optional
+                enableSessionResumeOption: true, // optional
+                sessionTimeoutMs: 300, // optional
+                apiRequestTimeoutMs: 20000 // optional
             },
 	    ],
     };
