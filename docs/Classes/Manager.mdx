@@ -20,8 +20,8 @@ import TabItem from '@theme/TabItem';
 
         | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
         |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:-------------------------------------------:|
-        | `autoPlay`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Whether players should automatically play the next song.                                  |     <i className="fa-solid fa-check"/>      |
-        | `autoPlaySearchPlatform`                       | [<i className="fa-solid fa-bars-staggered" /> SearchPlatform](../Enums/SearchPlatform.mdx)            | The search platform autoplay should use. Fallback to YouTube if not found.                |     <i className="fa-solid fa-check"/>      |
+        | `playNextOnEnd`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Whether players should automatically play the next song.                                  |     <i className="fa-solid fa-check"/>      |
+        | `autoPlaySearchPlatforms`                      | [<i className="fa-solid fa-bars-staggered" /> SearchPlatform](../Enums/SearchPlatform.mdx)            | The search platform autoplay should use. Fallback to YouTube if not found.                |     <i className="fa-solid fa-check"/>      |
         | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)     | The client ID to use.                                                                     |     <i className="fa-solid fa-check"/>      |
         | `clientName`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)     | Value to use for the `Client-Name` header.                                                |     <i className="fa-solid fa-check"/>      |
         | `clusterId`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)     | The array of shard IDs connected to this manager instance.                                |     <i className="fa-solid fa-check"/>      |
@@ -29,11 +29,12 @@ import TabItem from '@theme/TabItem';
         | `lastFmApiKey`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)     | The last.fm API key. Get it from [here](https://www.last.fm/api/accounts).                |     <i className="fa-solid fa-check"/>      |
         | `maxPreviousTracks`                            | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)     | The maximum number of previous tracks to store.                                           |     <i className="fa-solid fa-check"/>      |
         | `nodes`                                        | [`NodeOptions[]`](../Typedefs/Node/Node.mdx#node)                                                     | The array of nodes to connect to.                                                         |     <i className="fa-solid fa-check"/>      |
-        | `plugins`                                      | [`Plugin[]`](./Plugin.mdx)                                                                            | An array of plugins to use.                                                               |     <i className="fa-solid fa-check"/>      |
-        | `replaceYouTubeCredentials`                    | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Whether the YouTube video titles should be replaced if the Author does not exactly match. |     <i className="fa-solid fa-check"/>      |
+        | `enabledPlugins`                               | [`Plugin[]`](./Plugin.mdx)                                                                            | An array of plugins to use.                                                               |     <i className="fa-solid fa-check"/>      |
+        | `normalizeYouTubeTitles`                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Whether the YouTube video titles should be replaced if the Author does not exactly match. |     <i className="fa-solid fa-check"/>      |
         | `trackPartial`                                 | [<i className="fa-solid fa-bars-staggered" /> TrackPartial](../Enums/TrackPartial.mdx)                | An array of track properties to keep. `track` will always be present.                     |     <i className="fa-solid fa-check"/>      |
         | `useNode`                                      | [<i className="fa-solid fa-bars-staggered" /> UseNodeOptions](../Enums/UseNodeOptions.mdx)            | Use the least amount of players or least load?                                            |     <i className="fa-solid fa-check"/>      |
-        | `usePriority`                                  | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Use priority mode over least amount of player or load?                                    |     <i className="fa-solid fa-check"/>      |
+        | `enablePriorityMode`                           | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)   | Use priority mode over least amount of player or load?                                    |     <i className="fa-solid fa-check"/>      |
+        | `stateStorage`                                 | [StateStorageOptions](../Typedefs/Manager/stateStorageOptions.mdx)                                    | Where should the queue be stored?                                                         |     <i className="fa-solid fa-check"/>      |
         | `send`                                         | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | Function to send data to the websocket.                                                   |     <i className="fa-solid fa-xmark"/>      |
 
         ---
@@ -78,7 +79,7 @@ import TabItem from '@theme/TabItem';
 | [players](#players)                         | [decodeTracks()](#decodeTracks)                    | [nodeConnect](#nodeConnect)                    |
 |                                             | [destroy()](#destroy)                              | [nodeCreate](#nodeCreate)                      |
 |                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodeDestroy)                    |
-|                                             | [get()](#get)                                      | [nodeDisconnect](#nodeDisconnect)              |
+|                                             | [getPlayer()](#getPlayer)                                      | [nodeDisconnect](#nodeDisconnect)              |
 |                                             | [handleShutdown()](#handleShutdown)                | [nodeError](#nodeError)                        |
 |                                             | [init()](#init)                                    | [nodeRaw](#nodeRaw)                            |
 |                                             | [loadPlayerStates()](#loadPlayerStates)            | [nodeReconnect](#nodeReconnect)                |
@@ -217,7 +218,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### init(clientId, clusterId) {#init}
+### init(options) {#init}
 
 > Initiates the Manager.
 >
@@ -225,8 +226,7 @@ import TabItem from '@theme/TabItem';
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                              | <i className="fa-solid fa-list"/> Description                                      | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `clientId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`ClientUser.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class#id) | The Discord client ID (required).                                                  |     <i className="fa-solid fa-xmark"/>      |
-> | `clusterId`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                   | The cluster ID which runs the current process (required). Default 0 if no provided |     <i className="fa-solid fa-xmark"/>      |
+> | `options`                                     | [ManagerInitOptions](../Typedefs/Manager/managerInitOptions.mdx)                                                                                                                                     |                                                                                    |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 
@@ -244,7 +244,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### get(guildId) {#get}
+### getPlayer(guildId) {#getPlayer}
 
 > Returns a player or undefined if it does not exist.
 >

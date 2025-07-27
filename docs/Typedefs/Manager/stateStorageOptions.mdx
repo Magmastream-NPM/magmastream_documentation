@@ -1,0 +1,41 @@
+---
+id: manager-typedefs-stateStorageOptions
+title: "Typedefs : Manager : stateStorageOptions"
+description: stateStorageOptions options for the manager.
+slug: /typedefs/manager/stateStorageOptions
+sidebar_label: stateStorageOptions
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+
+### stateStorageOptions <span className="info badge">object</span> {#stateStorageOptions}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                     |
+|:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| `type`                                         |  [StateStorageType](../../Enums/StateStorageType.mdx)                                                      |
+| `redisConfig`                                  | [RedisConfig](#RedisConfig)                                                                                |
+| `jsonConfig`                                   | [JsonConfig](#JsonConfig)                                                                                  |
+| `deleteInactivePlayers`                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)        |
+
+---
+
+### RedisConfig <span className="info badge">object</span> {#RedisConfig}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                     |
+|:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| `host`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          |
+| `port`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          |
+| `password`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          |
+| `db`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)          |
+| `prefix`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          |
+ 
+---
+
+### JsonConfig <span className="info badge">object</span> {#JsonConfig}
+
+| <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                     |
+|:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| `path`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          |

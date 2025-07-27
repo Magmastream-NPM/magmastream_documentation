@@ -53,7 +53,7 @@ import TabItem from '@theme/TabItem';
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 <span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/Node/lyricsFoundEvent.mdx#lyricsFoundEvent)</span>
+<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/Node/lyricsFoundEvent.mdx)</span>
 
 ---
 
@@ -61,7 +61,7 @@ import TabItem from '@theme/TabItem';
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 <span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsLineEvent](../Typedefs/Node/lyricsLineEvent.mdx#lyricsLineEvent)</span>
+<span className="info badge">payload: [LyricsLineEvent](../Typedefs/Node/lyricsLineEvent.mdx)</span>
 
 ---
 
@@ -69,7 +69,7 @@ import TabItem from '@theme/TabItem';
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 <span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsNotFountEvent](../Typedefs/Node/lyricsNotFountEvent.mdx#lyricsNotFountEvent)</span>
+<span className="info badge">payload: [LyricsNotFountEvent](../Typedefs/Node/lyricsNotFountEvent.mdx)</span>
 
 ---
 
@@ -290,26 +290,48 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
+### VoiceReceiverDisconnect = "voiceReceiverDisconnect" {#voiceReceiverDisconnect}
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span>
- <span className="info badge">payload: [sponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/.mdx#sponsorBlockChaptersLoaded)</span>
 
-> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+> Only for Nodelink.
 
 ---
 
- {/* VoiceReceiverDisconnect = "voiceReceiverDisconnect",
-	
-	VoiceReceiverConnect = "voiceReceiverConnect",
-	
-	VoiceReceiverError = "voiceReceiverError",
-	
-	VoiceReceiverStartSpeaking = "voiceReceiverStartSpeaking",
-	
-	VoiceReceiverEndSpeaking = "voiceReceiverEndSpeaking", */}
+### VoiceReceiverConnect = "voiceReceiverConnect" {#voiceReceiverConnect}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+
+> Only for Nodelink.
+
+---
+
+### VoiceReceiverError = "voiceReceiverError" {#voiceReceiverError}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span> 
+
+> Only for Nodelink.
+
+---
+
+### VoiceReceiverStartSpeaking = "voiceReceiverStartSpeaking" {#voiceReceiverStartSpeaking}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">data: unknown</span> 
+
+> Only for Nodelink.
+
+---
+
+### VoiceReceiverEndSpeaking = "voiceReceiverEndSpeaking" {#voiceReceiverEndSpeaking}
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">data: unknown</span> 
+
+> Only for Nodelink.
+
+---
+
 
    
