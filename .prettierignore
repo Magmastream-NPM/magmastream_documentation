@@ -1,3 +1,2 @@
 # ignore these files because on prettier save it would format and destroy tables inside tabs etc.
-docs/Enums/LoadTypes.mdx
-docs/Enums/ManagerEventTypes.mdx
+*.mdx
