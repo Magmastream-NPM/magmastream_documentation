@@ -22,7 +22,7 @@ Here's the base code to get you started:
 
 ```javascript showLineNumbers
 const { Client, Events, GatewayIntentBits } = require('discord.js');
-const { Manager, UseNodeOptions, SearchPlatform } = require('magmastream');
+const { Manager, SearchPlatform, AutoPlayPlatform, TrackPartial } = require("magmastream");
 const config = require('./config.js');
 
 // Create a new client instance
@@ -32,18 +32,27 @@ const client = new Client({
 
 // Assign Manager to the client
 client.manager = new Manager({
-	playNextOnEnd: true, // Optional! - Recommanded to be true
-	usePriority: false, // Optional! - Recommanded if you have more than 1 node
-	normalizeYouTubeTitles: true, // Optional! - Recommanded to be true
-	lastFmApiKey: config.lastFmApiKey, // Optional!
-	trackPartial: ['pluginInfo', 'title', 'author', 'duration', 'uri', 'requester', 'artworkUrl', 'sourceName', 'identifier', 'artistUrl'], // Optional!
-	useNode: UseNodeOptions.LeastLoad, // Optional!
-	defaultSearchPlatform: SearchPlatform.YouTube, // Optional! - Assuming YouTube is enabled on Lavalink
-	autoPlaySearchPlatforms: [SearchPlatform.Spotify], // Optional! - Assuming Spotify is enabled on Lavalink
+	playNextOnEnd: true, // Optional - Recommanded to be true
+	enablePriorityMode: false, // Optional - Recommanded if you have more than 1 node
+	normalizeYouTubeTitles: true, // Optional - Recommanded to be true
+	trackPartial: [
+		TrackPartial.Author,
+		TrackPartial.ArtworkUrl,
+		TrackPartial.Duration,
+		TrackPartial.Identifier,
+		TrackPartial.PluginInfo,
+		TrackPartial.Requester,
+		TrackPartial.SourceName,
+		TrackPartial.Title,
+		TrackPartial.Track,
+		TrackPartial.Uri,
+	], // Optional but recommanded!
+	defaultSearchPlatform: SearchPlatform.YouTube, // Optional - Assuming YouTube is enabled on Lavalink
+	autoPlaySearchPlatforms: [AutoPlayPlatform.Spotify, AutoPlayPlatform.Deezer, AutoPlayPlatform.YouTube], // Optional
 	nodes: config.nodes,
-	send: async (packet) => {
+	send: (packet) => {
 		const guild = client.guilds.cache.get(packet.d.guild_id);
-		if (guild) await guild.shard.send(packet);
+		if (guild) guild.shard.send(packet);
 	},
 });
 
@@ -80,4 +89,4 @@ After closing the process with `Ctrl + C`, you can press the up arrow on your ke
 
 ## Resulting code
 
-If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/2a9d18d83736df3948b6ae6a789732a4ffb58d79/src).
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/7d9dad7a5925993f593d71045420ed2fd7e9ee38/src).
