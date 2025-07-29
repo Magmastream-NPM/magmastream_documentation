@@ -1,6 +1,6 @@
 ---
 id: enums-StateTypes
-title: "Enums : StateTypes"
+title: "Enum: StateTypes"
 description: StateTypes enumerations
 slug: /enums/StateTypes
 sidebar_label: StateTypes
@@ -9,51 +9,44 @@ sidebar_label: StateTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported states for the player.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                                              |                                                                        |                                                                            |
-        |:-----------------------------------------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Connected](#CONNECTED)         | [<i className="fa-solid fa-bars-staggered" /> Connecting](#CONNECTING) | [<i className="fa-solid fa-bars-staggered" /> Disconnected](#DISCONNECTED) |
-        | [<i className="fa-solid fa-bars-staggered" /> Disconnecting](#DISCONNECTING) | [<i className="fa-solid fa-bars-staggered" /> Destroying](#DESTROYING) |                                                                            |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value         |
+  |:----------------------------|:--------------|
+  | [`Connected`](#CONNECTED)       | `"CONNECTED"`   |
+  | [`Connecting`](#CONNECTING)         | `"CONNECTING"`    |
+  | [`Disconnected`](#DISCONNECTED) | `"DISCONNECTED"`|
+  | [`Disconnecting`](#DISCONNECTING)           | `"DISCONNECTING"`     |
+  | [`Destroying`](#DESTROYING)       | `"DESTROYING"`   | 
+  </TabItem>
 </Tabs>
 
-### Connected = "CONNECTED" {#CONNECTED}
-
-<span className="info badge">Connected</span>
+### Connected {#CONNECTED}
 
 > The player is connected to a voice channel.
 
 ---
 
-### Connecting = "CONNECTING" {#CONNECTING}
-
-<span className="info badge">Connecting</span>
+### Connecting {#CONNECTING}
 
 > The player is connecting to a voice channel.
 
 ---
 
-### Disconnected = "DISCONNECTED" {#DISCONNECTED}
-
-<span className="info badge">Disconnected</span>
+### Disconnected {#DISCONNECTED}
 
 > The player is disconnected (default state).
 
 ---
 
-### Disconnecting = "DISCONNECTING" {#DISCONNECTING}
-
-<span className="info badge">Disconnecting</span>
+### Disconnecting {#DISCONNECTING}
 
 > The player is disconnecting from a voice channel.
 
 ---
 
-### Destroying = "DESTROYING" {#DESTROYING}
-
-<span className="info badge">Destroying</span>
+### Destroying {#DESTROYING}
 
 > The player is destroying.
-
----

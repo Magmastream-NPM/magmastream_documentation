@@ -1,6 +1,6 @@
 ---
 id: enums-TrackSourceTypes
-title: TrackSourceTypes
+title: "Enum: TrackSourceTypes"
 description: TrackSourceTypes enumerations
 slug: /enums/TrackSourceTypes
 sidebar_label: TrackSourceTypes
@@ -9,79 +9,70 @@ sidebar_label: TrackSourceTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported track source types given by LavaLink or Nodelink.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-		|                                                                                                           |                                                                                                           |                                                                                                     |
-        | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> AppleMusic](#applemusic)                                    | [<i className="fa-solid fa-bars-staggered" /> Bandcamp](#bandcamp)                                        | [<i className="fa-solid fa-bars-staggered" /> Deezer](#deezer)                                      |
-        | [<i className="fa-solid fa-bars-staggered" /> Jiosaavn](#jiosaavn)                                        | [<i className="fa-solid fa-bars-staggered" /> SoundCloud](#soundcloud)                                    | [<i className="fa-solid fa-bars-staggered" /> Spotify](#spotify)                                    |
-        | [<i className="fa-solid fa-bars-staggered" /> Tidal](#tidal)                                              |  [<i className="fa-solid fa-bars-staggered" /> VKMusic](#vkmusic)                                         |   [<i className="fa-solid fa-bars-staggered" /> YouTube](#youtube)                                                                                                  |
-	</TabItem>
-    
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value          |
+  |:----------------------------|:---------------|
+  | [`AppleMusic`](#appleMusic) | `"appleMusic"` |
+  | [`Bandcamp`](#bandcamp)     | `"bandcamp"`   |
+  | [`Deezer`](#deezer)         | `"deezer"`     |
+  | [`Jiosaavn`](#jiosaavn)     | `"jiosaavn"`   |
+  | [`Qobuz`](#qobuz)           | `"qobuz"`      |
+  | [`SoundCloud`](#soundcloud) | `"soundcloud"` |
+  | [`Spotify`](#spotify)       | `"spotify"`    |
+  | [`Tidal`](#tidal)           | `"tidal"`      |
+  | [`VKMusic`](#vkmusic)       | `"vkmusic"`    |
+  | [`YouTube`](#youtube)       | `"youtube"`    |
+  </TabItem>
 </Tabs>
 
-### AppleMusic = "applemusic" {#applemusic}
-
-<span className="info badge">AppleMusic</span>
+### AppleMusic {#appleMusic}
 
 > Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---
 
-### Bandcamp = "bandcamp" {#bandcamp}
+### Bandcamp {#bandcamp}
 
-<span className="info badge">Bandcamp</span>
-
+> Included by default LavaLink.
 ---
 
-### Deezer = "deezer" {#deezer}
-
-<span className="info badge">Deezer</span>
+### Deezer {#deezer}
 
 > Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---
 
-### Jiosaavn = "jssearch" {#jiosaavn}
-
-<span className="info badge">Jiosaavn</span>
+### Jiosaavn {#jiosaavn}
 
 > Requires the [JioSaavn plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/appujet/jiosaavn-plugin)
 
 ---
 
-### SoundCloud = "soundcloud" {#soundcloud}
+### SoundCloud {#soundcloud}
 
-<span className="info badge">SoundCloud</span>
-
+> Included by default LavaLink.
 ---
 
-### Spotify = "spotify" {#spotify}
-
-<span className="info badge">Spotify</span>
+### Spotify {#spotify}
 
 > Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---
 
-### Tidal = "tidal" {#tidal}
+### Tidal {#tidal}
 
-<span className="info badge">Tidal</span>
-
+> Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 ---
 
-### VKMusic = "vkmusic" {#vkmusic}
-
-<span className="info badge">VKMusic</span>
+### VKMusic {#vkmusic}
 
 > Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---
 
-### YouTube = "youtube" {#youtube}
-
-<span className="info badge">YouTube</span>
+### YouTube {#youtube}
 
 > Requires the [YouTube-Source plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/lavalink-devs/youtube-source)
-
----

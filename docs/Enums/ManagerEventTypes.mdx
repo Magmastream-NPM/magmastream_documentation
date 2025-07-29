@@ -1,6 +1,6 @@
 ---
 id: enums-ManagerEventTypes
-title: 'Enums : ManagerEventTypes'
+title: "Enum: ManagerEventTypes"
 description: ManagerEventTypes enumerations
 slug: /enums/ManagerEventTypes
 sidebar_label: ManagerEventTypes
@@ -9,288 +9,319 @@ sidebar_label: ManagerEventTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported events that can be emitted by the manager.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-  |                                                                                      |                                                                                |                                                                                      |
-  |:-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-  | <i className="fa-solid fa-bars-staggered" /> [ChapterStarted](#chapterStarted)       | <i className="fa-solid fa-bars-staggered" /> [ChaptersLoaded](#chaptersLoaded) | <i className="fa-solid fa-bars-staggered" /> [Debug](#debug)                         |
-  | <i className="fa-solid fa-bars-staggered" /> [LyricsFoundEvent](#lyricsFoundEvent)   | <i className="fa-solid fa-bars-staggered" /> [LyricsLineEvent](#lyricsLineEvent) | <i className="fa-solid fa-bars-staggered" /> [LyricsNotFoundEvent](#lyricsNotFoundEvent) |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeConnect](#nodeConnect)             | <i className="fa-solid fa-bars-staggered" /> [NodeCreate](#nodeCreate)         | <i className="fa-solid fa-bars-staggered" /> [NodeDestroy](#nodeDestroy)             |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeDisconnect](#nodeDisconnect)       | <i className="fa-solid fa-bars-staggered" /> [NodeError](#nodeError)           | <i className="fa-solid fa-bars-staggered" /> [NodeRaw](#nodeRaw)                     |
-  | <i className="fa-solid fa-bars-staggered" /> [NodeReconnect](#nodeReconnect)         | <i className="fa-solid fa-bars-staggered" /> [PlayerCreate](#playerCreate)     | <i className="fa-solid fa-bars-staggered" /> [PlayerDestroy](#playerDestroy)         |
-  | <i className="fa-solid fa-bars-staggered" /> [PlayerDisconnect](#playerDisconnect)   | <i className="fa-solid fa-bars-staggered" /> [PlayerMove](#playerMove)         | <i className="fa-solid fa-bars-staggered" /> [PlayerRestored](#playerRestored)       |
-  | <i className="fa-solid fa-bars-staggered" /> [PlayerStateUpdate](#playerStateUpdate) | <i className="fa-solid fa-bars-staggered" /> [QueueEnd](#queueEnd)             | <i className="fa-solid fa-bars-staggered" /> [RestoreComplete](#restoreComplete)     |
-  | <i className="fa-solid fa-bars-staggered" /> [SegmentSkipped](#segmentSkipped)       | <i className="fa-solid fa-bars-staggered" /> [SegmentsLoaded](#segmentsLoaded) | <i className="fa-solid fa-bars-staggered" /> [SocketClosed](#socketClosed)           |
-  | <i className="fa-solid fa-bars-staggered" /> [TrackEnd](#trackEnd)                   | <i className="fa-solid fa-bars-staggered" /> [TrackError](#trackError)         | <i className="fa-solid fa-bars-staggered" /> [TrackStart](#trackStart)               |
-  | <i className="fa-solid fa-bars-staggered" /> [TrackStuck](#trackStuck)               | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverConnect](#voiceReceiverConnect) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverDisconnect](#voiceReceiverDisconnect) |
-  | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverEndSpeaking](#voiceReceiverEndSpeaking) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverError](#voiceReceiverError) | <i className="fa-solid fa-bars-staggered" /> [VoiceReceiverStartSpeaking](#voiceReceiverStartSpeaking) |
-</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      								| Value                          |
+  |:------------------------------------------------------------|:-------------------------------|
+  | [`ChapterStarted`](#chapterStarted) 						| `"chapterStarted"`             |
+  | [`ChaptersLoaded`](#chaptersLoaded)          				| `"chaptersLoaded"`             |
+  | [`Debug`](#debug) 											| `"debug"`                      |
+  | [`LyricsFoundEvent`](#lyricsFoundEvent)            			| `"lyricsFoundEvent"`           |
+  | [`LyricsLineEvent`](#lyricsLineEvent)      				 	| `"lyricsLineEvent"`            | 
+  | [`LyricsNotFoundEvent`](#lyricsNotFoundEvent)            	| `"lyricsNotFoundEvent"`        |
+  | [`NodeConnect`](#nodeConnect)        						| `"nodeConnect"`    			 |
+  | [`NodeCreate`](#nodeCreate)        							| `"nodeCreate"`    			 |
+  | [`NodeDestroy`](#nodeDestroy)        						| `"nodeDestroy"`    			 |
+  | [`NodeDisconnect`](#nodeDisconnect)        					| `"nodeDisconnect"`    		 |
+  | [`NodeError`](#nodeError)        							| `"nodeError"`    				 |
+  | [`NodeRaw`](#nodeRaw)        								| `"nodeRaw"`   				 |
+  | [`NodeReconnect`](#nodeReconnect)        					| `"nodeReconnect"`    			 |
+  | [`PlayerCreate`](#playerCreate)        						| `"playerCreate"`    			 |
+  | [`PlayerDestroy`](#playerDestroy)        					| `"playerDestroy"`    			 |
+  | [`PlayerDisconnect`](#playerDisconnect)       				| `"playerDisconnect"`    		 |
+  | [`PlayerMove`](#playerMove)        							| `"playerMove"`    			 |
+  | [`PlayerRestored`](#playerRestored)        					| `"playerRestored"`    		 |
+  | [`PlayerStateUpdate`](#playerStateUpdate)        			| `"playerStateUpdate"`   	 	 |
+  | [`QueueEnd`](#queueEnd)        								| `"queueEnd"`    				 |
+  | [`RestoreComplete`](#restoreComplete)        				| `"restoreComplete"`            |
+  | [`SegmentSkipped`](#segmentSkipped)        					| `"segmentSkipped"`    		 |
+  | [`SegmentsLoaded`](#segmentsLoaded)       					| `"segmentsLoaded"`    		 |
+  | [`SocketClosed`](#socketClosed)       					    | `"socketClosed"`               |
+  | [`TrackEnd`](#trackEnd)                                     | `"trackEnd"`       		     |
+  | [`TrackError`](#trackError)                                 | `"trackError"`   				 |
+  | [`TrackStart`](#trackStart)                                 | `"trackStart"`   				 |
+  | [`TrackStuck`](#trackStuck)                                 | `"trackStuck"`   				 |
+  | [`VoiceReceiverDisconnect`](#voiceReceiverDisconnect)       | `"voiceReceiverDisconnect"`    |
+  | [`VoiceReceiverConnect`](#voiceReceiverConnect)             | `"voiceReceiverConnect"`       |
+  | [`VoiceReceiverError`](#voiceReceiverError)                 | `"voiceReceiverError"`         |
+  | [`VoiceReceiverStartSpeaking`](#voiceReceiverStartSpeaking) | `"voiceReceiverStartSpeaking"` |
+  | [`VoiceReceiverEndSpeaking`](#voiceReceiverEndSpeaking)     | `"voiceReceiverEndSpeaking"`   |
+  </TabItem>
 </Tabs>
 
-### ChapterStarted = "chapterStarted" {#chapterStarted}
+### ChapterStarted {#chapterStarted}
+
+> Fired when a [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) chapter begins playback in a track.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [SponsorBlockChaptersStarted](../Typedefs/SponsorBlock/sponsorBlockChaptersStarted.mdx#sponsorBlockChaptersStarted)</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [SponsorBlockChapterStarted](../Typedefs/SponsorBlockChapterStarted.mdx)</span>
 
 ---
 
-### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
+### ChaptersLoaded {#chaptersLoaded}
+
+> Fired when [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) chapters are found and loaded in a track.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [SponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded)</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [SponsorBlockChaptersLoaded](../Typedefs/SponsorBlockChaptersLoaded.mdx)</span>
 
 ---
 
-### Debug = "debug" {#debug}
+### Debug {#debug}
+
+> Fired always by the manager to help you debug your bot.
 
 <span className="info badge">info: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
 
 ---
 
-### LyricsFoundEvent = "lyricsFoundEvent" {#lyricsFoundEvent}
+### LyricsFoundEvent {#lyricsFoundEvent}
+
+> Fired when lyrics are found for a track.
+
+> Requires the [LavaLyrics plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics)
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/Node/lyricsFoundEvent.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/LyricsFoundEvent.mdx)</span>
 
 ---
 
-### LyricsLineEvent = "lyricsLineEvent" {#lyricsLineEvent}
+### LyricsLineEvent {#lyricsLineEvent}
+
+> Fired when a line of lyrics is played for a track.
+
+> Requires the [LavaLyrics plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics)
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsLineEvent](../Typedefs/Node/lyricsLineEvent.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [LyricsLineEvent](../Typedefs/LyricsLineEvent.mdx)</span>
 
 ---
 
-### LyricsNotFoundEvent = "lyricsNotFoundEvent" {#lyricsNotFoundEvent}
+### LyricsNotFoundEvent {#lyricsNotFoundEvent}
+
+> Fired when lyrics are not found for a track.
+
+> Requires the [LavaLyrics plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics)
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [Track](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">payload: [LyricsNotFountEvent](../Typedefs/Node/lyricsNotFountEvent.mdx)</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [LyricsNotFoundEvent](../Typedefs/LyricsNotFoundEvent.mdx)</span>
 
 ---
 
-### NodeCreate = "nodeCreate" {#nodeCreate}
+### NodeConnect {#nodeConnect}
+
+> Fired when a node is connected.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
-### NodeDestroy = "nodeDestroy" {#nodeDestroy}
+### NodeCreate {#nodeCreate}
+
+> Fired when a node is created.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
-### NodeConnect = "nodeConnect" {#nodeConnect}
+### NodeDestroy {#nodeDestroy}
+
+> Fired when a node is destroyed.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
-### NodeReconnect = "nodeReconnect" {#nodeReconnect}
+### NodeDisconnect {#nodeDisconnect}
+
+> Fired when a node is disconnected.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
-
----
-
-### NodeDisconnect = "nodeDisconnect" {#nodeDisconnect}
-
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
- <span className="info badge">
+<span className="info badge">
 	reason: code?: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason?:
 	[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 </span>
 
 ---
 
-### NodeError = "nodeError" {#nodeError}
+### NodeError {#nodeError}
+
+> Fired when a node encounters an error.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
- <span className="info badge">
-	error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-</span>
+<span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span>
 
 ---
 
-### NodeRaw = "nodeRaw" {#nodeRaw}
+### NodeRaw {#nodeRaw}
 
-<span className="info badge">payload: unknown</span>
+> Fired when a node emits a raw event.
+
+<span className="info badge">payload: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span>
 
 ---
 
-### PlayerCreate = "playerCreate" {#playerCreate}
+### NodeReconnect {#nodeReconnect}
+
+> Fired when a node is reconnected.
+
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+
+---
+
+### PlayerCreate {#playerCreate}
+
+> Fired when a player is created.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 
 ---
 
-### PlayerDestroy = "playerDestroy" {#playerDestroy}
+### PlayerDestroy {#playerDestroy}
+
+> Fired when a player is destroyed.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 
 ---
 
-### PlayerStateUpdate = "playerStateUpdate" {#playerStateUpdate}
+### PlayerDisconnect {#playerDisconnect}
+
+> Fired when a player disconnects.
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+
+---
+
+
+### PlayerMove {#playerMove}
+
+> Fired when a player moves to a different channel.
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span> 
+<span className="info badge">newChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
+
+---
+
+### PlayerRestored {#playerRestored}
+
+> Fired when a player is restored.
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
+<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
+
+---
+
+### PlayerStateUpdate {#playerStateUpdate}
+
+> Fired when a player's state is updated.
 
 <span className="info badge">oldPlayer: [Player](../Classes/Player.mdx)</span> 
 <span className="info badge">newPlayer: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	changeType: [PlayerStateUpdateEvent](../Typedefs/Player/playerStateUpdate.mdx#playerStateUpdate)
-</span>
+<span className="info badge">changeType: [PlayerStateUpdateEvent](../Typedefs/PlayerStateUpdateEvent.mdx)</span>
 
 ---
 
-### PlayerMove = "playerMove" {#playerMove}
+### QueueEnd {#queueEnd}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">
-	oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-</span> <span className="info badge">newChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)</span>
-
----
-
-### PlayerRestored = "playerRestored" {#playerRestored}
-
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
-
----
-
-### PlayerDisconnect = "playerDisconnect" {#playerDisconnect}
+> Fired when a player's queue ends.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	oldChannel: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span> 
+<span className="info badge">payload: [TrackEndEvent](../Typedefs/TrackEndEvent.mdx)</span>
 
 ---
 
-### QueueEnd = "queueEnd" {#queueEnd}
+### RestoreComplete {#restoreComplete}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx){' '}
-</span> 
-<span className="info badge">payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)</span>
-
----
-
-### RestoreComplete = "restoreComplete" {#restoreComplete}
+> Fired when a node is restored.
 
 <span className="info badge">node: [Node](../Classes/Node.mdx)</span>
 
 ---
 
-### SegmentSkipped = "segmentSkipped" {#segmentSkipped}
+### SegmentSkipped {#segmentSkipped}
 
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
-
----
-
-### SegmentsLoaded = "segmentsLoaded" {#segmentsLoaded}
-
-<span className="info badge">node: [Node](../Classes/Node.mdx)</span>
-
----
-
-### SocketClosed = "socketClosed" {#socketClosed}
-
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> <span className="info badge">payload: WebSocketClosedEvent</span>
-
----
-
-### TrackStart = "trackStart" {#trackStart}
+> Fired when a [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) segment is skipped.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
-<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) </span> 
-<span className="info badge">
-	payload: [trackStartEvent{}](../Typedefs/Track/trackStartEvent.mdx#trackStartEvent)
-</span>
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [SponsorBlockSegmentSkipped](../Typedefs/SponsorBlockSegmentSkipped.mdx)</span>
 
 ---
 
-### TrackEnd = "trackEnd" {#trackEnd}
+### SegmentsLoaded {#segmentsLoaded}
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span> 
-<span className="info badge">
-	payload: [trackEndEvent{}](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent)
-</span>
-
----
-
-### TrackStuck = "trackStuck" {#trackStuck}
-
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
-<span className="info badge">
-	payload: [trackStuckEvent{}](../Typedefs/Track/trackStuckEvent.mdx#trackStuckEvent)
-</span>
-
----
-
-### TrackError = "trackError" {#trackError}
-
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span> 
-<span className="info badge">payload: [trackExceptionEvent{}](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent)</span>
-
----
-
-### SegmentsLoaded = "segmentsLoaded" {#segmentsLoaded}
+> Fired when [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) segments are loaded.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
- <span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span>
- <span className="info badge">payload: [sponsorBlockSegmentsLoaded{}](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded)</span>
-
-> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [SponsorBlockSegmentsLoaded](../Typedefs/SponsorBlockSegmentsLoaded.mdx)</span>
 
 ---
 
-### SegmentSkipped = "segmentSkipped" {#segmentSkipped}
+### SocketClosed {#socketClosed}
+
+> Fired when a player's socket is closed.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span> 
-<span className="info badge">payload: [sponsorBlockSegmentSkipped](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped)</span>
-
-> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+<span className="info badge">payload: [WebSocketClosedEvent](../Typedefs/WebSocketClosedEvent.mdx)</span>
 
 ---
 
-### ChapterStarted = "chapterStarted" {#chapterStarted}
+### TrackEnd {#trackEnd}
+
+> Fired when a player's track ends.
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span> 
+<span className="info badge">payload: [TrackEndEvent](../Typedefs/TrackEndEvent.mdx)</span>
+
+---
+
+
+### TrackError {#trackError}
+
+> Fired when a player's track encounters an error.
+
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span> 
+<span className="info badge">payload: [TrackExceptionEvent](../Typedefs/TrackExceptionEvent.mdx)</span>
+
+---
+
+### TrackStart {#trackStart}
+
+> Fired when a player's track starts.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
- <span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span> 
-<span className="info badge">payload: [sponsorBlockChapterStarted](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx#sponsorBlockChapterStarted)</span>
-
-> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span> 
+<span className="info badge">payload: [TrackStartEvent](../Typedefs/TrackStartEvent.mdx)</span>
 
 ---
 
-### ChaptersLoaded = "chaptersLoaded" {#chaptersLoaded}
+### TrackStuck {#trackStuck}
+
+> Fired when a player's track gets stuck.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">
-	track: [track{}](../Typedefs/Track/trackOptions.mdx#trackOptions) | [unresolvedTrack{}](../Typedefs/Track/unresolvedTrack.mdx#unresolvedTrack.mdx)
-</span>
- <span className="info badge">payload: [sponsorBlockChaptersLoaded](../Typedefs/SponsorBlock/.mdx#sponsorBlockChaptersLoaded)</span>
-
-> Requires the [SponsorBlock plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin)
+<span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
+<span className="info badge">payload: [TrackStuckEvent](../Typedefs/TrackStuckEvent.mdx)</span>
 
 ---
 
-### VoiceReceiverDisconnect = "voiceReceiverDisconnect" {#voiceReceiverDisconnect}
+### VoiceReceiverDisconnect {#voiceReceiverDisconnect}
+
+> Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) disconnects.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
 
@@ -298,7 +329,9 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### VoiceReceiverConnect = "voiceReceiverConnect" {#voiceReceiverConnect}
+### VoiceReceiverConnect {#voiceReceiverConnect}
+
+> Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) connects.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
 
@@ -306,7 +339,9 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### VoiceReceiverError = "voiceReceiverError" {#voiceReceiverError}
+### VoiceReceiverError {#voiceReceiverError}
+
+> Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) encounters an error.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
 <span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span> 
@@ -315,23 +350,22 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### VoiceReceiverStartSpeaking = "voiceReceiverStartSpeaking" {#voiceReceiverStartSpeaking}
+### VoiceReceiverStartSpeaking {#voiceReceiverStartSpeaking}
+
+> Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) starts speaking.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">data: unknown</span> 
+<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span> 
 
 > Only for Nodelink.
 
 ---
 
-### VoiceReceiverEndSpeaking = "voiceReceiverEndSpeaking" {#voiceReceiverEndSpeaking}
+### VoiceReceiverEndSpeaking {#voiceReceiverEndSpeaking}
+
+> Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) stops speaking.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">data: unknown</span> 
+<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span> 
 
 > Only for Nodelink.
-
----
-
-
-   

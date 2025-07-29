@@ -1,6 +1,6 @@
 ---
 id: enums-LoadTypes
-title: "Enums : LoadTypes"
+title: "Enum: LoadTypes"
 description: LoadTypes enumerations
 slug: /enums/LoadTypes
 sidebar_label: LoadTypes
@@ -9,95 +9,97 @@ sidebar_label: LoadTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported load types given by LavaLink or Nodelink.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                              |                                                                    |                                                                |
-        |:-------------------------------------------------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Track](#track) | [<i className="fa-solid fa-bars-staggered" /> Playlist](#playlist) | [<i className="fa-solid fa-bars-staggered" /> Search](#search) |
-        | [<i className="fa-solid fa-bars-staggered" /> Empty](#empty) | [<i className="fa-solid fa-bars-staggered" /> Error](#error)       | [<i className="fa-solid fa-bars-staggered" /> Album](#album)   |
-        | [<i className="fa-solid fa-bars-staggered" /> Artist](#artist)| [<i className="fa-solid fa-bars-staggered" /> Station](#station)  | [<i className="fa-solid fa-bars-staggered" /> Podcast](#podcast)|
-        | [<i className="fa-solid fa-bars-staggered" /> Show](#show)   | [<i className="fa-solid fa-bars-staggered" /> Short](#short)       |                                                                |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                  | Value        |
+  |:------------------------|:-------------|
+  | [`Track`](#track)       | `"track"`    |
+  | [`Playlist`](#playlist) | `"playlist"` |
+  | [`Search`](#search)     | `"search"`   |
+  | [`Empty`](#empty)       | `"empty"`    |
+  | [`Error`](#error)       | `"error"`    | 
+  | [`Album`](#album)       | `"album"`    | 
+  | [`Artist`](#artist)     | `"artist"`   | 
+  | [`Station`](#station)   | `"station"`  | 
+  | [`Podcast`](#podcast)   | `"podcast"`  | 
+  | [`Show`](#show)         | `"show"`     | 
+  | [`Short`](#short)       | `"short"`    | 
+  </TabItem>
 </Tabs>
 
+### Track {#track}
 
-### Track = "track" {#track}
-
-<span className="info badge">[track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
 > A track has been loaded.
 
 ---
 
-### Playlist = "playlist" {#playlist}
+### Playlist {#playlist}
 
-<span className="info badge">[track{}[]](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
 > A playlist has been loaded.
 
 ---
 
-### Search = "search" {#search}
+### Search {#search}
 
-<span className="info badge">[track{}](../Typedefs/Track/trackOptions.mdx#trackOptions)</span>
 > A search result has been loaded.
 
 ---
 
-### Empty = "empty" {#empty}
+### Empty {#empty}
 
-<span className="info badge">Empty data</span>
 > No result has been found / loaded.
 
 > See [lavalink empty data example <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://lavalink.dev/api/rest.html#empty-result-data).
 
 ---
 
-### Error = "error" {#error}
+### Error {#error}
 
-<span className="info badge">Error data</span>
 > An error / exception occurred.
 
 > See [lavalink error data example <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://lavalink.dev/api/rest.html#error-result-data).
 
 ---
 
-### Album = "album" {#album}
+### Album {#album}
 
-<span className="info badge">Nodelink</span>
-> Type of Playlist.
+> Playlist like.
 
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).
 ---
 
-### Artist = "artist" {#artist}
+### Artist {#artist}
 
-<span className="info badge">Nodelink</span>
-> Type of Playlist.
+> Playlist like.
 
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).
 ---
 
-### Station = "station" {#station}
+### Station {#station}
 
-<span className="info badge">Nodelink</span>
-> Type of Playlist.
+> Playlist like.
 
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).
 ---
 
-### Podcast = "podcast" {#podcast}
+### Podcast {#podcast}
 
-<span className="info badge">Nodelink</span>
-> Type of Playlist.
+> Playlist like.
 
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).
 ---
 
-### Show = "show" {#show}
+### Show {#show}
 
-<span className="info badge">Nodelink</span>
-> Type of Track.
+> Track like.
 
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).
 ---
 
-### Short = "short" {#short}
+### Short {#short}
 
-<span className="info badge">Nodelink</span>
-> Type of Track.
+> Track like.
 
----
+> Only available on [Nodelink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink).

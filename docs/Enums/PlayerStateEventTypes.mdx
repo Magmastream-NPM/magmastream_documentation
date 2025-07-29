@@ -1,6 +1,6 @@
 ---
 id: enums-PlayerStateEventTypes
-title: "Enums : PlayerStateEventTypes"
+title: "Enum: PlayerStateEventTypes"
 description: PlayerStateEventTypes enumerations
 slug: /enums/PlayerStateEventTypes
 sidebar_label: PlayerStateEventTypes
@@ -9,72 +9,79 @@ sidebar_label: PlayerStateEventTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported events when the player state changes.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                                                |                                                                                    |                                                                              |
-        |:-------------------------------------------------------------------------------|------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-        | <i className="fa-solid fa-bars-staggered" /> [AutoPlayChange](#AutoPlayChange) | <i className="fa-solid fa-bars-staggered" /> [ConnectionChange](#ConnectionChange) | <i className="fa-solid fa-bars-staggered" /> [RepeatChange](#RepeatChange)   |
-        | <i className="fa-solid fa-bars-staggered" /> [PauseChange](#PauseChange)       | <i className="fa-solid fa-bars-staggered" /> [QueueChange](#QueueChange)           | <i className="fa-solid fa-bars-staggered" /> [TrackChange](#TrackChange)     |
-        | <i className="fa-solid fa-bars-staggered" /> [VolumeChange](#VolumeChange)     | <i className="fa-solid fa-bars-staggered" /> [ChannelChange](#ChannelChange)       | <i className="fa-solid fa-bars-staggered" /> [PlayerCreate](#PlayerCreate)   |
-        | <i className="fa-solid fa-bars-staggered" /> [PlayerDestroy](#PlayerDestroy)   |                                                                                    |                                                                              |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                                   | Value                |
+  |:-----------------------------------------|:---------------------|
+  | [`AutoPlayChange`](#autoPlayChange)      | `"autoPlayChange"`   |
+  | [`ConnectionChange`](#connectionChange)  | `"connectionChange"` |
+  | [`RepeatChange`](#repeatChange)          | `"repeatChange"`     |
+  | [`PauseChange`](#pauseChange)            | `"pauseChange"`      |
+  | [`QueueChange`](#queueChange)            | `"queueChange"`      | 
+  | [`TrackChange`](#trackChange)            | `"trackChange"`      |
+  | [`VolumeChange`](#volumeChange)          | `"volumeChange"`     |
+  | [`ChannelChange`](#channelChange)        | `"channelChange"`    |
+  | [`PlayerCreate`](#playerCreate)          | `"playerCreate"`     |
+  | [`PlayerDestroy`](#playerDestroy)        | `"playerDestroy"`    |
+  </TabItem>
 </Tabs>
 
-### AutoPlayChange = "autoPlayChange" {#AutoPlayChange}
+### AutoPlayChange {#autoPlayChange}
 
-<span className="info badge">AutoPlayChange</span>
-
----
-
-### ConnectionChange = "playerConnection" {#ConnectionChange}
-<span className="info badge">ConnectionChange</span>
+> Autoplay state of the player changes.
 
 ---
 
-### RepeatChange = "playerRepeat" {#RepeatChange}
+### ConnectionChange {#connectionChange}
 
-<span className="info badge">RepeatChange</span>
-
----
-
-### PauseChange = "playerPause" {#PauseChange}
-
-<span className="info badge">PauseChange</span>
+> Connection state of the player changes.
 
 ---
 
-### QueueChange = "queueChange" {#QueueChange}
+### RepeatChange {#repeatChange}
 
-<span className="info badge">QueueChange</span>
-
----
-
-### TrackChange = "trackChange" {#TrackChange}
-
-<span className="info badge">TrackChange</span>
+> Repeat state of the player changes.
 
 ---
 
-### VolumeChange = "volumeChange" {#VolumeChange}
+### PauseChange {#pauseChange}
 
-<span className="info badge">VolumeChange</span>
-
----
-
-### ChannelChange = "channelChange" {#ChannelChange}
-
-<span className="info badge">ChannelChange</span>
+> Pause state of the player changes.
 
 ---
 
-### PlayerCreate = "playerCreate" {#PlayerCreate}
+### QueueChange {#queueChange}
 
-<span className="info badge">PlayerCreate</span>
+> Queue of the player changes.
+
+---
+
+### TrackChange {#trackChange}
+
+> Track of the player changes.
 
 ---
 
-### PlayerDestroy = "playerDestroy" {#PlayerDestroy}
+### VolumeChange {#volumeChange}
 
-<span className="info badge">PlayerDestroy</span>
+> Volume of the player changes.
 
 ---
+
+### ChannelChange {#channelChange}
+
+> Channel of the player changes.
+
+---
+
+### PlayerCreate {#playerCreate}
+
+> Player is created.
+
+---
+
+### PlayerDestroy {#playerDestroy}
+
+> Player is destroyed.

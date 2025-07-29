@@ -1,6 +1,6 @@
 ---
 id: enums-SeverityTypes
-title: "Enums : SeverityTypes"
+title: "Enum: SeverityTypes"
 description: SeverityTypes enumerations
 slug: /enums/SeverityTypes
 sidebar_label: SeverityTypes
@@ -9,28 +9,36 @@ sidebar_label: SeverityTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported severity types.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                                |                                                                        |                                                              |
-        |:---------------------------------------------------------------|:-----------------------------------------------------------------------|:-------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Common](#common) | [<i className="fa-solid fa-bars-staggered" /> Suspicious](#suspicious) | [<i className="fa-solid fa-bars-staggered" /> Fault](#fault) |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value          |
+  |:----------------------------|:---------------|
+  | [`Common`](#common)         | `"common"`     |
+  | [`Suspicious`](#suspicious) | `"suspicious"` |
+  | [`Fault`](#fault)           | `"fault"`      |
+  </TabItem>
 </Tabs>
 
-### Common = "common" {#common}
+### Common {#common}
 
-<span className="info badge">Common</span>
+> Common severity
 
----
-
-### Suspicious = "suspicious" {#suspicious}
-
-<span className="info badge">Suspicious</span>
+> Used in [Exception](../Types/Exception.mdx) type which extends [PlayerEvent](../Types/PlayerEvent.mdx)
 
 ---
 
-### Fault = "fault" {#fault}
+### Suspicious {#suspicious}
 
-<span className="info badge">Fault</span>
+> Suspicious severity
+
+> Used in [Exception](../Types/Exception.mdx) type which extends [PlayerEvent](../Types/PlayerEvent.mdx)
 
 ---
+
+### Fault {#fault}
+
+> Fault severity
+
+> Used in [Exception](../Types/Exception.mdx) type which extends [PlayerEvent](../Types/PlayerEvent.mdx)

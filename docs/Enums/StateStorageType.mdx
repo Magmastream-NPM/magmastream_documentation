@@ -14,24 +14,27 @@ import TabItem from "@theme/TabItem";
 <Tabs>
   <TabItem value="members" label="Enumeration Members" default>
   
-  | Member  | Value    | Description                                        |
-  |:--------|:---------|:--------------------------------------------------|
-  | `Memory` | `"memory"` | Store data in-memory; non-persistent across restarts. |
-  | `Redis`  | `"redis"`  | Store data in Redis for distributed persistence. |
-  | `JSON`   | `"json"`   | Store data in JSON files on disk for local persistence. |
+  | Member  | Value    |
+  |:--------|:---------|
+  | [`Memory`](#memory) | `"memory"` | 
+  | [`Redis`](#redis)  | `"redis"`  | 
+  | [`JSON`](#json)   | `"json"`   | 
   
   </TabItem>
 </Tabs>
 
 ### Memory {#memory}
 
-Stores all data in memory. Fast but data is lost when the application restarts.
+> Stores all data in memory. Fast but data is lost when the application restarts.
+
+---
 
 ### Redis {#redis}
 
-Uses Redis as backend storage. Allows persistence across restarts and distributed setups.
+> Uses Redis as backend storage. Allows persistence across restarts and distributed setups.
+
+---
 
 ### JSON {#json}
 
-Persists data in JSON files on disk. Good for simple local setups without Redis.
-
+> Persists data in JSON files on disk. Good for simple local setups without Redis.

@@ -1,6 +1,6 @@
 ---
 id: enums-TrackEndReasonTypes
-title: "Enums : TrackEndReasonTypes"
+title: "Enum: TrackEndReasonTypes"
 description: TrackEndReasonTypes enumerations
 slug: /enums/TrackEndReasonTypes
 sidebar_label: TrackEndReasonTypes
@@ -9,42 +9,44 @@ sidebar_label: TrackEndReasonTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the supported track end reasons.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                                    |                                                                        |                                                                  |
-        |:-------------------------------------------------------------------|:-----------------------------------------------------------------------|:-----------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Finished](#finished) | [<i className="fa-solid fa-bars-staggered" /> LoadFailed](#loadFailed) | [<i className="fa-solid fa-bars-staggered" /> Stopped](#stopped) |
-        | [<i className="fa-solid fa-bars-staggered" /> Replaced](#replaced) | [<i className="fa-solid fa-bars-staggered" /> Cleanup](#cleanup)       |                                                                  |
-	</TabItem>
-    
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value          |
+  |:----------------------------|:---------------|
+  | [`Finished`](#finished)     | `"finished"`   |
+  | [`LoadFailed`](#loadFailed) | `"loadFailed"` |
+  | [`Stopped`](#stopped)       | `"stopped"`    |
+  | [`Replaced`](#replaced)     | `"replaced"`   |
+  | [`Cleanup`](#cleanup)       | `"cleanup"`    | 
+  </TabItem>
 </Tabs>
 
-### Finished = "finished" {#finished}
+### Finished {#finished}
 
-<span className="info badge">Finished</span>
-
----
-
-### LoadFailed = "loadFailed" {#loadFailed}
-
-<span className="info badge">LoadFailed</span>
+> The track finished playing
 
 ---
 
-### Stopped = "stopped" {#stopped}
+### LoadFailed {#loadFailed}
 
-<span className="info badge">Stopped</span>
-
----
-
-### Replaced = "replaced" {#replaced}
-
-<span className="info badge">Replaced</span>
+> The track failed to load
 
 ---
 
-### Cleanup = "cleanup" {#cleanup}
+### Stopped {#stopped}
 
-<span className="info badge">SoundCloud</span>
+> The track was stopped
 
 ---
+
+### Replaced {#replaced}
+
+> The track was replaced
+
+---
+
+### Cleanup {#cleanup}
+
+> The track was cleaned up
