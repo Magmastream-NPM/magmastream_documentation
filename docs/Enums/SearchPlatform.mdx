@@ -10,14 +10,21 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                                         |                                                                      |                                                                         |
-        |:------------------------------------------------------------------------|:---------------------------------------------------------------------|:------------------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> AppleMusic](#amsearch)    | [<i className="fa-solid fa-bars-staggered" /> Bandcamp](#bcsearch)   | [<i className="fa-solid fa-bars-staggered" /> Deezer](#dzsearch)        |
-        | [<i className="fa-solid fa-bars-staggered" /> Jiosaavn](#jssearch)      | [<i className="fa-solid fa-bars-staggered" /> SoundCloud](#scsearch) | [<i className="fa-solid fa-bars-staggered" /> Spotify](#spsearch)       |
-        | [<i className="fa-solid fa-bars-staggered" /> Tidal](#tdsearch)         | [<i className="fa-solid fa-bars-staggered" /> VKMusic](#vksearch)    | [<i className="fa-solid fa-bars-staggered" /> YouTube](#ytsearch)       |
-        | [<i className="fa-solid fa-bars-staggered" /> YouTubeMusic](#ytmsearch) | [<i className="fa-solid fa-bars-staggered" /> Qobuz](#qobuz)         |                                                                         |
-	</TabItem>
+        <TabItem value="members" label="Enumeration Members" default>
+        | Member                       | Value         |
+        |:-----------------------------|:--------------|
+        | [`AppleMusic`](#amsearch)    | `"amsearch"`  |
+        | [`Bandcamp`](#bcsearch)      | `"bcsearch"`  |
+        | [`Deezer`](#deezer)          | `"dzsearch"`  |
+        | [`Jiosaavn`](#jssearch)      | `"jssearch"`  |
+        | [`Qobuz`](#qobuz)            | `"qbsearch"`  |
+        | [`SoundCloud`](#soundcloud)  | `"scsearch"`  |
+        | [`Spotify`](#spsearch)       | `"spsearch"`  |
+        | [`Tidal`](#tidal)            | `"tdsearch"`  | 
+        | [`VKMusic`](#vkmusic)        | `"vksearch"`  | 
+        | [`YouTube`](#youtube)        | `"ytsearch"`  |
+        | [`YouTubeMusic`](#ytmsearch) | `"ytmsearch"` |
+        </TabItem>
 </Tabs>
 
 ### AppleMusic = "amsearch" {#amsearch}
@@ -50,6 +57,14 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+### Qobuz = "qobuz" {#qobuz}
+
+<span className="info badge">Qobuz</span>
+
+> Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
+
+---
+
 ### SoundCloud = "scsearch" {#scsearch}
 
 <span className="info badge">SoundCloud</span>
@@ -68,11 +83,15 @@ import TabItem from '@theme/TabItem';
 
 <span className="info badge">Tidal</span>
 
+> Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
+
 ---
 
 ### VKMusic = "vksearch" {#vksearch}
 
 <span className="info badge">VKMusic</span>
+
+> Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---
 
@@ -89,13 +108,5 @@ import TabItem from '@theme/TabItem';
 <span className="info badge">YouTubeMusic</span>
 
 > Requires the [YouTube-Source plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/lavalink-devs/youtube-source)
-
----
-
-### Qobuz = "qobuz" {#qobuz}
-
-<span className="info badge">Qobuz</span>
-
-> Requires the [LavaSrc plugin <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaSrc)
 
 ---

@@ -1,22 +1,94 @@
 ---
 id: enums-trackpartial
-title: "Enums : TrackPartial"
-description: Partial for track
-slug: /enums/trackPartial
+title: "Enum: TrackPartial"
+description: Enumeration of partial track fields.
+slug: /enums/TrackPartial
 sidebar_label: TrackPartial
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents the optional properties of a track that may be available depending on the source.
+
 <Tabs>
-    <TabItem value="npm" label="Enumeration members" default>
-        |                                                                       |                                                                       |                                                                       |
-        |-----------------------------------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Track](#track)          | [<i className="fa-solid fa-bars-staggered" /> Title](#title)          | [<i className="fa-solid fa-bars-staggered" /> Identifier](#identifier)|
-        | [<i className="fa-solid fa-bars-staggered" /> Author](#author)        | [<i className="fa-solid fa-bars-staggered" /> Duration](#duration)    | [<i className="fa-solid fa-bars-staggered" /> Isrc](#isrc)            |
-        | [<i className="fa-solid fa-bars-staggered" /> IsSeekable](#isSeekable)| [<i className="fa-solid fa-bars-staggered" /> IsStream](#isStream)    | [<i className="fa-solid fa-bars-staggered" /> Uri](#uri)              |
-        | [<i className="fa-solid fa-bars-staggered" /> ArtworkUrl](#artworkUrl)| [<i className="fa-solid fa-bars-staggered" /> SourceName](#sourceName)| [<i className="fa-solid fa-bars-staggered" /> Thumbnail](#thumbnail)  |
-        | [<i className="fa-solid fa-bars-staggered" /> Requester](#requester)  | [<i className="fa-solid fa-bars-staggered" /> PluginInfo](#pluginInfo)| [<i className="fa-solid fa-bars-staggered" /> CustomData](#customData)|
+    <TabItem value="members" label="Enumeration Members" default>
+        | Member                      | Value          |
+        |:----------------------------|:-------------- |
+        | [`Track`](#track)           | `"track"`      |
+        | [`Title`](#title)           | `"title"`      |
+        | [`Identifier`](#identifier) | `"identifier"` |
+        | [`Author`](#author)         | `"author"`     |
+        | [`Duration`](#duration)     | `"duration"`   |
+        | [`Isrc`](#isrc)             | `"isrc"`       |
+        | [`IsSeekable`](#isseekable) | `"isSeekable"` |
+        | [`IsStream`](#isstream)     | `"isStream"`   |
+        | [`Uri`](#uri)               | `"uri"`        |
+        | [`ArtworkUrl`](#artworkurl) | `"artworkUrl"` |
+        | [`SourceName`](#sourcename) | `"sourceName"` |
+        | [`Thumbnail`](#thumbnail)   | `"thumbnail"`  |
+        | [`Requester`](#requester)   | `"requester"`  |
+        | [`PluginInfo`](#plugininfo) | `"pluginInfo"` |
+        | [`CustomData`](#customdata) | `"customData"` |
     </TabItem>
 </Tabs>
+
+### Track {#track}
+
+The base64-encoded Lavalink track string used to load and replay the track.
+
+### Title {#title}
+
+The title or name of the track.
+
+### Identifier {#identifier}
+
+A unique string that identifies the track within its source (e.g., video ID).
+
+### Author {#author}
+
+The name of the artist, channel, or uploader.
+
+### Duration {#duration}
+
+Duration of the track in milliseconds.
+
+### Isrc {#isrc}
+
+The ISRC code used for global music identification.
+
+### IsSeekable {#isseekable}
+
+Indicates whether the track allows seeking.
+
+### IsStream {#isstream}
+
+Indicates whether the track is a livestream or not.
+
+### Uri {#uri}
+
+Direct URL to the track on its source platform.
+
+### ArtworkUrl {#artworkurl}
+
+URL pointing to the track's cover image.
+
+### SourceName {#sourcename}
+
+The platform where the track originated (e.g., `youtube`, `soundcloud`).
+
+### Thumbnail {#thumbnail}
+
+Optional image shown as a visual fallback or placeholder.
+
+### Requester {#requester}
+
+The user or object that requested the track, typically stored for queue metadata.
+
+### PluginInfo {#plugininfo}
+
+Advanced data provided by the Lavalink plugin system.
+
+### CustomData {#customdata}
+
+Custom key-value data you may attach per track for internal use.

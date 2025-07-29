@@ -1,7 +1,7 @@
 ---
 id: enums-AutoPlayPlatform
-title: "Enums : AutoPlayPlatform"
-description: AutoPlayPlatform enumerations
+title: "Enum: AutoPlayPlatform"
+description: Enumeration of supported autoplay platforms.
 slug: /enums/AutoPlayPlatform
 sidebar_label: AutoPlayPlatform
 ---
@@ -9,39 +9,47 @@ sidebar_label: AutoPlayPlatform
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-
+> Represents the supported music platforms for the autoplay feature.
 
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                              |                                                                    |                                                                |
-        |:-------------------------------------------------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Spotify](#spotify)| [<i className="fa-solid fa-bars-staggered" /> Deezer](#deezer)    | [<i className="fa-solid fa-bars-staggered" /> SoundCloud](#soundcloud)   |
-        | [<i className="fa-solid fa-bars-staggered" /> Tidal](#tidal)| [<i className="fa-solid fa-bars-staggered" /> VKMusic](#vkmusic)|[<i className="fa-solid fa-bars-staggered" /> Qobuz](#qobuz) |
-        |[<i className="fa-solid fa-bars-staggered" /> YouTube](#youtube) | | |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value      |
+  |:----------------------------|:-----------|
+  | [`Spotify`](#spotify)       | `"spotify"`|
+  | [`Deezer`](#deezer)         | `"deezer"` |
+  | [`SoundCloud`](#soundcloud) | `"soundcloud"`|
+  | [`Tidal`](#tidal)           | `"tidal"`  |
+  | [`VKMusic`](#vkmusic)       | `"vkmusic"`| 
+  | [`Qobuz`](#qobuz)           | `"qobuz"`  |
+  | [`YouTube`](#youtube)       | `"youtube"`|
+  </TabItem>
 </Tabs>
 
-### Spotify = "spotify" {#spotify}
+### Spotify {#spotify}
 
----
+A leading music streaming service known for its massive library and playlists.
 
-### Deezer = "deezer" {#deezer}
+### Deezer {#deezer}
 
----
+Offers a wide catalog of music tracks with curated playlists and radio stations.
 
-### SoundCloud = "soundcloud" {#soundcloud}
+### SoundCloud {#soundcloud}
 
----
+Focuses on indie artists and user-uploaded content, popular for discovering new music.
 
-### Tidal = "tidal" {#tidal}
+### Tidal {#tidal}
 
----
-### VKMusic = "vkmusic" {#vkmusic}
+Provides high-fidelity sound quality and exclusive content.
 
----
-### Qobuz = "qobuz" {#qobuz}
+### VKMusic {#vkmusic}
 
----
-### YouTube = "youtube" {#youtube}
+Music platform tied to the VK social network, popular in Russia and nearby regions.
 
----
+### Qobuz {#qobuz}
+
+Specializes in high-resolution audio streaming for audiophiles.
+
+### YouTube {#youtube}
+
+Primarily a video platform but heavily used for music streaming and discovery.
+

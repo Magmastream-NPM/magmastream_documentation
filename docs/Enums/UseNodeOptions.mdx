@@ -1,7 +1,7 @@
 ---
 id: enums-UseNodeOptions
-title: "Enums : UseNodeOptions"
-description: UseNodeOptions enumerations
+title: "Enum: UseNodeOptions"
+description: Enumeration of node selection strategies.
 slug: /enums/UseNodeOptions
 sidebar_label: UseNodeOptions
 ---
@@ -9,27 +9,25 @@ sidebar_label: UseNodeOptions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Represents strategies used to select the most appropriate Lavalink node.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-		|                                                                                                      |                                                                                                            |     |
-        | :--------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | :-- |
-        | [<i className="fa-solid fa-bars-staggered" /> LeastLoad](#leastLoad)                                 | [<i className="fa-solid fa-bars-staggered" /> LeastPlayers](#leastPlayers)                                 |     |
+	<TabItem value="members" label="Enumeration Members" default>
+		| Member                          | Value            |
+		|:--------------------------------|:-----------------|
+		| [`LeastLoad`](#leastload)       | `"leastLoad"`    |
+		| [`LeastPlayers`](#leastplayers) | `"leastPlayers"` |
 	</TabItem>
 </Tabs>
 
+### LeastLoad {#leastload}
 
-### LeastLoad = "leastLoad" {#leastLoad}
-
-<span className="info badge">LeastLoad</span>
-
-> The node with the lowest load is chosen.
+Selects the node with the **lowest system load**.
 
 ---
 
-### LeastPlayers = "leastPlayers" {#leastPlayers}
+### LeastPlayers {#leastplayers}
 
-<span className="info badge">LeastPlayers</span>
-
-> The node with the fewest players is chosen.
+Selects the node with the **fewest active players**.
 
 ---

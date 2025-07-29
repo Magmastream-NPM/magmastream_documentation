@@ -1,22 +1,18 @@
 ---
-id: manager-typedefs-discordpacket
-title: "Typedefs : Manager : DiscordPacket"
-description: DiscordPacket to send in the .send() function.
-slug: /typedefs/manager/DiscordPacket
+id: typedefs-discordpacket
+title: "Interface: DiscordPacket"
+description: An object representing a raw Discord WebSocket packet used with the .send() function.
+slug: /typedefs/DiscordPacket
 sidebar_label: DiscordPacket
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> DiscordPacket is an object that contains [`DiscordPacketOptions`](#DiscordPacketOptions)
-
-## DiscordPacketOptions <span className="info badge">object</span> {#DiscordPacketOptions}
-
-> Represents a `DiscordPacketOptions` object.
+> Represents a raw Discord WebSocket packet structure used to communicate with the Discord Gateway through the `.send()` function.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description   | <i className="fa-solid fa-flask"/> Optional  |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------    | :-------------------------------------------:|
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------- | :-------------------------------------------:|
 > | `op`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The opcode for the payload                      | <i className="fa-solid fa-xmark"/>           |
 > | `d`                                            | [any](https://www.totaltypescript.com/concepts/any-type)                                          | The data for the payload                        | <i className="fa-solid fa-xmark"/>           |
 > | `t`                                            | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The event name for the payload                  | <i className="fa-solid fa-check"/>           |

@@ -1,0 +1,30 @@
+---
+id: typedefs-manageroptions
+title: "Interface: ManagerOptions"
+description: An object defining configuration options for the Manager instance.
+slug: /typedefs/ManagerOptions
+sidebar_label: ManagerOptions
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> Represents a configuration object passed to the `Manager` constructor. These options control core behavior such as node connections, autoplay logic, and plugin support.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter       | <i className="fa-solid fa-font"/> Type                                                                  | <i className="fa-solid fa-list"/> Description                                                    | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `playNextOnEnd`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Automatically play the next track when the current one ends. **Defaults to `true`.**             | <i className="fa-solid fa-check"/>          |
+> | `autoPlaySearchPlatforms`                            | [`AutoPlayPlatform[]`](../Enums/AutoPlayPlatform.mdx)                                                   | Search platforms to use for autoplay, in priority order. **Defaults to `youtube`.**              | <i className="fa-solid fa-check"/>          |
+> | `clientId`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | Discord application's client ID.                                                                 | <i className="fa-solid fa-check"/>          |
+> | `clientName`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | Value for the `Client-Name` header sent to Lavalink nodes. **Defaults to "Magmastream/version"** | <i className="fa-solid fa-check"/>          |
+> | `clusterId`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)       | Index of the cluster this manager belongs to. **Defaults to `0`.**                               | <i className="fa-solid fa-check"/>          |
+> | `defaultSearchPlatform`                              | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                         | Default platform for searches. **Defaults to `ytsearch`.**                                       | <i className="fa-solid fa-check"/>          |
+> | `lastFmApiKey`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | API key used for last.fm-based Autoplay. [Get it here](https://www.last.fm/api/accounts).        | <i className="fa-solid fa-check"/>          |
+> | `maxPreviousTracks`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)       | Maximum number of previous tracks to store. **Defaults to `20`.**                                | <i className="fa-solid fa-check"/>          |
+> | `nodes`                                              | [`NodeOptions[]`](../Typedefs/NodeOptions.mdx)                                                       | Lavalink nodes to connect to.                                                                    | <i className="fa-solid fa-xmark"/>          |
+> | `enabledPlugins`                                     | [`Plugin[]`](../Classes/Plugin.mdx)                                                                              | List of plugins to enable.                                                                       | <i className="fa-solid fa-check"/>          |
+> | `normalizeYouTubeTitles`                             | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Normalize YouTube titles if author doesn’t match exactly. **Defaults to `false`.**               | <i className="fa-solid fa-check"/>          |
+> | `trackPartial`                                       | [`TrackPartial[]`](../Enums/TrackPartial.mdx)                                                           | Track properties to keep; `track` is always included.                                            | <i className="fa-solid fa-check"/>          |
+> | `useNode`                                            | [`UseNodeOptions`](../Enums/UseNodeOptions.mdx)                                                         | Strategy for selecting Lavalink nodes (e.g. least players). **Defaults to Least players.**       | <i className="fa-solid fa-check"/>          |
+> | `stateStorage`                                       | [`StateStorageOptions`](../Typedefs/StateStorageOptions.mdx)                                            | Where queue state should be persisted (e.g. Memory, Redis, JSON). **Defaults to Memory.**        | <i className="fa-solid fa-check"/>          |
+> | `send`                                               | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)   | Function used to send data to Discord’s WebSocket gateway.                                       | <i className="fa-solid fa-xmark"/>          |

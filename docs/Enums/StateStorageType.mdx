@@ -1,7 +1,7 @@
 ---
 id: enums-StateStorageType
-title: "Enums : StateStorageType"
-description: StateStorageType enumerations
+title: "Enum: StateStorageType"
+description: Enumeration of possible state storage backends.
 slug: /enums/StateStorageType
 sidebar_label: StateStorageType
 ---
@@ -9,22 +9,29 @@ sidebar_label: StateStorageType
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
+> Defines the possible storage types for persisting manager state.
+
 <Tabs>
-	<TabItem value="npm" label="Enumeration members" default>
-        |                                                              |                                                                    |                                                                |
-        |:-------------------------------------------------------------|:-------------------------------------------------------------------|:---------------------------------------------------------------|
-        | [<i className="fa-solid fa-bars-staggered" /> Memory](#memory)| [<i className="fa-solid fa-bars-staggered" /> Redis](#redis)    | [<i className="fa-solid fa-bars-staggered" /> JSON](#json)   |
-	</TabItem>
+  <TabItem value="members" label="Enumeration Members" default>
+  
+  | Member  | Value    | Description                                        |
+  |:--------|:---------|:--------------------------------------------------|
+  | `Memory` | `"memory"` | Store data in-memory; non-persistent across restarts. |
+  | `Redis`  | `"redis"`  | Store data in Redis for distributed persistence. |
+  | `JSON`   | `"json"`   | Store data in JSON files on disk for local persistence. |
+  
+  </TabItem>
 </Tabs>
 
-### Memory = "memory" {#memory}
+### Memory {#memory}
 
----
+Stores all data in memory. Fast but data is lost when the application restarts.
 
-### Redis = "redis" {#redis}
+### Redis {#redis}
 
----
+Uses Redis as backend storage. Allows persistence across restarts and distributed setups.
 
-### Search = "JSON" {#json}
+### JSON {#json}
 
----
+Persists data in JSON files on disk. Good for simple local setups without Redis.
+
