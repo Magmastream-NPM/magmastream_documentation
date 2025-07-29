@@ -4,14 +4,16 @@ title: "Interface: ManagerOptions"
 description: An object defining configuration options for the Manager instance.
 slug: /typedefs/ManagerOptions
 sidebar_label: ManagerOptions
+sidebar_position: 1
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Represents a configuration object passed to the `Manager` constructor. These options control core behavior such as node connections, autoplay logic, and plugin support.
+> Represents a configuration object passed to the `Manager` constructor.  
+> These options control core behavior such as node connections, autoplay logic, and plugin support.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter       | <i className="fa-solid fa-font"/> Type                                                                  | <i className="fa-solid fa-list"/> Description                                                    | <i className="fa-solid fa-flask"/> Optional |
+> | <i className="fa-solid fa-hashtag"/> Property        | <i className="fa-solid fa-font"/> Type                                                                  | <i className="fa-solid fa-list"/> Description                                                    | <i className="fa-solid fa-flask"/> Optional |
 > |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------|:-------------------------------------------:|
 > | `playNextOnEnd`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Automatically play the next track when the current one ends. **Defaults to `true`.**             | <i className="fa-solid fa-check"/>          |
 > | `autoPlaySearchPlatforms`                            | [`AutoPlayPlatform[]`](../Enums/AutoPlayPlatform.mdx)                                                   | Search platforms to use for autoplay, in priority order. **Defaults to `youtube`.**              | <i className="fa-solid fa-check"/>          |

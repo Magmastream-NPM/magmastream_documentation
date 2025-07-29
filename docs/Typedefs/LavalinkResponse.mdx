@@ -1,0 +1,14 @@
+---
+id: manager-typedefs-LavalinkResponse
+title: "Interface: LavalinkResponse"
+description: The base response returned by Lavalink for search and load requests.
+slug: /typedefs/LavalinkResponse
+sidebar_label: LavalinkResponse
+---
+
+> Represents the standard response from Lavalink when tracks or playlists are loaded.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                            | <i className="fa-solid fa-list"/> Description                                      | <i className="fa-solid fa-flask"/> Optional  |
+> |:---------------------------------------------|:----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:--------------------------------------------:|
+> | `loadType`                                   | [LoadTypes](../Enums/LoadTypes.mdx)                                              | Indicates the type of load result returned by Lavalink                             | <i className="fa-solid fa-xmark"/>           |
+> | `data`                                       | [`TrackData[]`](./TrackData.mdx) \| [`PlaylistRawData`](./PlaylistRawData.mdx)   | Either a list of tracks or a full playlist, depending on `loadType`                | <i className="fa-solid fa-xmark"/>           |

@@ -1,0 +1,15 @@
+---
+id: manager-typedefs-PlaylistRawData
+title: "Interface: PlaylistRawData"
+description: Represents the raw data structure of a playlist returned by Lavalink.
+slug: /typedefs/PlaylistRawData
+sidebar_label: PlaylistRawData
+---
+
+> Raw structure of a playlist result from Lavalink, including basic info, plugin metadata, and all tracks.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property  | <i className="fa-solid fa-font"/> Type                                   | <i className="fa-solid fa-list"/> Description                         | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------|:----------------------------------------------------------------------|:--------------------------------------------:|
+> | `info`                                         | `{ name: string }`                                                      | Metadata about the playlist (e.g., name)                              | <i className="fa-solid fa-xmark"/>           |
+> | `pluginInfo`                                   | `object`                                                                | Additional plugin-specific metadata                                   | <i className="fa-solid fa-xmark"/>           |
+> | `tracks`                                       | [`TrackData[]`](./TrackData.mdx)                                        | The array of tracks that make up this playlist                        | <i className="fa-solid fa-xmark"/>           |

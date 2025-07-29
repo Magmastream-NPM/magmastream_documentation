@@ -1,0 +1,17 @@
+---
+id: manager-typedefs-PlaylistData
+title: "Interface: PlaylistData"
+description: Metadata and details of a playlist.
+slug: /typedefs/PlaylistData
+sidebar_label: PlaylistData
+---
+
+> Contains metadata and information about a playlist.
+>  
+> | <i className="fa-solid fa-hashtag"/> Property   | <i className="fa-solid fa-font"/> Type                                            | <i className="fa-solid fa-list"/> Description                       | <i className="fa-solid fa-flask"/> Optional |
+> |:------------------------------------------------|:-----------------------------------------------------------------------------------|:------------------------------------------------------------------|:--------------------------------------------:|
+> | `name`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                          | The name of the playlist                                         | <i className="fa-solid fa-xmark"/>           |
+> | `requester`                                     | [`User`](https://discord.js.org/docs/packages/discord.js/14.21.0/User:Class) \| [`ClientUser`](https://discord.js.org/docs/packages/discord.js/14.21.0/ClientUser:Class) | The user who requested the playlist                             | <i className="fa-solid fa-xmark"/>           |
+> | `playlistInfo`                                  | [`PlaylistInfoData[]`](./PlaylistInfoData.mdx)                                   | Additional detailed information about the playlist               | <i className="fa-solid fa-xmark"/>           |
+> | `duration`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                          | Total duration of the playlist in milliseconds                    | <i className="fa-solid fa-xmark"/>           |
+> | `tracks`                                        | [`Track[]`](./Track.mdx)                                                          | Array of tracks in the playlist                                  | <i className="fa-solid fa-xmark"/>           |

@@ -1,0 +1,16 @@
+---
+id: manager-typedefs-ChannelChangeEvent
+title: "Interface: ChannelChangeEvent"
+description: The event emitted when a player's channel changes.
+slug: /typedefs/ChannelChangeEvent
+sidebar_label: ChannelChangeEvent
+---
+
+> Represents the event emitted when a player's communication channel changes.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                           | <i className="fa-solid fa-list"/> Description                    | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------- |:-------------------------------------------:|
+> | `type`                                        | [`"channel"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                            | Constant string indicating the event type.                       | <i className="fa-solid fa-xmark"/>          |
+> | `action`                                      | [`"text"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) &#124; [`"voice"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)              | The kind of channel changed to.                                  | <i className="fa-solid fa-xmark"/>          |
+> | `previousChannel`                             | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) &#124; `null`                 | ID of the previous channel before the change, or `null` if none. | <i className="fa-solid fa-check"/>          |
+> | `currentChannel`                              | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) &#124; `null`                 | ID of the current channel after the change, or `null` if none.   | <i className="fa-solid fa-check"/>          |

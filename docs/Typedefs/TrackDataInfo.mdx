@@ -1,0 +1,22 @@
+---
+id: manager-typedefs-TrackDataInfo
+title: "Interface: TrackDataInfo"
+description: Detailed metadata for a track returned by Lavalink.
+slug: /typedefs/TrackDataInfo
+sidebar_label: TrackDataInfo
+---
+
+> Describes Lavalink track metadata such as author, length, source, and stream status.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                         | <i className="fa-solid fa-list"/> Description                                  | <i className="fa-solid fa-flask"/> Optional  |
+> |:---------------------------------------------|:-----------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:--------------------------------------------:|
+> | `identifier`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Unique identifier of the track                                                 | <i className="fa-solid fa-xmark"/>           |
+> | `isSeekable`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the track supports seeking                                             | <i className="fa-solid fa-xmark"/>           |
+> | `author`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Author of the track                                                            | <i className="fa-solid fa-xmark"/>           |
+> | `length`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Length of the track in milliseconds                                            | <i className="fa-solid fa-xmark"/>           |
+> | `isrc`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | International Standard Recording Code (ISRC)                                   | <i className="fa-solid fa-check"/>           |
+> | `isStream`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the track is a stream                                                  | <i className="fa-solid fa-xmark"/>           |
+> | `title`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Title of the track                                                             | <i className="fa-solid fa-xmark"/>           |
+> | `uri`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The track's URI or direct URL                                                  | <i className="fa-solid fa-check"/>           |
+> | `artworkUrl`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Direct link to the artwork or thumbnail                                        | <i className="fa-solid fa-check"/>           |
+> | `sourceName`                                 | [`TrackSourceName`](./TrackSourceName.mdx)                                                    | Enum representing the track source (YouTube, SoundCloud, etc.)                 | <i className="fa-solid fa-check"/>           |

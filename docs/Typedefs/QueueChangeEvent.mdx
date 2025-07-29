@@ -1,0 +1,17 @@
+---
+id: manager-typedefs-QueueChangeEvent
+title: "Interface: QueueChangeEvent"
+description: The event emitted when the queue state of a player changes.
+slug: /typedefs/QueueChangeEvent
+sidebar_label: QueueChangeEvent
+---
+
+> The event emitted when the queue of the player is modified. This includes adding, removing, shuffling, or clearing tracks.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property     | <i className="fa-solid fa-font"/> Type                                                                                                                                               | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `type`                                            | [`"queue"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                           | The event type identifier. Always `"queue"` for this event.                                | <i className="fa-solid fa-xmark"/>          |
+> | `action`                                          | [`"add"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"remove"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"clear"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"shuffle"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"roundRobin"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"userBlock"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`"autoPlayAdd"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                                        | Describes the specific queue-related action that triggered the event.                      | <i className="fa-solid fa-xmark"/>          |
+> | `previousQueueLength`                             | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| `null`                                   | The length of the queue before the event occurred.                                         | <i className="fa-solid fa-check"/>          |
+> | `currentQueueLength`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| `null`                                   | The current length of the queue after the event.                                           | <i className="fa-solid fa-check"/>          |
+> | `tracks`                                          | [`Track[]`](./Track.mdx)                                                                                                                   | Array of affected tracks in this event. Only provided for specific actions like `"add"`.  | <i className="fa-solid fa-check"/>          |
