@@ -115,12 +115,12 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 
-	execute(client) {
+	async execute(client) {
 		// Deploy slash commands
 		require("../../deploy-commands")(client);
 
 		// Initialize Lavalink
-		client.manager.init({ clientId: client.user.id });
+		await client.manager.init({ clientId: client.user.id });
 
 		// Print a message to the console indicating that the client is ready
 		console.log(`[INFO] Ready! Logged in as ${client.user.tag}`);
@@ -152,3 +152,7 @@ discord-bot/
 ```
 
 With that, the "Quick Start" guide should be complete. Upon entering `node .` in your terminal, you should have a fully functional bot capable of playing songs, titles, URLs, or playlists, with all events handled in their respective files.
+
+## Resulting code
+
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/js-v2.9.0/src).

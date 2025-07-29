@@ -112,9 +112,9 @@ Create a new folder inside the `src/` folder, named `events` and two subfolder n
                 name: Events.ClientReady,
                 once: true,
 
-                execute(client) {
+                async execute(client) {
                     // Initialize Lavalink
-                    client.manager.init({ clientId: client.user.id });
+                    await client.manager.init({ clientId: client.user.id });
 
                     // Print a message to the console indicating that the client is ready
                     console.log(`[INFO] Ready! Logged in as ${client.user.tag}`);
