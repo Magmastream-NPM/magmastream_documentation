@@ -48,7 +48,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: '🏛️ Classes',
+			label: '🧩 Classes',
 			collapsed: false,
 			link: {
 				type: 'generated-index',
@@ -63,7 +63,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: '🔢 Enums',
+			label: '🧮 Enums',
 			link: {
 				type: 'generated-index',
 				description: 'Important enumerations...',
@@ -77,7 +77,7 @@ const sidebars = {
 		},
 		{
 			type: 'category',
-			label: '🎈 Typedefs',
+			label: '🧾 Typedefs',
 			link: {
 				type: 'generated-index',
 				description: 'Typedefs is the second most important part of the module, so take a look at them...',
