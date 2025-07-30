@@ -1,0 +1,68 @@
+---
+id: manager-typedefs-TrackEvents
+title: "Manager Events: TrackEvents"
+description: "Track events emitted by the Manager."
+slug: /typedefs/ManagerEvents/TrackEvents
+sidebar_label: TrackEvents
+---
+
+> These events are emitted when a [Player](../../Classes/Player.mdx) emits [Track](../Track.mdx) related events.  
+
+### `TrackEnd`
+
+> Emitted when a track ended playback.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                             | Player this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                          | Track this event applies to                    | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`TrackEndEvent`](../PlayerEvents/TrackEvents.mdx#trackendevent) | Payload provided by Lavalink                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `TrackError`
+
+> Emitted when a track has an error.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                         | Player this event applies to                  | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                                      | Track this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`TrackExceptionEvent`](../PlayerEvents/TrackEvents.mdx#trackexceptionevent) | Payload provided by Lavalink                  | <i className="fa-solid fa-xmark"/>          |
+
+
+---
+
+### `TrackStart`
+
+> Emitted when a track starts playback.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                 | Player this event applies to                  | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                              | Track this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`TrackStartEvent`](../PlayerEvents/TrackEvents.mdx#trackstartevent) | Payload provided by Lavalink                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `TrackStuck`
+
+> Emitted when a track gets stuck.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                 | Player this event applies to                  | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                              | Track this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`TrackStuckEvent`](../PlayerEvents/TrackEvents.mdx#trackstuckevent) | Payload provided by Lavalink                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `QueueEnd`
+
+> Emitted when the player's queue ends. 
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                             | Player this event applies to                  | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                          | Track this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`TrackEndEvent`](../PlayerEvents/TrackEvents.mdx#trackendevent) | Payload provided by Lavalink                  | <i className="fa-solid fa-xmark"/>          |
