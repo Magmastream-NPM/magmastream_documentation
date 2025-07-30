@@ -1,0 +1,89 @@
+---
+id: manager-typedefs-NodeEvents
+title: "Manager Events: NodeEvents"
+description: "Node events emitted by the Manager."
+slug: /typedefs/ManagerEvents/NodeEvents
+sidebar_label: NodeEvents
+---
+
+> These events are emitted when a [Node](../../Classes/Node.mdx) emits its related events.  
+
+### `NodeConnect`
+
+> Emitted when a node successfully connects to the manager.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                           | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)                                 | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeCreate`
+
+> Emitted when a node is created.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)       | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeDestroy`
+
+> Emitted when a node is destroyed.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)       | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeDisconnect`
+
+> Emitted when a node disconnects from the manager.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                       | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)                             | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
+> | `reason`                                      | `{code?: number \| undefined; reason?: string \| undefined}` | Reason for the disconnection                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeError`
+
+> Emitted when a node encounters an error.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                          | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)                                                                | Node this event applies to                    | <i className="fa-solid fa-xmark"/>          |
+> | `error`                                       | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | Error this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeRaw`
+
+> Emitted when a node emits a raw event.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                     | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `payload`                                     | [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/) | Payload provided by Lavalink                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `NodeReconnect`
+
+> Emitted when a node reconnects to the manager.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                       | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)                             | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `RestoreComplete`
+
+> Emitted when the manager has restored all of its players on a node.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)       | Node this event applies to                     | <i className="fa-solid fa-xmark"/>          |
