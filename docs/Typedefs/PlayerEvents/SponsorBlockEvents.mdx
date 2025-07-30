@@ -1,0 +1,56 @@
+---
+id: player-typedefs-SponsorBlockEvents
+title: "Player Events: SponsorBlock Events"
+description: Events emitted when SponsorBlock integration returns segment or chapter data.
+slug: /typedefs/PlayerEvents/SponsorBlockEvents
+sidebar_label: SponsorBlock Events
+---
+
+:::warning
+⚠️ These events are only emitted by the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+
+> These events are fired by the player when interacting with SponsorBlock data – like segments or chapters loaded and skipped.  
+> These interfaces extend [`BaseEvent`](./BaseEvent.mdx).
+
+### `SegmentSkipped`
+
+> Emitted when a segment is skipped.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"SegmentSkipped"`                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `segment`                                     | `{ category: string, start: number, end: number }` | Segment that was skipped                      | <i className="fa-solid fa-xmark"/>          |
+
+### `SegmentsLoaded`
+
+> Emitted when segments are loaded.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"SegmentsLoaded"`                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `segments`                                    | `{ category: string, start: number, end: number }` | Segments that were loaded                     | <i className="fa-solid fa-xmark"/>          |
+
+
+### `ChaptersLoaded`
+
+> Emitted when chapters are loaded.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"ChaptersLoaded"`                                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `chapters`                                    | `{ name: string, start: number, end: number, duration: number }[]` | Chapters that were loaded                     | <i className="fa-solid fa-xmark"/>          |
+
+
+### `ChapterStarted`
+
+> Emitted when a chapter is started.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"ChapterStarted"`                                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `chapter`                                     | `{ name: string, start: number, end: number, duration: number }`   | Chapter that started                          | <i className="fa-solid fa-xmark"/>          |

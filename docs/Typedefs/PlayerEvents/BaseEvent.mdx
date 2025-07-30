@@ -1,0 +1,41 @@
+---
+id: player-typedefs-BaseEvent
+title: "Player Events: Base Event"
+description: The base structure of every event emitted by the Lavalink player.
+slug: /typedefs/PlayerEvents/BaseEvent
+sidebar_label: Base Event
+---
+
+> All Lavalink events inherit from this base event structure.  
+> You can use this structure to narrow or type-check incoming player events regardless of their specific payload.
+
+### `PlayerEvent`
+
+> Base interface shared across all Lavalink player events.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                           | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------|:------------------------------------------------------------------------|:-------------------------------------------:|
+> | `op`                                          | `"event"`                                                           | Lavalink operation identifier                                           | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [`PlayerEventType`](#playereventtype)                               | Specific event type                                                     | <i className="fa-solid fa-xmark"/>          |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event refers to                                             | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `PlayerEventType`
+
+> Union of all possible event types that may be emitted by the Lavalink player instance.
+
+```ts
+type PlayerEventType =
+  | "TrackStartEvent"
+  | "TrackEndEvent"
+  | "TrackExceptionEvent"
+  | "TrackStuckEvent"
+  | "WebSocketClosedEvent"
+  | "SegmentSkipped"
+  | "SegmentsLoaded"
+  | "ChaptersLoaded"
+  | "ChapterStarted"
+  | "LyricsFoundEvent"
+  | "LyricsNotFoundEvent"
+  | "LyricsLineEvent";

@@ -1,0 +1,228 @@
+---
+id: queue-redis
+title: "Class: RedisQueue"
+description: The RedisQueue class represents a queue.
+slug: /class/queue/RedisQueue
+sidebar_label: RedisQueue
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Constructor {#constructor}
+
+<Tabs>
+    <TabItem value="queue" label="Queue : options" default>
+        ```js
+        new Magmastream.Queue(guildId: string, manager: Manager)
+        ```
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                    | <i className="fa-solid fa-list"/> Description      | <i className="fa-solid fa-flask"/> Optional |
+        | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :------------------------------------------------- | :-----------------------------------------: |
+        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID                                       |    <i className="fa-solid fa-xmark"/>      |
+        | `manager`                                      | [`Manager`](./Manager.mdx)                                                                                                                                                                | The Manager instance.                              |   <i className="fa-solid fa-xmark"/>      |
+
+    </TabItem>
+</Tabs>
+
+## Table of contents {#toc}
+
+| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
+| :------------------------------------------ | :------------------------------------------------- |
+| [current](#current)                         | [add()](#add)                                      |
+| [guildId](#player)                          | [clear()](#clear)                                  |
+| [manager](#karaoke)                         | [duration()](#duration)                            |
+| [previous](#previous)                       | [remove()](#remove)                                |
+|                                             | [roundRobinShuffle()](#roundRobinShuffle)          |
+|                                             | [shuffle()](#shuffle)                              |
+|                                             | [size()](#size)                                    |
+|                                             | [totalSize()](#totalSize)                          |
+|                                             | [userBlockShuffle()](#userBlockShuffle)            |
+
+## Properties {#properties}
+
+### current {#current}
+
+> The current track
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+### guildId {#guildId}
+
+> The guild ID property.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
+
+### manager {#manager}
+
+> The Manager instance.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`Manager`](./Manager.mdx)
+
+### previous {#previous}
+
+> The previous track
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+
+## Methods {#methods}
+
+### add(track, offset) {#add}
+
+> Adds a track to the queue.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                         | <i className="fa-solid fa-list"/> Description                                                             | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions) \| [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)[] | The track or tracks to add. Can be a single `Track` or an array of `Track`s.                              |     <i className="fa-solid fa-xmark"/>      |
+> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                              | The position to add the track(s) at. If not provided, the track(s) will be added at the end of the queue. |     <i className="fa-solid fa-check"/>      |
+
+### clear() {#clear}
+
+> Clears the queue.<br/><br/>
+> This will remove all tracks from the queue and emit a state update event.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### duration() {#duration}
+
+> The total duration of the queue in milliseconds.<br/><br/>
+> This includes the duration of the currently playing track.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### remove(start | position, end) {#remove}
+
+> Removes track(s) from the queue.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)[]
+
+<Tabs>
+    <TabItem value="removewithposition" label="Remove track with position" default>
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                              | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|:-------------------------------------------:|
+        | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | If a single number is provided, it will be treated as the position of the track to remove. |     <i className="fa-solid fa-check"/>      |
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+                ...PlayerOptions
+            });
+
+        player.connect()
+        player.queue.add(searchResponse.tracks);
+
+        player.play();
+
+        setTimeout(() => {
+            player.queue.remove(2)
+        }, 5000);
+        ```
+    </TabItem>
+    <TabItem value="removewithrange" label="Remove tracks with range of positions">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+        |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+        | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Position for start range to remove            |     <i className="fa-solid fa-xmark"/>      |
+        | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Position for end range to remove              |     <i className="fa-solid fa-xmark"/>      |
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.queue.add(searchResponse.tracks);
+
+        player.play();
+
+        setTimeout(() => {
+            player.queue.remove(2, 5)
+        }, 5000);
+        ```
+    </TabItem>
+    <TabItem value="removewthstartorpositionend" label="Remove track with start or position and/or end">
+
+        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                                                                                                                                      | <i className="fa-solid fa-flask"/> Optional |
+        | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------:|
+        | `startOrPosition`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | If a single number is provided, it will be treated as the position of the track to remove.<br/>If two numbers are provided, they will be used as the start and end of a range of tracks to remove. |     <i className="fa-solid fa-xmark"/>      |
+        | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Optional, end of the range of tracks to remove.                                                                                                                                                    |     <i className="fa-solid fa-check"/>      |
+
+        ```js
+        const { Manager } = require('magmastream');
+
+        const manager = new Manager({
+            ...ManagerOptions
+        })
+
+        const searchResponse = await manager.search('Never Gonna Give You Up');
+
+        const player = client.lavalink.create({
+            ...PlayerOptions
+        });
+
+        player.connect()
+        player.queue.add(searchResponse.tracks);
+
+        player.play();
+
+        setTimeout(() => {
+            // remove track at position 2
+            player.queue.remove(2)
+            // or
+            // remove tracks from position 2 to 5
+            player.queue.remove(2, 5)
+        }, 5000);
+        ```
+    </TabItem>
+</Tabs>
+
+### roundRobinShuffle() {#roundRobinShuffle}
+
+> Shuffles the queue to play tracks requested by each user one by one.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### shuffle() {#shuffle}
+
+> Shuffles the queue.<br/><br/>
+> This will randomize the order of the tracks in the queue and emit a state update event.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+
+### size() {#size}
+
+> The size of tracks in the queue.<br/><br/>
+> This does not include the currently playing track.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### totalSize() {#totalSize}
+
+> The total size of tracks in the queue including the current track.<br/><br/>
+> This includes the current track if it is not null.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+### userBlockShuffle() {#userBlockShuffle}
+
+> Shuffles the queue to play tracks requested by each user one block at a time.
+>
+> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)

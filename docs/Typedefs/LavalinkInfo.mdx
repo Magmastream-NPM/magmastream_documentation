@@ -1,0 +1,20 @@
+---
+id: manager-typedefs-LavalinkInfo
+title: "Interface: LavalinkInfo"
+description: Represents detailed information about the Lavalink server instance.
+slug: /typedefs/LavalinkInfo
+sidebar_label: LavalinkInfo
+---
+
+> Metadata about the running Lavalink server instance including version, Git commit, JVM, and plugin details.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description                                | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------------------------------------------|:--------------------------------------------:|
+> | `version`                                     | `{ semver: string; major: number; minor: number; patch: number; preRelease: string }`              | Semantic version information                               | <i className="fa-solid fa-xmark"/>           |
+> | `buildTime`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)  | Timestamp when this build was created                      | <i className="fa-solid fa-xmark"/>           |
+> | `git`                                         | `{ branch: string; commit: string; commitTime: number }`                                           | Git commit details including branch, hash, and commit time | <i className="fa-solid fa-xmark"/>           |
+> | `jvm`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)  | The JVM version used by Lavalink                           | <i className="fa-solid fa-xmark"/>           |
+> | `lavaplayer`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)  | The Lavaplayer version used internally                     | <i className="fa-solid fa-xmark"/>           |
+> | `sourceManagers`                              | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | A list of available audio source managers                  | <i className="fa-solid fa-xmark"/>           |
+> | `filters`                                     | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | A list of enabled filters on the server                    | <i className="fa-solid fa-xmark"/>           |
+> | `plugins`                                     | `{ name: string; version: string }[]`                                                              | Installed Lavalink plugins with version info               | <i className="fa-solid fa-xmark"/>           |

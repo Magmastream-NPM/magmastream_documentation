@@ -1,0 +1,53 @@
+---
+id: player-typedefs-LyricsEvents
+title: "Player Events: Lyrics Events"
+description: Lyrics-related events emitted when the LavaLyrics plugin emits events.
+slug: /typedefs/PlayerEvents/LyricsEvents
+sidebar_label: Lyrics Events
+---
+
+:::warning
+⚠️ These events are only emitted by the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+
+> These events are fired when the LavaLyrics plugin emits events.   
+> These interfaces extend [`BaseEvent`](./BaseEvent.mdx).
+
+---
+
+### `LyricsLineEvent`
+
+> Sent when a new lyrics line is available for a track.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"LyricsLineEvent"`                                                                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | Guild this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `line`                                        | [`LyricsLine`](../LyricsLine.mdx)                                                                   | Lyrics line                                   | <i className="fa-solid fa-xmark"/>          |
+> | `skipped`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the line was skipped                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `LyricsFoundEvent`
+
+> This event is sent when lyrics are found for a track and about to be sent.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------- |:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"LyricsFoundEvent"`                                                                              | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to                   | <i className="fa-solid fa-xmark"/>          |
+> | `lyrics`                                      | [`Lyrics`](../Lyrics.mdx)                                                                         | Lyrics                                        | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `LyricsNotFoundEvent`
+
+> This event is sent when no lyrics were found for a track.  
+> Extends: [`BaseEvent`](./BaseEvent.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------- |:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | `"LyricsNotFoundEvent"`                                                                           | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to                   | <i className="fa-solid fa-xmark"/>          |
