@@ -1,0 +1,18 @@
+---
+id: manager-typedefs-PodcastSearchResult
+title: "Interface: PodcastSearchResult"
+description: Result returned when a podcast is found by a search.
+slug: /typedefs/PodcastSearchResult
+sidebar_label: PodcastSearchResult
+---
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents a search result containing a podcast with tracks.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------- |:----------------------------------------------|:-------------------------------------------:|
+> | `loadType`                                    | [`LoadTypes.Podcast`](../Enums/LoadTypes.mdx#podcast)   | Indicates the result is a podcast load        | <i className="fa-solid fa-xmark"/>          |
+> | `tracks`                                      | [`Track[]`](./Track.mdx)                                | Tracks included in the podcast load playlist  | <i className="fa-solid fa-xmark"/>          |
+> | `playlist`                                    | [`PlaylistData`](./PlaylistData.mdx)                    | Information about the podcast load playlist   | <i className="fa-solid fa-xmark"/>          |
