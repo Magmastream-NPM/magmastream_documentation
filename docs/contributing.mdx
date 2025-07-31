@@ -1,0 +1,99 @@
+---
+id: contributing
+title: Contributing
+slug: /contributing
+hide_table_of_contents: false
+hide_sidebar: true
+---
+
+# 🛠️ Contributing to MagmaStream
+
+Welcome, contributor! Whether you're fixing typos, writing guides, or improving the core code, here's how to get started — fast.
+
+---
+
+## 🧠 TL;DR – Pick a Repo
+
+| Area                        | Repo                                                                                       | Notes                                                                 |
+|-----------------------------|--------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Core Library                | https://github.com/Magmastream-NPM/magmastream                                             | PRs must target the `dev` branch.                                     |
+| Documentation               | https://github.com/Magmastream-NPM/magmastream_documentation                               | This site. Fork it → edit `.mdx` → PR.                                |
+| Example Bot (basic)         | https://github.com/Magmastream-NPM/magmastream_basics_bot                                  | ⚠️ Choose your branch: `typescript` or `javascript`.                  |
+| Advanced Guides             | https://github.com/Magmastream-NPM/magmastream_guides                                      | Add or improve real-world examples.                                   |
+
+---
+
+## 📚 Docs Contributions
+
+1. Fork the [`magmastream_documentation`](https://github.com/Magmastream-NPM/magmastream_documentation) repo.
+2. Create a branch:  
+    ```bash
+    git checkout -b fix/docs-typo
+    ```
+3. Make changes inside `docs/`.
+4. Optional:  
+    ```bash
+    npm install
+    npm start
+    ```
+5. Commit and push:  
+    ```bash
+    git add .
+    git commit -m "fix: docs typo"
+    git push origin fix/docs-typo
+    ```
+6. Open a pull request.
+
+Want to create a new page? Copy any `.mdx` file (like `Classes/Manager.mdx`) and follow its structure.
+
+---
+
+## 🤖 Code Contributions
+
+1. Fork the [`magmastream`](https://github.com/Magmastream-NPM/magmastream) repo.
+2. Branch off `dev`:  
+    ```bash
+    git checkout -b fix/code-typo
+    ```
+3. Make your changes inside `src/`.
+4. Test your changes:  
+    ```bash
+    npm install
+    npm run ci
+    ```
+5. Commit and push:  
+    ```bash
+    git add .
+    git commit -m "fix: code typo"
+    git push origin fix/code-typo
+    ```
+6. Open a pull request targeting the **`dev`** branch.
+
+---
+
+## 🚀 Install via NPM
+
+To get started:
+
+```bash
+npm install magmastream
+```
+
+All packages support **Node.js 18+** and follow modern ESM conventions.
+
+---
+
+## 🧼 PR Guidelines
+
+- Keep your PRs focused and small.
+- Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+- Include helpful PR descriptions.
+- Test your changes when applicable.
+
+---
+
+## 💬 Questions?
+
+Join our [Discord](https://discord.gg/HV59Z3zEjt) — we're happy to help.
+
+> ✨ Thanks for helping improve MagmaStream.
