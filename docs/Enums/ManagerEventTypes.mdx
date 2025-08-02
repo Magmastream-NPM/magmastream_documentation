@@ -18,9 +18,9 @@ import TabItem from '@theme/TabItem';
   | [`ChapterStarted`](#chapterStarted) 						| `"chapterStarted"`             |
   | [`ChaptersLoaded`](#chaptersLoaded)          				| `"chaptersLoaded"`             |
   | [`Debug`](#debug) 											| `"debug"`                      |
-  | [`LyricsFoundEvent`](#lyricsFoundEvent)            			| `"lyricsFoundEvent"`           |
-  | [`LyricsLineEvent`](#lyricsLineEvent)      				 	| `"lyricsLineEvent"`            | 
-  | [`LyricsNotFoundEvent`](#lyricsNotFoundEvent)            	| `"lyricsNotFoundEvent"`        |
+  | [`LyricsFound`](#lyricsFound)            					| `"lyricsFound"`           |
+  | [`LyricsLine`](#lyricsLine)      							 	| `"lyricsLine"`            | 
+  | [`LyricsNotFound`](#lyricsNotFound)            			| `"lyricsNotFound"`        |
   | [`NodeConnect`](#nodeConnect)        						| `"nodeConnect"`    			 |
   | [`NodeCreate`](#nodeCreate)        							| `"nodeCreate"`    			 |
   | [`NodeDestroy`](#nodeDestroy)        						| `"nodeDestroy"`    			 |
@@ -79,7 +79,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### LyricsFoundEvent {#lyricsFoundEvent}
+### LyricsFound {#lyricsFound}
 
 > Fired when lyrics are found for a track.
 
@@ -87,11 +87,11 @@ import TabItem from '@theme/TabItem';
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 <span className="info badge">track: [Track](../Typedefs/Track.mdx)</span>
-<span className="info badge">payload: [LyricsFoundEvent](../Typedefs/LyricsFoundEvent.mdx)</span>
+<span className="info badge">payload: [LyricsFound](../Typedefs/LyricsFound.mdx)</span>
 
 ---
 
-### LyricsLineEvent {#lyricsLineEvent}
+### LyricsLine {#lyricsLine}
 
 > Fired when a line of lyrics is played for a track.
 
@@ -103,7 +103,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### LyricsNotFoundEvent {#lyricsNotFoundEvent}
+### LyricsNotFound {#lyricsNotFound}
 
 > Fired when lyrics are not found for a track.
 
