@@ -15,14 +15,14 @@ sidebar_label: NodeStats
 
 > Main structure containing node-wide statistics.
 > 
-> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               | <i className="fa-solid fa-flask"/> Optional  |
-> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------------- |:--------------------------------------------:|
-> | `players`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of connected players (active + idle)                 | <i className="fa-solid fa-xmark"/>           |
-> | `playingPlayers`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of currently playing players                         | <i className="fa-solid fa-xmark"/>           |
-> | `uptime`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Node uptime in milliseconds                                 | <i className="fa-solid fa-xmark"/>           |
-> | `memory`                                      | [`MemoryStats`](#memorystats)                                                                     | Memory usage statistics                                     | <i className="fa-solid fa-xmark"/>           |
-> | `cpu`                                         | [`CPUStats`](#cpustats)                                                                           | CPU usage statistics                                        | <i className="fa-solid fa-xmark"/>           |
-> | `frameStats`                                  | [`FrameStats`](#framestats) \| `null`                                                             | Frame loss and timing information (may be null if disabled) | <i className="fa-solid fa-check"/>           |
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                | <i className="fa-solid fa-flask"/> Optional  |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:--------------------------------------------:|
+> | `players`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of connected players (active + idle).                 | <i className="fa-solid fa-xmark"/>           |
+> | `playingPlayers`                              | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of currently playing players.                         | <i className="fa-solid fa-xmark"/>           |
+> | `uptime`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Node uptime in milliseconds.                                 | <i className="fa-solid fa-xmark"/>           |
+> | `memory`                                      | [`MemoryStats`](#memorystats)                                                                     | Memory usage statistics.                                     | <i className="fa-solid fa-xmark"/>           |
+> | `cpu`                                         | [`CPUStats`](#cpustats)                                                                           | CPU usage statistics.                                        | <i className="fa-solid fa-xmark"/>           |
+> | `frameStats`                                  | [`FrameStats`](#framestats) \| `null`                                                             | Frame loss and timing information (may be null if disabled). | <i className="fa-solid fa-check"/>           |
 
 ---
 
@@ -30,12 +30,12 @@ sidebar_label: NodeStats
 
 > Breakdown of the node’s memory usage.
 > 
-> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                  | <i className="fa-solid fa-flask"/> Optional  |
-> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:--------------------------------------------:|
-> | `free`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Amount of free memory (in bytes)                                               | <i className="fa-solid fa-xmark"/>           |
-> | `used`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Amount of used memory (in bytes)                                               | <i className="fa-solid fa-xmark"/>           |
-> | `allocated`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Total memory allocated to the Lavalink process (in bytes)                      | <i className="fa-solid fa-xmark"/>           |
-> | `reservable`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Maximum memory that can be allocated (in bytes)                                | <i className="fa-solid fa-xmark"/>           |
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description              | <i className="fa-solid fa-flask"/> Optional  |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:---------------------------------------------------------- |:--------------------------------------------:|
+> | `free`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Amount of free memory (in bytes).                          | <i className="fa-solid fa-xmark"/>           |
+> | `used`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Amount of used memory (in bytes).                          | <i className="fa-solid fa-xmark"/>           |
+> | `allocated`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Total memory allocated to the Lavalink process (in bytes). | <i className="fa-solid fa-xmark"/>           |
+> | `reservable`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Maximum memory that can be allocated (in bytes).           | <i className="fa-solid fa-xmark"/>           |
 
 ---
 
@@ -43,11 +43,11 @@ sidebar_label: NodeStats
 
 > Stats related to CPU usage on the node.
 > 
-> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                  | <i className="fa-solid fa-flask"/> Optional  |
-> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|:--------------------------------------------:|
-> | `cores`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of logical CPU cores available                                          | <i className="fa-solid fa-xmark"/>           |
-> | `systemLoad`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Total system CPU load (0.0 to 1.0)                                             | <i className="fa-solid fa-xmark"/>           |
-> | `lavalinkLoad`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Load attributed specifically to the Lavalink process                           | <i className="fa-solid fa-xmark"/>           |
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description         | <i className="fa-solid fa-flask"/> Optional  |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------|:--------------------------------------------:|
+> | `cores`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of logical CPU cores available.                | <i className="fa-solid fa-xmark"/>           |
+> | `systemLoad`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Total system CPU load (0.0 to 1.0).                   | <i className="fa-solid fa-xmark"/>           |
+> | `lavalinkLoad`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Load attributed specifically to the Lavalink process. | <i className="fa-solid fa-xmark"/>           |
 
 ---
 
@@ -55,8 +55,8 @@ sidebar_label: NodeStats
 
 > Audio frame performance and quality metrics.
 > 
-> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description          | <i className="fa-solid fa-flask"/> Optional  |
-> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:--------------------------------------------:|
-> | `sent`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames sent                            | <i className="fa-solid fa-check"/>           |
-> | `nulled`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames that were replaced with silence | <i className="fa-solid fa-check"/>           |
-> | `deficit`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames that were lost or late          | <i className="fa-solid fa-check"/>           |
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description           | <i className="fa-solid fa-flask"/> Optional  |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:--------------------------------------------:|
+> | `sent`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames sent.                            | <i className="fa-solid fa-check"/>           |
+> | `nulled`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames that were replaced with silence. | <i className="fa-solid fa-check"/>           |
+> | `deficit`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of audio frames that were lost or late.          | <i className="fa-solid fa-check"/>           |

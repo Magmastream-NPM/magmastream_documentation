@@ -8,12 +8,38 @@ sidebar_label: LavaPlayer
 
 > Represents the full state of an active LavaPlayer on a Node.
 > 
-> | <i className="fa-solid fa-hashtag"/> Property  | <i className="fa-solid fa-font"/> Type                                                                      | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional  |
-> |:---------------------------------------------- |:------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:--------------------------------------------:|
-> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)           | The ID of the guild this player belongs to       | <i className="fa-solid fa-xmark"/>           |
-> | `track`                                        | [`TrackData`](./TrackData.mdx)                                                                              | The currently playing track                      | <i className="fa-solid fa-xmark"/>           |
-> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)           | The current playback volume (0–1000 scale)       | <i className="fa-solid fa-xmark"/>           |
-> | `paused`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)         | Whether the player is currently paused           | <i className="fa-solid fa-xmark"/>           |
-> | `state`                                        | `{ time: number; position: number; connected: boolean; ping: number }`                                      | Internal playback state (time, connection, etc.) | <i className="fa-solid fa-xmark"/>           |
-> | `voice`                                        | `{ token: string; endpoint: string; sessionId: string }`                                                    | Voice connection details required for streaming  | <i className="fa-solid fa-xmark"/>           |
-> | `filters`                                      | [`Record<string, unknown>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype) | Audio filters currently applied to playback      | <i className="fa-solid fa-xmark"/>           |
+> | <i className="fa-solid fa-hashtag"/> Property  | <i className="fa-solid fa-font"/> Type                                                                      | <i className="fa-solid fa-list"/> Description     | <i className="fa-solid fa-flask"/> Optional  |
+> |:---------------------------------------------- |:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:--------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)           | The ID of the guild this player belongs to.       | <i className="fa-solid fa-xmark"/>           |
+> | `track`                                        | [`TrackData`](./TrackData.mdx)                                                                              | The currently playing track.                      | <i className="fa-solid fa-xmark"/>           |
+> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)           | The current playback volume (0–1000 scale).       | <i className="fa-solid fa-xmark"/>           |
+> | `paused`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)         | Whether the player is currently paused.           | <i className="fa-solid fa-xmark"/>           |
+> | `state`                                        | [`state`](#state)                                                                                           | Internal playback state (time, connection, etc.). | <i className="fa-solid fa-xmark"/>           |
+> | `voice`                                        | [`voice`](#voice)                                                                                           | Voice connection details required for streaming.  | <i className="fa-solid fa-xmark"/>           |
+> | `filters`                                      | [`Record<string, unknown>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype) | Audio filters currently applied to playback.      | <i className="fa-solid fa-xmark"/>           |
+
+---
+
+### `state`
+
+> State object containing internal playback state (time, position, etc.).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:-------------------------------------------:|
+> | `time`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The current time in milliseconds since the player was created. | <i className="fa-solid fa-xmark"/>          |
+> | `position`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The current position in milliseconds of the track.             | <i className="fa-solid fa-xmark"/>          |
+> | `connected`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the player is currently connected to a voice channel.  | <i className="fa-solid fa-xmark"/>          |
+> | `ping`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The current ping of the player.                                | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+
+### `voice`
+
+> Voice connection details required for streaming.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description      | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-------------------------------------------:|
+> | `token`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The authentication token for the voice connection. | <i className="fa-solid fa-xmark"/>          |
+> | `endpoint`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The endpoint for the voice connection.             | <i className="fa-solid fa-xmark"/>          |
+> | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID for the voice connection.           | <i className="fa-solid fa-xmark"/>          |

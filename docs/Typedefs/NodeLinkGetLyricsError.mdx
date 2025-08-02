@@ -1,0 +1,31 @@
+---
+id: manager-typedefs-NodeLinkGetLyricsError
+title: "Interface: NodeLinkGetLyricsError"
+description: Represents an error response when lyrics could not be retrieved.
+slug: /typedefs/NodeLinkGetLyricsError
+sidebar_label: NodeLinkGetLyricsError
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents an error response when lyrics could not be retrieved.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `loadType`                                    | `"error"`                              | Constant type used when an error occurs.      | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [`data`](#data)                        | Exception details.                            | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `data`
+
+> Exception details.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `message`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The message of the exception.                 | <i className="fa-solid fa-xmark"/>          |
+> | `severity`                                    | [`SeverityTypes`](../Enums/SeverityTypes.mdx)                                                     | The severity of the exception.                | <i className="fa-solid fa-xmark"/>          |
+> | `cause`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The cause of the exception.                   | <i className="fa-solid fa-xmark"/>          |
+> | `trace`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The stack trace of the exception.             | <i className="fa-solid fa-check"/>          |

@@ -1,0 +1,18 @@
+---
+id: manager-typedefs-NodeLinkGetLyricsMultiple
+title: "Interface: NodeLinkGetLyricsMultiple"
+description: Represents a response containing multiple synced or unsynced lyric variants.
+slug: /typedefs/NodeLinkGetLyricsMultiple
+sidebar_label: NodeLinkGetLyricsMultiple
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Response payload containing several lyric options.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                   | <i className="fa-solid fa-list"/> Description                            | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------------------------|:-------------------------------------------------------------------------|:-------------------------------------------:|
+> | `loadType`                                    | `"lyricsMultiple"`                                       | Constant type used when multiple lyric entries are returned.             | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [`NodeLinkGetLyricsData[]`](./NodeLinkGetLyricsData.mdx) | Array of lyric objects, each containing timing and metadata information. | <i className="fa-solid fa-xmark"/>          |
