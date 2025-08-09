@@ -1,0 +1,22 @@
+---
+id: typedefs-SearchResult
+title: "SearchResult"
+description: Union of all possible search results.
+slug: /typedefs/SearchResult
+sidebar_label: SearchResult
+---
+
+> Union of all possible search results.
+
+```ts
+type SearchResult =
+	| TrackSearchResult
+	| SearchSearchResult
+	| PlaylistSearchResult
+	| ErrorOrEmptySearchResult
+	| AlbumSearchResult
+	| ArtistSearchResult
+	| StationSearchResult
+	| PodcastSearchResult
+	| ShowSearchResult
+	| ShortSearchResult;

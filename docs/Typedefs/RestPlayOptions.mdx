@@ -1,0 +1,52 @@
+---
+id: rest-typedefs-RestPlayOptions
+title: "Interface: RestPlayOptions"
+description: Represents the options for initiating or modifying playback via the REST API.
+slug: /typedefs/RestPlayOptions
+sidebar_label: RestPlayOptions
+---
+
+> This interface defines the payload for starting or controlling playback through Lavalink's REST endpoint.  
+> It supports specifying the track (either encoded or by identifier), playback settings, filters, and voice connection parameters.
+
+---
+
+### `RestPlayOptions`
+
+> Main structure containing playback options for a specific guild.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                  | <i className="fa-solid fa-list"/> Description                            | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | The ID of the guild where playback is controlled.                         | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [`RestPlayData`](#restplaydata)                                                                                         | Playback details and parameters.                                          | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `RestPlayData`
+
+> Playback details for a specific track and player state.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                  | <i className="fa-solid fa-list"/> Description                                                                    | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|:-------------------------------------------:|
+> | `encodedTrack`                                | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | The base64 encoded track to play.                                                                                | <i className="fa-solid fa-check"/>          |
+> | `identifier`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | The track identifier (alternative to `encodedTrack`).                                                            | <i className="fa-solid fa-check"/>          |
+> | `startTime`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                       | The position (in milliseconds) to start playback.                                                                | <i className="fa-solid fa-check"/>          |
+> | `endTime`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                       | The position (in milliseconds) to end playback.                                                                  | <i className="fa-solid fa-check"/>          |
+> | `volume`                                      | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                       | The volume level for playback (0–1000).                                                                          | <i className="fa-solid fa-check"/>          |
+> | `position`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                       | The current playback position in milliseconds.                                                                    | <i className="fa-solid fa-check"/>          |
+> | `paused`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                     | Whether the player is paused.                                                                                    | <i className="fa-solid fa-check"/>          |
+> | `filters`                                     | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)                       | Audio effects or filters to apply.                                                                               | <i className="fa-solid fa-check"/>          |
+> | `voice`                                       | [`VoicePayload`](#voicepayload)                                                                                         | Voice connection details for playback.                                                                           | <i className="fa-solid fa-check"/>          |
+> | `noReplace`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                     | If `true`, prevents replacing the currently playing track when a new play payload is sent.                       | <i className="fa-solid fa-check"/>          |
+
+---
+
+### `VoicePayload`
+
+> Information required to connect the player to Discord voice.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                  | <i className="fa-solid fa-list"/> Description                             | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------|:-------------------------------------------:|
+> | `token`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | Discord voice token.                                                        | <i className="fa-solid fa-xmark"/>          |
+> | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | Voice session ID.                                                            | <i className="fa-solid fa-xmark"/>          |
+> | `endpoint`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)                       | Discord voice server endpoint.                                               | <i className="fa-solid fa-xmark"/>          |

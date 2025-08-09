@@ -1,0 +1,19 @@
+---
+id: manager-typedefs-PlayerEvents
+title: "Type: PlayerEvents"
+description: Union of all events from PlayerEvents.
+slug: /typedefs/PlayerEvents
+sidebar_label: PlayerEvents
+---
+
+> Union of all events from [`PlayerEvents`](./PlayerEvents/BaseEvent.mdx).
+
+```ts
+type PlayerEvents =
+	| TrackStartEvent
+	| TrackEndEvent
+	| TrackStuckEvent
+	| TrackExceptionEvent
+	| WebSocketClosedEvent
+	| SponsorBlockSegmentEvents
+	| LyricsEvent;

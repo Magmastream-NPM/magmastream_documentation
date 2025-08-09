@@ -6,7 +6,7 @@ slug: /typedefs/TrackSourceName
 sidebar_label: TrackSourceName
 ---
 
-> Represents the source of the track. This is a union of the keys from the [`TrackSourceTypes`](../Enums/TrackSourceTypes.mdx) enum.
+> Union of all enum keys from [`TrackSourceTypes`](../Enums/TrackSourceTypes.mdx).
 
 ```ts
-export type TrackSourceName = keyof typeof TrackSourceTypes;
+type TrackSourceName = keyof typeof TrackSourceTypes;
