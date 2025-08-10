@@ -12,6 +12,12 @@ import TabItem from '@theme/TabItem';
 
 # MemoryQueue
 
+## Table of Contents
+
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
 
 ## Class Definition
 ```ts
@@ -38,42 +44,17 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ## Methods
 
-### getCurrent()
-
+### add()
 > ```ts
-> async getCurrent(): Promise<Track | null>
+> async add(track: Track | Track[], offset?: number): Promise<void>
 > ```
-> Returns the currently playing track.
+> Adds a track or an array of tracks to the queue.
 > 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                                                        | <i className="fa-solid fa-list"/> Description        |
-> | :------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------------|
-> | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The current track, or `null` if no track is playing. |
-
----
-
-### setCurrent()
-> ```ts
-> async setCurrent(track: Track | null): Promise<void>
-> ```
-> Sets the currently playing track.
 > #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The track to set as the current track.        | <i className="fa-solid fa-xmark"/>          |
-
----
-
-### getPrevious()
-> ```ts
-> async getPrevious(): Promise<Track[]>
-> ```
-> Returns the previous tracks.
->
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------------| :---------------------------------------------|
-> | [`Track[]`](../../Typedefs/Track.mdx)         | The previous tracks.                          |
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :----------------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx)                      | The track or an array of tracks to add to the queue. | <i className="fa-solid fa-xmark"/>          |
+> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset to add the track at.                      | <i className="fa-solid fa-check"/>          |
 
 ---
 
@@ -89,113 +70,6 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
-### setPrevious()
-> ```ts
-> async setPrevious(tracks: Track[]): Promise<void>
-> ```
-> Sets the previous tracks.
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `tracks`                                       | [`Track[]`](../../Typedefs/Track.mdx)  | The previous tracks to set.                   | <i className="fa-solid fa-xmark"/>          |
-
----
-
-### popPrevious()
-> ```ts
-> async popPrevious(): Promise<Track | null>
-> ```
-> Removes and returns the last track from the "previous" history list.
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                                                        | <i className="fa-solid fa-list"/> Description                                  |
-> | :------------------------------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------|
-> | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The last track in the "previous" history list, or `null` if the list is empty. |
-
----
-
-### clearPrevious()
-> ```ts
-> async clearPrevious(): Promise<void>
-> ```
-> Clears the "previous" history list.
-
----
-
-### duration()
-> ```ts
-> async duration(): Promise<number>
-> ```
-> Returns the total duration of the queue.
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description    |
-> | :-------------------------------------------------------------------------------------------------|:-------------------------------------------------|
-> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The total duration of the queue in milliseconds. |
-
----
-
-### totalSize()
-> ```ts
-> async totalSize(): Promise<number>
-> ```
-> Returns the total size of the queue.
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description |
-> | :-------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The total size of the queue.                  |
-
----
-
-### size()
-> ```ts
-> async size(): Promise<number>
-> ```
-> Returns the size of the queue not including the current track.
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description |
-> | :-------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The size of the queue.                        |
-
----
-
-### add()
-> ```ts
-> async add(track: Track | Track[], offset?: number): Promise<void>
-> ```
-> Adds a track or an array of tracks to the queue.
-> 
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :----------------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx)                      | The track or an array of tracks to add to the queue. | <i className="fa-solid fa-xmark"/>          |
-> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset to add the track at.                      | <i className="fa-solid fa-check"/>          |
-
----
-
-### remove()
-> ```ts
-> async remove(position?: number): Promise<Track[]>
-> async remove(start: number, end: number): Promise<Track[]>
-> ```
-> Removes a track or a range of tracks from the queue.
-> 
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description           | <i className="fa-solid fa-flask"/> Optional |
-> |------------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------|:-------------------------------------------:|
-> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Index of the track to remove.                           | <i className="fa-solid fa-check"/>          |
-> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove.           | <i className="fa-solid fa-xmark"/>          |
-> | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | End index (exclusive) of the range of tracks to remove. | <i className="fa-solid fa-xmark"/>          |
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------------| :---------------------------------------------|
-> | [`Track[]`](../../Typedefs/Track.mdx)         | The removed track(s).                         |
-
----
-
 ### clear()
 > ```ts
 > async clear(): Promise<void>
@@ -204,27 +78,11 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
-### shuffle()
+### clearPrevious()
 > ```ts
-> async shuffle(): Promise<void>
+> async clearPrevious(): Promise<void>
 > ```
-> Shuffles the queue.
-
----
-
-### userBlockShuffle()
-> ```ts
-> async userBlockShuffle(): Promise<void>
-> ```
-> Shuffles the queue to play tracks requested by each user one block at a time.
-
----
-
-### roundRobinShuffle()
-> ```ts
-> async roundRobinShuffle(): Promise<void>
-> ```
-> Shuffles the queue to play tracks requested by each user one by one.
+> Clears the "previous" history list.
 
 ---
 
@@ -241,6 +99,19 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
+### duration()
+> ```ts
+> async duration(): Promise<number>
+> ```
+> Returns the total duration of the queue.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description    |
+> | :-------------------------------------------------------------------------------------------------|:-------------------------------------------------|
+> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The total duration of the queue in milliseconds. |
+
+---
+
 ### enqueueFront()
 > ```ts
 > async enqueueFront(track: Track | Track[]): Promise<void>
@@ -254,68 +125,21 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
-### getTracks()
+### everyAsync()
 > ```ts
-> async getTracks(): Promise<Track[]>
+> async everyAsync(callback: (track: Track, index: number, array: Track[]) => boolean): Promise<boolean>
 > ```
-> Returns the tracks in the queue.
->
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------------|:----------------------------------------------|
-> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
-
----
-
-### getSlice()
-> ```ts
-> async getSlice(start?: number, end?: number): Promise<Track[]>
-> ```
-> Returns a slice of the queue.
->
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description           | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :-------------------------------------------------------|:-------------------------------------------:|
-> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove.           | <i className="fa-solid fa-check"/>          |
-> | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | End index (exclusive) of the range of tracks to remove. | <i className="fa-solid fa-check"/>          |
->
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------------|:----------------------------------------------|
-> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
-
----
-
-### modifyAt()
-> ```ts
-> async modifyAt(start: number, deleteCount = 0, ...items: Track[]): Promise<Track[]>
-> ```
-> Modifies a range of tracks in the queue.
->
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove. | <i className="fa-solid fa-check"/>          |
-> | `deleteCount`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of tracks to remove.                   | <i className="fa-solid fa-check"/>          |
-> | `items`                                        | [`Track[]`](../../Typedefs/Track.mdx)                                                             | Array of tracks to insert.                    | <i className="fa-solid fa-check"/>          |
->
-> #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------------|:----------------------------------------------|
-> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
-
----
-
-### mapAsync()
-> ```ts
-> async mapAsync<T>(callback: (track: Track, index: number, array: Track[]) => T): Promise<T[]>
-> ```
-> Maps the queue to an array of values.
->
+> Tests whether all elements in the queue pass the test implemented by the provided function.
+> 
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
 > | `callback`                                     | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | The callback function.                        | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description                                                             |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | `true` if the callback function returns a truthy value for every element in the queue, otherwise `false`. |
 
 ---
 
@@ -355,6 +179,187 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
+### getCurrent()
+
+> ```ts
+> async getCurrent(): Promise<Track | null>
+> ```
+> Returns the currently playing track.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                                        | <i className="fa-solid fa-list"/> Description        |
+> | :------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------------|
+> | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The current track, or `null` if no track is playing. |
+
+---
+
+### getPrevious()
+> ```ts
+> async getPrevious(): Promise<Track[]>
+> ```
+> Returns the previous tracks.
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------| :---------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | The previous tracks.                          |
+
+---
+
+### getSlice()
+> ```ts
+> async getSlice(start?: number, end?: number): Promise<Track[]>
+> ```
+> Returns a slice of the queue.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description           | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :-------------------------------------------------------|:-------------------------------------------:|
+> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove.           | <i className="fa-solid fa-check"/>          |
+> | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | End index (exclusive) of the range of tracks to remove. | <i className="fa-solid fa-check"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
+
+---
+
+### getTracks()
+> ```ts
+> async getTracks(): Promise<Track[]>
+> ```
+> Returns the tracks in the queue.
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
+
+---
+
+### mapAsync()
+> ```ts
+> async mapAsync<T>(callback: (track: Track, index: number, array: Track[]) => T): Promise<T[]>
+> ```
+> Maps the queue to an array of values.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `callback`                                     | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | The callback function.                        | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### modifyAt()
+> ```ts
+> async modifyAt(start: number, deleteCount = 0, ...items: Track[]): Promise<Track[]>
+> ```
+> Modifies a range of tracks in the queue.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove. | <i className="fa-solid fa-check"/>          |
+> | `deleteCount`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Number of tracks to remove.                   | <i className="fa-solid fa-check"/>          |
+> | `items`                                        | [`Track[]`](../../Typedefs/Track.mdx)                                                             | Array of tracks to insert.                    | <i className="fa-solid fa-check"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | The tracks in the queue.                      |
+
+---
+
+### popPrevious()
+> ```ts
+> async popPrevious(): Promise<Track | null>
+> ```
+> Removes and returns the last track from the "previous" history list.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                                        | <i className="fa-solid fa-list"/> Description                                  |
+> | :------------------------------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------|
+> | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The last track in the "previous" history list, or `null` if the list is empty. |
+
+---
+
+### remove()
+> ```ts
+> async remove(position?: number): Promise<Track[]>
+> async remove(start: number, end: number): Promise<Track[]>
+> ```
+> Removes a track or a range of tracks from the queue.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description           | <i className="fa-solid fa-flask"/> Optional |
+> |------------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------|:-------------------------------------------:|
+> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Index of the track to remove.                           | <i className="fa-solid fa-check"/>          |
+> | `start`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start index of the range of tracks to remove.           | <i className="fa-solid fa-xmark"/>          |
+> | `end`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | End index (exclusive) of the range of tracks to remove. | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------| :---------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | The removed track(s).                         |
+
+---
+
+### roundRobinShuffle()
+> ```ts
+> async roundRobinShuffle(): Promise<void>
+> ```
+> Shuffles the queue to play tracks requested by each user one by one.
+
+---
+
+### setCurrent()
+> ```ts
+> async setCurrent(track: Track | null): Promise<void>
+> ```
+> Sets the currently playing track.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                               | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null) | The track to set as the current track.        | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+
+### setPrevious()
+> ```ts
+> async setPrevious(tracks: Track[]): Promise<void>
+> ```
+> Sets the previous tracks.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `tracks`                                       | [`Track[]`](../../Typedefs/Track.mdx)  | The previous tracks to set.                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### shuffle()
+> ```ts
+> async shuffle(): Promise<void>
+> ```
+> Shuffles the queue.
+
+---
+
+### size()
+> ```ts
+> async size(): Promise<number>
+> ```
+> Returns the size of the queue not including the current track.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description |
+> | :-------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The size of the queue.                        |
+
+
+---
+
 ### someAsync()
 > ```ts
 > async someAsync(callback: (track: Track, index: number, array: Track[]) => boolean): Promise<boolean>
@@ -373,18 +378,21 @@ export class MemoryQueue extends Array<Track> implements IQueue {}
 
 ---
 
-### everyAsync()
+### totalSize()
 > ```ts
-> async everyAsync(callback: (track: Track, index: number, array: Track[]) => boolean): Promise<boolean>
+> async totalSize(): Promise<number>
 > ```
-> Tests whether all elements in the queue pass the test implemented by the provided function.
-> 
-> #### Parameters
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `callback`                                     | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | The callback function.                        | <i className="fa-solid fa-xmark"/>          |
+> Returns the total size of the queue.
 > 
 > #### Returns
-> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description                                                             |
-> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | `true` if the callback function returns a truthy value for every element in the queue, otherwise `false`. |
+> | <i className="fa-solid fa-arrow-right"/> Type                                                     | <i className="fa-solid fa-list"/> Description |
+> | :-------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The total size of the queue.                  |
+
+---
+
+### userBlockShuffle()
+> ```ts
+> async userBlockShuffle(): Promise<void>
+> ```
+> Shuffles the queue to play tracks requested by each user one block at a time.
