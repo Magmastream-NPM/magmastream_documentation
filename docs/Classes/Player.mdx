@@ -10,645 +10,554 @@ sidebar_label: Player
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor {#constructor}
 
-<Tabs>
-    <TabItem value="player" label="Player : options" default>
-        ```js
-        new Magmastream.Player(options: PlayerOptions)
-        ```
+# Player
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-        |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-        | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)                    | The guild ID the Player belongs to.           |     <i className="fa-solid fa-xmark"/>      |
-        | `textChannelId`                                | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)   | The text channel the Player belongs to.       |     <i className="fa-solid fa-xmark"/>      |
-        | `voiceChannelId`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The voice channel the Player belongs to.      |     <i className="fa-solid fa-check"/>      |
-        | `node`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../../Classes/Node.mdx#constructor)                                                 | The node the Player uses.                     |     <i className="fa-solid fa-check"/>      |
-        | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                            | The initial volume the Player will use.       |     <i className="fa-solid fa-check"/>      |
-        | `selfMute`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                          | If the player should mute itself.             |     <i className="fa-solid fa-check"/>      |
-        | `selfDeafen`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                          | If the player should deaf itself.             |     <i className="fa-solid fa-check"/>      |
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
 
-    </TabItem>
+## Class Definition
+```ts
+export class Player {}
+```
 
-</Tabs>
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `autoplayTries`                           | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of autoplay tries.                 |
+> | `bands`                                   | [`EqualizerBand[]`](../Typedefs/Filters/EqualizerBand.mdx)                                            | The equalizer bands.                          |
+> | `clusterId`                               | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The cluster ID.                               |
+> | `dynamicRepeat`                           | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat state.                     |
+> | `filters`                                 | [`Filters`](../Typedefs/Filters/EqualizerBand.mdx)                                                    | The filters.                                  |
+> | `guildId`                                 | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID the Player belongs to.           |
+> | `isAutoplay`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether autoplay is enabled.                  |
+> | `manager`                                 | [`Manager`](./Manager.mdx)                                                                            | The Manager instance.                         |
+> | `node`                                    | [`Node`](./Node.mdx)                                                                                  | The Node instance.                            |
+> | `nowPlayingMessage`                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class)                     | The now playing message.                      |
+> | `paused`                                  | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the player is paused.                 |
+> | `playing`                                 | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | Whether the player is playing.                |
+> | `position`                                | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player position.                          |
+> | `queue`                                   | [`Queue`](./Queue/MemoryQueue.mdx)                                                                    | The queue.                                    |
+> | `queueRepeat`                             | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The queue repeat state.                       |
+> | `state`                                   | [`StateTypes`](../Enums/StateTypes.mdx)                                                               | The player state.                             |
+> | `textChannelId`                           | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id the Player is bound to.   |
+> | `trackRepeat`                             | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The track repeat state.                       |
+> | `voiceChannelId`                          | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The voice channel id the Player is bound to.  |
+> | `voiceState`                              | [`VoiceState`](../Typedefs/VoiceState.mdx)                                                            | The voice state the Player is in.             |
+> | `volume`                                  | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player volume.                            |
 
-## Table of contents {#toc}
+## Constructor
 
-| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods |
-|:--------------------------------------------|:---------------------------------------------------|
-| [autoplayTries](#autoPlayTries)             | [autoMoveNode()](#autoMoveNode)                    |
-| [bands](#bands)                             | [connect()](#connect)                              |
-| [dynamicRepeat](#dynamicRepeat)             | [deleteSponsorBlock()](#deleteSponsorBlock)        |
-| [filters](#filters)                         | [destroy()](#destroy)                              |
-| [guildId](#guildId)                         | [disconnect()](#disconnect)                        |
-| [isAutoplay](#isAutoplay)                   | [get()](#get)                                      |
-| [manager](#manager)                         | [getCurrentLyrics()](#getCurrentLyrics)            |
-| [node](#node)                               | [getRecommendedTracks()](#getRecommendedTracks)    |
-| [nowPlayingMessage](#nowPlayingMessage)     | [getSponsorBlock()](#getSponsorBlock)              |
-| [paused](#paused)                           | [moveNode()](#moveNode)                            |
-| [playing](#playing)                         | [pause()](#pause)                                  |
-| [position](#position)                       | [play()](#play)                                    |
-| [queue](#queue)                             | [previous()](#previous)                            |
-| [queueRepeat](#queueRepeat)                 | [restart()](#restart)                              |
-| [state](#state)                             | [search()](#search)                                |
-| [textChannel](#textChannel)                 | [seek()](#seek)                                    |
-| [trackRepeat](#trackRepeat)                 | [set()](#set)                                      |
-| [voiceChannel](#voiceChannel)               | [setAutoplay()](#setAutoplay)                      |
-| [voiceState](#voiceState)                   | [setDynamicRepeat()](#setDynamicRepeat)            |
-| [volume](#volume)                           | [setNowPlayingMessage()](#setNowPlayingMessage)    |
-|                                             | [setQueueRepeat()](#setQueueRepeat)                |
-|                                             | [setSponsorBlock()](#setSponsorBlock)              |
-|                                             | [setTextChannelId()](#setTextChannelId)            |
-|                                             | [setTrackRepeat()](#setTrackRepeat)                |
-|                                             | [setVoiceChannelId()](#setVoiceChannelId)          |
-|                                             | [setVolume()](#setVolume)                          |
-|                                             | [stop()](#stop)                                    |
-|                                             | [switchGuild()](#switchGuild)                      |
+> ```ts
+> new Player(options: PlayerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `options`                                      | [`PlayerOptions`](../Typedefs/PlayerOptions.mdx) | The player options.                           | <i className="fa-solid fa-xmark"/>          |
 
-## Properties {#properties}
+## Methods
 
-### autoplayTries {#autoPlayTries}
-
-> The number of times to try autoplay before emitting queueEnd.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | `3 (default value)`
-
+### autoMoveNode()
+> ```ts
+> async autoMoveNode(): Promise<Player | void>
+> ```
+> Automatically moves the player to an usable node.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|
+> | [`Player`](./Player.mdx) \| [`void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined) | The player.                                   |
 ---
 
-### bands {#bands}
-
-> The equalizer bands array.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [number[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
----
-
-### dynamicRepeat {#dynamicRepeat}
-
-> Whether the queue repeats and shuffles after each song.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### filters {#filters}
-
-> The filters applied to the audio.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Filters`](./Filters.mdx)
-
----
-
-### guildId {#guildId}
-
-> The guild ID for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildID](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id)
-
----
-
-### isAutoplay {#isAutoplay}
-
-> The autoplay state of the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### manager {#manager}
-
-> The Manager for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Manager`](./Manager.mdx)
-
----
-
-### node {#node}
-
-> The Node for the Player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Node`](./Node.mdx)
-
----
-
-### nowPlayingMessage {#nowPlayingMessage}
-
-> The now playing message for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
-
----
-
-### paused {#paused}
-
-> Whether the player is paused.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### playing {#playing}
-
-> Whether the player is playing.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### position {#position}
-
-> The time the player is in the track.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
----
-
-### queue {#queue}
-
-> The Queue for the Player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Queue`](./Queue.mdx)
-
----
-
-### queueRepeat {#queueRepeat}
-
-> Whether the queue repeats the queue.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### state {#state}
-
-> The current state of the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [<i className="fa-solid fa-bars-staggered" /> StateTypes](../Enums/StateTypes.mdx)
-
----
-
-### textChannel {#textChannel}
-
-> The text channel id for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id)
-
----
-
-### trackRepeat {#trackRepeat}
-
-> Whether the queue repeats the track.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-
----
-
-### voiceChannel {#voiceChannel}
-
-> The voice channel id for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id)
-
----
-
-### voiceState {#voiceState}
-
-> The voice state object from Discord.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: VoiceState
-
----
-
-### volume {#volume}
-
-> The volume for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-
-## Methods {#methods}
-
-### autoMoveNode() {#autoMoveNode}
-
-<span className="warning badge">async function</span>
-
-> Automatically moves the player to a usable node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<Player](./Player.mdx) \| [void\>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
-
----
-
-### connect() {#connect}
-
+### connect()
+> ```ts
+> async connect(): Promise<void>
+> ```
 > Connects the player to the voice channel.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
 
 ---
 
-### deleteSponsorBlock() {#deleteSponsorBlock}
-
-<span className="warning badge">async function</span>
-
-> Deletes the sponsorblock for the player. This will remove all sponsorblock segments that have been set for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#properties)
-
----
-
-### destroy(disconnect) {#destroy}
-
-<span className="warning badge">async function</span>
-
-> Destroys the player and clears the queue.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                   | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to disconnect the player from the voice channel. If no provided is true |     <i className="fa-solid fa-xmark"/>      |
+### deleteSponsorBlock()
+:::warning
+⚠️ This method only works when the players node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async deleteSponsorBlock(): Promise<void>
+> ```
+> Deletes the sponsor block.
 
 ---
 
-### disconnect() {#disconnect}
+### destroy()
+> ```ts
+> async destroy(disconnect: boolean = true): Promise<boolean>
+> ```
+> Destroys the player.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                 | <i className="fa-solid fa-list"/> Description            | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------------------------------------------------| :--------------------------------------------------------| :------------------------------------------:|
+> | `disconnect`                                   | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to disconnect the player from the voice channel. | <i className="fa-solid fa-check"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                          | <i className="fa-solid fa-list"/> Description  |
+> | :------------------------------------------------------------------------------------- | :----------------------------------------------|
+> | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether the player was successfully destroyed. |
 
-<span className="warning badge">async function</span>
+---
 
+### disconnect()
+> ```ts
+> async disconnect(): Promise<void>
+> ```
 > Disconnects the player from the voice channel.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
 
 ---
 
-### get(key) {#get}
-
+### get()
+> ```ts
+> get<T>(key: string): T
+> ```
 > Retrieves custom data associated with a given key.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: The data associated with the key, cast to the specified type.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to retrieve the data for.             |     <i className="fa-solid fa-xmark"/>      |
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `key`                                          | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to get the value from.                | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type              | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------------------|:----------------------------------------------|
+> | [`any`](https://www.totaltypescript.com/concepts/any-type) | The value.                                    |
+---
+
+### getCurrentLyrics()
+:::warning
+⚠️ This method only works when the players node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+> ```ts
+> async getCurrentLyrics(skipTrackSource: boolean = false): Promise<Lyrics>
+> ```
+> Retrieves the current lyrics for the playing track.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type              | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------------------|:----------------------------------------------|
+> | [`Lyrics`](../Typedefs/Lyrics.mdx) | The lyrics.                                    |
 
 ---
 
-### getCurrentLyrics(skipTrackSource) {#getCurrentLyrics}
-
-<span className="warning badge">async function</span>
-
-> Retrieves the current lyrics for the playing track.<br/><br/>
-> This method uses the `lavalyrics-plugin` to fetch the lyrics. If the plugin is not available, it will throw a RangeError.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lyrics{}`>](../Typedefs/Node/lyrics.mdx#lyrics)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                    | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-------------------------------------------:|
-> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Indicates whether to skip the track source when fetching lyrics. |     <i className="fa-solid fa-check"/>      |
-
----
-
-### getRecommendedTracks(track, requester) {#getRecommendedTracks}
-
-<span className="warning badge">async function</span>
-
-> Gets recommended tracks and returns an array of tracks.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`Track[]`>](../Typedefs/Track/Track.mdx)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                   | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                                                                             | The track to find recommendations for.        |     <i className="fa-solid fa-xmark"/>      |
-> | `requester`                                    | [`User`](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [`ClientUser`](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class) | The user who requested the track.             |     <i className="fa-solid fa-check"/>      |
+### getRecommendedTracks()
+> ```ts
+> async getRecommendedTracks(track: Track): Promise<Track[]>
+> ```
+> Retrieves recommended tracks for the current track.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx)       | The track to get recommended tracks for.      | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../Typedefs/Track.mdx)            | The recommended tracks.                       |
 
 ---
 
-### getSponsorBlock() {#getSponsorBlock}
-
-<span className="warning badge">async function</span>
-
+### getSponsorBlock()
+:::warning
+⚠️ This method only works when the players node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async getSponsorBlock(): Promise<SponsorBlockSegment[]>
+> ```
 > Gets the sponsorblock for the player.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type               | <i className="fa-solid fa-list"/> Description |
+> | :-----------------------------------------------------------|:----------------------------------------------|
+> | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The sponsorblock segments.                    |
 
 ---
 
-### moveNode(identifier) {#moveNode}
-
-<span className="warning badge">async function</span>
-
-> Moves the player to another node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The identifier of the node to move to.        |     <i className="fa-solid fa-xmark"/>      |
-
----
-
-### pause() {#pause}
-
-<span className="warning badge">async function</span>
-
-> Pauses or resumes the current track.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                             | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------|:-------------------------------------------:|
-> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | A boolean indicating whether to pause (true) or resume (false) the track. |     <i className="fa-solid fa-xmark"/>      |
+### init()
+> ```ts
+> init(manager: Manager): void
+> ```
+> Initializes the player.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | The manager instance.                         | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### play() {#play}
-
-<span className="warning badge">async function</span>
-
-> Plays the next track.<br/><br/>
-> If a track is provided, it will be played. Otherwise, the next track in the queue will be played.<br/>
-> If the queue is not empty, but the current track has not finished yet, it will be replaced with the provided track.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`Player`>](./Player.mdx)
-
-<Tabs>
-    <TabItem value="playwithqueue" label="Start playing after add track to queue" default>
-        ```js
-        const { Manager } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        const searchResponse = await manager.search('Never Gonna Give You Up');
-
-        const player = client.lavalink.create({
-            ...PlayerOptions
-        });
-
-        player.connect()
-        player.queue.add(searchResponse.tracks);
-
-        player.play();
-        ```
-    </TabItem>
-    <TabItem value="playwithtrack" label="Start playing with track">
-
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                        | <i className="fa-solid fa-flask"/> Optional |
-        |:-----------------------------------------------|:--------------------------------------------------------------|:-------------------------------------------:|
-        | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)  |     <i className="fa-solid fa-xmark"/>      |
-
-
-        ```js
-        const { Manager } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        const searchResponse = await manager.search('Never Gonna Give You Up');
-
-        const player = client.lavalink.create({
-            ...PlayerOptions
-        });
-
-        player.connect()
-        player.play(searchResponse.tracks[0]);
-        ```
-    </TabItem>
-    <TabItem value="playwithoptions" label="Start playing with play options">
-
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                            | <i className="fa-solid fa-flask"/> Optional |
-        |:-----------------------------------------------|:------------------------------------------------------------------|:-------------------------------------------:|
-        | `options`                                      | [`playOptions{}`](../Typedefs/Player/playOptions.mdx#playOptions) |     <i className="fa-solid fa-xmark"/>      |
-    </TabItem>
-    <TabItem value="playwithtrackandoptions" label="Start playing with track and options">
-
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-flask"/> Optional |
-        |:-----------------------------------------------|:-------------------------------------------------------------------|:-------------------------------------------:|
-        | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)       |     <i className="fa-solid fa-xmark"/>      |
-        | `options`                                      | [`playOptions{}`](../Typedefs/Player/playOptions.mdx#playOptions)  |     <i className="fa-solid fa-xmark"/>      |
-
-
-        ```js
-        const { Manager } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        const searchResponse = await manager.search('Never Gonna Give You Up');
-
-        const player = client.lavalink.create({
-            ...PlayerOptions
-        });
-
-        player.connect()
-        player.play(searchResponse.tracks[0], {
-            ...PlayOptions
-        });
-        ```
-    </TabItem>
-</Tabs>
+### moveNode()
+> ```ts
+> async moveNode(identifier: string): Promise<Player>
+> ```
+> Moves the player to a different node.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `identifier`                                   | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier to move the player to.    | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------| :---------------------------------------------|
+> | [`Player`](./Player.mdx)                      | The player.                                   |
 
 ---
 
-### previous() {#previous}
+### pause()
+> ```ts
+> async pause(pause: boolean): Promise<this>
+> ```
+> Pauses the player.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `pause`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to pause the player.                  | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------| :---------------------------------------------|
+> | [`Player`](./Player.mdx)                      | The player.                                   |
 
-<span className="warning badge">async function</span>
+---
 
+### play()
+> ```ts
+> async play(): Promise<Player>
+> async play(track: Track): Promise<Player>
+> async play(options: PlayOptions): Promise<Player>
+> async play(track: Track, options: PlayOptions): Promise<Player>
+> ```
+> Plays a track or starts playback with the specified options.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx)             | The track to play.                            | <i className="fa-solid fa-check"/>          |
+> | `options`                                      | [`PlayOptions`](../Typedefs/PlayOptions.mdx) | The play options.                             | <i className="fa-solid fa-check"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------| :---------------------------------------------|
+> | [`Player`](./Player.mdx)                      | The player.                                   |
+
+---
+
+### previous()
+> ```ts
+> async previous(): Promise<this>
+> ```
 > Skips to the previous track in the queue.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`Player`](./Player.mdx)                       | The player.                                    |
+
+---
+
+### removeVoiceReceiver()
+:::warning
+⚠️ This method only works when a player is connected to a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+> ```ts
+> async removeVoiceReceiver(): Promise<void>
+> ```
+> Removes the voice receiver from the player.
+
+---
+
+### restart()
+> ```ts
+> async restart(): Promise<Player>
+> ```
+> Restarts the current track.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`Player`](./Player.mdx)                       | The player.                                    |
 
 ---
 
-### restart() {#restart}
-
-<span className="warning badge">async function</span>
-
-> Restarts the current track to the start.<br/><br/>
-> If there's no current track and there are tracks in the queue, it plays the next track.
+### search()
+> ```ts
+> async search<T = unknown>(query: string | SearchQuery, requester?: T): Promise<SearchResult>
+> ```
+> Searches for tracks based on the query.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`Player`>](./Player.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `query`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query to search for.                       | <i className="fa-solid fa-xmark "/>          |
+> | `requester`                                     | [`T`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)                                                      | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`SearchResult`](../Typedefs/SearchResult.mdx) | The search result.                             |
 
 ---
 
-### search(query, requester) {#search}
-
-<span className="warning badge">async function</span>
-
-> Same as [Manager.search()](./Manager.mdx#search) but a shortcut on the player itself.
-
----
-
-### seek(position) {#seek}
-
-<span className="warning badge">async function</span>
-
+### seek()
+> ```ts
+> async seek(position: number): Promise<Player>
+> ```
 > Seeks to the specified position in the current track.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                            | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `position`                                     | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position to seek to.                       | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position in milliseconds to seek to.      |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`Player`](./Player.mdx)                       | The player.                                    |
 
 ---
 
-### set(key, value) {#set}
-
-> Set custom data.
+### set()
+> ```ts
+> set(key: string, value: unknown): void
+> ```
+> Sets a custom property on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------------------------------- | :----------------------------------------------| :-------------------------------------------:|
+> | `key`                                           | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set.                                | <i className="fa-solid fa-xmark "/>          |
+> | `value`                                         | [`unknown`](https://medium.com/@vinhle95/the-unknown-type-in-typescript-939ec261294b)               | The value to set.                              | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set the data for.                  |     <i className="fa-solid fa-xmark"/>      |
-> | `value`                                        | unknown                                                                                           | The value to set the data to.                 |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type                                             | <i className="fa-solid fa-list "/> Description |
+> | :------------------------------------------------------------------------------------------| :----------------------------------------------|
+> | [`void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void) | The player.                                    |
 
 ---
 
-### setAutoplay(autoplayState, botUser, tries) {#setAutoplay}
-
-> Sets the autoplay-state of the player.<br/><br/>
-> Autoplay is a feature that makes the player play a recommended track when the current track ends.
+### setAutoplay()
+> ```ts
+> setAutoplay<T = unknown>(autoplayState: boolean, botUser?: T, tries?: number): this
+> ```
+> Sets the autoplay option on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `autoplayState`                                 | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The autoplay option.                           | <i className="fa-solid fa-xmark "/>          |
+> | `botUser`                                       | [`T`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)        | The bot user.                                  | <i className="fa-solid fa-check "/>          |
+> | `tries`                                         | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of tries.                           | <i className="fa-solid fa-check "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                                                        | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `autoplayState`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether or not autoplay should be enabled.                                                           |     <i className="fa-solid fa-xmark"/>      |
-> | `botUser`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)   | The user-object that should be used as the bot-user.                                                 |     <i className="fa-solid fa-xmark"/>      |
-> | `tries`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of times the player should try to find a recommended track if the first one doesn't work. |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setDynamicRepeat(repeat, ms) {#setDynamicRepeat}
-
-> Sets the queue to repeat and shuffles the queue after each song.
+### setDynamicRepeat()
+> ```ts
+> async setDynamicRepeat(repeat: boolean, ms: number): Promise<this>
+> ```
+> Sets the dynamic repeat option on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat option.                     | <i className="fa-solid fa-xmark "/>          |
+> | `ms`                                            | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time in milliseconds.                      | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------:|
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not                     |     <i className="fa-solid fa-xmark"/>      |
-> | `ms`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | After how many milliseconds to trigger dynamic repeat. |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setNowPlayingMessage(message) {#setNowPlayingMessage}
-
-> Sets the now playing message.
+### setNowPlayingMessage()
+> ```ts
+> setNowPlayingMessage<T = Message>(message: T): Message
+> ```
+> Sets the now playing message on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                           | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:----------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `message`                                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class) | The now playing message.                       | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `message`                                      | [Message](https://discord.js.org/docs/packages/discord.js/14.17.3/Message:Class) | The message of the now playing message.       |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type                                    | <i className="fa-solid fa-list "/> Description |
+> | :---------------------------------------------------------------------------------| :----------------------------------------------|
+> | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class) | The now playing message.                       |
 
 ---
 
-### setQueueRepeat(repeat) {#setQueueRepeat}
-
-> Sets the queue repeat.
+### setQueueRepeat()
+> ```ts
+> setQueueRepeat(repeat: boolean): this
+> ```
+> Sets the queue repeat option on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The queue repeat option.                       | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setSponsorBlock(segments) {#setSponsorBlock}
-
-<span className="warning badge">async function</span>
-
-> Sets the sponsorblock for the player. This will set the sponsorblock segments for the player to the given segments.
+### setSponsorBlock()
+:::warning
+⚠️ This method only works when the players node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async setSponsorBlock(segments: SponsorBlockSegment[] = [SponsorBlockSegment.Sponsor, SponsorBlockSegment.SelfPromo]): Promise<void>
+> ```
+> Sets the sponsor block segments on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- | :-------------------------------------------: |
-> | `segments`                                     | [<i className="fa-solid fa-bars-staggered" /> SponsorBlockSegment](../Enums/SponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |    <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `segments`                                      | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The sponsor block segments.                    | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### setTextChannelId(channel) {#setTextChannelId}
-
-> Sets the player text channel.<br/><br/>
-> This method updates the text channel associated with the player. It also emits a player state update event indicating the change in the channel.
+### setTextChannelId()
+> ```ts
+> setTextChannelId(channel: string): this
+> ```
+> Sets the text channel id on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `channel`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id.                           | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                     | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildTextChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/TextChannel:Class#id) | The new text channel ID.                      |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setTrackRepeat(repeat) {#setTrackRepeat}
-
-> Sets the track repeat mode.<br/><br/>
-> When track repeat is enabled, the current track will replay after it ends.<br/>
-> Disables queueRepeat and dynamicRepeat modes if enabled.
+### setTrackRepeat()
+> ```ts
+> setTrackRepeat(repeat: boolean): this
+> ```
+> Sets the track repeat option on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The track repeat option.                       | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `repeat`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to repeat the queue or not            |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setVoiceChannelId(channel) {#setVoiceChannelId}
-
-> Sets the player voice channel.<br/><br/>
+### setVoiceChannelId()
+> ```ts
+> setVoiceChannelId(channel: string): this
+> ```
+> Sets the voice channel id on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `channel`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The voice channel id.                          | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `channel`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`GuildVoiceChannel.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/VoiceChannel:Class#id) | The new voice channel ID.                     |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### setVolume(volume) {#setVolume}
-
-<span className="warning badge">async function</span>
-
-> Sets the player volume.
+### setVolume()
+> ```ts
+> async setVolume(volume: number): Promise<this>
+> ```
+> Sets the volume on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `volume`                                        | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume.                                    | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description               | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-------------------------------------------:|
-> | `volume`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume to set the player to. Must be between 0 and 100. |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### stop(amount) {#stop}
+### setupVoiceReceiver()
+:::warning
+⚠️ This method only works when a player is connected to a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+> ```ts
+> async setupVoiceReceiver(): Promise<void>
+> ```
+> Sets up the voice receiver on the player.
 
-<span className="warning badge">async function</span>
+---
 
+### stop()
+> ```ts
+> async stop(amount?: number): Promise<this>
+> ```
 > Stops the player and optionally removes tracks from the queue.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<this>](#constructor)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `amount`                                         | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)  | The amount of tracks to remove from the queue. | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-------------------------------------------:|
-> | `amount`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The amount of tracks to remove from the queue. If not provided, removes the current track if it exists. |     <i className="fa-solid fa-check"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`this`](./Player.mdx)                         | The player.                                    |
 
 ---
 
-### switchGuild(newOptions, force) {#switchGuild}
-
-<span className="warning badge">async function</span>
-
-> Transfers the player to a new server. If the player already exists on the new server and force is false, this method will return the existing player. Otherwise, a new player will be created and the current player will be destroyed.
+### switchGuild()
+> ```ts
+> async switchGuild(newOptions: PlayerOptions, force: boolean = false): Promise<Player>
+> ```
+> Switches the guild on the player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`Player`>](./Player.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `newOptions`                                    | [`PlayerOptions`](../Typedefs/PlayerOptions.mdx)                                                      | The new options for the player.                | <i className="fa-solid fa-xmark "/>          |
+> | `force`                                         | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to force the switch.                   | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                    | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-------------------------------------------:|
-> | `newOptions`                                   | [`playerOptions{}`](../Typedefs/Player/playerOptions.mdx)                                           | The new options for the player.                                  |     <i className="fa-solid fa-xmark"/>      |
-> | `force`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to force the creation of a new player. Default is false. |     <i className="fa-solid fa-check"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------| :----------------------------------------------|
+> | [`Player`](./Player.mdx)                       | The player.                                    |
