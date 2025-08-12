@@ -10,1059 +10,326 @@ sidebar_label: Manager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor {#constructor}
+# Manager
 
-<Tabs>
-    <TabItem value="manager" label="ManagerOptions" default>
-        ```js
-        new Magmastream.Manager(options: ManagerOptions)
-        ```
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
 
-        > | <i className="fa-solid fa-hashtag"/> Parameter       | <i className="fa-solid fa-font"/> Type                                                                  | <i className="fa-solid fa-list"/> Description                                                    | <i className="fa-solid fa-flask"/> Optional |
-        > |:-----------------------------------------------------|:------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------|:-------------------------------------------:|
-        > | `playNextOnEnd`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Automatically play the next track when the current one ends. **Defaults to `true`.**             | <i className="fa-solid fa-check"/>          |
-        > | `autoPlaySearchPlatforms`                            | [`AutoPlayPlatform[]`](../Enums/AutoPlayPlatform.mdx)                                                   | Search platforms to use for autoplay, in priority order. **Defaults to `youtube`.**              | <i className="fa-solid fa-check"/>          |
-        > | `clientId`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | Discord application's client ID.                                                                 | <i className="fa-solid fa-check"/>          |
-        > | `clientName`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | Value for the `Client-Name` header sent to Lavalink nodes. **Defaults to "Magmastream/version"** | <i className="fa-solid fa-check"/>          |
-        > | `clusterId`                                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)       | Index of the cluster this manager belongs to. **Defaults to `0`.**                               | <i className="fa-solid fa-check"/>          |
-        > | `defaultSearchPlatform`                              | [`SearchPlatform`](../Enums/SearchPlatform.mdx)                                                         | Default platform for searches. **Defaults to `ytsearch`.**                                       | <i className="fa-solid fa-check"/>          |
-        > | `lastFmApiKey`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)       | API key used for last.fm-based Autoplay. [Get it here](https://www.last.fm/api/accounts).        | <i className="fa-solid fa-check"/>          |
-        > | `maxPreviousTracks`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)       | Maximum number of previous tracks to store. **Defaults to `20`.**                                | <i className="fa-solid fa-check"/>          |
-        > | `nodes`                                              | [`NodeOptions[]`](../Typedefs/NodeOptions.mdx)                                                          | Lavalink nodes to connect to.                                                                    | <i className="fa-solid fa-xmark"/>          |
-        > | `enabledPlugins`                                     | [`Plugin[]`](./Plugin.mdx)                                                                              | List of plugins to enable.                                                                       | <i className="fa-solid fa-check"/>          |
-        > | `normalizeYouTubeTitles`                             | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Normalize YouTube titles if author doesn’t match exactly. **Defaults to `false`.**               | <i className="fa-solid fa-check"/>          |
-        > | `trackPartial`                                       | [`TrackPartial[]`](../Enums/TrackPartial.mdx)                                                           | Track properties to keep; `track` is always included.                                            | <i className="fa-solid fa-check"/>          |
-        > | `useNode`                                            | [`UseNodeOptions`](../Enums/UseNodeOptions.mdx)                                                         | Strategy for selecting Lavalink nodes (e.g. least players). **Defaults to Least players.**       | <i className="fa-solid fa-check"/>          |
-        > | `enablePriorityMode`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)     | Enable priority mode over least-load balancing.                                                  | <i className="fa-solid fa-check"/>          |
-        > | `stateStorage`                                       | [`StateStorageOptions`](../Typedefs/StateStorageOptions.mdx)                                            | Where queue state should be persisted (e.g. Memory, Redis, JSON). **Defaults to Memory.**        | <i className="fa-solid fa-check"/>          |
-        > | [`send`](#send)                                               | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)   | Function used to send data to Discord’s WebSocket gateway.                                       | <i className="fa-solid fa-xmark"/>          |
+## Class Definition
+```ts
+export class Manager extends EventEmitter {}
+```
 
-        ---
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `initiated`                               | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the manager has been initiated.       |
+> | `nodes`                                   | [`Collection<string, Node>`](./Node.mdx)                                                              | The nodes.                                    |
+> | `options`                                 | [`ManagerOptions`](../Typedefs/ManagerOptions.mdx)                                                    | The manager options.                          |
+> | `players`                                 | [`Collection<string, Player>`](./Player.mdx)                                                          | The players.                                  |
+> | `redis?`                                  | [`RedisClient`](https://www.npmjs.com/package/ioredis)                                                | The redis client.                             |
 
-        ### send(payload) \{#send}
 
-        <Tabs>
-            <TabItem value="Parameters" label="Parameters" default>
+## Constructor
+> ```ts
+> new Manager(options: ManagerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `options`                                      | [`ManagerOptions`](../Typedefs/ManagerOptions.mdx) | The manager options.                          | <i className="fa-solid fa-xmark"/>          |
 
-                > Function to communicate with the Discord Gateway.
-                >
-                > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description |
-                > | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-                > | `packet`                                       | [`DiscordPacket`](../Typedefs/DiscordPacket)                                              | The payload to send                           |
+## Methods
 
-            </TabItem>
-            <TabItem value="usage-send-function" label="Usage" default>
-                ```js
-                new Magmastream.Manager({
-                     ...ManagerOptions,
-                     send: (packet) => {
-                          const guild = client.guilds.cache.get(packet.d.guild_id);
-                          if (guild) guild.shard.send(packet);
-                     },
-                });
-                ```
-            </TabItem>
-        </Tabs>
-    </TabItem>
-
-</Tabs>
-
-## Table of contents {#toc}
-
-| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods | <i className="fa-regular fa-calendar"/> Events |
-|:--------------------------------------------|:---------------------------------------------------|:-----------------------------------------------|
-| [initiated](#initiated)                     | [create()](#create)                                | [chapterStarted](#chapterStarted)              |
-| [nodes](#nodes)                             | [createNode()](#createNode)                        | [chaptersLoaded](#chaptersLoaded)              |
-| [options](#options)                         | [decodeTrack()](#decodeTrack)                      | [debug](#debug)                                |
-| [players](#players)                         | [decodeTracks()](#decodeTracks)                    | [nodeConnect](#nodeConnect)                    |
-|                                             | [destroy()](#destroy)                              | [nodeCreate](#nodeCreate)                      |
-|                                             | [destroyNode()](#destroyNode)                      | [nodeDestroy](#nodeDestroy)                    |
-|                                             | [getPlayer()](#getPlayer)                                      | [nodeDisconnect](#nodeDisconnect)              |
-|                                             | [handleShutdown()](#handleShutdown)                | [nodeError](#nodeError)                        |
-|                                             | [init()](#init)                                    | [nodeRaw](#nodeRaw)                            |
-|                                             | [loadPlayerStates()](#loadPlayerStates)            | [nodeReconnect](#nodeReconnect)                |
-|                                             | [on()](#on)                                        | [playerCreate](#playerCreate)                  |
-|                                             | [savePlayerState()](#savePlayerState)              | [playerDestroy](#playerDestroy)                |
-|                                             | [search()](#search)                                | [playerDisconnect](#playerDisconnect)          |
-|                                             | [updateVoiceState()](#updateVoiceState)            | [playerMove](#playerMove)                      |
-|                                             | [useableNode()](#useableNode)                      | [playerStateUpdate](#playerStateUpdate)        |
-|                                             |                                                    | [queueEnd](#queueEnd)                          |
-|                                             |                                                    | [segmentSkipped](#segmentSkipped)              |
-|                                             |                                                    | [segmentsLoaded](#segmentsLoaded)              |
-|                                             |                                                    | [socketClosed](#socketClosed)                  |
-|                                             |                                                    | [trackEnd](#trackEnd)                          |
-|                                             |                                                    | [trackError](#trackError)                      |
-|                                             |                                                    | [trackStart](#trackStart)                      |
-|                                             |                                                    | [trackStuck](#trackStuck)                      |
-
-## Properties {#properties}
-
-### initiated {#initiated}
-
-> Has the manager been initiated?
+### cleanupInactivePlayer()
+> ```ts
+> async cleanupInactivePlayer(guildId: string): Promise<void>
+> ```
+> Cleans up an inactive player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### players {#players}
-
-<span className="info badge">readonly</span>
-
-> The map of players.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player`](./Player.mdx)>
+### cleanupInactivePlayers()
+> ```ts
+> async cleanupInactivePlayers(): Promise<void>
+> ```
+> Cleans up inactive players.
 
 ---
 
-### nodes {#nodes}
-
-<span className="info badge">readonly</span>
-
-> The map of nodes.
+### create()
+> ```ts
+> create(options: PlayerOptions): Player
+> ```
+> Creates a player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Collection](https://discord.js.org/docs/packages/collection/main/Collection:class)\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type          | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`PlayerOptions`](../Typedefs/PlayerOptions.mdx) | The player options.                            | <i className="fa-solid fa-xmark "/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Player`](./Player.mdx)                        | The new player.                                |
 
 ---
 
-### options {#options}
-
-<span className="info badge">readonly</span>
-
-> The options that were set.
+### createNode()
+> ```ts
+> createNode(options: NodeOptions): Node
+> ```
+> Creates a node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`managerOptions{}`](../Typedefs/Manager/managerOptions.mdx)
-
-## Methods {#methods}
-
-### create(options) {#create}
-
-> Creates a player or returns one if it already exists.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type      | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:---------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`NodeOptions`](../Typedefs/NodeOptions.mdx) | The node options.                              | <i className="fa-solid fa-xmark "/>          |
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `options`                                      | [`playerOptions{}`](../Typedefs/Player/playerOptions.mdx) | The options to create the player with.        |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Node`](./Node.mdx)                            | The new node.                                  |
 
 ---
 
-### createNode(options) {#createNode}
-
-> Creates a new node or returns an existing one if it already exists.
+### decodeTrack()
+> ```ts
+> async decodeTrack(track: string): Promise<TrackData>
+> ```
+> Decodes a track.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Node`](../Classes/Node.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `track`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The track.                                     | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `options`                                      | [`nodeOptions{}`](../Typedefs/Node/nodeOptions.mdx) | The options to create the node with.          |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`TrackData`](../Typedefs/TrackData.mdx)        | The decoded track.                             |
 
 ---
 
-### decodeTrack(track) {#decodeTrack}
-
-<span className="warning badge">async function</span>
-
-> Decodes a base64 encoded track and returns a TrackData.
+### decodeTracks()
+> ```ts
+> async decodeTracks(tracks: string[]): Promise<TrackData[]>
+> ```
+> Decodes multiple tracks.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}`>](../Typedefs/Track/trackData.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                              | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `tracks`                                        | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | The tracks.                                    | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`base64`](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------|:-----------------------------------------------|
+> | [`TrackData[]`](../Typedefs/TrackData.mdx)     | The decoded tracks.                            |
 
 ---
 
-### decodeTracks(tracks) {#decodeTracks}
-
-<span className="warning badge">async function</span>
-
-> Decodes an array of base64 encoded tracks and returns an array of TrackData.<br/>
-> Emits a debug event with the tracks being decoded.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`trackData{}[]`>](../Typedefs/Track/trackData.mdx)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                      | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `tracks`                                       | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`base64`](https://developer.mozilla.org/en-US/docs/Glossary/Base64) | The base64 encoded track string.              |     <i className="fa-solid fa-xmark"/>      |
-
----
-
-### destroy(guildId) {#destroy}
-
-<span className="warning badge">async function</span>
-
+### destroy()
+> ```ts
+> async destroy(guildId: string): Promise<void>
+> ```
 > Destroys a player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to destroy.        |     <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### destroyNode(identifier) {#destroyNode}
-
-<span className="warning badge">async function</span>
-
-> Destroys a node if it exists. Emits a debug event if the node is found and destroyed.
+### destroyNode()
+> ```ts
+> async destroyNode(identifier: string): Promise<void>
+> ```
+> Destroys a node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx) | The identifier of the node to destroy.        |     <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `identifier`                                    | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier.                           | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### init(options) {#init}
+### get()
+:::warning
+⚠️ This method is deprecated. Use [`getPlayer`](#getplayer) instead.
+:::
+> ```ts
+> async get(guildId: string): Promise<Player | undefined>
+> ```
+> Gets a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Player`](./Player.mdx) \| `undefined`         | The player.                                    |
+---
 
-> Initiates the Manager.
+### getPlayer()
+> ```ts
+> getPlayer(guildId: string): Player | undefined
+> ```
+> Gets a player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                              | <i className="fa-solid fa-list"/> Description                                      | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-------------------------------------------:|
-> | `options`                                     | [ManagerInitOptions](../Typedefs/Manager/managerInitOptions.mdx)                                                                                                                                     |                                                                                    |     <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Player`](./Player.mdx) \| `undefined`         | The player.                                    |
 
 ---
 
-### loadPlayerStates(nodeId) {#loadPlayerStates}
-
-<span className="warning badge">async function</span>
-
-> Loads player states from the JSON file.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description             | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-------------------------------------------:|
-> | `nodeId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Node.identifier`](../Typedefs/Node/nodeOptions.mdx#nodeOptions) | The ID of the node to load player states from (required). |     <i className="fa-solid fa-xmark"/>      |
+### handleShutdown()
+> ```ts
+> async handleShutdown(): Promise<void>
+> ```
+> Handles the shutdown of the process by saving all active players' states and optionally cleaning up inactive players.
 
 ---
 
-### getPlayer(guildId) {#getPlayer}
-
-> Returns a player or undefined if it does not exist.
+### init()
+> ```ts
+> async init(options: ManagerInitOptions = {}): Promise<this>
+> ```
+> Initializes the manager.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Player`](./Player.mdx) | [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                    | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-----------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`ManagerInitOptions`](../Typedefs/ManagerInitOptions.mdx) | The manager init options.                      | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [`Guild.id`](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to retrieve.       |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------|:-----------------------------------------------|
+> | [`Manager`](./Manager.mdx)                     | The manager.                                   |
 
 ---
 
-### handleShutdown() {#handleShutdown}
-
-<span className="warning badge">async function</span>
-
-> Handles the shutdown of the process by saving all active player's states and optionally cleaning up inactive players.<br/><br/>
-> This function is called when the process is about to exit.<br/>
-> It iterates through all players and calls [savePlayerState](#savePlayerState) to save their states. Optionally, it also calls cleanupInactivePlayers (private function) to remove any stale player state files. After saving and cleaning up, it exits the process.
+### loadPlayerStates()
+> ```ts
+> async loadPlayerStates(nodeId: string): Promise<void>
+> ```
+> Loads the player states.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `nodeId`                                        | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node id.                                   | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### on(event, listener: () => \{}) {#on}
-
-> Attaches an event listener to the manager.
+### on()
+> ```ts
+> on<T extends keyof ManagerEvents>(event: T, listener: (...args: ManagerEvents[T]) => void): this
+> ```
+> Adds an event listener.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [this](#properties)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description   | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------------------|:------------------------------------------------|:-------------------------------------------:|
-> | `event`                                        | [<i className="fa-solid fa-bars-staggered" /> ManagerEventType](../Enums/ManagerEventTypes.mdx)       | The event to listen for.                        |     <i className="fa-solid fa-xmark"/>      |
-> | `listener`                                     | [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | The function to call when the event is emitted. |     <i className="fa-solid fa-xmark"/>      |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on('trackStart', (player, track) => {
-            console.log(`Now playing ${track.title} in ${player.guildId}`);
-        });
-        ```
-    </TabItem>
-
-</Tabs>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                                                                                                                                                                                                                                                                                                                                                                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `event`                                         | T extends keyof [`DebugEvent`](../Typedefs/ManagerEvents/DebugEvent.mdx) \| [`LyricsEvent`](../Typedefs/ManagerEvents/LyricsEvents.mdx) \| [`NodeEvents`](../Typedefs/ManagerEvents/NodeEvents.mdx) \| [`PlayerEvents`](../Typedefs/ManagerEvents/PlayerEvents.mdx) \| [`SponsorBlockEvents`](../Typedefs/ManagerEvents/SponsorBlockEvents.mdx) \| [`TrackEvents`](../Typedefs/ManagerEvents/TrackEvents.mdx) \| [`VoiceReceiverEvents`](../Typedefs/ManagerEvents/VoiceReceiverEvents.mdx) | The event.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `listener`                                      | [`(...args: any[]) => void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)                                                                                                                                                                                                                                                                                                                                                                     | The listener.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### savePlayerState(guildId) {#savePlayerState}
-
-<span className="warning badge">async function</span>
-
-> Saves player states to the JSON file.
+### savePlayerState()
+> ```ts
+> async savePlayerState(guildId: string): Promise<void>
+> ```
+> Saves the player state.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildId](https://discord.js.org/docs/packages/discord.js/14.17.3/Guild:Class#id) | The guild ID of the player to save            |     <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### search(query, requester) {#search}
-
-<span className="warning badge">async function</span>
-
-> Searches the enabled sources based off the URL or the `source` property.
+### search()
+> ```ts
+> async search<T = unknown>(query: string | SearchQuery, requester?: T): Promise<SearchResult>
+> ```
+> Searches for tracks.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`searchResult{}`>](../Typedefs/Search/searchResult.mdx)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `query`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`searchQuery{}`](../Typedefs/Search/searchQuery.mdx) | Query to search.                              |     <i className="fa-solid fa-xmark"/>      |
-> | `requester`                                    | [User](https://discord.js.org/docs/packages/discord.js/14.17.3/User:Class) \| [ClientUser](https://discord.js.org/docs/packages/discord.js/14.17.3/ClientUser:Class)   | The user who requested the track.             |     <i className="fa-solid fa-check"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `query`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `requester`                                     | [`T = unknown`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Unknown)                                           | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### updateVoiceState(data) {#updateVoiceState}
-
-<span className="warning badge">async function</span>
-
-> Updates the voice state of a player based on the provided data.
+### send()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> send(packet: GatewayVoiceStateUpdate): unknown
+> ```
+> Sends a packet to the discord gateway.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type   | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- | :--------------------------------------- | :-------------------------------------------- | :-----------------------------------------: |
-> | `data`                                         | VoicePacket \| VoiceServer \| VoiceState | The timescale options to apply.               |    <i className="fa-solid fa-xmark"/>      |
-
-<Tabs>
-    <TabItem value="Example required for use" label="Example required to use" default>
-        ```js
-        const { Client, Events } = require('discord.js');
-        const { Manager } = require('magmastream');
-
-        const client = new Client({
-            ...ClientOptions
-        })
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        // Required for magmastream to work
-        client.on(Events.Raw, (data) => {
-            manager.updateVoiceState(data);
-        })
-        ```
-    </TabItem>
-
-</Tabs>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `packet`                                        | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### useableNode() {#useableNode}
-
-<span className="info badge">get</span>
-
-> Returns the node to use based on the configured [useNode](#constructor) and [usePriority](#constructor) options.<br/><br/>
-> If [usePriority](#constructor) is true, the node is chosen based on priority, otherwise it is chosen based on the [useNode](#constructor) option.<br/>
-> If [useNode](#constructor) is "leastLoad", the node with the lowest load is chosen, if it is "leastPlayers", the node with the fewest players is chosen.<br/>
-> If [usePriority](#constructor) is false and [useNode](#constructor) is not set, the node with the lowest load is chosen.
+### sendPacket()
+> ```ts
+> sendPacket(packet: GatewayVoiceStateUpdate): unknown
+> ```
+> Sends a packet to the discord gateway.
 >
-> Return: [`Node`](./Node.mdx)
-
-## Events {#events}
-
-### ChapterStarted
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> ChapterStarted](../Enums/ManagerEventTypes.mdx#chapterStarted)</span>
-
-> Emitted when a track has started a chapter.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                    |
-> |:-----------------------------------------------|:------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                  |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx)                                           |
-> | `payload`                                      | [`SponsorBlockChapterStarted{}`](../Typedefs/SponsorBlock/sponsorBlockChapterStarted.mdx) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.ChapterStarted, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `packet`                                        | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### ChaptersLoaded
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> ChaptersLoaded](../Enums/ManagerEventTypes.mdx#chaptersLoaded)</span>
-
-> Emitted when a track has loaded chapters.
+### updateVoiceState()
+> ```ts
+> async updateVoiceState(data: VoicePacket | VoiceServer | VoiceState): Promise<void>
+> ```
+> Updates the voice state.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
-> | `payload`                                      | [`SponsorBlockChaptersLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockChaptersLoaded.mdx#sponsorBlockChaptersLoaded) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.ChapterStarted, (player, track, payload) => {
-        //Your code
-    })
-        ```
-    </TabItem>
-
-</Tabs>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                    | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `data`                                          | [`VoicePacket`](../Typedefs/VoicePacket.mdx) \| [`VoiceServer`](../Typedefs/VoiceServer.mdx) \| [`VoiceState`](../Typedefs/VoiceState.mdx) | The data.                                      | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### Debug
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> Debug](../Enums/ManagerEventTypes.mdx#debug)</span>
-
-> Emitted when a track has loaded chapters.
+### usableNode()
+> ```ts
+> usableNode(): Node
+> ```
+> Returns the node to use based on the configured [`useNode`](../Typedefs/ManagerOptions.mdx) and [`enablePriorityMode`](../Typedefs/ManagerOptions.mdx) options.
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            |
-> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ |
-> | `info`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Node`](./Node.mdx)                            | The node to use.                               |
 
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-        ...ManagerOptions
-    })
-
-        manager.on(ManagerEventTypes.Debug, (info) => {
-            console.log(`Debug from magmastream: ${info}`);
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeConnect
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeConnect](../Enums/ManagerEventTypes.mdx#nodeConnect)</span>
-
-> Emitted when a Node connects.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                   |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeConnect, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeCreate
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeCreate](../Enums/ManagerEventTypes.mdx#nodeCreate)</span>
-
-> Emitted when a Node is created.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                   |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeCreate, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeDestroy
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeDestroy](../Enums/ManagerEventTypes.mdx#nodeDestroy)</span>
-
-> Emitted when a Node is destroyed.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                   |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeDestroy, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeDisconnect
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeDisconnect](../Enums/ManagerEventTypes.mdx#nodeDisconnect)</span>
-
-> Emitted when a Node is disconnects.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                  |
-> | :--------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                                                                                                                                                                                                    |
-> | `reason`                                       | \{ code: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), reason: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) } |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeDisconnect, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeError
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeError](../Enums/ManagerEventTypes.mdx#nodeError)</span>
-
-> Emitted when a Node has an error.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                          |
-> | :--------------------------------------------- | :---------------------------------------------------------------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                                                                            |
-> | `error`                                        | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeError, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeRaw
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeRaw](../Enums/ManagerEventTypes.mdx#nodeRaw)</span>
-
-> Emitted whenever any Lavalink event is received.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `payload`                                      | unknown                                |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeRaw, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### NodeReconnect
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> NodeReconnect](../Enums/ManagerEventTypes.mdx#nodeReconnect)</span>
-
-> Emitted when a Node reconnects.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `node`                                         | [`Node`](./Node.mdx)                   |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.NodeReconnect, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### PlayerCreate
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> PlayerCreate](../Enums/ManagerEventTypes.mdx#playerCreate)</span>
-
-> Emitted when a player is created.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)               |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.PlayerCreate, (player) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### PlayerDestroy
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> PlayerDestroy](../Enums/ManagerEventTypes.mdx#playerDestroy)</span>
-
-> Emitted when a player is destroyed.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type |
-> | :--------------------------------------------- | :------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)               |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.PlayerDestroy, (player) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### PlayerDisconnect
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> PlayerDisconnect](../Enums/ManagerEventTypes.mdx#playerDisconnect)</span>
-
-> Emitted when a Player disconnects.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                               |
-> | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                             |
-> | `oldChannel`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.PlayerDisconnect, (player, oldChannel) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### PlayerMove
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> PlayerMove](../Enums/ManagerEventTypes.mdx#playerMove)</span>
-
-> Emitted when a player is moved to a new voice channel.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                                                               |
-> | :--------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                                                                                                             |
-> | `initChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
-> | `newChannel`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) as [GuildChannelId](https://discord.js.org/docs/packages/discord.js/14.17.3/GuildChannel:Class#id) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.PlayerMove, (player, initChannel, newChannel) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### PlayerStateUpdate
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> PlayerStateUpdate](../Enums/ManagerEventTypes.mdx#playerStateUpdate)</span>
-
-> Emitted when the state of the player has been changed either player paused/resumed or the loop modes have been toggled on or off.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                 |
-> | :--------------------------------------------- | :--------------------------------------------------------------------- |
-> | `oldPlayer`                                    | [`Player`](./Player.mdx)                                               |
-> | `newPlayer`                                    | [`Player`](./Player.mdx)                                               |
-> | `changeType`                                   | [`playerStateUpdateEvent{}`](../Typedefs/Player/playerStateUpdate.mdx#playerStateUpdate) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.PlayerStateUpdate, (oldPlayer, newPlayer, changeType) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### QueueEnd
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> QueueEnd](../Enums/ManagerEventTypes.mdx#queueEnd)</span>
-
-> Emitted when a player queue ends.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                 |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                               |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)           |
-> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.QueueEnd, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### SegmentSkipped
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> SegmentSkipped](../Enums/ManagerEventTypes.mdx#segmentSkipped)</span>
-
-> Emitted when a track has skipped a segment.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
-> | `payload`                                      | [`SponsorBlockSegmentSkipped{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentSkipped.mdx#sponsorBlockSegmentSkipped) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.SegmentSkipped, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### SegmentsLoaded
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> SegmentsLoaded](../Enums/ManagerEventTypes.mdx#segmentsLoaded)</span>
-
-> Emitted when a track has loaded segments.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                               |
-> |:-----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                                             |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                                         |
-> | `payload`                                      | [`SponsorBlockSegmentsLoaded{}`](../Typedefs/SponsorBlock/sponsorBlockSegmentsLoaded.mdx#sponsorBlockSegmentsLoaded) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.SegmentsLoaded, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### SocketClosed
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> SocketClosed](../Enums/ManagerEventTypes.mdx#socketClosed)</span>
-
-> Emitted when a voice connection is closed.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                     |
-> | :--------------------------------------------- | :------------------------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                                   |
-> | `payload`                                      | [`WebSocketClosedEvent{}`](../Typedefs/WebSocket.mdx#webSocketClosedEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.SocketClosed, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### TrackEnd
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> TrackEnd](../Enums/ManagerEventTypes.mdx#trackEnd)</span>
-
-> Emitted when a track ends.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                   |
-> | :--------------------------------------------- | :------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                   |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                 |
-> | `payload`                                      | [`TrackEndEvent{}`](../Typedefs/Track/trackEndEvent.mdx#trackEndEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.TrackEnd, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### TrackError
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> TrackError](../Enums/ManagerEventTypes.mdx#trackError)</span>
-
-> Emitted when a track has an error during playback.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                   |
-> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------|
-> | `player`                                       | [`Player`](./Player.mdx)                                                                 |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                             |
-> | `payload`                                      | [`TrackExceptionEvent{}`](../Typedefs/Track/trackExceptionEvent.mdx#trackExceptionEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.TrackError, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### TrackStart
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> TrackStart](../Enums/ManagerEventTypes.mdx#trackStart)</span>
-
-> Emitted when a track starts.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
-> | :--------------------------------------------- | :----------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Player.mdx)                                       |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                     |
-> | `payload`                                      | [`TrackStartEvent{}`](../Typedefs/Track/trackStartEvent.mdx#trackStartEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.TrackStart, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
-
----
-
-### TrackStuck
-
-<span className="info badge">[ManagerEventTypes : <i className="fa-solid fa-bars-staggered" /> TrackStuck](../Enums/ManagerEventTypes.mdx#trackStuck)</span>
-
-> Emitted when a track gets stuck during playback.
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                       |
-> | :--------------------------------------------- | :----------------------------------------------------------- |
-> | `player`                                       | [`Player`](./Node.mdx)                                       |
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                     |
-> | `payload`                                      | [`TrackStuckEvent{}`](../Typedefs/Track/trackStuckEvent.mdx#trackStuckEvent) |
-
-<Tabs>
-    <TabItem value="Example usage" label="Example usage" default>
-        ```js
-        const { Manager, ManagerEventTypes } = require('magmastream');
-
-        const manager = new Manager({
-            ...ManagerOptions
-        })
-
-        manager.on(ManagerEventTypes.TrackStuck, (player, track, payload) => {
-            //Your code
-        })
-        ```
-    </TabItem>
-
-</Tabs>
