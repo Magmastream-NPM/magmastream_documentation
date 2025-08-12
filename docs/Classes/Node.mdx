@@ -10,233 +10,373 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Constructor {#constructor}
+# Node
 
-<Tabs>
-    <TabItem value="node" label="Node : options" default>
-        ```js
-        new Magmastream.Node(options: NodeOptions)
-        ```
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
 
-        | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                        | <i className="fa-flask fa-solid"/> Optional |
-        |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:-------------------------------------------:|
-        | `host`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The host for the node.                                               |     <i className="fa-solid fa-xmark"/>      |
-        | `port`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The port for the node.                                               |     <i className="fa-solid fa-check"/>      |
-        | `password`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The password for the node.                                           |     <i className="fa-solid fa-check"/>      |
-        | `useSSL`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the host uses SSL.                                           |     <i className="fa-solid fa-check"/>      |
-        | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The identifier for the node.                                         |     <i className="fa-solid fa-check"/>      |
-        | `maxRetryAttempts`                             | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryAmount for the node.                                        |     <i className="fa-solid fa-check"/>      |
-        | `retryDelayMs`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The retryDelay for the node.                                         |     <i className="fa-solid fa-check"/>      |
-        | `enableSessionResumeOption`                    | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to resume the previous session.                              |     <i className="fa-solid fa-check"/>      |
-        | `sessionTimeoutSeconds`                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time the lavalink server will wait before it removes the player. |     <i className="fa-solid fa-check"/>      |
-        | `apiRequestTimeoutMs`                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The timeout used for api calls.                                      |     <i className="fa-solid fa-check"/>      |
-        | `nodePriority`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | Priority of the node.                                                |     <i className="fa-solid fa-check"/>      |
-        | `isNodeLink`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | is this node a Nodelink server?                                      |     <i className="fa-solid fa-check"/>      |
-        | `isBackup`                                     | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | is this node a backup node?                                          |     <i className="fa-solid fa-check"/>      |
+## Class Definition
+```ts
+export class Node {}
+```
 
-    </TabItem>
-</Tabs>
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `info`                                    | [`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx)                                                        | The node info.                                |
+> | `isNodeLink`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the node is a node link.              |
+> | `rest`                                    | [`Rest`](./Rest.mdx)                                                                                  | The rest instance.                            |
+> | `sessionId`                               | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The session ID.                               |
+> | `socket`                                  | [`WebSocket`](https://nodejs.org/en/learn/getting-started/websocket)                                  | The socket.                                   |
+> | `stats`                                   | [`NodeStats`](../Typedefs/NodeStats.mdx)                                                              | The node stats.                               |
 
-## Table of contents {#toc}
+## Constructor
 
-| <i className="fa-solid fa-pen"/> Properties | <i className="fa-solid fa-boxes-stacked"/> Methods  |
-|:--------------------------------------------|:----------------------------------------------------|
-| [socket](#socket)                           | [address()](#address)                               |
-| [stats](#stats)                             | [connected()](#connected)                           |
-| [manager](#manager)                         | [connect()](#connect)                               |
-| [sessionId](#sessionId)                     | [createSessionIdsFile()](#createSessionIdsFile)     |
-| [rest](#rest)                               | [deleteSponsorBlock()](#deleteSponsorBlock)         |
-| [info](#timescale)                          | [destroy()](#destroy)                               |
-|                                             | [fetchInfo()](#fetchInfo)                           |
-|                                             | [getLyrics()](#getLyrics)                           |
-|                                             | [getSponsorBlock()](#getSponsorBlock)               |
-|                                             | [loadSessionIds()](#loadSessionIds)                 |
-|                                             | [setSponsorBlock()](#setSponsorBlock)               |
-|                                             | [updateSessionId()](#updateSessionId)               |
+> ```ts
+> new Node(manager: Manager, options: NodeOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `manager`                                      | [`Manager`](./Manager.mdx)                   | The manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+> | `options`                                      | [`NodeOptions`](../Typedefs/NodeOptions.mdx) | The node options.                             | <i className="fa-solid fa-xmark"/>          |
 
-## Properties {#properties}
+## Methods
 
-### socket {#socket}
-
-> The socket for the node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
+### address()
+> ```ts
+> address(): string
+> ```
+> Returns the full address for this node, including the host and port.
 
 ---
 
-### stats {#stats}
-
-> The stats for the node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`nodeStats{}`](../Typedefs/Node/nodeStats.mdx#nodeStats)
-
----
-
-### manager {#manager}
-
-> The manager for the node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Manager`](./Manager.mdx)
+### connect()
+> ```ts
+> async connect(): Promise<void>
+> ```
+> Connects to the node.
 
 ---
 
-### sessionId {#sessionId}
-
-> The node's session ID.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
-
----
-
-### rest {#rest}
-
-<span className="info badge">readonly</span>
-
-> The REST instance.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`Rest`](./Rest.mdx)
+### connected()
+> ```ts
+> connected(): boolean
+> ```
+> Checks if the Node is currently connected.
 
 ---
 
-### info {#info}
-
-> Actual Lavalink information of the node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [`lavalinkInfo{}`](../Typedefs/LavalinkInfo.mdx#lavalinkInfo) | [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Null)
-
-## Methods {#methods}
-
-### address() {#address}
-
-<span className="info badge">get</span>
-
-> Returns the address for this node.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+### createSessionIdsFile()
+> ```ts
+> createSessionIdsFile(): void
+> ```
+> Creates a session ids file for this node.
 
 ---
 
-### connected() {#connected}
-
-<span className="info badge">get</span>
-
-> Returns if connected to the Node.
+### deleteSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async deleteSponsorBlock(player: Player): Promise<void>
+> ```
+> Deletes the sponsor block for this node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `player`                                       | [`Player`](./Player.mdx)                     | The player.                                   | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### connect() {#connect}
-
-> Connects to the Node.<br/><br/>
-> If the node is already connected, this method will do nothing.<br/>
-> If the node has a session ID, it will be sent in the headers of the WebSocket connection.<br/>
-> If the node has no session ID but the `resumeStatus` option is true, it will use the session ID<br/>
-> stored in the sessionIds.json file if it exists.
+### error()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> error(error: Error): void
+> ```
+> Handles an error.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `error`                                        | [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | The error.                                   | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### createSessionIdsFile() {#createSessionIdsFile}
-
-> Creates the sessionIds.json file if it doesn't exist. This file is used to store the session IDs for each node. The session IDs are used to identify the node when resuming a session.
+### fetchInfo()
+> ```ts
+> async fetchInfo(): Promise<LavalinkInfo>
+> ```
+> Fetches the info for this node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type  | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------|:----------------------------------------------|
+> | [`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx) | The node info.                                |
 
 ---
 
-### deleteSponsorBlock(player) {#deleteSponsorBlock}
+### getLyrics()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.  
+Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+> ```ts
+> async getLyrics(track: Track, skipTrackSource: boolean = false, language?: string): Promise<Lyrics | NodeLinkGetLyrics>
+> ```
+> Gets the lyrics for a track.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx)                                                                      | The track.                                    | <i className="fa-solid fa-xmark"/>          |
+> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-xmark"/>          |
+> | `language`                                     | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The language.                                 | <i className="fa-solid fa-check"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [`Lyrics`](../Typedefs/Lyrics.mdx) \| [`NodeLinkGetLyrics`](../Typedefs/NodeLinkGetLyrics.mdx) | The lyrics.                                   |
 
-> Deletes the sponsorblock segments for a player.
+---
+
+### getSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async getSponsorBlock(player: Player): Promise<SponsorBlockSegment[]>
+> ```
+> Gets the sponsor block for this node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
+> #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- | :-----------------------------------------: |
-> | `player`                                       | [`Player`](./Player.mdx)               | The player to delete the sponsorblocks for.   |   <i className="fa-solid fa-xmark"/>      |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `player`                                       | [`Player`](./Player.mdx)               | The player.                                   | <i className="fa-solid fa-xmark"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type               | <i className="fa-solid fa-list"/> Description |
+> | :-----------------------------------------------------------|:----------------------------------------------|
+> | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The sponsor block.                            |
 
 ---
 
-### destroy() {#destroy}
-
-<span className="warning badge">async function</span>
-
-> Destroys the node and cleans up associated resources.<br/><br/>
-> This method emits a debug event indicating that the node is being destroyed and attempts to automatically move all players connected to the node to a usable one. It then closes the WebSocket connection, removes all event listeners, and clears the reconnect timeout. Finally, it emits a "nodeDestroy" event and removes the node from the manager.
+### handleEvent()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async handleEvent(payload: PlayerEvent & PlayerEvents): Promise<void>
+> ```
+> Handles an event emitted from the Lavalink node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                     | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-----------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `payload`                                      | [`PlayerEvent`](../Typedefs/PlayerEvents//BaseEvent.mdx) \| [`PlayerEvents`](../Typedefs/PlayerEvents.mdx) | The payload.                                  | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### fetchInfo() {#fetchInfo}
-
-<span className="warning badge">async function</span>
-
-> Fetches Lavalink node information.
->
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lavalinkInfo{}`>](../Typedefs/LavalinkInfo.mdx)
+### loadSessionIds()
+> ```ts
+> async loadSessionIds(): Promise<void>
+> ```
+> Loads the session ids for this node.
 
 ---
 
-### getLyrics(track, skipTrackSource) {#getLyrics}
-
-<span className="warning badge">async function</span>
-
-> Fetches the lyrics of a track from the Lavalink node.<br/><br/>
-> This method uses the `lavalyrics-plugin` to fetch the lyrics. If the plugin is not available, it will throw a RangeError.
+### lyricsSubscribe()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+> ```ts
+> async lyricsSubscribe(guildId: string, skipTrackSource: boolean = false): Promise<unknown>
+> ```
+> Subscribes to lyrics for a guild.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`lyrics{}`>](../Typedefs/Node/lyrics.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `guildId`                                      | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID.                                 | <i className="fa-solid fa-xmark"/>          |
+> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`track{}`](../Typedefs/Track/trackOptions.mdx#trackOptions)                                        | The track to fetch the lyrics for.            |     <i className="fa-solid fa-xmark"/>      |
-> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip using the track's source URL. |     <i className="fa-solid fa-check"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                  | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [`Promise<unknown>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) | The promise that resolves to the response.    |
 
 ---
 
-### getSponsorBlock(player) {#getSponsorBlock}
-
-<span className="warning badge">async function</span>
-
-> Gets the current sponsorblock segments for a player.
+### lyricsUnsubscribe()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+> ```ts
+> async lyricsUnsubscribe(guildId: string): Promise<unknown>
+> ```
+> Unsubscribes from lyrics for a guild.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<`sponsorBlockSegment[]`>](../Typedefs/SponsorBlock/sponsorBlockSegment.mdx)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID.                                  | <i className="fa-solid fa-xmark "/>          |
 >
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:-----------------------------------------------|:---------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `player`                                       | [`Player`](./Player.mdx)               | The player to get the sponsor blocks for.     |     <i className="fa-solid fa-xmark"/>      |
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Return                                                               | <i className="fa-solid fa-list "/> Description |
+> | :------------------------------------------------------------------------------------------------------------- | :----------------------------------------------|
+> | [`Promise<unknown>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) | The promise that resolves to the response.    |
 
 ---
 
-### loadSessionIds() {#loadSessionIds}
-
-> Loads session IDs from the sessionIds.json file if it exists. The session IDs are used to resume sessions for each node.<br/><br/>
-> The session IDs are stored in the sessionIds.json file as a composite key of the node identifier and cluster ID. This allows multiple clusters to be used with the same node identifier.
+### message()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async message(d: Buffer | string): Promise<void>
+> ```
+> Sends a message to the node.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `d`                                             | [`Buffer`](https://nodejs.org/api/buffer.html) \| [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The data to send.                              | <i className="fa-solid fa-xmark "/>          |
+
+### open()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> open(): void
+> ```
+> Opens the connection to the node.
+
+### queueEnd()
+> ```ts
+> async queueEnd(player: Player, track: Track, payload: TrackEndEvent): Promise<void>
+> ```
+> Handles the event when a queue ends.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                  | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                          | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackEndEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackendevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### setSponsorBlock(player, segments) {#setSponsorBlock}
-
-<span className="warning badge">async function</span>
-
-> Updates the session ID in the sessionIds.json file.<br/><br/>
-> This method is called after the session ID has been updated, and it writes the new session ID to the sessionIds.json file.
+### setSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async setSponsorBlock(player: Player, segments: SponsorBlockSegment[] = [SponsorBlockSegment.Sponsor, SponsorBlockSegment.SelfPromo]): Promise<void>
+> ```
+> Sets the sponsorblock segments for a player.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)[\<void>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
-> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                              | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------------------- | :-----------------------------------------: |
-> | `player`                                       | [`Player`](./Player.mdx)                                            | The player to set the sponsor blocks for.                                                 |    <i className="fa-solid fa-xmark"/>      |
-> | `segments`                                     | [<i className="fa-solid fa-bars-staggered" /> SponsorBlockSegment[]](../Enums/SponsorBlockSegment.mdx) | The sponsorblock segments to set. Defaults to `["sponsor", "selfpromo"]` if not provided. |   <i className="fa-solid fa-xmark"/>      |
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                    | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `segments`                                      | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The segments.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
-### updateSessionId() {#updateSessionId}
-
-> Updates the session ID in the sessionIds.json file.<br/><br/>
-> This method is called after the session ID has been updated, and it writes the new session ID to the sessionIds.json file.
+### socketClosed()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> socketClosed(player: Player, payload: WebSocketClosedEvent): void
+> ```
+> Emitted when the WebSocket connection for a player closes.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                                    | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`WebSocketClosedEvent`](../Typedefs/PlayerEvents/WebSocketEvents.mdx#websocketclosedevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackEnd()
+> ```ts
+> async trackEnd(player: Player, track: Track, payload: TrackEndEvent): Promise<void>
+> ```
+> Emitted when a track ends playing.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                  | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                          | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackEndEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackendevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackError()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async trackError(player: Player, track: Track, payload: TrackExceptionEvent): Promise<void>
+> ```
+> Handles the event when a track has an error during playback.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                              | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                                      | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackExceptionEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackexceptionevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackStart()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> trackStart(player: Player, track: Track, payload: TrackStartEvent): void
+> ```
+> Emitted when a new track starts playing.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                       | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                      | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                              | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackStartEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackstartevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackStuck()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> trackStuck(player: Player, track: Track, payload: TrackStuckEvent): void
+> ```
+> Emitted when a track gets stuck.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                       | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                      | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                              | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackStuckEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackstuckevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### updateSessionId()
+> ```ts
+> updateSessionId(): void
+> ```
+> Updates the session ID.
