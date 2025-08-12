@@ -1,0 +1,123 @@
+---
+id: utils-autoplayutils
+title: "Class: AutoPlayUtils"
+description: The AutoPlayUtils class.
+slug: /class/utils/AutoPlayUtils
+sidebar_label: AutoPlayUtils
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# AutoPlayUtils
+
+## Table of Contents
+
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export abstract class AutoPlayUtils {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------|:----------------------------------------------|
+> | `manager`                                 | [`Manager`](../Manager.mdx)                     | The Manager instance.                         |
+## Constructor
+
+> ```js
+> new AutoPlayUtils(manager: Manager)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)            | The Manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### buildTracksFromResponse()
+> ```ts
+> buildTracksFromResponse<T>(recommendedResult: LavalinkResponse, requester?: T): Track[]
+> ```
+> Builds a Track from a given LavalinkResponse with optional requester.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `recommendedResult`                            | [`LavalinkResponse`](../../Typedefs/LavalinkResponse.mdx)                                                                                                        | The LavalinkResponse.                         | <i className="fa-solid fa-xmark"/>          |
+> | `requester`                                    | [`User`](https://discordjs.dev/docs/packages/discord.js/main/User:Class) \| [`ClientUser`](https://discordjs.dev/docs/packages/discord.js/main/ClientUser:Class) | The requester.                                | <i className="fa-solid fa-check"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | An array of tracks.                           |
+---
+
+### getRecommendedTracks()
+> ```ts
+> async getRecommendedTracks(track: Track): Promise<Track[]>
+> ```
+> Gets the recommended tracks for a given track.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                      | [`Track`](../../Typedefs/Track.mdx)    | The track.                                    | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | An array of tracks.                           |
+
+---
+
+### getRecommendedTracksFromLastFm()
+> ```ts
+> async getRecommendedTracksFromLastFm(track: Track, apiKey: string): Promise<Track[]>
+> ```
+> Gets the recommended tracks for a given track from Last.fm.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :----------------------------------------------|:------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx)                                                                   | The track.                                    | <i className="fa-solid fa-xmark"/>          |
+> | `apiKey`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The Last.fm API key.                          | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | An array of tracks.                           |
+
+---
+
+### getRecommendedTracksFromSource()
+> ```ts
+> async getRecommendedTracksFromSource(track: Track, platform: AutoPlayPlatform): Promise<Track[]>
+> ```
+> Gets the recommended tracks for a given track from a source.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :----------------------------------------------|:-------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx)                    | The track.                                    | <i className="fa-solid fa-xmark"/>          |
+> | `platform`                                     | [`AutoPlayPlatform`](../../Enums/AutoPlayPlatform.mdx) | The platform.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------|:----------------------------------------------|
+> | [`Track[]`](../../Typedefs/Track.mdx)         | An array of tracks.                           |
+
+---
+
+### init()
+> ```ts
+> init(manager: Manager): void
+> ```
+> Initializes the TrackUtils instance.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :------------------------------------------------|:-------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)            | The Manager instance.                            | <i className="fa-solid fa-xmark"/>          |

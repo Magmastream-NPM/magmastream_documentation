@@ -10,7 +10,6 @@ sidebar_label: Player
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 # Player
 
 ## Table of Contents
@@ -36,7 +35,7 @@ export class Player {}
 > | `isAutoplay`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether autoplay is enabled.                  |
 > | `manager`                                 | [`Manager`](./Manager.mdx)                                                                            | The Manager instance.                         |
 > | `node`                                    | [`Node`](./Node.mdx)                                                                                  | The Node instance.                            |
-> | `nowPlayingMessage`                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class)                     | The now playing message.                      |
+> | `nowPlayingMessage`                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/main/Message:Class)                        | The now playing message.                      |
 > | `paused`                                  | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the player is paused.                 |
 > | `playing`                                 | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | Whether the player is playing.                |
 > | `position`                                | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player position.                          |
@@ -401,12 +400,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                           | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:----------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `message`                                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class) | The now playing message.                       | <i className="fa-solid fa-xmark "/>          |
+> | `message`                                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/main/Message:Class)    | The now playing message.                       | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
-> | <i className="fa-solid fa-arrow-right "/> Type                                    | <i className="fa-solid fa-list "/> Description |
-> | :---------------------------------------------------------------------------------| :----------------------------------------------|
-> | [`Message`](https://discordjs.dev/docs/packages/discord.js/14.21.0/Message:Class) | The now playing message.                       |
+> | <i className="fa-solid fa-arrow-right "/> Type                                 | <i className="fa-solid fa-list "/> Description |
+> | :------------------------------------------------------------------------------| :----------------------------------------------|
+> | [`Message`](https://discordjs.dev/docs/packages/discord.js/main/Message:Class) | The now playing message.                       |
 
 ---
 
