@@ -162,26 +162,6 @@ export class Manager extends EventEmitter {}
 
 ---
 
-### get()
-:::warning
-⚠️ This method is deprecated. Use [`getPlayer`](#getplayer) instead.
-:::
-> ```ts
-> async get(guildId: string): Promise<Player | undefined>
-> ```
-> Gets a player.
->
-> #### Parameters
-> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
-> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
-> 
-> #### Returns
-> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
-> | :-----------------------------------------------|:-----------------------------------------------|
-> | [`Player`](./Player.mdx) \| `undefined`         | The player.                                    |
----
-
 ### getPlayer()
 > ```ts
 > getPlayer(guildId: string): Player | undefined
