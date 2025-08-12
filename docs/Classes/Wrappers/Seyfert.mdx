@@ -1,0 +1,47 @@
+---
+id: wrapper-seyfert
+title: "Wrapper: Seyfert"
+description: The Seyfert wrapper.
+slug: /wrapper/Seyfert
+sidebar_label: Seyfert
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Seyfert Wrapper
+
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export class SeyfertManager extends Manager {}
+```
+
+## Constructor
+
+> ```ts
+> new SeyfertManager(client: Client, options?: ManagerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `client`                                       | [`Client`](https://docs.seyfert.dev/getting-started/setup-project) | The Seyfert client.                           | <i className="fa-solid fa-xmark"/>          |
+> | `options`                                      | [`ManagerOptions`](../../Typedefs/ManagerOptions.mdx)              | The manager options.                          | <i className="fa-solid fa-check"/>          |
+:::warning
+⚠️ The Seyfert wrapper does not hook into the `ready` and `raw` event to automatically set the `clientId`-option in the `ManagerOptions` as well as it does not use the `updateVoiceState`function to send packets to Discord.  
+Those need to be implemented by the user.
+:::
+## Methods
+
+### send()
+> ```ts
+> override send(packet: GatewayVoiceStateUpdate)
+> ```
+> Sends a packet to Discord.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `packet`                                       | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |

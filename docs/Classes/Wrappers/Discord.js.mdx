@@ -1,0 +1,47 @@
+---
+id: wrapper-discordjs
+title: "Wrapper: Discord.js"
+description: The Discord.js wrapper.
+slug: /wrapper/Discord.js
+sidebar_label: Discord.js
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Discord.js Wrapper
+
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export class DiscordJSManager extends Manager {}
+```
+
+## Constructor
+
+> ```ts
+> new DiscordJSManager(client: Client, options?: ManagerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                        | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `client`                                       | [`Client`](https://discord.js.org/docs/packages/discord.js/main/Client:Class) | The Discord.js client.                        | <i className="fa-solid fa-xmark"/>          |
+> | `options`                                      | [`ManagerOptions`](../../Typedefs/ManagerOptions.mdx)                         | The manager options.                          | <i className="fa-solid fa-check"/>          |
+:::note
+The Discord.js wrapper hooks into the `ready` and `raw` event to automatically set the `clientId`-option in the `ManagerOptions` as well as use the `updateVoiceState`function to send packets to Discord.
+:::
+
+## Methods
+
+### send()
+> ```ts
+> override send(packet: GatewayVoiceStateUpdate)
+> ```
+> Sends a packet to Discord.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `packet`                                       | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |
