@@ -9,36 +9,58 @@ sidebar_label: Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Table of contents {#toc}
 
-| <i className="fa-solid fa-boxes-stacked"/> Methods |
-|:---------------------------------------------------|
-| [load()](#load)                                    |
-| [unload()](#unload)                                |
+# Plugin
 
-## Methods {#methods}
+## Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+- [Example usage](#example-usage)
 
-### load(manager) {#load}
+## Class Definition
+```ts
+export abstract class Plugin {}
+```
 
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `name`                                    | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The name of the plugin.                       |
+
+## Constructor
+
+> ```ts
+> new Plugin(name: string)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `name`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The name of the plugin.                           | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### load()
+> ```ts
+> load(manager: Manager): void
+> ```
 > Load the plugin.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager for plugin                                      |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager class                                 |
 
-### unload(manager) {#unload}
-
+### unload()
+> ```ts
+> unload(manager: Manager): void
+> ```
 > Unload the plugin.
 >
-> <i className="fa-solid fa-right-to-bracket"/> Return: [void](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
->
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
-> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager for plugin                                      |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager class                                 |
 
-## Example usage {#exampleUsage}
+## Example usage
 
 <Tabs>
     <TabItem value="usage" label="Using plugins" default>
@@ -48,22 +70,32 @@ import TabItem from '@theme/TabItem';
 
         const manager = new Manager({
             ...ManagerOptions,
-            plugins: [new MyPlugin({ foo: "bar" })],
+            plugins: [new MyPlugin()],
         });
         ```
     </TabItem>
     <TabItem value="writing" label="Writing plugins" default>
         ```js
-        const { Plugin } = require("magmastream");
+        import { Plugin, Manager } from "magmastream";
 
-        module.exports = class MyPlugin extends Plugin {
-            constructor(options) {
-                super();
-                this.options = options; // will be { foo: 'bar' }
+        export class MyPlugin extends Plugin {
+            private options: Record<string, unknown>;
+
+            constructor(options: Record<string, unknown>) {
+                super("MyPlugin"); // Required: pass the plugin name to base constructor
+                this.options = options;
             }
 
-            load(manager) {}
-        };
+            load(manager: Manager): void {
+                console.log(`[MyPlugin] Loaded with options:`, this.options);
+                // Attach event listeners, modify behavior, etc.
+            }
+
+            unload(manager: Manager): void {
+                console.log("[MyPlugin] Unloaded");
+                // Cleanup listeners, free resources, etc.
+            }
+        }
         ```
     </TabItem>
 
