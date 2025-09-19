@@ -3,7 +3,6 @@ import clsx from "clsx";
 import css from '../../css/Landing/Content.module.css';
 import React from "react";
 import Link from "@docusaurus/Link";
-import {useColorMode} from "@docusaurus/theme-common";
 
 //The best music apps start here.
 
