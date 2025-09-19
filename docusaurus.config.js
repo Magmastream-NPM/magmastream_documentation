@@ -18,81 +18,78 @@ const config = {
 	tagline: description,
 	favicon: 'img/logo.ico',
 
-
 	customFields: {
 		usedBy: [
 			{
 				name: 'Lava Jukebox',
 				icon: '/usedbyicons/lava-jukebox.png',
-				link: 'https://discord.com/api/oauth2/authorize?client_id=887651843742793779&permissions=-1&redirect_uri=https%3A%2F%2Fdiscord.gg%2F4ZaXbbYSTZ&response_type=code&scope=guilds.join%20bot%20applications.commands',
+				link: 'https://discord.com/api/oauth2/authorize?client_id=887651843742793779',
 				creator: 'Abel Purnwasy',
-			},
-			{
-				name: 'Stal',
-				icon: '/usedbyicons/stal.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=923938180263182356&scope=bot%20applications.commands&permissions=27648861246',
-				creator: 'memte',
+				creatorId: "809213892857167942"
 			},
 			{
 				name: 'Lunio',
 				icon: '/usedbyicons/lunio.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=945030475779551415&permissions=61991952&scope=bot+applications.commands',
-				creator: 'vexi',
+				link: 'https://discord.com/oauth2/authorize?client_id=945030475779551415',
+				creator: 'lethalfluff',
+				creatorId: "337568120028004362"
 			},
 			{
 				name: 'JukeDisc',
 				icon: '/usedbyicons/jukedisc.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=1109751797549105176&permissions=968552214080&scope=bot+applications.commands',
-				creator: 'Theo',
+				link: 'https://discord.com/oauth2/authorize?client_id=1109751797549105176',
+				creator: 'mrdieselgr',
+				creatorId: "794563552606289952"
 			},
 			{
 				name: 'Cool Music',
 				icon: '/usedbyicons/cool-music.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=923529398425096193&permissions=12888394808&redirect_uri=https%3A%2F%2Fdiscord.gg%2Fcool-music-support-925619107460698202&response_type=code&scope=bot%20identify%20applications.commands',
-				creator: 'Itz Random',
-			},
-			{
-				name: 'Soundy',
-				icon: '/usedbyicons/soundy.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=1168385371294420992&scope=bot&permissions=298818334009',
-				creator: 'iaMJ',
+				link: 'https://discord.com/oauth2/authorize?client_id=923529398425096193&scope=bot&permissions=12888394808',
+				creator: 'random.js',
+				creatorId: "878975596623986700"
 			},
 			{
 				name: 'Bot muzyczny',
 				icon: '/usedbyicons/bot-muzyczny.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=840892428613320726&permissions=8&scope=bot%20applications.commands',
+				link: 'https://discord.com/oauth2/authorize?client_id=840892428613320726',
 				creator: 'kwelo',
+				creatorId: "538675534754742292"
 			},
 			{
 				name: 'HamBot',
 				icon: '/usedbyicons/hambot.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=1049314312776335390',
 				creator: 'yanishamburger',
+				creatorId: "447088005941952523"
 			},
 			{
 				name: 'Miyu',
 				icon: '/usedbyicons/miyu.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=1277180179273482280&permissions=572851999731703&response_type=code&integration_type=0&scope=identify+applications.commands+bot',
-				creator: 'Kenver',
+				link: 'https://discord.com/oauth2/authorize?client_id=1277180179273482280',
+				creator: 'god_rayan',
+				creatorId: "977131375431913522"
 			},
 			{
 				name: 'Savage Bot',
 				icon: '/usedbyicons/savage-bot.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=823703707522433054&permissions=8&scope=bot%20applications.commands',
-				creator: 'Savage',
+				creator: 'savagefrvr',
+				creatorId: "299552992980500480"
 			},
 			{
-				name: 'rive',
-				icon: '/usedbyicons/rive.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=1350601402325405806',
-				creator: 'pomice',
+				name: "rive",
+				icon: "/usedbyicons/rive.png",
+				link: "https://discord.com/oauth2/authorize?client_id=1384158871207280651",
+				creator: "xrm0s",
+				creatorId: "627991951857418261",
 			},
 			{
-				name: 'lost',
-				icon: '/usedbyicons/lost.png',
-				link: 'https://discord.com/oauth2/authorize?client_id=1280681209604739204',
-				creator: 'pomice',
-			},
+				name: "Pepper",
+				icon: "/usedbyicons/pepper.png",
+				link: "https://discord.com/oauth2/authorize?client_id=871808444502540379&permissions=11594760&scope=applications.commands+bot",
+				creator: "murlee",
+				creatorId: "678402714765361182",
+			}
 		],
 		versionGitLink: {
 			current: 'https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.9.0',

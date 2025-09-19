@@ -37,15 +37,15 @@ export default function Version() {
             title="Versions"
             description="Magmastream Versions page listing all documented site versions">
             <main className="container margin-vert--lg">
-                <Heading as="h1">
+                <h1 style={{ color: "var(--ifm-text-color)"}}>
                         Magmastream documentation versions
-                </Heading>
+                </h1>
 
                 <div className="margin-bottom--lg">
-                    <Heading as="h3" id="next">
+                    <h3 id="next" style={{ color: "var(--ifm-text-color)"}}>
                             Current version (Stable)
-                    </Heading>
-                    <p>
+                    </h3>
+                    <p style={{ color: "var(--ifm-heading-color)"}}>
                             Here you can find the documentation for current released version.
                     </p>
                     <table>
@@ -69,10 +69,10 @@ export default function Version() {
 
                 {(pastVersions.length > 0) && (
                     <div className="margin-bottom--lg">
-                        <Heading as="h3" id="archive">
+                        <h3 id="archive" style={{ color: "var(--ifm-text-color)"}}>
                                 Past versions (Not maintained anymore)
-                        </Heading>
-                        <p>
+                        </h3>
+                        <p style={{ color: "var(--ifm-heading-color)"}}>
                                 Here you can find documentation for previous versions of
                                 Docusaurus.
                         </p>
@@ -98,10 +98,10 @@ export default function Version() {
                     </div>
                 )}
                 <div className="margin-bottom--lg">
-                    <Heading as="h3" id="legacy">
+                    <h3 id="legacy" style={{ color: "var(--ifm-text-color)"}}>
                             Magmastream v1 (Legacy)
-                    </Heading>
-                    <p>
+                    </h3>
+                    <p style={{ color: "var(--ifm-heading-color)"}}>
                             Here you can find documentation for legacy version of Magmastream.
                     </p>
                     <table>

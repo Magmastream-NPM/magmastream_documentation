@@ -1,4 +1,3 @@
-import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useEffect, useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
@@ -13,20 +12,21 @@ const Usedby = () => {
     return (
             <main className={styles.main}>
                 <div className="container">
-                    <Heading as="h1" style={{
+                    <h1 style={{
                         textAlign: 'center',
                         marginTop: '2rem',
                         marginBottom: '5rem',
+                        color: "var(--ifm-text-color)"
                     }}>
                         Used by
-                    </Heading>
+                    </h1>
                     <div className={styles.grid}>
                         {customFields.usedBy && customFields.usedBy.map((usedByItem) => (
                             <>
                                 <div className={styles.card}>
                                     <img src={usedByItem.icon} style={{borderRadius: '50%', height: '40%', marginBottom: '1rem' }} alt="icon" />
-                                    <h2>{usedByItem.name}</h2>
-                                    <p className={styles.p}>~ {usedByItem.creator}</p>
+                                    <h2 style={{ color: "var(--ifm-text-color)"}}>{usedByItem.name}</h2>
+                                    <p style={{ color: "var(--ifm-heading-color)"}}><a target={"_blank"} href={`https://discord.com/users/${usedByItem.creatorId}`}>~ {usedByItem.creator} <i className="fa-solid fa-arrow-up-right-from-square fa-xs"/><br/> ({usedByItem.creatorId})</a></p>
                                     <Link
                                         href={usedByItem.link}
                                         className="button button--secondary button--sm"
@@ -50,7 +50,6 @@ const Usedby = () => {
 
 import Layout from '@theme/Layout';
 import Link from "@docusaurus/Link";
-import Heading from "@theme/Heading";
 
 function UsedbyPage() {
     return (
