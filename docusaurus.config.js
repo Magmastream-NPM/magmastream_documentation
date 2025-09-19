@@ -212,7 +212,14 @@ const config = {
 			}),
 		],
 	],
-
+	future: {
+		v4: {
+			removeLegacyPostBuildHeadAttribute: true, // required
+		},
+		experimental_faster: {
+			ssgWorkerThreads: true,
+		},
+	},
 	themeConfig: {
 		image: 'https://i.imgur.com/TCdtEF3.png',
 		colorMode: {
