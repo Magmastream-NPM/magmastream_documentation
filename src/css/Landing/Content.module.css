@@ -1,0 +1,134 @@
+/* Release badge jako button */
+.badgeButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #080808;
+    border: 2px solid #191919;
+    color: #d7ddf8;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.badgeButton:hover {
+    background: #191919;
+    color: #ffffff;
+}
+
+.badgeButton:active {
+    transform: scale(0.97);
+}
+
+.badgeIcon {
+    font-size: 1rem;
+}
+
+.titleSection {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: var(--ifm-text-color);
+}
+
+.p {
+    display: flex;
+    font-weight: lighter;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
+    width: 50%;
+    color: var(--ifm-heading-color);
+}
+
+.buttonsContainer {
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gettingStartedButton {
+    margin: 0 1rem;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    border-radius: 1.2rem;
+    transition: 0.2s;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 500;
+    transition-property: color, background, border-color;
+    border: 1px solid #ff6a00;
+    background-color: #cc5500;
+}
+
+.gettingStartedButton:hover {
+    color: #fff;
+    background-color: #ff6a00;
+    border: 1px solid #ff6a00;
+}
+
+[data-theme="light"] {
+
+    .githubButton {
+        margin: 0 1rem;
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        border-radius: 1.2rem;
+        transition: 0.2s;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: 500;
+        transition-property: color, background, border-color;
+        background-color: #ebedf0;
+        border: 2px solid #dadada;
+        color: #27282d;
+    }
+
+    .githubButton:hover {
+        background-color: #dadada;
+        color: #27282d;
+        border: 2px solid #dadada;
+    }
+}
+
+[data-theme="dark"] {
+
+    .githubButton {
+        margin: 0 1rem;
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        border-radius: 1.2rem;
+        transition: 0.2s;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: 500;
+        transition-property: color, background, border-color;
+        background-color: #080808;
+        border: 2px solid #191919;
+        color: #d7ddf8;
+    }
+
+    .githubButton:hover {
+        background-color: #191919;
+        color: #fff;
+        border: 2px solid #191919;
+    }
+}

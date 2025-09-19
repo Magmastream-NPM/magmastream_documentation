@@ -2,8 +2,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useEffect, useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import styles from './Statistics.module.css';
-import indexStyles from './index.module.css'
+import styles from '../css/Statistics/Statistics.module.css';
 
 const Usedby = () => {
 

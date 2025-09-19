@@ -1,0 +1,182 @@
+.expertsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 80px 24px;
+    margin-bottom: 10%;
+    flex-wrap: wrap;
+}
+
+.expertsLeft {
+    flex: 1;
+    min-width: 280px;
+}
+
+.heading {
+    line-height: 1.4;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ifm-text-color);
+}
+
+.avatars {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.gettingStartedButton {
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    border-radius: 1.2rem;
+    transition: 0.2s;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 500;
+    transition-property: color, background, border-color;
+    border: 1px solid #ff6a00;
+    background-color: #cc5500;
+}
+
+.gettingStartedButton:hover {
+    color: #fff;
+    background-color: #ff6a00;
+    border: 1px solid #ff6a00;
+}
+
+.avatars img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: -8px;
+}
+
+.description {
+    font-size: 0.95rem;
+    margin: 1rem 0 2rem;
+    color: var(--ifm-heading-color);
+    max-width: 500px;
+}
+
+.expertsRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 280px;
+}
+
+.card {
+    background: var(--cards-background);
+    padding: 1.2rem;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--ifm-text-color);
+}
+
+.cardText {
+    margin: 0.4rem 0 0;
+    font-size: 0.9rem;
+    color: var(--ifm-heading-color);
+}
+
+.arrow {
+    font-size: 1.2rem;
+    color: var(--ifm-text-color);
+}
+
+/* 📱 Telefony (<768px) */
+@media (max-width: 767px) {
+    .expertsContainer {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+    }
+
+    .bookCall {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .card {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    .cardTitle {
+        font-size: 1rem;
+    }
+
+    .cardText {
+        font-size: 0.85rem;
+    }
+}
+
+/* 📟 Tablety (768px – 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .expertsContainer {
+        flex-direction: column;
+        padding: 2rem 3rem;
+        gap: 2.5rem;
+    }
+
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+
+    .bookCall {
+        align-self: flex-start;
+    }
+
+    .expertsRight {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+}
+
+/* 🖥️ Duże ekrany (≥1024px) */
+@media (min-width: 1024px) {
+    .expertsContainer {
+        flex-direction: row;
+        padding: 80px 24px;
+        gap: 4rem;
+    }
+
+    .heading {
+        font-size: 2.2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
+

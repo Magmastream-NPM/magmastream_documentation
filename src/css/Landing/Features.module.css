@@ -1,0 +1,167 @@
+/* Title */
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #aab2d5;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.subtitle strong {
+    color: #fff;
+}
+
+
+.featuresSection {
+    padding: 80px 24px;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionTitle,
+.sectionSubtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ifm-text-color);
+    margin-bottom: 16px;
+}
+
+
+.sectionSubtitle {
+    color: var(--ifm-heading-color);
+    max-width: 600px;
+    margin-bottom: 48px;
+}
+
+
+.cardsGrid {
+    display: grid;
+    gap: 30px;
+}
+
+
+.card {
+    background: var(--cards-background);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.cardHeader {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+
+.bar {
+    display: block;
+    width: 24px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+
+.barPink {
+    background-color: #de3c78;
+}
+
+
+.barOrange {
+    background-color: #f56748;
+}
+
+
+.barSilver {
+    background-color: #cac6d2;
+}
+
+.barDark {
+    background-color: #362843;
+}
+
+.barBlue {
+    background-color: #3897e6;
+}
+
+.barGray {
+    background-color: #50487d;
+}
+
+.barSilver {
+    background-color: #cac6d2;
+}
+
+
+.cardTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--ifm-text-color);
+}
+
+.cardSmallerTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--ifm-text-color);
+}
+
+
+.cardText {
+    font-size: 0.9rem;
+    color: var(--ifm-heading-color);
+}
+
+.doubleCard {
+    display: grid;
+    gap: 16px;
+}
+
+/* Mobile (domyślnie jedna kolumna) */
+.cardsGrid {
+    grid-template-columns: 1fr;
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    .cardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .cardsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

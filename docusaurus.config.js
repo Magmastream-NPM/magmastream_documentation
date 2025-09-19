@@ -10,12 +10,14 @@ const description = 'Magmastream is an easy-to-use and useful music module for y
 const baseUrl = 'https://magmastream.com';
 const title = 'Magmastream - Ignite the Symphony of Sonic Harmony!';
 const discordSupportLink = 'https://discord.gg/Nq5gTGUfwa';
+const repoLink = "https://github.com/Magmastream-NPM";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
 	title: 'Magmastream',
 	tagline: description,
 	favicon: 'img/logo.ico',
+
 
 	customFields: {
 		usedBy: [
@@ -103,6 +105,8 @@ const config = {
 			'2.7.5': 'https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.7.5',
 			'2.6.1': 'https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1',
 		},
+		repo: repoLink,
+		discord: discordSupportLink
 	},
 
 	stylesheets: ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'],
@@ -166,7 +170,7 @@ const config = {
 						'2.7.5': {
 							label: 'v2.7.5',
 							path: '2.7.5',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.6.1': {
@@ -291,16 +295,16 @@ const config = {
 			},
 			items: [
 				{
-					to: '/',
-					label: 'Homepage',
-					position: 'left',
-					activeBaseRegex: '^/$',
-				},
-				{
 					to: '/docs/intro',
 					label: 'Documentation',
 					position: 'left',
-					activeBaseRegex: '^/docs',
+					activeBaseRegex: '^/docs/(?!contributing).*',
+				},
+				{
+					to: '/docs/contributing',
+					label: 'Contributing',
+					position: 'left',
+					activeBasePath: '/docs/contributing',
 				},
 				{
 					to: '/statistics',
@@ -333,7 +337,7 @@ const config = {
 					target: '_blank',
 				},
 				{
-					href: 'https://github.com/magmastream-npm',
+					href: repoLink,
 					position: 'right',
 					className: 'fa-brands fa-github fa-lg',
 					'aria-label': 'GitHub company',
@@ -346,14 +350,6 @@ const config = {
 			],
 		},
 		footer: {
-			logo: {
-				alt: 'Powered By Docusaurus',
-				src: '/img/docusaurus.png',
-				target: '_blank',
-				href: 'https://docusaurus.io/',
-				width: 180,
-				height: 90,
-			},
 			links: [
 				{
 					title: 'Documentations',
@@ -367,10 +363,10 @@ const config = {
 							to: '/docs/getting-started/installation',
 						},
 						{
-							label: 'Migrations (nothing there for now)',
-							to: '/docs/intro',
-						},
-					],
+							label: 'Contributing',
+							to: '/docs/contributing',
+						}
+					]
 				},
 				{
 					title: 'Community',
@@ -386,11 +382,11 @@ const config = {
 						{
 							label: 'Credits',
 							href: 'https://github.com/MenuDocs/erela.js',
-						},
-					],
+						}
+					]
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} <b>Magmastream</b>, Inc. Built with Docusaurus.`,
+			copyright: `Built in <a href="https://docusaurus.io/">Docusaurus</a><br>Made with <span style="color: red;">❤️</span> by <a href="https://github.com/realdarek">@realdarek</a><br> Copyright © ${new Date().getFullYear()} <b>Magmastream</b>`,
 		},
 		prism: {
 			theme: prismThemes.oneLight,

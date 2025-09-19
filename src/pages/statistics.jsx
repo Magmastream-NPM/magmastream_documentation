@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import styles from './Statistics.module.css';
+import styles from '../css/Statistics/Statistics.module.css';
 
 const formatNumber = (number) => number.toLocaleString();
 
@@ -93,6 +93,7 @@ const Statistics = () => {
                         textAlign: 'center',
                         marginTop: '2rem',
                         marginBottom: '5rem',
+                        color: "var(--ifm-text-color)"
                     }}>
                         Statistics
                     </Heading>

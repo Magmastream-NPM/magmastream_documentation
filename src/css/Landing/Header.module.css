@@ -1,0 +1,44 @@
+[data-theme="dark"] {
+    .heroBanner {
+        background-image: url('/img/magmastream-card-dark.png');
+    }
+}
+
+[data-theme="light"] {
+    .heroBanner {
+        background-image: url('/img/magmastream-card-light.png');
+    }
+}
+
+.heroBanner {
+    padding: 4rem 0 1rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+    .heroBanner {
+        padding: 2rem;
+    }
+}
+
+.fireHeader {
+    user-select: none;
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #ff8c00; /* Podstawowy kolor płomieni */
+    text-shadow: 0 0 3px #ff8c00, 0 0 6px #ff4500, 0 0 12px #ff0000, 0 0 24px #ff4500, 0 0 36px #ff8c00;
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        text-shadow: 0 0 6px #ff8c00, 0 0 12px #ff4500, 0 0 18px #ff0000, 0 0 30px #ff4500, 0 0 40px #ff8c00;
+    }
+    50% {
+        text-shadow: 0 0 12px #ff4500, 0 0 20px #ff0000, 0 0 30px #ff4500, 0 0 40px #ff8c00, 0 0 50px #ff4500;
+    }
+}
