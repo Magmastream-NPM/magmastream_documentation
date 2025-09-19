@@ -5,7 +5,6 @@ import {
     useLatestVersion,
 } from '@docusaurus/plugin-content-docs/client';
 import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
 import {useEffect} from "react";
 
 const docsPluginId = undefined;
@@ -20,7 +19,7 @@ function ReleaseNotesLabel() {
 
 export default function Version() {
     const {
-        siteConfig: {organizationName, projectName, customFields},
+        siteConfig: { customFields},
     } = useDocusaurusContext();
     const versions = useVersions(docsPluginId);
     const latestVersion = useLatestVersion(docsPluginId);

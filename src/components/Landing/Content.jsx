@@ -9,7 +9,6 @@ import {useColorMode} from "@docusaurus/theme-common";
 
 function Content() {
 
-    const { colorMode } = useColorMode();
     const { siteConfig: {customFields} } = useDocusaurusContext();
 
     return (

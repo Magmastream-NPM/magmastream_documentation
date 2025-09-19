@@ -1,4 +1,3 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import clsx from "clsx";
 import css from "../../css/Landing/Features.module.css";
 import React from "react";
