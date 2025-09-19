@@ -77,9 +77,9 @@ const config = {
 				creatorId: "299552992980500480"
 			},
 			{
-				name: "rive",
-				icon: "/usedbyicons/rive.png",
-				link: "https://discord.com/oauth2/authorize?client_id=1384158871207280651",
+				name: "fume",
+				icon: "/usedbyicons/fume.png",
+				link: "https://discord.com/oauth2/authorize?client_id=1279968947575328779",
 				creator: "xrm0s",
 				creatorId: "627991951857418261",
 			},

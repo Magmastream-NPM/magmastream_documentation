@@ -5,7 +5,7 @@
     gap: 8px;
     background: #080808;
     border: 2px solid #191919;
-    color: #d7ddf8;
+    color: #e6e6e6;
     font-size: 0.85rem;
     padding: 8px 18px;
     border-radius: 999px;
@@ -18,7 +18,7 @@
 
 .badgeButton:hover {
     background: #191919;
-    color: #ffffff;
+    color: #fff;
 }
 
 .badgeButton:active {
@@ -67,7 +67,7 @@
     cursor: pointer;
     border-radius: 1.2rem;
     transition: 0.2s;
-    color: #fff;
+    color: #e6e6e6;
     font-size: 1rem;
     line-height: 1.5;
     text-align: center;
@@ -123,7 +123,7 @@
         transition-property: color, background, border-color;
         background-color: #080808;
         border: 2px solid #191919;
-        color: #d7ddf8;
+        color: #e6e6e6;
     }
 
     .githubButton:hover {
