@@ -288,7 +288,7 @@ const config = {
 			hideOnScroll: true,
 			title: 'Magmastream',
 			logo: {
-				src: 'img/logo.svg',
+				src: '/imgs/logo.svg',
 			},
 			items: [
 				{
