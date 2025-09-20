@@ -9,7 +9,7 @@ function HomepageHeader() {
     return (
         <header className={clsx('hero hero--primary', css.heroBanner)}>
             <div className="container">
-                <img src="/img/logo.ico" height="250" alt={"Logo"} draggable={false}/>
+                <img src="/imgs/logo.ico" height="250" alt={"Logo"} draggable={false}/>
                 <h1 className={clsx(css.fireHeader)}>{siteConfig.title}</h1>
             </div>
         </header>

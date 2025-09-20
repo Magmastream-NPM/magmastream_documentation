@@ -1,12 +1,12 @@
 [data-theme="dark"] {
     .heroBanner {
-        background-image: url('/img/magmastream-card-dark.png');
+        background-image: url('/imgs/magmastream-card-dark.png');
     }
 }
 
 [data-theme="light"] {
     .heroBanner {
-        background-image: url('/img/magmastream-card-light.png');
+        background-image: url('/imgs/magmastream-card-light.png');
     }
 }
 
