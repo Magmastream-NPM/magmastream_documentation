@@ -1,6 +1,7 @@
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import React, { useEffect, useState } from 'react';
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
+import {useColorMode} from '@docusaurus/theme-common';
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import styles from '../css/Statistics/Statistics.module.css';
@@ -20,6 +21,8 @@ const formatDate = (isoString) => {
 
 const Statistics = () => {
     const isBrowser = useIsBrowser();
+
+    const { colorMode } = useColorMode();
 
     const [repoData, setRepoData] = useState(null);
     const [registryData, setRegistryData] = useState(null);
@@ -97,7 +100,7 @@ const Statistics = () => {
                     }}>
                         Statistics
                     </Heading>
-                    <SkeletonTheme baseColor="#0a0a0a" highlightColor="#111112">
+                    <SkeletonTheme baseColor={colorMode === "dark" ? "#0a0a0a" : "#f9f9f9"} highlightColor={colorMode === "dark" ? "#111112" : "#e8e8e8"}>
                         <div className={styles.gridStats}>
                             <div className={styles.card}>
                                 {loading ? <Skeleton height={75} /> : (
