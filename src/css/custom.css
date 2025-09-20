@@ -7,6 +7,14 @@
   background: #ff6e00;
 }
 
+.theme-announcement-bar {
+  font-size: 20px;
+
+  color: var(--ifm-text-color) !important;;
+  background-color: #ff6e00 !important;
+  font-weight: bold !important;
+}
+
 hr {
   background-color: transparent;
   border-bottom: 1px dashed #444950;

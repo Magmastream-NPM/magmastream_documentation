@@ -16,7 +16,7 @@ const repoLink = "https://github.com/Magmastream-NPM";
 const config = {
 	title: 'Magmastream',
 	tagline: description,
-	favicon: 'img/logo.ico',
+	favicon: '/imgs/logo.ico',
 
 	customFields: {
 		usedBy: [
@@ -78,7 +78,7 @@ const config = {
 			},
 			{
 				name: "fume",
-				icon: "/usedbyimgs/fume.png",
+				icon: "/usedbyimgs/fumes.png",
 				link: "https://discord.com/oauth2/authorize?client_id=1279968947575328779",
 				creator: "xrm0s",
 				creatorId: "627991951857418261",
@@ -395,6 +395,11 @@ const config = {
 			indexName: 'magmastream',
 			contextualSearch: true,
 		},
+/*		announcementBar: {
+			id: 'announcementBar',
+			content: 'content',
+			isCloseable: true,
+		},*/
 	},
 };
 
