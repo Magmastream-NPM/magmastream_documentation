@@ -324,17 +324,6 @@ const config = {
 					activeBaseRegex: '^/usedby',
 				},
 				{
-					type: 'localeDropdown',
-					position: 'right',
-					/*dropdownItemsAfter: [
-						{
-							to: '/versions',
-							label: 'All versions',
-						}
-					],*/
-					dropdownActiveClassDisabled: true,
-				},
-				{
 					type: 'docsVersionDropdown',
 					position: 'right',
 					dropdownItemsAfter: [
@@ -420,27 +409,6 @@ const config = {
 			isCloseable: true,
 		},*/
 	},
-/*	i18n: {
-		defaultLocale: 'en',
-		locales: ['en', 'fr'],
-		path: 'i18n',
-		localeConfigs: {
-			en: {
-				label: 'English',
-				direction: 'ltr',
-				htmlLang: 'en-US',
-				calendar: 'gregory',
-				path: 'en',
-			},
-			fr: {
-				label: 'French',
-				direction: 'ltr',
-				htmlLang: 'fr-FR',
-				calendar: 'gregory',
-				path: 'fr',
-			},
-		},
-	},*/
 };
 
 export default config;
