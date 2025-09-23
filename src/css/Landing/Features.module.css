@@ -46,7 +46,7 @@
 
 
 .sectionSubtitle {
-    color: var(--ifm-heading-color);
+    color: var(--desc-color);
     max-width: 600px;
     margin-bottom: 48px;
 }
@@ -137,7 +137,7 @@
 
 .cardText {
     font-size: 0.9rem;
-    color: var(--ifm-heading-color);
+    color: var(--desc-color);
 }
 
 .doubleCard {

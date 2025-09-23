@@ -57,7 +57,7 @@
 .description {
     font-size: 0.95rem;
     margin: 1rem 0 2rem;
-    color: var(--ifm-heading-color);
+    color: var(--desc-color);
     max-width: 500px;
 }
 
@@ -93,7 +93,7 @@
 .cardText {
     margin: 0.4rem 0 0;
     font-size: 0.9rem;
-    color: var(--ifm-heading-color);
+    color: var(--desc-color);
 }
 
 .arrow {
