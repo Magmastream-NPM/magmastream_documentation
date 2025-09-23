@@ -6,12 +6,9 @@ slug: /wrapper/Oceanic
 sidebar_label: Oceanic
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Oceanic Wrapper
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Constructor](#constructor)
 - [Methods](#methods)
@@ -28,7 +25,7 @@ export class OceanicManager extends Manager {}
 > ```
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                      | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `client`                                       | [`Client`](https://docs.oceanic.ws/dev/classes/Client.html) | The Oceanic client.                           | <i className="fa-solid fa-xmark"/>          |
+> | `client`                                       | [Client](https://docs.oceanic.ws/dev/classes/Client.html) | The Oceanic client.                           | <i className="fa-solid fa-xmark"/>          |
 > | `options`                                      | [`ManagerOptions`](../../Typedefs/ManagerOptions.mdx)       | The manager options.                          | <i className="fa-solid fa-check"/>          |
 :::note
 The Oceanic wrapper hooks into the `ready` and `raw` event to automatically set the `clientId`-option in the `ManagerOptions` as well as use the `updateVoiceState`function to send packets to Discord.
@@ -44,4 +41,4 @@ The Oceanic wrapper hooks into the `ready` and `raw` event to automatically set 
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `packet`                                       | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |
+> | `packet`                                       | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |

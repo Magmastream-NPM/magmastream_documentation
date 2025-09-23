@@ -10,7 +10,7 @@ sidebar_label: LavalinkInfo
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                             | <i className="fa-solid fa-list"/> Description               | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-------------------------------------------:|
-> | `version`                                     | `{ semver: string; major: number; minor: number; patch: number; preRelease: string }`              | Semantic version information.                               | <i className="fa-solid fa-xmark"/>          |
+> | `version`                                     | \{ semver: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String); major: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number); minor: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number); patch: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number); preRelease: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \}              | Semantic version information.                               | <i className="fa-solid fa-xmark"/>          |
 > | `buildTime`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)  | Timestamp when this build was created.                      | <i className="fa-solid fa-xmark"/>          |
 > | `git`                                         | [`git`](#git)                                                                                      | Git commit details including branch, hash, and commit time. | <i className="fa-solid fa-xmark"/>          |
 > | `jvm`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)  | The JVM version used by Lavalink.                           | <i className="fa-solid fa-xmark"/>          |
@@ -21,7 +21,7 @@ sidebar_label: LavalinkInfo
 
 ---
 
-### `git`
+### git
 
 > Git commit details including branch, hash, and commit time.
 > 
@@ -33,7 +33,7 @@ sidebar_label: LavalinkInfo
 
 ---
 
-### `plugins`
+### plugins
 
 > Installed Lavalink plugins with version info.
 > 

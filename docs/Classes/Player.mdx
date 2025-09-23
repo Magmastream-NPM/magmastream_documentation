@@ -7,12 +7,9 @@ sidebar_position: 1
 sidebar_label: Player
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Player
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Properties](#properties)
 - [Constructor](#constructor)
@@ -26,27 +23,27 @@ export class Player {}
 ## Properties
 > | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `autoplayTries`                           | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of autoplay tries.                 |
+> | `autoplayTries`                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of autoplay tries.                 |
 > | `bands`                                   | [`EqualizerBand[]`](../Typedefs/Filters/EqualizerBand.mdx)                                            | The equalizer bands.                          |
-> | `clusterId`                               | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The cluster ID.                               |
-> | `dynamicRepeat`                           | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat state.                     |
+> | `clusterId`                               | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The cluster ID.                               |
+> | `dynamicRepeat`                           | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat state.                     |
 > | `filters`                                 | [`Filters`](../Typedefs/Filters/EqualizerBand.mdx)                                                    | The filters.                                  |
-> | `guildId`                                 | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID the Player belongs to.           |
-> | `isAutoplay`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether autoplay is enabled.                  |
+> | `guildId`                                 | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID the Player belongs to.           |
+> | `isAutoplay`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether autoplay is enabled.                  |
 > | `manager`                                 | [`Manager`](./Manager.mdx)                                                                            | The Manager instance.                         |
 > | `node`                                    | [`Node`](./Node.mdx)                                                                                  | The Node instance.                            |
 > | `nowPlayingMessage`                       | [`Message`](https://discordjs.dev/docs/packages/discord.js/main/Message:Class)                        | The now playing message.                      |
-> | `paused`                                  | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the player is paused.                 |
-> | `playing`                                 | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | Whether the player is playing.                |
-> | `position`                                | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player position.                          |
+> | `paused`                                  | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the player is paused.                 |
+> | `playing`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | Whether the player is playing.                |
+> | `position`                                | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player position.                          |
 > | `queue`                                   | [`Queue`](./Queue/MemoryQueue.mdx)                                                                    | The queue.                                    |
-> | `queueRepeat`                             | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The queue repeat state.                       |
+> | `queueRepeat`                             | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The queue repeat state.                       |
 > | `state`                                   | [`StateTypes`](../Enums/StateTypes.mdx)                                                               | The player state.                             |
-> | `textChannelId`                           | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id the Player is bound to.   |
-> | `trackRepeat`                             | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The track repeat state.                       |
-> | `voiceChannelId`                          | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The voice channel id the Player is bound to.  |
+> | `textChannelId`                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id the Player is bound to.   |
+> | `trackRepeat`                             | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)                | The track repeat state.                       |
+> | `voiceChannelId`                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The voice channel id the Player is bound to.  |
 > | `voiceState`                              | [`VoiceState`](../Typedefs/VoiceState.mdx)                                                            | The voice state the Player is in.             |
-> | `volume`                                  | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player volume.                            |
+> | `volume`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Number)                  | The player volume.                            |
 
 ## Constructor
 
@@ -68,7 +65,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|
-> | [`Player`](./Player.mdx) \| [`void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined) | The player.                                   |
+> | Promise\<[`Player`](./Player.mdx#properties) \| void> | The player.                                   |
 
 ---
 
@@ -100,12 +97,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                 | <i className="fa-solid fa-list"/> Description            | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:---------------------------------------------------------------------------------------| :--------------------------------------------------------| :------------------------------------------:|
-> | `disconnect`                                   | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to disconnect the player from the voice channel. | <i className="fa-solid fa-check"/>          |
+> | `disconnect`                                   | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to disconnect the player from the voice channel. | <i className="fa-solid fa-check"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                          | <i className="fa-solid fa-list"/> Description  |
 > | :------------------------------------------------------------------------------------- | :----------------------------------------------|
-> | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether the player was successfully destroyed. |
+> | Promise\<[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean)> | Whether the player was successfully destroyed. |
 
 ---
 
@@ -126,7 +123,7 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `key`                                          | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to get the value from.                | <i className="fa-solid fa-xmark"/>          |
+> | `key`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to get the value from.                | <i className="fa-solid fa-xmark"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type              | <i className="fa-solid fa-list"/> Description |
@@ -147,12 +144,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                 | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:---------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type              | <i className="fa-solid fa-list"/> Description |
 > | :----------------------------------------------------------|:----------------------------------------------|
-> | [`Lyrics`](../Typedefs/Lyrics.mdx) | The lyrics.                                    |
+> | Promise\<[`Lyrics`](../Typedefs/Lyrics.mdx)> | The lyrics.                                    |
 
 ---
 
@@ -170,7 +167,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------|:----------------------------------------------|
-> | [`Track[]`](../Typedefs/Track.mdx)            | The recommended tracks.                       |
+> | Promise\<[`Track[]`](../Typedefs/Track.mdx)>            | The recommended tracks.                       |
 
 ---
 
@@ -186,7 +183,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type               | <i className="fa-solid fa-list"/> Description |
 > | :-----------------------------------------------------------|:----------------------------------------------|
-> | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The sponsorblock segments.                    |
+> | Promise\<[`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx)> | The sponsorblock segments.                    |
 
 ---
 
@@ -212,12 +209,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `identifier`                                   | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier to move the player to.    | <i className="fa-solid fa-xmark"/>          |
+> | `identifier`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier to move the player to.    | <i className="fa-solid fa-xmark"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`Player`](./Player.mdx)                      | The player.                                   |
+> | Promise\<[`Player`](./Player.mdx#properties)>                      | The player.                                   |
 
 ---
 
@@ -230,12 +227,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `pause`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to pause the player.                  | <i className="fa-solid fa-xmark"/>          |
+> | `pause`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to pause the player.                  | <i className="fa-solid fa-xmark"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`Player`](./Player.mdx)                      | The player.                                   |
+> | Promise\<[`this`](./Player.mdx#properties)>                      | The player.                                   |
 
 ---
 
@@ -257,7 +254,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`Player`](./Player.mdx)                      | The player.                                   |
+> | Promise\<[`Player`](./Player.mdx#properties)>                      | The player.                                   |
 
 ---
 
@@ -270,7 +267,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`Player`](./Player.mdx)                       | The player.                                    |
+> | Promise\<[`this`](./Player.mdx#properties)>                       | The player.                                    |
 
 ---
 
@@ -294,7 +291,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`Player`](./Player.mdx)                       | The player.                                    |
+> | Promise\<[`Player`](./Player.mdx#properties)>                       | The player.                                    |
 
 ---
 
@@ -307,13 +304,13 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `query`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query to search for.                       | <i className="fa-solid fa-xmark "/>          |
-> | `requester`                                     | [`T`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)                                                      | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
+> | `query`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query to search for.                       | <i className="fa-solid fa-xmark "/>          |
+> | `requester`                                     | [T](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)                                                      | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`SearchResult`](../Typedefs/SearchResult.mdx) | The search result.                             |
+> | Promise\<[`SearchResult`](../Typedefs/SearchResult.mdx)> | The search result.                             |
 
 ---
 
@@ -326,12 +323,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                            | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `position`                                     | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position to seek to.                       | <i className="fa-solid fa-xmark "/>          |
+> | `position`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The position to seek to.                       | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`Player`](./Player.mdx)                       | The player.                                    |
+> | Promise\<[`Player`](./Player.mdx#properties)>                       | The player.                                    |
 
 ---
 
@@ -344,13 +341,13 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:--------------------------------------------------------------------------------------------------- | :----------------------------------------------| :-------------------------------------------:|
-> | `key`                                           | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set.                                | <i className="fa-solid fa-xmark "/>          |
-> | `value`                                         | [`unknown`](https://medium.com/@vinhle95/the-unknown-type-in-typescript-939ec261294b)               | The value to set.                              | <i className="fa-solid fa-xmark "/>          |
+> | `key`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The key to set.                                | <i className="fa-solid fa-xmark "/>          |
+> | `value`                                         | [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)               | The value to set.                              | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type                                             | <i className="fa-solid fa-list "/> Description |
 > | :------------------------------------------------------------------------------------------| :----------------------------------------------|
-> | [`void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void) | The player.                                    |
+> | void | The player.                                    |
 
 ---
 
@@ -363,14 +360,14 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `autoplayState`                                 | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The autoplay option.                           | <i className="fa-solid fa-xmark "/>          |
-> | `botUser`                                       | [`T`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)        | The bot user.                                  | <i className="fa-solid fa-check "/>          |
-> | `tries`                                         | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of tries.                           | <i className="fa-solid fa-check "/>          |
+> | `autoplayState`                                 | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The autoplay option.                           | <i className="fa-solid fa-xmark "/>          |
+> | `botUser`                                       | [T](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)        | The bot user.                                  | <i className="fa-solid fa-check "/>          |
+> | `tries`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The number of tries.                           | <i className="fa-solid fa-check "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -383,13 +380,13 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat option.                     | <i className="fa-solid fa-xmark "/>          |
-> | `ms`                                            | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time in milliseconds.                      | <i className="fa-solid fa-xmark "/>          |
+> | `repeat`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The dynamic repeat option.                     | <i className="fa-solid fa-xmark "/>          |
+> | `ms`                                            | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | The time in milliseconds.                      | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | Promise\<[`this`](./Player.mdx#properties)>                         | The player.                                    |
 
 ---
 
@@ -407,7 +404,7 @@ export class Player {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type                                 | <i className="fa-solid fa-list "/> Description |
 > | :------------------------------------------------------------------------------| :----------------------------------------------|
-> | [`Message`](https://discordjs.dev/docs/packages/discord.js/main/Message:Class) | The now playing message.                       |
+> | [Message](https://discordjs.dev/docs/packages/discord.js/main/Message:Class) | The now playing message.                       |
 
 ---
 
@@ -420,12 +417,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The queue repeat option.                       | <i className="fa-solid fa-xmark "/>          |
+> | `repeat`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The queue repeat option.                       | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -454,12 +451,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `channel`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id.                           | <i className="fa-solid fa-xmark "/>          |
+> | `channel`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The text channel id.                           | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -472,12 +469,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `repeat`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The track repeat option.                       | <i className="fa-solid fa-xmark "/>          |
+> | `repeat`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The track repeat option.                       | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -490,12 +487,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `channel`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The voice channel id.                          | <i className="fa-solid fa-xmark "/>          |
+> | `channel`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The voice channel id.                          | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -508,12 +505,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `volume`                                        | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `volume`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The volume.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | [`this`](./Player.mdx#properties)                         | The player.                                    |
 
 ---
 
@@ -537,12 +534,12 @@ export class Player {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `amount`                                         | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)  | The amount of tracks to remove from the queue. | <i className="fa-solid fa-xmark "/>          |
+> | `amount`                                         | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)  | The amount of tracks to remove from the queue. | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Player.mdx)                         | The player.                                    |
+> | Promise\<[`this`](./Player.mdx#properties)>                         | The player.                                    |
 
 ---
 
@@ -556,9 +553,9 @@ export class Player {}
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
 > | `newOptions`                                    | [`PlayerOptions`](../Typedefs/PlayerOptions.mdx)                                                      | The new options for the player.                | <i className="fa-solid fa-xmark "/>          |
-> | `force`                                         | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to force the switch.                   | <i className="fa-solid fa-xmark "/>          |
+> | `force`                                         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to force the switch.                   | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`Player`](./Player.mdx)                       | The player.                                    |
+> | Promise\<[`Player`](./Player.mdx#properties)>                       | The player.                                    |

@@ -7,12 +7,9 @@ sidebar_position: 0
 sidebar_label: Manager
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Manager
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Properties](#properties)
 - [Constructor](#constructor)
@@ -26,11 +23,11 @@ export class Manager extends EventEmitter {}
 ## Properties
 > | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `initiated`                               | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the manager has been initiated.       |
-> | `nodes`                                   | [`Collection<string, Node>`](./Node.mdx)                                                              | The nodes.                                    |
+> | `initiated`                               | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the manager has been initiated.       |
+> | `nodes`                                   | Collection\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)\>                                                          | The nodes.                                    |
 > | `options`                                 | [`ManagerOptions`](../Typedefs/ManagerOptions.mdx)                                                    | The manager options.                          |
-> | `players`                                 | [`Collection<string, Player>`](./Player.mdx)                                                          | The players.                                  |
-> | `redis?`                                  | [`RedisClient`](https://www.npmjs.com/package/ioredis)                                                | The redis client.                             |
+> | `players`                                 | Collection\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player>`](./Player.mdx)\>                                                          | The players.                                  |
+> | `redis?`                                  | [RedisClient](https://www.npmjs.com/package/ioredis)                                                | The redis client.                             |
 
 
 ## Constructor
@@ -52,7 +49,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -109,12 +106,12 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `track`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The track.                                     | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
 > | :-----------------------------------------------|:-----------------------------------------------|
-> | [`TrackData`](../Typedefs/TrackData.mdx)        | The decoded track.                             |
+> | Promise\<[`TrackData`](../Typedefs/TrackData.mdx)>        | The decoded track.                             |
 
 ---
 
@@ -127,12 +124,12 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                              | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:-----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `tracks`                                        | [`string[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | The tracks.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `tracks`                                        | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | The tracks.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------|:-----------------------------------------------|
-> | [`TrackData[]`](../Typedefs/TrackData.mdx)     | The decoded tracks.                            |
+> | Promise\<[`TrackData[]`](../Typedefs/TrackData.mdx)>     | The decoded tracks.                            |
 
 ---
 
@@ -145,7 +142,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -158,7 +155,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `identifier`                                    | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier.                           | <i className="fa-solid fa-xmark "/>          |
+> | `identifier`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier.                           | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -171,12 +168,12 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
 > | :-----------------------------------------------|:-----------------------------------------------|
-> | [`Player`](./Player.mdx) \| `undefined`         | The player.                                    |
+> | [`Player`](./Player.mdx) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)         | The player.                                    |
 
 ---
 
@@ -202,7 +199,7 @@ export class Manager extends EventEmitter {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------|:-----------------------------------------------|
-> | [`Manager`](./Manager.mdx)                     | The manager.                                   |
+> | Promise\<[`this`](./Manager.mdx#properties)>                     | The manager.                                   |
 
 ---
 
@@ -215,7 +212,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `nodeId`                                        | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node id.                                   | <i className="fa-solid fa-xmark "/>          |
+> | `nodeId`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node id.                                   | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -242,7 +239,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -255,8 +252,8 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `query`                                         | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query.                                     | <i className="fa-solid fa-xmark "/>          |
-> | `requester`                                     | [`T = unknown`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Unknown)                                           | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
+> | `query`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `requester`                                     | T = unknown                                      | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -272,7 +269,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `packet`                                        | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `packet`                                        | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
 
 ---
 
@@ -285,7 +282,7 @@ export class Manager extends EventEmitter {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `packet`                                        | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `packet`                                        | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
 
 ---
 

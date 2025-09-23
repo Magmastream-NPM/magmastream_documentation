@@ -13,44 +13,44 @@ sidebar_label: SponsorBlock Events
 > These events are fired by the player when interacting with SponsorBlock data – like segments or chapters loaded and skipped.  
 > These interfaces extend [`BaseEvent`](./BaseEvent.mdx).
 
-### `SegmentSkipped`
+### SegmentSkipped
 
 > Emitted when a segment is skipped.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:---------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `type`                                        | `"SegmentSkipped"`                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
-> | `segment`                                     | `{ category: string, start: number, end: number }` | Segment that was skipped                      | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "SegmentSkipped"                                 | Event type identifier                         | <i className="fa-solid fa-xmark"/>          |
+> | `segment`                                     | \{ category: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), start: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), end: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \} | Segment that was skipped                      | <i className="fa-solid fa-xmark"/>          |
 
-### `SegmentsLoaded`
+### SegmentsLoaded
 
 > Emitted when segments are loaded.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
-> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> |:----------------------------------------------|:---------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `type`                                        | `"SegmentsLoaded"`                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
-> | `segments`                                    | `{ category: string, start: number, end: number }` | Segments that were loaded.                    | <i className="fa-solid fa-xmark"/>          |
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                                                                                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "SegmentsLoaded"                                                                                                                                                                                                              | Event type identifier.                        |     <i className="fa-solid fa-xmark"/>      |
+> | `segments`                                    | \{ category: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), start: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), end: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \} | Segments that were loaded.                    |     <i className="fa-solid fa-xmark"/>      |
 
 
-### `ChaptersLoaded`
+### ChaptersLoaded
 
 > Emitted when chapters are loaded.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:-------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `type`                                        | `"ChaptersLoaded"`                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
-> | `chapters`                                    | `{ name: string, start: number, end: number, duration: number }[]` | Chapters that were loaded.                    | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "ChaptersLoaded"                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
+> | `chapters`                                    | \{ name: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), start: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), end: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), duration: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \}[] | Chapters that were loaded.                    | <i className="fa-solid fa-xmark"/>          |
 
 
-### `ChapterStarted`
+### ChapterStarted
 
 > Emitted when a chapter is started.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:-------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `type`                                        | `"ChapterStarted"`                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
-> | `chapter`                                     | `{ name: string, start: number, end: number, duration: number }`   | Chapter that started.                         | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "ChapterStarted"                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
+> | `chapter`                                     | \{ name: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), start: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), end: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), duration: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \}   | Chapter that started.                         | <i className="fa-solid fa-xmark"/>          |

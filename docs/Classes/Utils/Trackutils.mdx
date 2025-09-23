@@ -6,12 +6,9 @@ slug: /class/utils/TrackUtils
 sidebar_label: TrackUtils
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # TrackUtils
 
-## Table of Contents
+### Table of Contents
 
 - [Class Definition](#class-definition)
 - [Properties](#properties)
@@ -53,7 +50,7 @@ export abstract class TrackUtils {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                                                                    | <i className="fa-solid fa-list"/> Description                         |
 > | :------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
-> | [`Track`](../../Typedefs/Track.mdx) \| [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined) | The first element in the queue, or `undefined` if the queue is empty. |
+> | [`Track`](../../Typedefs/Track.mdx) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined) | The first element in the queue, or `undefined` if the queue is empty. |
 ---
 
 ### init()
@@ -81,7 +78,7 @@ export abstract class TrackUtils {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                         | <i className="fa-solid fa-list"/> Description                       |
 > | :-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
-> | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the search result is an error or an empty result. |
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the search result is an error or an empty result. |
 
 ---
 
@@ -93,7 +90,7 @@ export abstract class TrackUtils {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `partial`                                      | [`TrackPartial`](../../Enums/TrackPartial.mdx)[] | The partial data for the track.               | <i className="fa-solid fa-xmark"/>          |
+> | `partial`                                      | [`TrackPartial[]`](../../Enums/TrackPartial.mdx) | The partial data for the track.               | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
@@ -105,9 +102,9 @@ export abstract class TrackUtils {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
-> | `trackOrTracks`                                | `unknown`                                        | The track or an array of tracks to validate.   | <i className="fa-solid fa-xmark"/>          |
+> | `trackOrTracks`                                | unknown                                        | The track or an array of tracks to validate.   | <i className="fa-solid fa-xmark"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                         | <i className="fa-solid fa-list"/> Description                                   |
 > | :-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|
-> | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the provided argument is a valid Track or an array of Tracks. |
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the provided argument is a valid Track or an array of Tracks. |

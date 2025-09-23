@@ -106,7 +106,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>⭐ Stars</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(repoData.stargazers_count)} stars</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatNumber(repoData.stargazers_count)} stars</p>
                                     </>
                                 )}
                             </div>
@@ -114,7 +114,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>👀 Watchers</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(repoData.subscribers_count)} watchers</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatNumber(repoData.subscribers_count)} watchers</p>
                                     </>
                                 )}
                             </div>
@@ -122,7 +122,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>🍴 Forks</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(repoData.forks_count)} forks</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatNumber(repoData.forks_count)} forks</p>
                                     </>
                                 )}
                             </div>
@@ -130,7 +130,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>🚨 Open issues/pull requests</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(repoData.open_issues_count)} issues</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatNumber(repoData.open_issues_count)} issues</p>
                                     </>
                                 )}
                             </div>
@@ -141,7 +141,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>⌚ Github Created at</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatDate(repoData.created_at)}</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatDate(repoData.created_at)}</p>
                                     </>
                                 )}
                             </div>
@@ -149,7 +149,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>⬆️ Github Updated at</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatDate(repoData.updated_at)}</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatDate(repoData.updated_at)}</p>
                                     </>
                                 )}
                             </div>
@@ -157,7 +157,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>➡️ Github Pushed at</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatDate(repoData.pushed_at)}</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatDate(repoData.pushed_at)}</p>
                                     </>
                                 )}
                             </div>
@@ -167,7 +167,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>⌚ NPM Created at</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatDate(registryData.time.created)}</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatDate(registryData.time.created)}</p>
                                     </>
                                 )}
                             </div>
@@ -175,7 +175,7 @@ const Statistics = () => {
                                 {loading ? <Skeleton height={75} /> : (
                                     <>
                                         <h2 style={{ color: "var(--ifm-text-color)"}}>⬆️ NPM Modified at</h2>
-                                        <p style={{ color: "var(--ifm-heading-color)"}}>{formatDate(registryData.time.modified)}</p>
+                                        <p style={{ color: "var(--desc-color)"}}>{formatDate(registryData.time.modified)}</p>
                                     </>
                                 )}
                             </div>
@@ -185,7 +185,7 @@ const Statistics = () => {
                                     {loading ? <Skeleton height={75} /> : (
                                         <>
                                             <h2 style={{ color: "var(--ifm-text-color)"}}>👥 Contributors</h2>
-                                            <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(contributorsData.length)} contributors</p>
+                                            <p style={{ color: "var(--desc-color)"}}>{formatNumber(contributorsData.length)} contributors</p>
                                         </>
                                     )}
                                 </div>
@@ -193,7 +193,7 @@ const Statistics = () => {
                                     {loading ? <Skeleton height={75} /> : (
                                         <>
                                             <h2 style={{ color: "var(--ifm-text-color)"}}>⬇️ Downloads</h2>
-                                            <p style={{ color: "var(--ifm-heading-color)"}}>{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads</p>
+                                            <p style={{ color: "var(--desc-color)"}}>{formatNumber(npmData.downloads.reduce((acc, curr) => acc + curr.downloads, 0))}+ downloads</p>
                                         </>
                                     )}
                                 </div>

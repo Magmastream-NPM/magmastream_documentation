@@ -6,12 +6,9 @@ slug: /class/Filters
 sidebar_label: Filters
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Filters
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Properties](#properties)
 - [Constructor](#constructor)
@@ -23,19 +20,19 @@ export class Filters {}
 ```
 
 ## Properties
-> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                                                                                     | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `bassBoostlevel`                          | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                 | The bass boost level.                         |
-> | `distortion`                              | [`DistortionOptions`](../Typedefs/Filters/DistortionOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) | The distortion options or null.               |
-> | `equalizer`                               | [`Band[]`](../Typedefs/Filters/EqualizerBand.mdx)                                                                                                                   | The equalizer.                                |
-> | `filtersStatus`                           | [`Record<AvailableFilters, boolean>`](../Enums/AvailableFilters.mdx)                                                                                                | The filters status.                           |
-> | `karaoke`                                 | [`KaraokeOptions`](../Typedefs/Filters/KaraokeOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)       | The karaoke options or null.                  |
-> | `player`                                  | [`Player`](./Player.mdx)                                                                                                                                            | The player.                                   |
-> | `reverb`                                  | [`ReverbOptions`](../Typedefs/Filters/ReverbOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)         | The reverb options or null.                   |
-> | `rotation`                                | [`RotationOptions`](../Typedefs/Filters/RotationOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)     | The rotation options or null.                 |
-> | `timescale`                               | [`TimescaleOptions`](../Typedefs/Filters/TimescaleOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)   | The timescale options or null.                |
-> | `vibrato`                                 | [`VibratoOptions`](../Typedefs/Filters/VibratoOptions.mdx) \| [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)       | The vibrato options or null.                  |
-> | `volume`                                  | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                 | The volume.                                   |
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                                                                                    | <i className="fa-solid fa-list"/> Description |
+> |:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `bassBoostlevel`                          | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                  | The bass boost level.                         |
+> | `distortion`                              | [`DistortionOptions`](../Typedefs/Filters/DistortionOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)  | The distortion options or null.               |
+> | `equalizer`                               | [`Band[]`](../Typedefs/Filters/EqualizerBand.mdx)                                                                                                                  | The equalizer.                                |
+> | `filtersStatus`                           | Record\<[`AvailableFilters`](../Enums/AvailableFilters.mdx), [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)\> | The filters status.                           |
+> | `karaoke`                                 | [`KaraokeOptions`](../Typedefs/Filters/KaraokeOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)        | The karaoke options or null.                  |
+> | `player`                                  | [`Player`](./Player.mdx)                                                                                                                                           | The player.                                   |
+> | `reverb`                                  | [`ReverbOptions`](../Typedefs/Filters/ReverbOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)          | The reverb options or null.                   |
+> | `rotation`                                | [`RotationOptions`](../Typedefs/Filters/RotationOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)      | The rotation options or null.                 |
+> | `timescale`                               | [`TimescaleOptions`](../Typedefs/Filters/TimescaleOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)    | The timescale options or null.                |
+> | `vibrato`                                 | [`VibratoOptions`](../Typedefs/Filters/VibratoOptions.mdx) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)        | The vibrato options or null.                  |
+> | `volume`                                  | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                  | The volume.                                   |
 
 ## Constructor
 > ```ts
@@ -56,12 +53,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `stage`                                        | [`number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The stage.                                    | <i className="fa-solid fa-xmark"/>          |
+> | `stage`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The stage.                                    | <i className="fa-solid fa-xmark"/>          |
 > 
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`this`](./Filters.mdx)                       | The filters.                                  |
+> | Promise\<[`this`](./Filters.mdx#properties)>                       | The filters.                                  |
 
 ---
 
@@ -74,12 +71,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`this`](./Filters.mdx)                       | The filters.                                  |
+> | Promise\<[`this`](./Filters.mdx#properties)>                      | The filters.                                  |
 
 ---
 
@@ -92,12 +89,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------------| :---------------------------------------------|
-> | [`this`](./Filters.mdx)                       | The filters.                                  |
+> | Promise\<[`this`](./Filters.mdx#properties)>                       | The filters.                                  |
 
 ---
 
@@ -110,7 +107,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -123,12 +120,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -141,12 +138,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -159,12 +156,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -177,12 +174,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -195,12 +192,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -213,12 +210,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -231,12 +228,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -249,12 +246,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -272,7 +269,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type                                                        | <i className="fa-solid fa-list "/> Description |
 > | :-----------------------------------------------------------------------------------------------------| :----------------------------------------------|
-> | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The filter status.                             |
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The filter status.                             |
 
 ---
 
@@ -285,12 +282,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -303,12 +300,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `status`                                       | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `status`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                   | <i className="fa-solid fa-xmark"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -321,12 +318,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -339,12 +336,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -362,7 +359,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -380,7 +377,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -394,12 +391,12 @@ export class Filters {}
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
 > | `filter`                                        | [`AvailableFilters`](../Enums/AvailableFilters.mdx)                                                   | The filter.                                    | <i className="fa-solid fa-xmark"/>           |
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -417,7 +414,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -435,7 +432,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -453,7 +450,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -471,7 +468,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -484,12 +481,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -502,12 +499,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark"/>           |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -520,12 +517,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -538,12 +535,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -556,12 +553,12 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -574,7 +571,7 @@ export class Filters {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |
 
 ---
 
@@ -587,9 +584,9 @@ export class Filters {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `status`                                        | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `status`                                        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | The status.                                    | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
 > | :----------------------------------------------| :----------------------------------------------|
-> | [`this`](./Filters.mdx)                        | The filters.                                   |
+> | Promise\<[`this`](./Filters.mdx#properties)>                        | The filters.                                   |

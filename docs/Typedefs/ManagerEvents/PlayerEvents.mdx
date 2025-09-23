@@ -6,9 +6,11 @@ slug: /typedefs/ManagerEvents/PlayerEvents
 sidebar_label: PlayerEvents
 ---
 
+# Player Events
+
 > These events are emitted when a [Player](../../Classes/Player.mdx) emits its related events.  
 
-### `PlayerCreate`
+### PlayerCreate
 
 > Emitted when a player is created.
 > 
@@ -18,7 +20,7 @@ sidebar_label: PlayerEvents
 
 ---
 
-### `PlayerDestroy`
+### PlayerDestroy
 
 > Emitted when a player is destroyed.
 > 
@@ -28,7 +30,7 @@ sidebar_label: PlayerEvents
 
 ---
 
-### `PlayerDisconnect`
+### PlayerDisconnect
 
 > Emitted when a player disconnects from the bound channel.
 > 
@@ -39,7 +41,7 @@ sidebar_label: PlayerEvents
 
 ---
 
-### `PlayerMove`
+### PlayerMove
 
 > Emitted when a player moves to a different channel.
 > 
@@ -51,7 +53,7 @@ sidebar_label: PlayerEvents
 
 ---
 
-### `PlayerRestored`
+### PlayerRestored
 
 > Emitted when a player is restored from a previous session.
 > 
@@ -62,7 +64,7 @@ sidebar_label: PlayerEvents
 
 ---
 
-### `PlayerStateUpdate`
+### PlayerStateUpdate
 
 > Emitted when a player's state is updated.
 > 
@@ -70,4 +72,4 @@ sidebar_label: PlayerEvents
 > |:--------------------------------------------- |:--------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
 > | `oldPlayer`                                   | [`Player`](../../Classes/Player.mdx)                    | The old player state.                          | <i className="fa-solid fa-xmark"/>          |
 > | `newPlayer`                                   | [`Player`](../../Classes/Player.mdx)                    | The new player state.                          | <i className="fa-solid fa-xmark"/>          |
-> | `changeType`                                  | [PlayerStateUpdateEvent](../PlayerStateUpdateEvent.mdx) | The type of change that occurred.              | <i className="fa-solid fa-xmark"/>          |
+> | `changeType`                                  | [`PlayerStateUpdateEvent`](../PlayerStateUpdateEvent.mdx) | The type of change that occurred.              | <i className="fa-solid fa-xmark"/>          |

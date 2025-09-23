@@ -6,12 +6,9 @@ slug: /class/queue/JsonQueue
 sidebar_label: JsonQueue
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# JsonQueue
 
-# MemoryQueue
-
-## Table of Contents
+### Table of Contents
 
 - [Class Definition](#class-definition)
 - [Properties](#properties)
@@ -24,9 +21,9 @@ export class JsonQueue implements IQueue {}
 ```
 
 ## Properties
-> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                     | <i className="fa-solid fa-list"/> Description |
-> | :---------------------------------------- | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | `basePath`                                | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The base path.                                |
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                   | <i className="fa-solid fa-list"/> Description |
+> |:------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `basePath`                                | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The base path.                                |
 
 ## Constructor
 
@@ -34,9 +31,9 @@ export class JsonQueue implements IQueue {}
 > new JsonQueue(guildId: string, manager: Manager)
 > ```
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID                                  | <i className="fa-solid fa-xmark"/>          |
-> | `manager`                                      | [`Manager`](../Manager.mdx)                                                                       | The Manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID                                  |     <i className="fa-solid fa-xmark"/>      |
+> | `manager`                                      | [`Manager`](../Manager.mdx)                                                                       | The Manager instance.                         |     <i className="fa-solid fa-xmark"/>      |
 
 ## Methods
 
@@ -48,9 +45,9 @@ export class JsonQueue implements IQueue {}
 > 
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description        | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :----------------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx)                      | The track or an array of tracks to add to the queue. | <i className="fa-solid fa-xmark"/>          |
-> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset to add the track at.                      | <i className="fa-solid fa-check"/>          |
+> |:-----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx)                      | The track or an array of tracks to add to the queue. |     <i className="fa-solid fa-xmark"/>      |
+> | `offset`                                       | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The offset to add the track at.                      |     <i className="fa-solid fa-check"/>      |
 
 ---
 
@@ -61,8 +58,8 @@ export class JsonQueue implements IQueue {}
 > Adds one or more tracks to the "previous" history list.
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                       | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
-> | :--------------------------------------------- |:-----------------------------------------------------------------------------| :------------------------------------------------|:-------------------------------------------:|
-> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx) | The track to add to the "previous" history list. | <i className="fa-solid fa-xmark"/>          |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------|:-------------------------------------------------|:-------------------------------------------:|
+> | `track`                                        | [`Track`](../../Typedefs/Track.mdx) \| [`Track[]`](../../Typedefs/Track.mdx) | The track to add to the "previous" history list. |     <i className="fa-solid fa-xmark"/>      |
 
 ---
 

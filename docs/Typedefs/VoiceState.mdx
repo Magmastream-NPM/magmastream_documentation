@@ -13,7 +13,7 @@ sidebar_label: VoiceState
 - One used **internally** by the Lavalink client to propagate voice connection updates.
 :::
 
-### `VoiceState` (Discord Gateway)
+### VoiceState (Discord Gateway)
 
 > Payload received from Discord's `VOICE_STATE_UPDATE` event.
 > 
@@ -26,13 +26,13 @@ sidebar_label: VoiceState
 
 ---
 
-### `VoiceState` (Lavalink Internal)
+### VoiceState (Lavalink Internal)
 
 > Internal structure used by the Lavalink manager to send voice update payloads to the node.
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description         | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"voiceUpdate"`                                                                                   | Operation type for the internal update.               | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "voiceUpdate"                                                                                   | Operation type for the internal update.               | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID associated with the voice update.        | <i className="fa-solid fa-xmark"/>          |
 > | `event`                                       | [`VoiceServer`](./VoiceServer.mdx)                                                                | The voice server event containing endpoint and token. | <i className="fa-solid fa-xmark"/>          |
 > | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID for the voice connection.              | <i className="fa-solid fa-check"/>          |

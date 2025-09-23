@@ -16,11 +16,11 @@ sidebar_label: LavaPlayer
 > | `paused`                                       | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)         | Whether the player is currently paused.           | <i className="fa-solid fa-xmark"/>           |
 > | `state`                                        | [`state`](#state)                                                                                           | Internal playback state (time, connection, etc.). | <i className="fa-solid fa-xmark"/>           |
 > | `voice`                                        | [`voice`](#voice)                                                                                           | Voice connection details required for streaming.  | <i className="fa-solid fa-xmark"/>           |
-> | `filters`                                      | [`Record<string, unknown>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeystype) | Audio filters currently applied to playback.      | <i className="fa-solid fa-xmark"/>           |
+> | `filters`                                      | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)> | Audio filters currently applied to playback.      | <i className="fa-solid fa-xmark"/>           |
 
 ---
 
-### `state`
+### state
 
 > State object containing internal playback state (time, position, etc.).
 > 
@@ -34,7 +34,7 @@ sidebar_label: LavaPlayer
 ---
 
 
-### `voice`
+### voice
 
 > Voice connection details required for streaming.
 > 

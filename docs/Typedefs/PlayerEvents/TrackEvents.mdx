@@ -10,57 +10,57 @@ sidebar_label: Track Events
 > They are useful for reacting to playback changes or handling track failures gracefully.  
 > These interfaces extend [`BaseEvent`](./BaseEvent.mdx).
 
-### `TrackStartEvent`
+### TrackStartEvent
 
 > Emitted when a track begins playback.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"event"`                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
-> | `type`                                        | `"TrackStartEvent"`                                                                               | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "event"                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "TrackStartEvent"                                                                               | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
 > | `track`                                       | [`TrackData`](../TrackData.mdx)                                                                   | Track that started playing.                   | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### `TrackEndEvent`
+### TrackEndEvent
 
 > Emitted when a track finishes playing, whether normally or due to skipping, failure, or replacement.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"event"`                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
-> | `type`                                        | `"TrackEndEvent"`                                                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "event"                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "TrackEndEvent"                                                                                 | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
 > | `track`                                       | [`TrackData`](../TrackData.mdx)                                                                   | Track that ended.                             | <i className="fa-solid fa-xmark"/>          |
 > | `reason`                                      | [`TrackEndReasonTypes`](../../Enums/TrackEndReasonTypes.mdx)                                      | Reason for track ending.                      | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### `TrackExceptionEvent`
+### TrackExceptionEvent
 
 > Emitted when a track fails during playback due to an internal error.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"event"`                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
-> | `type`                                        | `"TrackExceptionEvent"`                                                                           | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "event"                                                                                         | Lavalink operation type.                      | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "TrackExceptionEvent"                                                                           | Event type identifier.                        | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
-> | `exception`                                   | [`Exception`](../Exception.mdx) \| `undefined`                                                    | Error details from Lavalink.                  | <i className="fa-solid fa-check"/>          |
+> | `exception`                                   | [`Exception`](../Exception.mdx) \| [undefined](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)                                                   | Error details from Lavalink.                  | <i className="fa-solid fa-check"/>          |
 
 ---
 
-### `TrackStuckEvent`
+### TrackStuckEvent
 
 > Emitted when Lavalink fails to decode audio frames within the given threshold — often indicating a corrupted or inaccessible track.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                     | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"event"`                                                                                         | Lavalink operation type.                                          | <i className="fa-solid fa-xmark"/>          |
-> | `type`                                        | `"TrackStuckEvent"`                                                                               | Event type identifier.                                            | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "event"                                                                                         | Lavalink operation type.                                          | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "TrackStuckEvent"                                                                               | Event type identifier.                                            | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Guild this event applies to.                                      | <i className="fa-solid fa-xmark"/>          |
 > | `thresholdMs`                                 | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Threshold in milliseconds Lavalink waited before reporting stuck. | <i className="fa-solid fa-xmark"/>          |

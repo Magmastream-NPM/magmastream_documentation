@@ -9,45 +9,47 @@ sidebar_label: ManagerEventTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# ManagerEventTypes
+
 > Represents the supported events that can be emitted by the manager.
 
 <Tabs>
   <TabItem value="members" label="Enumeration Members" default>
   | Member                      								| Value                          |
   |:------------------------------------------------------------|:-------------------------------|
-  | [`ChapterStarted`](#chapterStarted) 						| `"chapterStarted"`             |
-  | [`ChaptersLoaded`](#chaptersLoaded)          				| `"chaptersLoaded"`             |
-  | [`Debug`](#debug) 											| `"debug"`                      |
-  | [`LyricsFound`](#lyricsFound)            					| `"lyricsFound"`           |
-  | [`LyricsLine`](#lyricsLine)      							 	| `"lyricsLine"`            | 
-  | [`LyricsNotFound`](#lyricsNotFound)            			| `"lyricsNotFound"`        |
-  | [`NodeConnect`](#nodeConnect)        						| `"nodeConnect"`    			 |
-  | [`NodeCreate`](#nodeCreate)        							| `"nodeCreate"`    			 |
-  | [`NodeDestroy`](#nodeDestroy)        						| `"nodeDestroy"`    			 |
-  | [`NodeDisconnect`](#nodeDisconnect)        					| `"nodeDisconnect"`    		 |
-  | [`NodeError`](#nodeError)        							| `"nodeError"`    				 |
-  | [`NodeRaw`](#nodeRaw)        								| `"nodeRaw"`   				 |
-  | [`NodeReconnect`](#nodeReconnect)        					| `"nodeReconnect"`    			 |
-  | [`PlayerCreate`](#playerCreate)        						| `"playerCreate"`    			 |
-  | [`PlayerDestroy`](#playerDestroy)        					| `"playerDestroy"`    			 |
-  | [`PlayerDisconnect`](#playerDisconnect)       				| `"playerDisconnect"`    		 |
-  | [`PlayerMove`](#playerMove)        							| `"playerMove"`    			 |
-  | [`PlayerRestored`](#playerRestored)        					| `"playerRestored"`    		 |
-  | [`PlayerStateUpdate`](#playerStateUpdate)        			| `"playerStateUpdate"`   	 	 |
-  | [`QueueEnd`](#queueEnd)        								| `"queueEnd"`    				 |
-  | [`RestoreComplete`](#restoreComplete)        				| `"restoreComplete"`            |
-  | [`SegmentSkipped`](#segmentSkipped)        					| `"segmentSkipped"`    		 |
-  | [`SegmentsLoaded`](#segmentsLoaded)       					| `"segmentsLoaded"`    		 |
-  | [`SocketClosed`](#socketClosed)       					    | `"socketClosed"`               |
-  | [`TrackEnd`](#trackEnd)                                     | `"trackEnd"`       		     |
-  | [`TrackError`](#trackError)                                 | `"trackError"`   				 |
-  | [`TrackStart`](#trackStart)                                 | `"trackStart"`   				 |
-  | [`TrackStuck`](#trackStuck)                                 | `"trackStuck"`   				 |
-  | [`VoiceReceiverDisconnect`](#voiceReceiverDisconnect)       | `"voiceReceiverDisconnect"`    |
-  | [`VoiceReceiverConnect`](#voiceReceiverConnect)             | `"voiceReceiverConnect"`       |
-  | [`VoiceReceiverError`](#voiceReceiverError)                 | `"voiceReceiverError"`         |
-  | [`VoiceReceiverStartSpeaking`](#voiceReceiverStartSpeaking) | `"voiceReceiverStartSpeaking"` |
-  | [`VoiceReceiverEndSpeaking`](#voiceReceiverEndSpeaking)     | `"voiceReceiverEndSpeaking"`   |
+  | [ChapterStarted](#chapterStarted) 						| `"chapterStarted"`             |
+  | [ChaptersLoaded](#chaptersLoaded)          				| `"chaptersLoaded"`             |
+  | [Debug](#debug) 											| `"debug"`                      |
+  | [LyricsFound](#lyricsFound)            					| `"lyricsFound"`           |
+  | [LyricsLine](#lyricsLine)      							 	| `"lyricsLine"`            |
+  | [LyricsNotFound](#lyricsNotFound)            			| `"lyricsNotFound"`        |
+  | [NodeConnect](#nodeConnect)        						| `"nodeConnect"`    			 |
+  | [NodeCreate](#nodeCreate)        							| `"nodeCreate"`    			 |
+  | [NodeDestroy](#nodeDestroy)        						| `"nodeDestroy"`    			 |
+  | [NodeDisconnect](#nodeDisconnect)        					| `"nodeDisconnect"`    		 |
+  | [NodeError](#nodeError)        							| `"nodeError"`    				 |
+  | [NodeRaw](#nodeRaw)        								| `"nodeRaw"`   				 |
+  | [NodeReconnect](#nodeReconnect)        					| `"nodeReconnect"`    			 |
+  | [PlayerCreate](#playerCreate)        						| `"playerCreate"`    			 |
+  | [PlayerDestroy](#playerDestroy)        					| `"playerDestroy"`    			 |
+  | [PlayerDisconnect](#playerDisconnect)       				| `"playerDisconnect"`    		 |
+  | [PlayerMove](#playerMove)        							| `"playerMove"`    			 |
+  | [PlayerRestored](#playerRestored)        					| `"playerRestored"`    		 |
+  | [PlayerStateUpdate](#playerStateUpdate)        			| `"playerStateUpdate"`   	 	 |
+  | [QueueEnd](#queueEnd)        								| `"queueEnd"`    				 |
+  | [RestoreComplete](#restoreComplete)        				| `"restoreComplete"`            |
+  | [SegmentSkipped](#segmentSkipped)        					| `"segmentSkipped"`    		 |
+  | [SegmentsLoaded](#segmentsLoaded)       					| `"segmentsLoaded"`    		 |
+  | [SocketClosed](#socketClosed)       					    | `"socketClosed"`               |
+  | [TrackEnd](#trackEnd)                                     | `"trackEnd"`       		     |
+  | [TrackError](#trackError)                                 | `"trackError"`   				 |
+  | [TrackStart](#trackStart)                                 | `"trackStart"`   				 |
+  | [TrackStuck](#trackStuck)                                 | `"trackStuck"`   				 |
+  | [VoiceReceiverDisconnect](#voiceReceiverDisconnect)       | `"voiceReceiverDisconnect"`    |
+  | [VoiceReceiverConnect](#voiceReceiverConnect)             | `"voiceReceiverConnect"`       |
+  | [VoiceReceiverError](#voiceReceiverError)                 | `"voiceReceiverError"`         |
+  | [VoiceReceiverStartSpeaking](#voiceReceiverStartSpeaking) | `"voiceReceiverStartSpeaking"` |
+  | [VoiceReceiverEndSpeaking](#voiceReceiverEndSpeaking)     | `"voiceReceiverEndSpeaking"`   |
   </TabItem>
 </Tabs>
 
@@ -319,53 +321,43 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### VoiceReceiverDisconnect {#voiceReceiverDisconnect}
+### VoiceReceiverDisconnect {#voiceReceiverDisconnect} <span className="warning badge">Only for Nodelink</span>
 
 > Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) disconnects.
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-
-> Only for Nodelink.
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 
 ---
 
-### VoiceReceiverConnect {#voiceReceiverConnect}
+### VoiceReceiverConnect {#voiceReceiverConnect} <span className="warning badge">Only for Nodelink</span>
 
 > Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) connects.
 
-<span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-
-> Only for Nodelink.
+<span className="info badge">player: [Player](../Classes/Player.mdx)</span>
 
 ---
 
-### VoiceReceiverError {#voiceReceiverError}
+### VoiceReceiverError {#voiceReceiverError} <span className="warning badge">Only for Nodelink</span>
 
 > Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) encounters an error.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span> 
-
-> Only for Nodelink.
+<span className="info badge">error: [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</span>
 
 ---
 
-### VoiceReceiverStartSpeaking {#voiceReceiverStartSpeaking}
+### VoiceReceiverStartSpeaking {#voiceReceiverStartSpeaking} <span className="warning badge">Only for Nodelink</span>
 
 > Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) starts speaking.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span> 
-
-> Only for Nodelink.
+<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span>
 
 ---
 
-### VoiceReceiverEndSpeaking {#voiceReceiverEndSpeaking}
+### VoiceReceiverEndSpeaking {#voiceReceiverEndSpeaking} <span className="warning badge">Only for Nodelink</span>
 
 > Fired when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) stops speaking.
 
 <span className="info badge">player: [Player](../Classes/Player.mdx)</span> 
-<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span> 
-
-> Only for Nodelink.
+<span className="info badge">data: [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)</span>

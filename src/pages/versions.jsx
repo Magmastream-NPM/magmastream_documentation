@@ -44,7 +44,7 @@ export default function Version() {
                     <h3 id="next" style={{ color: "var(--ifm-text-color)"}}>
                             Current version (Stable)
                     </h3>
-                    <p style={{ color: "var(--ifm-heading-color)"}}>
+                    <p style={{ color: "var(--desc-color)"}}>
                             Here you can find the documentation for current released version.
                     </p>
                     <table>
@@ -71,7 +71,7 @@ export default function Version() {
                         <h3 id="archive" style={{ color: "var(--ifm-text-color)"}}>
                                 Past versions (Not maintained anymore)
                         </h3>
-                        <p style={{ color: "var(--ifm-heading-color)"}}>
+                        <p style={{ color: "var(--desc-color)"}}>
                                 Here you can find documentation for previous versions of
                                 Docusaurus.
                         </p>
@@ -100,7 +100,7 @@ export default function Version() {
                     <h3 id="legacy" style={{ color: "var(--ifm-text-color)"}}>
                             Magmastream v1 (Legacy)
                     </h3>
-                    <p style={{ color: "var(--ifm-heading-color)"}}>
+                    <p style={{ color: "var(--desc-color)"}}>
                             Here you can find documentation for legacy version of Magmastream.
                     </p>
                     <table>

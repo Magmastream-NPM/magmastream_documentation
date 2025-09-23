@@ -6,12 +6,9 @@ slug: /wrapper/Eris
 sidebar_label: Eris
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Eris Wrapper
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Constructor](#constructor)
 - [Methods](#methods)
@@ -27,7 +24,7 @@ export class ErisManager extends Manager {}
 > ```
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `client`                                       | [`Client`](https://abal.moe/Eris/docs/0.18.0/Client)  | The Eris client.                              | <i className="fa-solid fa-xmark"/>          |
+> | `client`                                       | [Client](https://abal.moe/Eris/docs/0.18.0/Client)  | The Eris client.                              | <i className="fa-solid fa-xmark"/>          |
 > | `options`                                      | [`ManagerOptions`](../../Typedefs/ManagerOptions.mdx) | The manager options.                          | <i className="fa-solid fa-check"/>          |
 :::note
 The Eris wrapper hooks into the `ready` and `raw` event to automatically set the `clientId`-option in the `ManagerOptions` as well as use the `updateVoiceState`function to send packets to Discord.
@@ -43,4 +40,4 @@ The Eris wrapper hooks into the `ready` and `raw` event to automatically set the
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `packet`                                       | [`GatewayVoiceStateUpdate`](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |
+> | `packet`                                       | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |

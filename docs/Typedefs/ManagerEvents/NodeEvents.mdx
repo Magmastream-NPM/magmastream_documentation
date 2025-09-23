@@ -6,9 +6,11 @@ slug: /typedefs/ManagerEvents/NodeEvents
 sidebar_label: NodeEvents
 ---
 
+# Node Events
+
 > These events are emitted when a [Node](../../Classes/Node.mdx) emits its related events.  
 
-### `NodeConnect`
+### NodeConnect
 
 > Emitted when a node successfully connects to the manager.
 > 
@@ -18,7 +20,7 @@ sidebar_label: NodeEvents
 
 ---
 
-### `NodeCreate`
+### NodeCreate
 
 > Emitted when a node is created.
 > 
@@ -28,7 +30,7 @@ sidebar_label: NodeEvents
 
 ---
 
-### `NodeDestroy`
+### NodeDestroy
 
 > Emitted when a node is destroyed.
 > 
@@ -38,18 +40,18 @@ sidebar_label: NodeEvents
 
 ---
 
-### `NodeDisconnect`
+### NodeDisconnect
 
 > Emitted when a node disconnects from the manager.
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                       | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:-------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
 > | `node`                                        | [`Node`](../../Classes/Node.mdx)                             | Node this event applies to.                    | <i className="fa-solid fa-xmark"/>          |
-> | `reason`                                      | `{code?: number \| undefined; reason?: string \| undefined}` | Reason for the disconnection.                  | <i className="fa-solid fa-xmark"/>          |
+> | `reason`                                      | \{code?: [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined); reason?: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)\} | Reason for the disconnection.                  | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
-### `NodeError`
+### NodeError
 
 > Emitted when a node encounters an error.
 > 
@@ -60,7 +62,7 @@ sidebar_label: NodeEvents
 
 ---
 
-### `NodeRaw`
+### NodeRaw
 
 > Emitted when a node emits a raw event.
 > 
@@ -70,7 +72,7 @@ sidebar_label: NodeEvents
 
 ---
 
-### `NodeReconnect`
+### NodeReconnect
 
 > Emitted when a node reconnects to the manager.
 > 
@@ -80,7 +82,7 @@ sidebar_label: NodeEvents
 
 ---
 
-### `RestoreComplete`
+### RestoreComplete
 
 > Emitted when the manager has restored all of its players on a node.
 > 

@@ -13,15 +13,15 @@ sidebar_label: WebSocket Events
 
 ---
 
-### `WebSocketClosedEvent`
+### WebSocketClosedEvent
 
 > Emitted when the Discord voice WebSocket connection is closed for any reason.  
 > Extends: [`BaseEvent`](./BaseEvent.mdx).
 > 
 > | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                     | <i className="fa-solid fa-flask"/> Optional |
 > |:----------------------------------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------------------|:-------------------------------------------:|
-> | `op`                                          | `"event"`                                                                                           | Lavalink operation type.                                          | <i className="fa-solid fa-xmark"/>          |
-> | `type`                                        | `"WebSocketClosedEvent"`                                                                            | Event type identifier.                                            | <i className="fa-solid fa-xmark"/>          |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "event"                                                                                           | Lavalink operation type.                                          | <i className="fa-solid fa-xmark"/>          |
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "WebSocketClosedEvent"                                                                            | Event type identifier.                                            | <i className="fa-solid fa-xmark"/>          |
 > | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | Guild this event applies to.                                      | <i className="fa-solid fa-xmark"/>          |
 > | `code`                                        | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)   | WebSocket close code provided by Discord.                         | <i className="fa-solid fa-xmark"/>          |
 > | `reason`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | Reason string provided by Discord.                                | <i className="fa-solid fa-xmark"/>          |

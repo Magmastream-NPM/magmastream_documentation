@@ -7,12 +7,9 @@ sidebar_label: Node
 sidebar_position: 3
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Node
 
-## Table of Contents
+### Table of Contents
 - [Class Definition](#class-definition)
 - [Properties](#properties)
 - [Constructor](#constructor)
@@ -27,10 +24,10 @@ export class Node {}
 > | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
 > | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
 > | `info`                                    | [`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx)                                                        | The node info.                                |
-> | `isNodeLink`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the node is a node link.              |
+> | `isNodeLink`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the node is a node link.              |
 > | `rest`                                    | [`Rest`](./Rest.mdx)                                                                                  | The rest instance.                            |
-> | `sessionId`                               | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The session ID.                               |
-> | `socket`                                  | [`WebSocket`](https://nodejs.org/en/learn/getting-started/websocket)                                  | The socket.                                   |
+> | `sessionId`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The session ID.                               |
+> | `socket`                                  | [WebSocket](https://nodejs.org/en/learn/getting-started/websocket)                                  | The socket.                                   |
 > | `stats`                                   | [`NodeStats`](../Typedefs/NodeStats.mdx)                                                              | The node stats.                               |
 
 ## Constructor
@@ -105,7 +102,7 @@ export class Node {}
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `error`                                        | [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | The error.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `error`                                        | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | The error.                                   | <i className="fa-solid fa-xmark"/>          |
 
 ---
 
@@ -118,7 +115,7 @@ export class Node {}
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type  | <i className="fa-solid fa-list"/> Description |
 > | :----------------------------------------------|:----------------------------------------------|
-> | [`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx) | The node info.                                |
+> | Promise\<[`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx)> | The node info.                                |
 
 ---
 
@@ -136,13 +133,13 @@ Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square"
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
 > | `track`                                        | [`Track`](../Typedefs/Track.mdx)                                                                      | The track.                                    | <i className="fa-solid fa-xmark"/>          |
-> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-xmark"/>          |
-> | `language`                                     | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The language.                                 | <i className="fa-solid fa-check"/>          |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-xmark"/>          |
+> | `language`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The language.                                 | <i className="fa-solid fa-check"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
 > | :----------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | [`Lyrics`](../Typedefs/Lyrics.mdx) \| [`NodeLinkGetLyrics`](../Typedefs/NodeLinkGetLyrics.mdx) | The lyrics.                                   |
+> | Promise\<[`Lyrics`](../Typedefs/Lyrics.mdx) \| [`NodeLinkGetLyrics`](../Typedefs/NodeLinkGetLyrics.mdx)> | The lyrics.                                   |
 
 ---
 
@@ -163,7 +160,7 @@ Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square"
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type               | <i className="fa-solid fa-list"/> Description |
 > | :-----------------------------------------------------------|:----------------------------------------------|
-> | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The sponsor block.                            |
+> | Promise\<[`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx)> | The sponsor block.                            |
 
 ---
 
@@ -203,13 +200,13 @@ Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square"
 > #### Parameters
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
 > | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
-> | `guildId`                                      | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID.                                 | <i className="fa-solid fa-xmark"/>          |
-> | `skipTrackSource`                              | [`boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID.                                 | <i className="fa-solid fa-xmark"/>          |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right"/> Type                                                                  | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
-> | [`Promise<unknown>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) | The promise that resolves to the response.    |
+> | Promise\<unknown> | The promise that resolves to the response.    |
 
 ---
 
@@ -225,12 +222,12 @@ Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square"
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `guildId`                                       | [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID.                                  | <i className="fa-solid fa-xmark "/>          |
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID.                                  | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Return                                                               | <i className="fa-solid fa-list "/> Description |
 > | :------------------------------------------------------------------------------------------------------------- | :----------------------------------------------|
-> | [`Promise<unknown>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) | The promise that resolves to the response.    |
+> | Promise\<unknown> | The promise that resolves to the response.    |
 
 ---
 
@@ -246,7 +243,7 @@ Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square"
 > #### Parameters
 > | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
 > | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
-> | `d`                                             | [`Buffer`](https://nodejs.org/api/buffer.html) \| [`string`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The data to send.                              | <i className="fa-solid fa-xmark "/>          |
+> | `d`                                             | [Buffer](https://nodejs.org/api/buffer.html) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The data to send.                              | <i className="fa-solid fa-xmark "/>          |
 
 ### open()
 :::warning

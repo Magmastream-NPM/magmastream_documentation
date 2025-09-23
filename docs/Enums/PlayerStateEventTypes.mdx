@@ -9,22 +9,25 @@ sidebar_label: PlayerStateEventTypes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+# PlayerStateEventTypes
+
 > Represents the supported events when the player state changes.
 
 <Tabs>
   <TabItem value="members" label="Enumeration Members" default>
   | Member                                   | Value                |
   |:-----------------------------------------|:---------------------|
-  | [`AutoPlayChange`](#autoPlayChange)      | `"autoPlayChange"`   |
-  | [`ConnectionChange`](#connectionChange)  | `"connectionChange"` |
-  | [`RepeatChange`](#repeatChange)          | `"repeatChange"`     |
-  | [`PauseChange`](#pauseChange)            | `"pauseChange"`      |
-  | [`QueueChange`](#queueChange)            | `"queueChange"`      | 
-  | [`TrackChange`](#trackChange)            | `"trackChange"`      |
-  | [`VolumeChange`](#volumeChange)          | `"volumeChange"`     |
-  | [`ChannelChange`](#channelChange)        | `"channelChange"`    |
-  | [`PlayerCreate`](#playerCreate)          | `"playerCreate"`     |
-  | [`PlayerDestroy`](#playerDestroy)        | `"playerDestroy"`    |
+  | [AutoPlayChange](#autoPlayChange)      | `"autoPlayChange"`   |
+  | [ConnectionChange](#connectionChange)  | `"connectionChange"` |
+  | [RepeatChange](#repeatChange)          | `"repeatChange"`     |
+  | [PauseChange](#pauseChange)            | `"pauseChange"`      |
+  | [QueueChange](#queueChange)            | `"queueChange"`      |
+  | [TrackChange](#trackChange)            | `"trackChange"`      |
+  | [VolumeChange](#volumeChange)          | `"volumeChange"`     |
+  | [ChannelChange](#channelChange)        | `"channelChange"`    |
+  | [PlayerCreate](#playerCreate)          | `"playerCreate"`     |
+  | [PlayerDestroy](#playerDestroy)        | `"playerDestroy"`    |
+  | [FilterChange](#filterChange)          | `"filterChange"`     |
   </TabItem>
 </Tabs>
 
@@ -85,3 +88,7 @@ import TabItem from '@theme/TabItem';
 ### PlayerDestroy {#playerDestroy}
 
 > Player is destroyed.
+
+### FilterChange {#filterchange}
+
+> Filter is changed.
