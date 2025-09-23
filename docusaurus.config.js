@@ -17,7 +17,6 @@ const config = {
 	title: 'Magmastream',
 	tagline: description,
 	favicon: '/imgs/logo.ico',
-
 	customFields: {
 		usedBy: [
 			{
@@ -105,9 +104,7 @@ const config = {
 		repo: repoLink,
 		discord: discordSupportLink
 	},
-
 	stylesheets: ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'],
-
 	url: baseUrl,
 	baseUrl: '/',
 	onBrokenLinks: 'ignore',
@@ -327,6 +324,17 @@ const config = {
 					activeBaseRegex: '^/usedby',
 				},
 				{
+					type: 'localeDropdown',
+					position: 'right',
+					/*dropdownItemsAfter: [
+						{
+							to: '/versions',
+							label: 'All versions',
+						}
+					],*/
+					dropdownActiveClassDisabled: true,
+				},
+				{
 					type: 'docsVersionDropdown',
 					position: 'right',
 					dropdownItemsAfter: [
@@ -412,6 +420,27 @@ const config = {
 			isCloseable: true,
 		},*/
 	},
+/*	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'fr'],
+		path: 'i18n',
+		localeConfigs: {
+			en: {
+				label: 'English',
+				direction: 'ltr',
+				htmlLang: 'en-US',
+				calendar: 'gregory',
+				path: 'en',
+			},
+			fr: {
+				label: 'French',
+				direction: 'ltr',
+				htmlLang: 'fr-FR',
+				calendar: 'gregory',
+				path: 'fr',
+			},
+		},
+	},*/
 };
 
 export default config;
