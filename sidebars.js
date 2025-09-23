@@ -17,7 +17,18 @@
 const sidebars = {
 	// By default, Docusaurus generates a sidebar from the docs folder structure
 	tutorialSidebar: [
-		'Introduction',
+		{
+			type: 'category',
+			label: '⭐ Introduction',
+			link: {
+				type: "doc",
+				id: 'Introduction',
+			},
+			items: [
+				'Changes',
+				'Contributing',
+			],
+		},
 		{
 			type: 'category',
 			label: '🚀 Getting started',
@@ -50,6 +61,7 @@ const sidebars = {
 			type: 'category',
 			label: '🧩 Classes',
 			collapsed: false,
+			collapsible: false,
 			link: {
 				type: 'generated-index',
 				description: 'Classes are the most important part of the module, so take a look at them...',

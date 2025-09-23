@@ -116,7 +116,6 @@ const config = {
 	onDuplicateRoutes: 'throw',
 	organizationName: 'Magmastream-NPM',
 	projectName: 'magmastream',
-
 	presets: [
 		[
 			'classic',
@@ -227,6 +226,12 @@ const config = {
 			defaultMode: 'dark',
 			respectPrefersColorScheme: true,
 		},
+		docs: {
+			sidebar: {
+				autoCollapseCategories: true,
+				hideable: false
+			}
+		},
 		metadata: [
 			{ name: 'apple-mobile-web-app-title', content: title },
 			{ name: 'application-name', content: title },
@@ -295,7 +300,13 @@ const config = {
 					to: '/docs/intro',
 					label: 'Documentation',
 					position: 'left',
-					activeBaseRegex: '^/docs/(?!contributing).*',
+					activeBaseRegex: '^/docs/(?:$|(?!contributing|migrate).*)',
+				},
+				{
+					to: '/docs/changes',
+					label: `Changes`,
+					position: 'left',
+					activeBaseRegex: '/docs/changes',
 				},
 				{
 					to: '/docs/contributing',
