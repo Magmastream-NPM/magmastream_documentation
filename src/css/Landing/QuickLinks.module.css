@@ -70,6 +70,8 @@
 }
 
 .card {
+    box-shadow: 0 20px 60px var(--cards-shadow1), inset 0 0 0 1px var(--cards-shadow2);
+    border: 2px solid var(--cards-border) !important;
     background: var(--cards-background);
     padding: 1.2rem;
     border-radius: 16px;

@@ -6,6 +6,7 @@ import Header from "../components/Landing/Header";
 import Content from "../components/Landing/Content";
 import Features from "../components/Landing/Features";
 import QuickLinks from "../components/Landing/QuickLinks";
+import Statistics from "../components/Statistics/Statistics";
 
 function Landing() {
 
@@ -16,6 +17,7 @@ function Landing() {
 				<div className={'container'}>
 					<Content />
 					<Features />
+					<Statistics />
 					<QuickLinks />
 				</div>
 			</div>

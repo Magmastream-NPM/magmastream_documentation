@@ -96,6 +96,13 @@ hr {
   --ifm-lightest-value: 50%;
 
   --cards-background: #ebedf0;
+  --cards-border: #dadada;
+  --cards-shadow1: rgba(104, 104, 104, 0.35);
+  --cards-shadow2: rgba(255, 255, 255, 0.06);
+  --btn-bg: #ebedf0;
+  --btn-clr: #27282d;
+  --icon-bg: #f2f4f8;
+  --icon-clr: #27282d;
 
   --docsearch-text-color: #f5f6f7;
   --docsearch-container-background: rgba(9, 10, 17, .8);
@@ -465,6 +472,13 @@ hr {
   --ifm-text-color: #fff;
 
   --cards-background: #080808;
+  --cards-border: #191919;
+  --cards-shadow1: #00000059;
+  --cards-shadow2: #FFFFFF0F;
+  --btn-bg: #080808;
+  --btn-clr: #e6e6e6;
+  --icon-bg: #191919;
+  --icon-clr: #e6e6e6;
 
   --ifm-footer-background-color: #0a0a0a !important;
 

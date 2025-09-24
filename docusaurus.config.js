@@ -302,9 +302,9 @@ const config = {
 			items: [
 				{
 					to: '/docs/intro',
-					label: 'Documentation',
+					label: 'Docs',
 					position: 'left',
-					activeBaseRegex: '^/docs/(?:$|(?!contributing|migrate).*)',
+					activeBaseRegex: '^/docs/(?:$|(?!contributing|changes).*)',
 				},
 				{
 					to: '/docs/changes',
@@ -319,8 +319,8 @@ const config = {
 					activeBasePath: '/docs/contributing',
 				},
 				{
-					to: '/statistics',
-					label: 'Statistics',
+					to: '/#statistics',
+					label: 'Stats',
 					position: 'left',
 					activeBaseRegex: '^/statistics',
 				},
