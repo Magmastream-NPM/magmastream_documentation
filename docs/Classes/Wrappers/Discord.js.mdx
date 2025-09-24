@@ -42,3 +42,13 @@ The Discord.js wrapper hooks into the `ready` and `raw` event to automatically s
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
 > | `packet`                                       | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |
+
+### resolveUser()
+> ```ts
+> override async resolveUser(user: PortableUser | string): Promise<User | PortableUser>
+> ```
+> Resolve a user.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `user`                                       | [`PortableUser`](../Typedefs/PortableUser.mdx) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The packet.                                   |

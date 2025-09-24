@@ -286,6 +286,19 @@ export class Manager extends EventEmitter {}
 
 ---
 
+### resolveUser()
+> ```ts
+> resolveUser(user: PortableUser | string): Promise<PortableUser>
+> ```
+> Resolves a PortableUser or ID to a real user object. Can be overridden by wrapper managers to return wrapper-specific User classes.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `user`                                        | [`PortableUser`](../Typedefs/PortableUser.mdx) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
+
+---
+
 ### updateVoiceState()
 > ```ts
 > async updateVoiceState(data: VoicePacket | VoiceServer | VoiceState): Promise<void>
