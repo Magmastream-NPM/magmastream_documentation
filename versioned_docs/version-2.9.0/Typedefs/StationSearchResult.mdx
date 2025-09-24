@@ -1,0 +1,19 @@
+---
+id: manager-typedefs-StationSearchResult
+title: "Interface: StationSearchResult"
+description: Result returned when a station is found by a search.
+slug: /typedefs/StationSearchResult
+sidebar_label: StationSearchResult
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents a search result containing a station with tracks.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------- |:----------------------------------------------|:-------------------------------------------:|
+> | `loadType`                                    | [`LoadTypes.Station`](../Enums/LoadTypes.mdx#station)   | Indicates the result is a station load.       | <i className="fa-solid fa-xmark"/>          |
+> | `tracks`                                      | [`Track[]`](./Track.mdx)                                | Tracks included in the station load playlist. | <i className="fa-solid fa-xmark"/>          |
+> | `playlist`                                    | [`PlaylistData`](./PlaylistData.mdx)                    | Information about the station load playlist.  | <i className="fa-solid fa-xmark"/>          |

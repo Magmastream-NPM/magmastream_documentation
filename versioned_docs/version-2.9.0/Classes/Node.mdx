@@ -1,0 +1,379 @@
+---
+id: node-class
+title: "Class: Node"
+description: The Node class represents a Lavalink node.
+slug: /class/Node
+sidebar_label: Node
+sidebar_position: 3
+---
+
+# Node
+
+### Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export class Node {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `info`                                    | [`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx)                                                        | The node info.                                |
+> | `isNodeLink`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the node is a node link.              |
+> | `rest`                                    | [`Rest`](./Rest.mdx)                                                                                  | The rest instance.                            |
+> | `sessionId`                               | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The session ID.                               |
+> | `socket`                                  | [WebSocket](https://nodejs.org/en/learn/getting-started/websocket)                                  | The socket.                                   |
+> | `stats`                                   | [`NodeStats`](../Typedefs/NodeStats.mdx)                                                              | The node stats.                               |
+
+## Constructor
+
+> ```ts
+> new Node(manager: Manager, options: NodeOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `manager`                                      | [`Manager`](./Manager.mdx)                   | The manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+> | `options`                                      | [`NodeOptions`](../Typedefs/NodeOptions.mdx) | The node options.                             | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### address()
+> ```ts
+> address(): string
+> ```
+> Returns the full address for this node, including the host and port.
+
+---
+
+### connect()
+> ```ts
+> async connect(): Promise<void>
+> ```
+> Connects to the node.
+
+---
+
+### connected()
+> ```ts
+> connected(): boolean
+> ```
+> Checks if the Node is currently connected.
+
+---
+
+### createSessionIdsFile()
+> ```ts
+> createSessionIdsFile(): void
+> ```
+> Creates a session ids file for this node.
+
+---
+
+### deleteSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async deleteSponsorBlock(player: Player): Promise<void>
+> ```
+> Deletes the sponsor block for this node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `player`                                       | [`Player`](./Player.mdx)                     | The player.                                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### error()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> error(error: Error): void
+> ```
+> Handles an error.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type       | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `error`                                        | [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | The error.                                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### fetchInfo()
+> ```ts
+> async fetchInfo(): Promise<LavalinkInfo>
+> ```
+> Fetches the info for this node.
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type  | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------|:----------------------------------------------|
+> | Promise\<[`LavalinkInfo`](../Typedefs/LavalinkInfo.mdx)> | The node info.                                |
+
+---
+
+### getLyrics()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.  
+Or the node is a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+> ```ts
+> async getLyrics(track: Track, skipTrackSource: boolean = false, language?: string): Promise<Lyrics | NodeLinkGetLyrics>
+> ```
+> Gets the lyrics for a track.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `track`                                        | [`Track`](../Typedefs/Track.mdx)                                                                      | The track.                                    | <i className="fa-solid fa-xmark"/>          |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-xmark"/>          |
+> | `language`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The language.                                 | <i className="fa-solid fa-check"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                  | <i className="fa-solid fa-list"/> Description |
+> | :----------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | Promise\<[`Lyrics`](../Typedefs/Lyrics.mdx) \| [`NodeLinkGetLyrics`](../Typedefs/NodeLinkGetLyrics.mdx)> | The lyrics.                                   |
+
+---
+
+### getSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async getSponsorBlock(player: Player): Promise<SponsorBlockSegment[]>
+> ```
+> Gets the sponsor block for this node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `player`                                       | [`Player`](./Player.mdx)               | The player.                                   | <i className="fa-solid fa-xmark"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type               | <i className="fa-solid fa-list"/> Description |
+> | :-----------------------------------------------------------|:----------------------------------------------|
+> | Promise\<[`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx)> | The sponsor block.                            |
+
+---
+
+### handleEvent()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async handleEvent(payload: PlayerEvent & PlayerEvents): Promise<void>
+> ```
+> Handles an event emitted from the Lavalink node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                     | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-----------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `payload`                                      | [`PlayerEvent`](../Typedefs/PlayerEvents//BaseEvent.mdx) \| [`PlayerEvents`](../Typedefs/PlayerEvents.mdx) | The payload.                                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### loadSessionIds()
+> ```ts
+> async loadSessionIds(): Promise<void>
+> ```
+> Loads the session ids for this node.
+
+---
+
+### lyricsSubscribe()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+> ```ts
+> async lyricsSubscribe(guildId: string, skipTrackSource: boolean = false): Promise<unknown>
+> ```
+> Subscribes to lyrics for a guild.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild ID.                                 | <i className="fa-solid fa-xmark"/>          |
+> | `skipTrackSource`                              | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether to skip the track source.             | <i className="fa-solid fa-check"/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                  | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | Promise\<unknown> | The promise that resolves to the response.    |
+
+---
+
+### lyricsUnsubscribe()
+:::warning
+⚠️ This method only works when the node has the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+> ```ts
+> async lyricsUnsubscribe(guildId: string): Promise<unknown>
+> ```
+> Unsubscribes from lyrics for a guild.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID.                                  | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Return                                                               | <i className="fa-solid fa-list "/> Description |
+> | :------------------------------------------------------------------------------------------------------------- | :----------------------------------------------|
+> | Promise\<unknown> | The promise that resolves to the response.    |
+
+---
+
+### message()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async message(d: Buffer | string): Promise<void>
+> ```
+> Sends a message to the node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `d`                                             | [Buffer](https://nodejs.org/api/buffer.html) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The data to send.                              | <i className="fa-solid fa-xmark "/>          |
+
+### open()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> open(): void
+> ```
+> Opens the connection to the node.
+
+### queueEnd()
+> ```ts
+> async queueEnd(player: Player, track: Track, payload: TrackEndEvent): Promise<void>
+> ```
+> Handles the event when a queue ends.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                  | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                          | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackEndEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackendevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### setSponsorBlock()
+:::warning
+⚠️ This method only works when the node has the [sponsor block <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+> ```ts
+> async setSponsorBlock(player: Player, segments: SponsorBlockSegment[] = [SponsorBlockSegment.Sponsor, SponsorBlockSegment.SelfPromo]): Promise<void>
+> ```
+> Sets the sponsorblock segments for a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                    | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `segments`                                      | [`SponsorBlockSegment[]`](../Enums/SponsorBlockSegment.mdx) | The segments.                                  | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### socketClosed()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> socketClosed(player: Player, payload: WebSocketClosedEvent): void
+> ```
+> Emitted when the WebSocket connection for a player closes.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                                    | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`WebSocketClosedEvent`](../Typedefs/PlayerEvents/WebSocketEvents.mdx#websocketclosedevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackEnd()
+> ```ts
+> async trackEnd(player: Player, track: Track, payload: TrackEndEvent): Promise<void>
+> ```
+> Emitted when a track ends playing.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                  | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                          | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackEndEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackendevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackError()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> async trackError(player: Player, track: Track, payload: TrackExceptionEvent): Promise<void>
+> ```
+> Handles the event when a track has an error during playback.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:--------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                              | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                                      | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackExceptionEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackexceptionevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackStart()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> trackStart(player: Player, track: Track, payload: TrackStartEvent): void
+> ```
+> Emitted when a new track starts playing.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                       | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                      | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                              | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackStartEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackstartevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### trackStuck()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> trackStuck(player: Player, track: Track, payload: TrackStuckEvent): void
+> ```
+> Emitted when a track gets stuck.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                       | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :---------------------------------------------- |:------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `player`                                        | [`Player`](./Player.mdx)                                                      | The player.                                    | <i className="fa-solid fa-xmark "/>          |
+> | `track`                                         | [`Track`](../Typedefs/Track.mdx)                                              | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `payload`                                       | [`TrackStuckEvent`](../Typedefs/PlayerEvents/TrackEvents.mdx#trackstuckevent) | The payload.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### updateSessionId()
+> ```ts
+> updateSessionId(): void
+> ```
+> Updates the session ID.

@@ -1,0 +1,153 @@
+---
+id: Changes
+title: Changes in 2.9.0
+description: Guide with changes in v2.9.0
+slug: /changes
+hide_title: true
+hide_table_of_contents: true
+sidebar_position: 2
+sidebar_label: 🐍 Changes in 2.9.0
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 🐍 Changes in 2.9.0
+
+:::tip
+
+This is a **major release** with braking changes. Please update your code accordingly.
+
+:::
+
+Hello, here you will find information on what has changed and what you need to change when upgrading to version 2.9.0.
+
+---
+
+## 🛠️ How to update?
+
+<Tabs>
+    <TabItem value="npm" label="npm" default>
+        ```sh
+        npm update magmastream
+        ```
+    </TabItem>
+    <TabItem value="pnpm" label="pnpm" default>
+        ```sh
+        pnpm update magmastream
+        ```
+    </TabItem>
+    <TabItem value="yarn" label="yarn" default>
+        ```sh
+        yarn upgrade magmastream
+        ```
+    </TabItem>
+</Tabs>
+
+---
+
+# 🔄 Changes
+
+> ## [ManagerOptions](./Typedefs/ManagerOptions.mdx)
+> - **plugins** → `enabledPlugins`
+> - **autoPlay** → `playNextOnEnd`
+> - **usePriority** → `enablePriorityMode`
+> - **replaceYouTubeCredentials** → `normalizeYouTubeTitles`
+> - **autoPlaySearchPlatform** → `autoPlaySearchPlatforms` (array of [`AutoPlayPlatform`](./Enums/AutoPlayPlatform.mdx))
+
+> ## [NodeOptions](./Typedefs/NodeOptions.mdx)
+> - **secure** → `useSSL`
+> - **retryAmount** → `maxRetryAttempts`
+> - **retryDelay** → `retryDelayMs`
+> - **resumeStatus** → `enableSessionResumeOption`
+> - **resumeTimeout** → `sessionTimeoutSeconds`
+> - **requestTimeout** → `apiRequestTimeoutMs`
+> - **priority** → `nodePriority`
+
+> ## [PlayerOptions](./Typedefs/PlayerOptions.mdx)
+> - **node** → `nodeIdentifier`
+
+---
+
+# ✨ New Features
+
+> ## Queue Storage Options
+> Choose between **Memory** (default), **JSON**, or **Redis** for queue persistence.
+>
+> - [StateStorageOptions](./Typedefs/StateStorageOptions.mdx)
+
+> ## New Manager Events
+>
+> - [`PlayerRestored`](./Typedefs/ManagerEvents/PlayerEvents#playerrestored)
+> - [`RestoreComplete`](./Typedefs/ManagerEvents/NodeEvents#resotrecomplete)
+
+> ## New Lyrics Events (with [LavaLyrics](<https://github.com/topi314/LavaLyrics>) plugin enabled)
+>  - [`LyricsFound`](./Typedefs/ManagerEvents/LyricsEvents#lyricsfound)
+>  - [`LyricsLine`](./Typedefs/ManagerEvents/LyricsEvents#lyricsline)
+>  - [`LyricsNotFound`](./Typedefs/ManagerEvents/LyricsEvents#lyricsnotfound)
+
+> ## Discord Client Wrappers
+> Added official support for
+> - [discord.js](./Classes/Wrappers/Discord.js.mdx)
+> - [Detritus](./Classes/Wrappers/Detritus.mdx)
+> - [Eris](./Classes/Wrappers/Eris.mdx)
+> - [Oceanic](./Classes/Wrappers/Oceanic.mdx)
+> - [Seyfert](./Classes/Wrappers/Seyfert.mdx)
+
+> ## NodeLink v2 Support
+> Fully integrated.
+
+> ## Lyrics Subscriptions
+> Live lyrics streaming when LavaLyrics is available.
+
+> ## Automatic Inactive Player Cleanup
+> Enabled by default
+
+> ## Backup Node Support
+> Check [`NodeOptions`](./Typedefs/NodeOptions.mdx) (`isBackup`, default ➔ `false`).
+
+> ## FilterChange added as a possible [`PlayerStateEventTypes`](./Enums/PlayerStateEventTypes.mdx).
+
+---
+
+# ⚖️ Fixes & Improvements
+
+> ## AutoPlay
+>
+> Expanded to include more sources and fixed issues with reloading.
+
+> ## Track Restoration
+>
+> Tracks now play correctly even if stored with an empty player state.
+
+> ## Last.fm API Key
+>
+> Now optional instead of required.
+
+> ## Previous Track Handling
+>
+> Respects [`ManagerOptions.maxPreviousTracks`](./Typedefs/ManagerOptions.mdx).
+
+> ## Player & Cluster Fixes
+> - [`player.moveNode()`](./Classes/Player.mdx#movenode) validates session token & endpoint.
+> - [`Manager.options.clusterId`](./Typedefs/ManagerOptions.mdx) is now stored on each player.
+> - Duplicate [`PlayerDestroy`](./Typedefs/ManagerEvents/PlayerEvents.mdx#playerdestroy) event on disconnect removed.
+
+> ## State Management
+> - Player states are saved & cleaned on [`Manager.handleShutdown()`](./Classes/Manager.mdx#handleshutdown).
+> - Restore now works correctly after shutdown & restart.
+
+> ## Plugin Lifecycle
+>
+> Loading/unloading works as expected.
+
+> ## Player Updates
+> - [`PlayerMove`](./Typedefs/ManagerEvents/PlayerEvents.mdx#playermove) correctly updates [`PlayerOptions.voiceChannelId`](./Typedefs/PlayerOptions.mdx).
+> - [`player.setTextChannelId()`](./Classes/Player.mdx#settextchannelid) updates [`PlayerOptions.textChannelId`](./Typedefs/PlayerOptions.mdx).
+> - [`player.setVoiceChannelId()`](./Classes/Player.mdx#setvoicechannelid) updates [`PlayerOptions.voiceChannelId`](./Typedefs/PlayerOptions.mdx).
+
+---
+
+## 💬 Questions?
+
+Join our [Discord](https://discord.gg/Nq5gTGUfwa) — we're happy to help.

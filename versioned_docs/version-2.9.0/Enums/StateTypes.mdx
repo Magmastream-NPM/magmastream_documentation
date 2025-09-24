@@ -1,0 +1,54 @@
+---
+id: enums-StateTypes
+title: "Enum: StateTypes"
+description: StateTypes enumerations
+slug: /enums/StateTypes
+sidebar_label: StateTypes
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# StateTypes
+
+> Represents the supported states for the player.
+
+<Tabs>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                      | Value         |
+  |:----------------------------|:--------------|
+  | [Connected](#CONNECTED)       | `"CONNECTED"`   |
+  | [Connecting](#CONNECTING)         | `"CONNECTING"`    |
+  | [Disconnected](#DISCONNECTED) | `"DISCONNECTED"`|
+  | [Disconnecting](#DISCONNECTING)           | `"DISCONNECTING"`     |
+  | [Destroying](#DESTROYING)       | `"DESTROYING"`   |
+  </TabItem>
+</Tabs>
+
+### Connected {#CONNECTED}
+
+> The player is connected to a voice channel.
+
+---
+
+### Connecting {#CONNECTING}
+
+> The player is connecting to a voice channel.
+
+---
+
+### Disconnected {#DISCONNECTED}
+
+> The player is disconnected (default state).
+
+---
+
+### Disconnecting {#DISCONNECTING}
+
+> The player is disconnecting from a voice channel.
+
+---
+
+### Destroying {#DESTROYING}
+
+> The player is destroying.

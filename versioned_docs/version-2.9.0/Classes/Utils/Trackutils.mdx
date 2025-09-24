@@ -1,0 +1,110 @@
+---
+id: utils-trackutils
+title: "Class: TrackUtils"
+description: The TrackUtils class.
+slug: /class/utils/TrackUtils
+sidebar_label: TrackUtils
+---
+
+# TrackUtils
+
+### Table of Contents
+
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export abstract class TrackUtils {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------|:----------------------------------------------|
+> | `manager`                                 | [`Manager`](../Manager.mdx)                     | The Manager instance.                         |
+## Constructor
+
+> ```js
+> new TrackUtils(manager: Manager)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)                                                                       | The Manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### build()
+> ```ts
+> build<T = User | ClientUser>(data: TrackData, requester?: T): Track
+> ```
+> Builds a Track from the raw data from Lavalink and a optional requester.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                                           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `data`                                         | [`TrackData`](../../Typedefs/TrackData.mdx)                                                                                                                      | The raw data from Lavalink.                   | <i className="fa-solid fa-xmark"/>          |
+> | `requester`                                    | [`User`](https://discordjs.dev/docs/packages/discord.js/main/User:Class) \| [`ClientUser`](https://discordjs.dev/docs/packages/discord.js/main/ClientUser:Class) | The requester.                                | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                                                    | <i className="fa-solid fa-list"/> Description                         |
+> | :------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
+> | [`Track`](../../Typedefs/Track.mdx) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined) | The first element in the queue, or `undefined` if the queue is empty. |
+---
+
+### init()
+> ```ts
+> init(manager: Manager): void
+> ```
+> Initializes the TrackUtils instance.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :------------------------------------------------|:-------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)            | The Manager instance.                            | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### isErrorOrEmptySearchResult()
+> ```ts
+> isErrorOrEmptySearchResult(result: SearchResult): result is ErrorOrEmptySearchResult
+> ```
+> Checks if the search result is an error or an empty result.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `result`                                       | [`SearchResult`](../../Typedefs/SearchResult.mdx) | The search result.                            | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                         | <i className="fa-solid fa-list"/> Description                       |
+> | :-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the search result is an error or an empty result. |
+
+---
+
+### setTrackPartial()
+> ```ts
+> setTrackPartial(partial: TrackPartial[]): void
+> ```
+> Sets the partial properties for the Track class. If a Track has some of its properties removed by the partial, it will be considered a partial Track.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `partial`                                      | [`TrackPartial[]`](../../Enums/TrackPartial.mdx) | The partial data for the track.               | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### validate()
+> ```ts
+> validate(trackOrTracks: unknown): boolean
+> ```
+> Checks if the provided argument is a valid Track or an array of Tracks.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `trackOrTracks`                                | unknown                                        | The track or an array of tracks to validate.   | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                         | <i className="fa-solid fa-list"/> Description                                   |
+> | :-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|
+> | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the provided argument is a valid Track or an array of Tracks. |

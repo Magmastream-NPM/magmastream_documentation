@@ -1,0 +1,17 @@
+---
+id: manager-typedefs-RedisConfig
+title: "Interface: RedisConfig"
+description: Configuration options for Redis-based state storage.
+slug: /typedefs/RedisConfig
+sidebar_label: RedisConfig
+---
+
+> Redis connection configuration used by the manager when `StateStorageType` is set to `redis`.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property  | <i className="fa-solid fa-font"/> Type                                                                     | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `host`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          | Redis server hostname.                        | <i className="fa-solid fa-xmark"/>          |
+> | `port`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          | Redis server port (as string).                | <i className="fa-solid fa-xmark"/>          |
+> | `password`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          | Optional Redis auth password.                 | <i className="fa-solid fa-check"/>          |
+> | `db`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)          | Redis DB index.                               | <i className="fa-solid fa-check"/>          |
+> | `prefix`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)          | Prefix to use for Redis keys.                 | <i className="fa-solid fa-check"/>          |

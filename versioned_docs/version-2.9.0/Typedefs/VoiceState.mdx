@@ -1,0 +1,38 @@
+---
+id: manager-typedefs-VoiceState
+title: "Interface: VoiceState"
+description: "Represents two separate structures: a Discord voice state update and an internal Lavalink sync event."
+slug: /typedefs/VoiceState
+sidebar_label: VoiceState
+---
+
+:::warning
+⚠️ There are **two different interfaces** named `VoiceState` used in different parts of the system:
+
+- One from **Discord**, received through the gateway.
+- One used **internally** by the Lavalink client to propagate voice connection updates.
+:::
+
+### VoiceState (Discord Gateway)
+
+> Payload received from Discord's `VOICE_STATE_UPDATE` event.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                 | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------- |:-------------------------------------------:|
+> | `guild_id`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | ID of the guild the voice state belongs to.                                   | <i className="fa-solid fa-xmark"/>          |
+> | `user_id`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | ID of the user whose voice state is updated.                                  | <i className="fa-solid fa-xmark"/>          |
+> | `session_id`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Session ID used to identify the voice connection.                             | <i className="fa-solid fa-xmark"/>          |
+> | `channel_id`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | ID of the voice channel the user is connected to (or `null` if disconnected). | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### VoiceState (Lavalink Internal)
+
+> Internal structure used by the Lavalink manager to send voice update payloads to the node.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description         | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-------------------------------------------:|
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "voiceUpdate"                                                                                   | Operation type for the internal update.               | <i className="fa-solid fa-xmark"/>          |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID associated with the voice update.        | <i className="fa-solid fa-xmark"/>          |
+> | `event`                                       | [`VoiceServer`](./VoiceServer.mdx)                                                                | The voice server event containing endpoint and token. | <i className="fa-solid fa-xmark"/>          |
+> | `sessionId`                                   | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The session ID for the voice connection.              | <i className="fa-solid fa-check"/>          |

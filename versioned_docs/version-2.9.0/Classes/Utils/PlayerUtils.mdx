@@ -1,0 +1,167 @@
+---
+id: utils-playerutils
+title: "Class: PlayerUtils"
+description: The PlayerUtils class.
+slug: /class/utils/PlayerUtils
+sidebar_label: PlayerUtils
+---
+
+# PlayerUtils
+
+### Table of Contents
+
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export abstract class PlayerUtils {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------|:----------------------------------------------|
+> | `manager`                                 | [`Manager`](../Manager.mdx)                     | The Manager instance.                         |
+## Constructor
+
+> ```js
+> new PlayerUtils(manager: Manager)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)            | The Manager instance.                         | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### getGuildDir()
+> ```ts
+> getGuildDir(guildId: string): string
+> ```
+> Gets the directory for a given guild.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild directory.                          |
+---
+
+### getPlayerCurrentPath()
+> ```ts
+> getPlayerCurrentPath(guildId: string): string
+> ```
+> Gets the current path for a given guild.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The current.json path.                        |
+---
+
+### getPlayerPreviousPath()
+> ```ts
+> getPlayerPreviousPath(guildId: string): string
+> ```
+> Gets the previous path for a given guild.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The previous.json path.                       |
+
+---
+
+### getPlayerQueuePath()
+> ```ts
+> getPlayerQueuePath(guildId: string): string
+> ```
+> Gets the queue path for a given guild.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :----------------------------------------------|:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The queue.json path.                          |
+
+---
+
+### getPlayerStatePath()
+
+> ```ts
+> getPlayerStatePath(guildId: string): string
+> ```
+> Gets the state path for a given guild.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The state.json path.                          |
+
+---
+
+### getPlayersBaseDir()
+
+> ```ts
+> getPlayersBaseDir(): string
+> ```
+> Gets the base directory for players.
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The base directory for players.               |
+
+---
+
+### init()
+> ```ts
+> init(manager: Manager): void
+> ```
+> Initializes the TrackUtils instance.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :------------------------------------------------|:-------------------------------------------:|
+> | `manager`                                      | [`Manager`](../Manager.mdx)            | The Manager instance.                            | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### serializePlayer()
+> ```ts
+> async serializePlayer(player: Player): Promise<Record<string, unknown>>
+> ```
+> Serializes a player.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description    | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------| :------------------------------------------------|:-------------------------------------------:|
+> | `player`                                       | [`Player`](../Player.mdx)              | The player to serialize.                         | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                        | <i className="fa-solid fa-list"/> Description |
+> |:---------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | Record\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), unknown\> | The serialized player.                        |

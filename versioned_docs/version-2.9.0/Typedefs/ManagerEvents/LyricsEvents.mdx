@@ -1,0 +1,50 @@
+---
+id: manager-typedefs-LyricsEvents
+title: "Manager Events: LyricsEvents"
+description: Lyrics events emitted by the Manager.
+slug: /typedefs/ManagerEvents/LyricsEvents
+sidebar_label: LyricsEvents
+---
+
+# Lyrics Events
+
+:::warning
+⚠️ These events are only emitted by the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+
+> These events are fired when the LavaLyrics plugin emits its related events.
+
+### LyricsFound
+
+> Emitted when lyrics are [found <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics?tab=readme-ov-file#lyricsfoundevent).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`LyricsFoundEvent`](../PlayerEvents/LyricsEvents.mdx#lyricsfoundevent)   | Payload provided by Plugin.                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### LyricsLine
+
+> Emitted when a lyrics line is [reached <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics?tab=readme-ov-file#lyricslineevent) for a track.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |  
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`LyricsLineEvent`](../PlayerEvents/LyricsEvents.mdx#lyricslineevent)     | Payload provided by Plugin.                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### LyricsNotFound
+
+> Emitted when lyrics are [not found <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics?tab=readme-ov-file#lyricsnotfoundevent) for a track.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                        | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                          | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                                       | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`LyricsNotFoundEvent`](../PlayerEvents/LyricsEvents.mdx#lyricsnotfoundevent) | Payload provided by Plugin.                   | <i className="fa-solid fa-xmark"/>          |
+

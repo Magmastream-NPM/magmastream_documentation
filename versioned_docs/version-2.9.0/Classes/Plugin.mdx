@@ -1,0 +1,103 @@
+---
+id: plugin-class
+title: "Class: Plugin"
+description: The Plugin class represents a plugin.
+slug: /class/Plugin
+sidebar_label: Plugin
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Plugin
+
+### Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+- [Example usage](#example-usage)
+
+## Class Definition
+```ts
+export abstract class Plugin {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `name`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The name of the plugin.                       |
+
+## Constructor
+
+> ```ts
+> new Plugin(name: string)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `name`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The name of the plugin.                           | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### load()
+> ```ts
+> load(manager: Manager): void
+> ```
+> Load the plugin.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager class                                 |
+
+---
+
+### unload()
+> ```ts
+> unload(manager: Manager): void
+> ```
+> Unload the plugin.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :------------------------------------- | :-------------------------------------------- |
+> | `manager`                                      | [`Manager`](./Manager.mdx)             | Manager class                                 |
+
+## Example usage
+
+<Tabs>
+    <TabItem value="usage" label="Using plugins" default>
+        ```js
+        const { Manager } = require("magmastream");
+        const MyPlugin = require("my-magmastream-plugin");
+
+        const manager = new Manager({
+            ...ManagerOptions,
+            plugins: [new MyPlugin()],
+        });
+        ```
+    </TabItem>
+    <TabItem value="writing" label="Writing plugins" default>
+        ```js
+        import { Plugin, Manager } from "magmastream";
+
+        export class MyPlugin extends Plugin {
+            private options: Record<string, unknown>;
+
+            constructor(options: Record<string, unknown>) {
+                super("MyPlugin"); // Required: pass the plugin name to base constructor
+                this.options = options;
+            }
+
+            load(manager: Manager): void {
+                console.log(`[MyPlugin] Loaded with options:`, this.options);
+                // Attach event listeners, modify behavior, etc.
+            }
+
+            unload(manager: Manager): void {
+                console.log("[MyPlugin] Unloaded");
+                // Cleanup listeners, free resources, etc.
+            }
+        }
+        ```
+    </TabItem>
+
+</Tabs>

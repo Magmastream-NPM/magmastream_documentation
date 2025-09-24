@@ -1,0 +1,44 @@
+---
+id: wrapper-detritus
+title: "Wrapper: Detritus"
+description: The Detritus wrapper.
+slug: /wrapper/Detritus
+sidebar_label: Detritus
+---
+
+# Detritus Wrapper
+
+### Table of Contents
+- [Class Definition](#class-definition)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export class DetritusManager extends Manager {}
+```
+
+## Constructor
+
+> ```ts
+> new DetritusManager(client: ClusterClient | ShardClient, options?: ManagerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `client`                                       | [ClusterClient](https://detritusjs.com/modules/clusterclient) \| [ShardClient](https://detritusjs.com/classes/client.shardclient) | The Detritus cluster client or shard client.  | <i className="fa-solid fa-xmark"/>          |
+> | `options`                                      | [`ManagerOptions`](../../Typedefs/ManagerOptions.mdx)                                                                                 | The manager options.                          | <i className="fa-solid fa-check"/>          |
+:::note
+The Detritus wrapper hooks into the `ready` and `raw` event to automatically set the `clientId`-option in the `ManagerOptions` as well as use the `updateVoiceState`function to send packets to Discord.
+:::
+
+## Methods
+
+### send()
+> ```ts
+> override send(packet: GatewayVoiceStateUpdate)
+> ```
+> Sends a packet to Discord.
+>
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
+> | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
+> | `packet`                                       | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                   |

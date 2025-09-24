@@ -1,0 +1,312 @@
+---
+id: manager-class
+title: "Class: Manager"
+description: The Manager class is the main class that manages all the players and nodes.
+slug: /class/Manager
+sidebar_position: 0
+sidebar_label: Manager
+---
+
+# Manager
+
+### Table of Contents
+- [Class Definition](#class-definition)
+- [Properties](#properties)
+- [Constructor](#constructor)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export class Manager extends EventEmitter {}
+```
+
+## Properties
+> | <i className="fa-solid fa-pen"/> Property | <i className="fa-solid fa-boxes-stacked"/> Type                                                       | <i className="fa-solid fa-list"/> Description |
+> | :---------------------------------------- | :-----------------------------------------------------------------------------------------------------|:----------------------------------------------|
+> | `initiated`                               | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the manager has been initiated.       |
+> | `nodes`                                   | Collection\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Node`](./Node.mdx)\>                                                          | The nodes.                                    |
+> | `options`                                 | [`ManagerOptions`](../Typedefs/ManagerOptions.mdx)                                                    | The manager options.                          |
+> | `players`                                 | Collection\<[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [`Player>`](./Player.mdx)\>                                                          | The players.                                  |
+> | `redis?`                                  | [RedisClient](https://www.npmjs.com/package/ioredis)                                                | The redis client.                             |
+
+
+## Constructor
+> ```ts
+> new Manager(options: ManagerOptions)
+> ```
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type             | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:---------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `options`                                      | [`ManagerOptions`](../Typedefs/ManagerOptions.mdx) | The manager options.                          | <i className="fa-solid fa-xmark"/>          |
+
+## Methods
+
+### cleanupInactivePlayer()
+> ```ts
+> async cleanupInactivePlayer(guildId: string): Promise<void>
+> ```
+> Cleans up an inactive player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                               | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### cleanupInactivePlayers()
+> ```ts
+> async cleanupInactivePlayers(): Promise<void>
+> ```
+> Cleans up inactive players.
+
+---
+
+### create()
+> ```ts
+> create(options: PlayerOptions): Player
+> ```
+> Creates a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type          | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`PlayerOptions`](../Typedefs/PlayerOptions.mdx) | The player options.                            | <i className="fa-solid fa-xmark "/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Player`](./Player.mdx)                        | The new player.                                |
+
+---
+
+### createNode()
+> ```ts
+> createNode(options: NodeOptions): Node
+> ```
+> Creates a node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type      | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:---------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`NodeOptions`](../Typedefs/NodeOptions.mdx) | The node options.                              | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Node`](./Node.mdx)                            | The new node.                                  |
+
+---
+
+### decodeTrack()
+> ```ts
+> async decodeTrack(track: string): Promise<TrackData>
+> ```
+> Decodes a track.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `track`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The track.                                     | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | Promise\<[`TrackData`](../Typedefs/TrackData.mdx)>        | The decoded track.                             |
+
+---
+
+### decodeTracks()
+> ```ts
+> async decodeTracks(tracks: string[]): Promise<TrackData[]>
+> ```
+> Decodes multiple tracks.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                              | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `tracks`                                        | [string[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | The tracks.                                    | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------|:-----------------------------------------------|
+> | Promise\<[`TrackData[]`](../Typedefs/TrackData.mdx)>     | The decoded tracks.                            |
+
+---
+
+### destroy()
+> ```ts
+> async destroy(guildId: string): Promise<void>
+> ```
+> Destroys a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### destroyNode()
+> ```ts
+> async destroyNode(identifier: string): Promise<void>
+> ```
+> Destroys a node.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `identifier`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node identifier.                           | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### getPlayer()
+> ```ts
+> getPlayer(guildId: string): Player | undefined
+> ```
+> Gets a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Player`](./Player.mdx) \| [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Undefined)         | The player.                                    |
+
+---
+
+### handleShutdown()
+> ```ts
+> async handleShutdown(): Promise<void>
+> ```
+> Handles the shutdown of the process by saving all active players' states and optionally cleaning up inactive players.
+
+---
+
+### init()
+> ```ts
+> async init(options: ManagerInitOptions = {}): Promise<this>
+> ```
+> Initializes the manager.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                    | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-----------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `options`                                       | [`ManagerInitOptions`](../Typedefs/ManagerInitOptions.mdx) | The manager init options.                      | <i className="fa-solid fa-xmark "/>          |
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type | <i className="fa-solid fa-list "/> Description |
+> | :----------------------------------------------|:-----------------------------------------------|
+> | Promise\<[`this`](./Manager.mdx#properties)>                     | The manager.                                   |
+
+---
+
+### loadPlayerStates()
+> ```ts
+> async loadPlayerStates(nodeId: string): Promise<void>
+> ```
+> Loads the player states.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `nodeId`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The node id.                                   | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### on()
+> ```ts
+> on<T extends keyof ManagerEvents>(event: T, listener: (...args: ManagerEvents[T]) => void): this
+> ```
+> Adds an event listener.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                                                                                                                                                                                                                                                                                                                                                                     | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `event`                                         | T extends keyof [`DebugEvent`](../Typedefs/ManagerEvents/DebugEvent.mdx) \| [`LyricsEvent`](../Typedefs/ManagerEvents/LyricsEvents.mdx) \| [`NodeEvents`](../Typedefs/ManagerEvents/NodeEvents.mdx) \| [`PlayerEvents`](../Typedefs/ManagerEvents/PlayerEvents.mdx) \| [`SponsorBlockEvents`](../Typedefs/ManagerEvents/SponsorBlockEvents.mdx) \| [`TrackEvents`](../Typedefs/ManagerEvents/TrackEvents.mdx) \| [`VoiceReceiverEvents`](../Typedefs/ManagerEvents/VoiceReceiverEvents.mdx) | The event.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `listener`                                      | [`(...args: any[]) => void`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function)                                                                                                                                                                                                                                                                                                                                                                     | The listener.                                  | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### savePlayerState()
+> ```ts
+> async savePlayerState(guildId: string): Promise<void>
+> ```
+> Saves the player state.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `guildId`                                       | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild id.                                  | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### search()
+> ```ts
+> async search<T = unknown>(query: string | SearchQuery, requester?: T): Promise<SearchResult>
+> ```
+> Searches for tracks.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                             | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `query`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [`SearchQuery`](../Typedefs/SearchQuery.mdx) | The query.                                     | <i className="fa-solid fa-xmark "/>          |
+> | `requester`                                     | T = unknown                                      | The requester.                                 | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### send()
+:::warning
+⚠️ This method is protected and should not be called directly.
+:::
+> ```ts
+> send(packet: GatewayVoiceStateUpdate): unknown
+> ```
+> Sends a packet to the discord gateway.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `packet`                                        | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### sendPacket()
+> ```ts
+> sendPacket(packet: GatewayVoiceStateUpdate): unknown
+> ```
+> Sends a packet to the discord gateway.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                   | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:----------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `packet`                                        | [GatewayVoiceStateUpdate](https://discord.com/developers/docs/topics/gateway-events#update-voice-state) | The packet.                                    | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### updateVoiceState()
+> ```ts
+> async updateVoiceState(data: VoicePacket | VoiceServer | VoiceState): Promise<void>
+> ```
+> Updates the voice state.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                                                                    | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :-----------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------| :----------------------------------------------| :-------------------------------------------:|
+> | `data`                                          | [`VoicePacket`](../Typedefs/VoicePacket.mdx) \| [`VoiceServer`](../Typedefs/VoiceServer.mdx) \| [`VoiceState`](../Typedefs/VoiceState.mdx) | The data.                                      | <i className="fa-solid fa-xmark "/>          |
+
+---
+
+### usableNode()
+> ```ts
+> usableNode(): Node
+> ```
+> Returns the node to use based on the configured [`useNode`](../Typedefs/ManagerOptions.mdx) and [`enablePriorityMode`](../Typedefs/ManagerOptions.mdx) options.
+>
+> #### Returns
+> | <i className="fa-solid fa-arrow-right "/> Type  | <i className="fa-solid fa-list "/> Description |
+> | :-----------------------------------------------|:-----------------------------------------------|
+> | [`Node`](./Node.mdx)                            | The node to use.                               |
+

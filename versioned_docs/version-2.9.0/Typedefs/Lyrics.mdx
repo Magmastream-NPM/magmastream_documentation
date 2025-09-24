@@ -1,0 +1,21 @@
+---
+id: manager-typedefs-Lyrics
+title: "Interface: Lyrics"
+description: Represents a full lyrics result including metadata, raw text, and parsed lines.
+slug: /typedefs/Lyrics
+sidebar_label: Lyrics
+---
+
+:::warning
+⚠️ This interface is only used by the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+
+> Represents a complete set of lyrics returned by a lyrics provider, including optional raw text, parsed lines with timing, and source metadata.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description                       | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|:-------------------------------------------:|
+> | `source`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The name of the source where the lyrics were fetched from.          | <i className="fa-solid fa-xmark"/>          |
+> | `provider`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The name of the provider the lyrics was fetched from on the source. | <i className="fa-solid fa-xmark"/>          |
+> | `text`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | The lyrics text.                                                    | <i className="fa-solid fa-check"/>          |
+> | `lines`                                       | [`LyricsLine[]`](./LyricsLine.mdx)                                                                  | The lyrics lines.                                                   | <i className="fa-solid fa-xmark"/>          |
+> | `plugin`                                      | [object[]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) | Additional plugin specific data.                                    | <i className="fa-solid fa-check"/>          |

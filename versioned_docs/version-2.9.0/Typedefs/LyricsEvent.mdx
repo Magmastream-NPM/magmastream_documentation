@@ -1,0 +1,15 @@
+---
+id: manager-typedefs-LyricsEvent
+title: "Type: LyricsEvent"
+description: A type alias referring to the LyricsEvent type.
+slug: /typedefs/LyricsEvent
+sidebar_label: LyricsEvent
+---
+
+> Union of all events from [`LyricsEvents`](./PlayerEvents/LyricsEvents.mdx).
+
+```ts
+type LyricsEvent = 
+	| LyricsFoundEvent
+	| LyricsNotFoundEvent
+	| LyricsLineEvent;

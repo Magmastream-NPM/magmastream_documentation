@@ -1,0 +1,16 @@
+---
+id: typedefs-discordpacket
+title: "Interface: DiscordPacket"
+description: An object representing a raw Discord WebSocket packet used with the .send() function.
+slug: /typedefs/DiscordPacket
+sidebar_label: DiscordPacket
+---
+
+> Represents a raw Discord WebSocket packet structure used to communicate with the Discord Gateway through the `.send()` function.
+>
+> | <i className="fa-solid fa-hashtag"/> Property  | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description   | <i className="fa-solid fa-flask"/> Optional  |
+> | :--------------------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------- | :-------------------------------------------:|
+> | `op`                                           | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The opcode for the payload.                     | <i className="fa-solid fa-xmark"/>           |
+> | `d`                                            | [any](https://www.totaltypescript.com/concepts/any-type)                                          | The data for the payload.                       | <i className="fa-solid fa-xmark"/>           |
+> | `t`                                            | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The event name for the payload.                 | <i className="fa-solid fa-check"/>           |
+> | `s`                                            | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | The sequence number for the payload.            | <i className="fa-solid fa-check"/>           |

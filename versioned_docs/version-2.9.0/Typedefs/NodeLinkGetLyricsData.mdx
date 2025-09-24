@@ -1,0 +1,32 @@
+---
+id: manager-typedefs-NodeLinkGetLyricsData
+title: "Interface: NodeLinkGetLyricsData"
+description: Represents synced or unsynced lyrics data returned by Lavalink plugins.
+slug: /typedefs/NodeLinkGetLyricsData
+sidebar_label: NodeLinkGetLyricsData
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents synced or unsynced lyrics data returned by Lavalink plugins.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description          | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------:|
+> | `name`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)   | Source or provider name of the lyrics.                 | <i className="fa-solid fa-xmark"/>          |
+> | `synced`                                      | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the lyrics are time-synced (karaoke-style).    | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [object[]](#data)                                                                                   | Array of lyric line objects with optional timing info. | <i className="fa-solid fa-xmark"/>          |
+> | `rtl`                                         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Whether the lyrics should be rendered right-to-left.   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### `data`
+
+> Array of lyric line objects with optional timing info.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `startTime`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start time of the lyric line in milliseconds. | <i className="fa-solid fa-check"/>          |
+> | `endTime`                                     | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | End time of the lyric line in milliseconds.   | <i className="fa-solid fa-check"/>          |
+> | `text`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The actual lyric text.                        | <i className="fa-solid fa-xmark"/>          |

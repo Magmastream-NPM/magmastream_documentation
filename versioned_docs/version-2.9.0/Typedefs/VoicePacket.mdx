@@ -1,0 +1,14 @@
+---
+id: manager-typedefs-VoicePacket
+title: "Interface: VoicePacket"
+description: Represents a raw voice-related packet received by the manager.
+slug: /typedefs/VoicePacket
+sidebar_label: VoicePacket
+---
+
+> Represents a Discord voice packet that is either a state update or a server update.
+>
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                 | <i className="fa-solid fa-list"/> Description                      | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------------|:------------------------------------------------------------------ |:-------------------------------------------:|
+> | `t`                                           | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "VOICE_SERVER_UPDATE" \| "VOICE_STATE_UPDATE"                      | The type of voice packet, matching the Discord gateway event name. | <i className="fa-solid fa-xmark"/>          |
+> | `d`                                           | [`VoiceServer`](./VoiceServer.mdx) \| [`VoiceState`](./VoiceState.mdx) | The payload data of the packet.                                    | <i className="fa-solid fa-xmark"/>          |

@@ -1,0 +1,42 @@
+---
+id: enums-StateStorageType
+title: "Enum: StateStorageType"
+description: Enumeration of possible state storage backends.
+slug: /enums/StateStorageType
+sidebar_label: StateStorageType
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# StateStorageType
+
+> Defines the possible storage types for persisting manager state.
+
+<Tabs>
+  <TabItem value="members" label="Enumeration Members" default>
+  
+  | Member  | Value    |
+  |:--------|:---------|
+  | [Memory](#memory) | `"memory"` |
+  | [Redis](#redis)  | `"redis"`  |
+  | [JSON](#json)   | `"json"`   |
+  
+  </TabItem>
+</Tabs>
+
+### Memory {#memory}
+
+> Stores all data in memory. Fast but data is lost when the application restarts.
+
+---
+
+### Redis {#redis}
+
+> Uses Redis as backend storage. Allows persistence across restarts and distributed setups.
+
+---
+
+### JSON {#json}
+
+> Persists data in JSON files on disk. Good for simple local setups without Redis.
