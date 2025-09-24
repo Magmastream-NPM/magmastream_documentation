@@ -15,7 +15,7 @@ function Content() {
             <div className={clsx(css.titleSection)}>
                 {/* Release badge */}
                 <Link
-                    to="/docs/intro"
+                    to="/docs/changes"
                     className={clsx(css.badgeButton)}
                 >
                     <span className={clsx(css.badgeIcon)}>🎉</span>
