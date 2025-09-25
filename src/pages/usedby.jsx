@@ -1,7 +1,7 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import styles from '../css/Statistics/Statistics.module.css';
+import styles from '../css/Usedby/Usedby.module.css';
 
 const Usedby = () => {
 
@@ -12,12 +12,7 @@ const Usedby = () => {
     return (
             <main className={styles.main}>
                 <div className="container">
-                    <h1 style={{
-                        textAlign: 'center',
-                        marginTop: '2rem',
-                        marginBottom: '5rem',
-                        color: "var(--ifm-text-color)"
-                    }}>
+                    <h1 className={styles.title}>
                         Used by
                     </h1>
                     <div className={styles.grid}>
@@ -26,16 +21,12 @@ const Usedby = () => {
                                 <div className={styles.card}>
                                     <img src={usedByItem.icon} style={{borderRadius: '50%', height: '40%', marginBottom: '1rem' }} alt="icon" />
                                     <h2 style={{ color: "var(--ifm-text-color)"}}>{usedByItem.name}</h2>
-                                    <p style={{ color: "var(--desc-color)"}}><a target={"_blank"} href={`https://discord.com/users/${usedByItem.creatorId}`}>~ {usedByItem.creator} <i className="fa-solid fa-arrow-up-right-from-square fa-xs"/><br/> ({usedByItem.creatorId})</a></p>
+                                    <p style={{ color: "var(--desc-color)"}}>by <a target={"_blank"} href={`https://discord.com/users/${usedByItem.creatorId}`}>{usedByItem.creator} <i className="fa-solid fa-arrow-up-right-from-square fa-xs"/></a><br/><div style={{
+                                        fontSize: '0.8rem',
+                                    }}>({usedByItem.creatorId})</div></p>
                                     <Link
                                         href={usedByItem.link}
-                                        className="button button--secondary button--sm"
-                                        style={{
-                                            margin: '0 1rem',
-                                            color: "#fff",
-                                            backgroundColor: "#ff6a00",
-                                            borderColor: "#ff6a00"
-                                        }}
+                                        className={styles.invButton}
                                     >
                                         Invite <i className="fa-solid fa-arrow-up-right-from-square fa-xs"/>
                                     </Link>

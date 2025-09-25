@@ -1,0 +1,111 @@
+.main {
+    padding: 2rem 0;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.gridStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.grid::after {
+    content: "";
+    display: block;
+}
+
+.grid > *:nth-last-child(1):nth-child(odd) {
+    grid-column: 3 / 4;
+}
+
+.chartsSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.chartWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    border: 2px solid var(--cards-border);
+    background: var(--card);
+    padding: clamp(22px, 3.2vw, 36px) clamp(20px, 3.5vw, 40px) 24px;
+    max-width: min(1100px, 100%);
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: var(--radius-card);
+    box-shadow: 0 20px 60px var(--cards-shadow1), inset 0 0 0 1px var(--cards-shadow2);
+}
+
+.card h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #686868;
+}
+
+.chartsSection {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.moreInfo {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.link {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.invButton {
+    margin: 0 1rem;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    border-radius: 1.2rem;
+    transition: 0.2s;
+    color: #e6e6e6;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 500;
+    transition-property: color, background, border-color;
+    border: 1px solid #ff6a00;
+    background-color: #cc5500;
+}
+
+.invButton:hover {
+    color: #fff;
+    background-color: #ff6a00;
+    border: 1px solid #ff6a00;
+}
