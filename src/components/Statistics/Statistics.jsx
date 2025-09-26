@@ -278,7 +278,7 @@ function Statistics() {
                                         <>
                                             <MiniStat
                                                 icon={<i className="fa-brands fa-github fa-sm" />}
-                                                value={timeAgo(repoData?.updated_at)}
+                                                value={timeAgo(repoData?.pushed_at)}
                                                 label="Latest update on GitHub"
                                             />
                                             <MiniStat
