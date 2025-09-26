@@ -9,18 +9,22 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 function Statistics() {
     const { colorMode } = useColorMode();
 
-    const START_SECONDS = 30 * 60;
-    const REFRESH_COOLDOWN = 120 * 60;
+    const START_SECONDS = 30 * 60; // 30 minut
+    const REFRESH_COOLDOWN = 120 * 60; // 2 godziny
     const LS_KEY_COOLDOWN = "stats_refresh_last_ts";
+    const LS_KEY_COUNTDOWN_START = "stats_countdown_start_ts";
+    const LS_KEY_DATA = "stats_cached_data"; // nowe: cache danych
 
     const isBrowser = useIsBrowser();
 
     const [repoData, setRepoData] = useState(null);
+    const [docsRepoData, setDocsRepoData] = useState(null);
     const [registryData, setRegistryData] = useState(null);
     const [contributorsData, setContributorsData] = useState(null);
+    const [docsContributorsData, setDocsContributorsData] = useState(null);
     const [npmData, setNpmData] = useState(null);
-    const [loading, setLoading] = useState(true);
 
+    const [loading, setLoading] = useState(true);
     const [timeLeft, setTimeLeft] = useState(START_SECONDS);
     const [hoverRefresh, setHoverRefresh] = useState(false);
     const [cooldown, setCooldown] = useState(0);
@@ -44,6 +48,40 @@ function Statistics() {
         return `${n}`;
     };
 
+    const setCountdownStartNow = () => {
+        try {
+            localStorage.setItem(LS_KEY_COUNTDOWN_START, String(Date.now()));
+        } catch {}
+    };
+
+    const getCountdownElapsedSec = () => {
+        try {
+            const tsStr = localStorage.getItem(LS_KEY_COUNTDOWN_START);
+            const ts = tsStr ? parseInt(tsStr, 10) : NaN;
+            if (isNaN(ts)) return null;
+            const elapsed = Math.floor((Date.now() - ts) / 1000);
+            return Math.max(0, elapsed);
+        } catch {
+            return null;
+        }
+    };
+
+    const saveDataToLocalStorage = (data) => {
+        try {
+            localStorage.setItem(LS_KEY_DATA, JSON.stringify({ data, ts: Date.now() }));
+        } catch {}
+    };
+
+    const loadDataFromLocalStorage = () => {
+        try {
+            const str = localStorage.getItem(LS_KEY_DATA);
+            if (!str) return null;
+            return JSON.parse(str).data;
+        } catch {
+            return null;
+        }
+    };
+
     const fetchData = useCallback(async () => {
         if (!isBrowser) return;
         setLoading(true);
@@ -51,12 +89,20 @@ function Statistics() {
             const repoResponse = await fetch(
                 "https://api.github.com/repos/Magmastream-NPM/magmastream"
             );
+            const docsRepoResponse = await fetch(
+                "https://api.github.com/repos/Magmastream-NPM/magmastream_documentation"
+            );
+            const docsRepoJson = await docsRepoResponse.json();
             const repoJson = await repoResponse.json();
 
             const contributorsResponse = await fetch(
                 "https://api.github.com/repos/Magmastream-NPM/magmastream/contributors"
             );
+            const docsContributorsResponse = await fetch(
+                "https://api.github.com/repos/Magmastream-NPM/magmastream_documentation/contributors"
+            );
             const contributorsJson = await contributorsResponse.json();
+            const docsContributorsJson = await docsContributorsResponse.json();
 
             const registryResponse = await fetch(
                 "https://registry.npmjs.org/magmastream"
@@ -69,9 +115,20 @@ function Statistics() {
             const npmJson = await npmResponse.json();
 
             setRepoData(repoJson);
+            setDocsRepoData(docsRepoJson);
             setContributorsData(contributorsJson);
+            setDocsContributorsData(docsContributorsJson);
             setRegistryData(registryJson);
             setNpmData(npmJson);
+
+            saveDataToLocalStorage({
+                repoJson,
+                docsRepoJson,
+                contributorsJson,
+                docsContributorsJson,
+                registryJson,
+                npmJson,
+            });
         } catch (e) {
             console.error("Błąd podczas pobierania danych:", e);
         } finally {
@@ -94,13 +151,49 @@ function Statistics() {
             }
         } catch {}
 
-        fetchData();
+        const elapsed = getCountdownElapsedSec();
+        const cached = loadDataFromLocalStorage();
+
+        if (elapsed == null) {
+            setTimeLeft(START_SECONDS);
+            setCountdownStartNow();
+            if (cached) {
+                setRepoData(cached.repoJson);
+                setDocsRepoData(cached.docsRepoJson);
+                setContributorsData(cached.contributorsJson);
+                setDocsContributorsData(cached.docsContributorsJson);
+                setRegistryData(cached.registryJson);
+                setNpmData(cached.npmJson);
+                setLoading(false);
+            } else {
+                fetchData();
+            }
+        } else if (elapsed >= START_SECONDS) {
+            setTimeLeft(START_SECONDS);
+            setCountdownStartNow();
+            fetchData();
+        } else {
+            setTimeLeft(START_SECONDS - elapsed);
+            if (cached) {
+                setRepoData(cached.repoJson);
+                setDocsRepoData(cached.docsRepoJson);
+                setContributorsData(cached.contributorsJson);
+                setDocsContributorsData(cached.docsContributorsJson);
+                setRegistryData(cached.registryJson);
+                setNpmData(cached.npmJson);
+                setLoading(false);
+            } else {
+                fetchData();
+            }
+        }
     }, [fetchData, isBrowser]);
 
     useEffect(() => {
+        if (!isBrowser) return;
         const interval = setInterval(() => {
             setTimeLeft((prev) => {
                 if (prev <= 1) {
+                    setCountdownStartNow();
                     fetchData();
                     return START_SECONDS;
                 }
@@ -109,7 +202,7 @@ function Statistics() {
             setCooldown((c) => (c > 0 ? c - 1 : 0));
         }, 1000);
         return () => clearInterval(interval);
-    }, [fetchData]);
+    }, [fetchData, isBrowser]);
 
     const handleRefresh = async () => {
         if (cooldown > 0) return;
@@ -118,14 +211,17 @@ function Statistics() {
         try {
             localStorage.setItem(LS_KEY_COOLDOWN, String(Date.now()));
         } catch {}
+        setCountdownStartNow();
         fetchData();
     };
 
-    const todayDownloads = useMemo(() => {
+    const last7DaysDownloads = useMemo(() => {
         if (!npmData?.downloads) return null;
         const list = npmData.downloads;
-        const lastDay = list[list.length - 1];
-        return lastDay?.downloads ?? null;
+        if (!list.length) return null;
+        const last7 = list.slice(-7);
+        const total = last7.reduce((acc, day) => acc + (day.downloads ?? 0), 0);
+        return total;
     }, [npmData]);
 
     const stats = useMemo(() => {
@@ -140,9 +236,8 @@ function Statistics() {
             const entries = Object.entries(registryData.time)
                 .filter(([key]) => key !== "created" && key !== "modified");
             entries.sort((a, b) => new Date(b[1]) - new Date(a[1]));
-            return entries[0][0]; // nazwa wersji
+            return entries[0][0];
         };
-
 
         return [
             {
@@ -166,7 +261,7 @@ function Statistics() {
                 desc: "Latest version published in npm.",
             },
         ];
-    }, [loading, repoData, contributorsData, registryData, todayDownloads]);
+    }, [loading, repoData, docsRepoData, contributorsData, registryData, last7DaysDownloads, npmData]);
 
     const mmss = formatMMSS(timeLeft);
     const cooldownText =
@@ -199,14 +294,9 @@ function Statistics() {
                                     className={clsx(css.cta)}
                                     style={{ display: "flex", gap: 12, alignItems: "center" }}
                                 >
-                                    {/* refresh countdown */}
-                                    <button className={clsx(css.btn)} style={{
-                                        cursor: "default",
-                                    }}>
+                                    <button className={clsx(css.btn)} style={{ cursor: "default" }}>
                                         <span className={clsx(css.dot)} /> {mmss}
                                     </button>
-
-                                    {/* Refresh w/ tooltip */}
                                     <div
                                         onMouseEnter={() => setHoverRefresh(true)}
                                         onMouseLeave={() => setHoverRefresh(false)}
@@ -265,12 +355,34 @@ function Statistics() {
                                         there will be a description here, but at the moment I have no idea what to write o.o
                                     </p>
                                 </div>
-
-                                <div className={clsx(css.tileGroup)}>
+                                <div className={clsx(css.tileGroupLeft)}>
                                     {loading ? (
                                         <>
                                             <MiniStatSkeleton />
                                             <MiniStatSkeleton />
+                                        </>
+                                    ) : (
+                                        <>
+                                            <MiniStat
+                                                icon={<i className="fa-brands fa-github fa-sm" />}
+                                                value={timeAgo(docsRepoData?.pushed_at)}
+                                                label="Docs latest update"
+                                            />
+                                            <MiniStat
+                                                icon={<i className="fa-solid fa-users fa-xs" />}
+                                                value={
+                                                    Array.isArray(docsContributorsData) && docsContributorsData.length
+                                                        ? [...docsContributorsData].sort((a, b) => b.contributions - a.contributions)[0].login
+                                                        : "—"
+                                                }
+                                                label="The best docs contributor"
+                                            />
+                                        </>
+                                    )}
+                                </div>
+                                <div className={clsx(css.tileGroupRightTop)}>
+                                    {loading ? (
+                                        <>
                                             <MiniStatSkeleton />
                                             <MiniStatSkeleton />
                                         </>
@@ -279,24 +391,37 @@ function Statistics() {
                                             <MiniStat
                                                 icon={<i className="fa-brands fa-github fa-sm" />}
                                                 value={timeAgo(repoData?.pushed_at)}
-                                                label="Latest update on GitHub"
+                                                label="Module latest update"
                                             />
                                             <MiniStat
                                                 icon={<i className="fa-brands fa-npm fa-sm" />}
                                                 value={timeAgo(registryData?.time?.modified)}
-                                                label="Last publish on npm"
+                                                label="Module last publish"
                                             />
+                                        </>
+                                    )}
+                                </div>
+                                <div className={clsx(css.tileGroupRightBottom)}>
+                                    {loading ? (
+                                        <>
+                                            <MiniStatSkeleton />
+                                            <MiniStatSkeleton />
+                                        </>
+                                    ) : (
+                                        <>
                                             <MiniStat
-                                                icon={<i className="fa-solid fa-download fa-sm"/> }
-                                                value={formatNum(todayDownloads)}
-                                                label="Today downloads"
+                                                icon={<i className="fa-solid fa-download fa-sm" />}
+                                                value={formatNum(last7DaysDownloads)}
+                                                label="Downloads (last 7 days)"
                                             />
                                             <MiniStat
                                                 icon={<i className="fa-solid fa-users fa-xs" />}
-                                                value={Array.isArray(contributorsData) && contributorsData.length
-                                                    ? [...contributorsData].sort((a, b) => b.contributions - a.contributions)[0].login
-                                                    : "—"}
-                                                label="The best contributor"
+                                                value={
+                                                    Array.isArray(contributorsData) && contributorsData.length
+                                                        ? [...contributorsData].sort((a, b) => b.contributions - a.contributions)[0].login
+                                                        : "—"
+                                                }
+                                                label="The best module contributor"
                                             />
                                         </>
                                     )}
