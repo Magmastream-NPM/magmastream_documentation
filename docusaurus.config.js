@@ -140,31 +140,31 @@ const config = {
 						'2.8.5': {
 							label: 'v2.8.5',
 							path: '2.8.5',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.8.4': {
 							label: 'v2.8.4',
 							path: '2.8.4',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.8.2': {
 							label: 'v2.8.2',
 							path: '2.8.2',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.8.1': {
 							label: 'v2.8.1',
 							path: '2.8.1',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.8.0': {
 							label: 'v2.8.0',
 							path: '2.8.0',
-							banner: 'none',
+							banner: 'unmaintained',
 							noIndex: true,
 						},
 						'2.7.5': {
