@@ -108,9 +108,14 @@ const config = {
 	stylesheets: ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'],
 	url: baseUrl,
 	baseUrl: '/',
+	markdown: {
+		hooks: {
+			onBrokenMarkdownLinks: 'ignore',
+			onBrokenMarkdownImages: 'warn'
+		}
+	},
 	onBrokenLinks: 'ignore',
 	onBrokenAnchors: 'ignore',
-	onBrokenMarkdownLinks: 'ignore',
 	onDuplicateRoutes: 'throw',
 	organizationName: 'Magmastream-NPM',
 	projectName: 'magmastream',
