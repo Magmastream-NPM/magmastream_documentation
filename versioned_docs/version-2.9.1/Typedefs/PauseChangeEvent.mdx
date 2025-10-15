@@ -1,0 +1,16 @@
+---
+id: manager-typedefs-PauseChangeEvent
+title: "Interface: PauseChangeEvent"
+description: The event emitted when a player's pause state changes.
+slug: /typedefs/PauseChangeEvent
+sidebar_label: PauseChangeEvent
+---
+
+> The event emitted when a player's pause state changes. This occurs when playback is paused, resumed, or toggled manually or programmatically.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                                                                                                                                                                                                                 | <i className="fa-solid fa-list"/> Description               | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "pause"                                                                                                                                                                                                                 | The event type identifier. Always `"pause"` for this event. | <i className="fa-solid fa-xmark"/>          |
+> | `action`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "pause" \| "resume" \| "toggle" | Describes the specific action that changed the pause state. | <i className="fa-solid fa-xmark"/>          |
+> | `previousPause`                               | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Null)                                                                                                                                                                                                         | The previous pause state of the player.                     | <i className="fa-solid fa-check"/>          |
+> | `currentPause`                                | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Null)                                                                                                                                                                                                          | The current pause state of the player.                      | <i className="fa-solid fa-check"/>          |

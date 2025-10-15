@@ -1,0 +1,18 @@
+---
+id: manager-typedefs-NodeLinkGetLyricsEmpty
+title: "Interface: NodeLinkGetLyricsEmpty"
+description: Represents an empty response when no lyrics could be retrieved.
+slug: /typedefs/NodeLinkGetLyricsEmpty
+sidebar_label: NodeLinkGetLyricsEmpty
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents an empty response when no lyrics could be retrieved.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description              | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:----------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-------------------------------------------:|
+> | `loadType`                                    | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "empty"                                                                                                 | Constant type used to denote that no lyrics were found.    | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [Record\<never, never>](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) | Always an empty object — no data is returned in this case. | <i className="fa-solid fa-xmark"/>          |

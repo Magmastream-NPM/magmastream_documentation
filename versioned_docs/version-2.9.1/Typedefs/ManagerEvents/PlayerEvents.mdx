@@ -1,0 +1,75 @@
+---
+id: manager-typedefs-PlayerEvents
+title: "Manager Events: PlayerEvents"
+description: "Player events emitted by the Manager."
+slug: /typedefs/ManagerEvents/PlayerEvents
+sidebar_label: PlayerEvents
+---
+
+# Player Events
+
+> These events are emitted when a [Player](../../Classes/Player.mdx) emits its related events.  
+
+### PlayerCreate
+
+> Emitted when a player is created.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)   | Player this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### PlayerDestroy
+
+> Emitted when a player is destroyed.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)   | Player this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### PlayerDisconnect
+
+> Emitted when a player disconnects from the bound channel.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                                              | Player this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `oldChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Old channel this event applies to.             | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### PlayerMove
+
+> Emitted when a player moves to a different channel.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                                              | Player this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `oldChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Old channel this event applies to.             | <i className="fa-solid fa-xmark"/>          |
+> | `newChannel`                                  | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | New channel this event applies to.             | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### PlayerRestored
+
+> Emitted when a player is restored from a previous session.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------- |:---------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)   | Player this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `node`                                        | [`Node`](../../Classes/Node.mdx)       | Node this event applies to.                    | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### PlayerStateUpdate
+
+> Emitted when a player's state is updated.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                  | <i className="fa-solid fa-list"/> Description  | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------- |:--------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------:|
+> | `oldPlayer`                                   | [`Player`](../../Classes/Player.mdx)                    | The old player state.                          | <i className="fa-solid fa-xmark"/>          |
+> | `newPlayer`                                   | [`Player`](../../Classes/Player.mdx)                    | The new player state.                          | <i className="fa-solid fa-xmark"/>          |
+> | `changeType`                                  | [`PlayerStateUpdateEvent`](../PlayerStateUpdateEvent.mdx) | The type of change that occurred.              | <i className="fa-solid fa-xmark"/>          |

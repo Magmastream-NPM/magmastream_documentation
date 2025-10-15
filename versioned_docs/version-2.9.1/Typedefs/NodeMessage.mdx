@@ -1,0 +1,23 @@
+---
+id: manager-typedefs-NodeMessage
+title: "Interface: NodeMessage"
+description: Extends NodeStats with metadata for Lavalink payload handling.
+slug: /typedefs/NodeMessage
+sidebar_label: NodeMessage
+---
+
+> A `NodeMessage` represents one of the message types received from Lavalink containing node stats, player updates, or event triggers.  
+> This interface extends [`NodeStats`](./NodeStats.mdx) and adds additional metadata to identify the message purpose and target guild.
+
+### `NodeMessage`
+
+> Extends: [`NodeStats`](./NodeStats.mdx).
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                                             | <i className="fa-solid fa-flask"/> Optional  |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:--------------------------------------------:|
+> | `type`                                        | [`PlayerEventType`](./PlayerEvents/BaseEvent.mdx)                                                 | Event type associated with this message (e.g., `TrackStartEvent`, `TrackEndEvent`, etc.). | <i className="fa-solid fa-xmark"/>           |
+> | `op`                                          | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "stats" \| "playerUpdate" \| "event"                                                        | Opcode indicating the nature of the message.                                              | <i className="fa-solid fa-xmark"/>           |
+> | `guildId`                                     | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The Discord guild ID this message refers to.                                              | <i className="fa-solid fa-xmark"/>           |
+
+> ⚠️ `NodeMessage` is not sent for *all* ops — only for ones related to stats, players, or events.
+

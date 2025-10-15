@@ -1,0 +1,19 @@
+---
+id: manager-typedefs-ShowSearchResult
+title: "Interface: ShowSearchResult"
+description: Result returned when a show is found by a search.
+slug: /typedefs/ShowSearchResult
+sidebar_label: ShowSearchResult
+---
+
+:::warning
+⚠️ This interface is only used by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> Represents a search result containing a show with tracks.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------- |:--------------------------------------------- |:-------------------------------------------:|
+> | `loadType`                                    | [`LoadTypes.Show`](../Enums/LoadTypes.mdx#show)         | Indicates the result is a show load.          | <i className="fa-solid fa-xmark"/>          |
+> | `tracks`                                      | [`Track[]`](./Track.mdx)                                | Tracks included in the show load playlist.    | <i className="fa-solid fa-xmark"/>          |
+> | `playlist`                                    | [`PlaylistData`](./PlaylistData.mdx)                    | Information about the show load playlist.     | <i className="fa-solid fa-xmark"/>          |

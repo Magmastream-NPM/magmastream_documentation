@@ -1,0 +1,34 @@
+---
+id: player-typedefs-AnyUser
+title: "Interface: AnyUser"
+description: Options for the AnyUser.
+slug: /typedefs/AnyUser
+sidebar_label: AnyUser
+---
+
+> Represents a user from **any supported Discord library**.
+
+> This type is designed for library-agnostic interoperability —  
+> allowing you to handle users from different client frameworks  
+> such as Discord.js, Oceanic.js, Detritus, Eris, or Seyfert.
+
+```ts
+type AnyUser =
+  | DJSUser
+  | DJSClientUser
+  | OceanicUser
+  | DetritusUser
+  | ErisUser
+  | SeyfertUser
+  | SeyfertClientUser;
+```
+
+### Imported Types
+
+> | <i className="fa-solid fa-hashtag"/> Library | <i className="fa-solid fa-font"/> Type(s)                                                                                                                                                                                                                                                                                                  |
+> |:---------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | [`discord.js`](https://discord.js.org/)      | [User <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://discord.js.org/docs/packages/discord.js/main/User:Class) \| [ClientUser <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://discord.js.org/docs/packages/discord.js/main/ClientUser:Class)   | 
+> | [`oceanic.js`](https://docs.oceanic.ws/dev/) | [User <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://docs.oceanic.ws/dev/classes/User.html)                                                                                                                                                                                                 |
+> | [`detritus.js`](https://detritusjs.com/)     | [User <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://detritusjs.com/classes/structures_user.user)                                                                                                                                                                                           |
+> | [`eris`](https://abal.moe/Eris/)             | [User <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://abal.moe/Eris/docs/0.18.0/User)                                                                                                                                                                                                        |
+> | [`seyfert`](https://www.seyfert.dev/)        | [User <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://www.seyfert.dev/) \| [ClientUser <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://www.seyfert.dev/)                                                                                       | 

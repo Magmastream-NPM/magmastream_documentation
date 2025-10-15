@@ -1,0 +1,33 @@
+---
+id: player-typedefs-AnyMessage
+title: "Interface: AnyMessage"
+description: Options for the AnyMessage.
+slug: /typedefs/AnyMessage
+sidebar_label: AnyMessage
+---
+
+> Represents a message from **any supported Discord library**.
+
+> This type is designed for library-agnostic interoperability —  
+> allowing you to handle messages from different client frameworks  
+> such as Discord.js, Oceanic.js, Detritus, Eris, or Seyfert.
+
+```ts
+type AnyMessage = 
+  | PortableMessage 
+  | DJSMessage 
+  | OceanicMessage 
+  | DetritusMessage 
+  | ErisMessage 
+  | SeyfertMessage;
+```
+
+### Imported Types
+
+> | <i className="fa-solid fa-hashtag"/> Library | <i className="fa-solid fa-font"/> Type(s)                                    |
+> |:---------------------------------------------|:-----------------------------------------------------------------------------|
+> | [`discord.js`](https://discord.js.org/)      | [Message <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://discordjs.dev/docs/packages/discord.js/main/Message:Class) | 
+> | [`oceanic.js`](https://docs.oceanic.ws/dev/) | [Message <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://docs.oceanic.ws/dev/classes/Message.html)                  |
+> | [`detritus.js`](https://detritusjs.com/)     | [Message <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://detritusjs.com/classes/structures_message.message)         |
+> | [`eris`](https://abal.moe/Eris/)             | [Message <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://abal.moe/Eris/docs/0.18.0/Message)                         |
+> | [`seyfert`](https://www.seyfert.dev/)        | [Message <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://www.seyfert.dev/)                                          | 

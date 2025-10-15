@@ -108,3 +108,20 @@ export abstract class TrackUtils {}
 > | <i className="fa-solid fa-arrow-right"/> Type                                                         | <i className="fa-solid fa-list"/> Description                                   |
 > | :-----------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|
 > | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | Returns `true` if the provided argument is a valid Track or an array of Tracks. |
+
+---
+
+### revive()
+> ```ts
+> revive(track: Track): Track
+> ```
+> Revives a track.
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type           | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:-------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `track`                                      | [`Track`](../../Typedefs/Track.mdx) | The track to revive.               | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                                                                                                    | <i className="fa-solid fa-list"/> Description                         |
+> | :------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------|
+> | [`Track`](../../Typedefs/Track.mdx) | The revived track. |

@@ -10,7 +10,7 @@ const description = 'Magmastream is an easy-to-use and useful music module for y
 const baseUrl = 'https://magmastream.com';
 const title = 'Magmastream - Ignite the Symphony of Sonic Harmony!';
 const discordSupportLink = 'https://discord.gg/Nq5gTGUfwa';
-const repoLink = "https://github.com/Magmastream-NPM";
+const repoLink = 'https://github.com/Magmastream-NPM';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -24,71 +24,71 @@ const config = {
 				icon: '/usedbyimgs/lava-jukebox.png',
 				link: 'https://discord.com/api/oauth2/authorize?client_id=887651843742793779',
 				creator: 'Abel Purnwasy',
-				creatorId: "809213892857167942"
+				creatorId: '809213892857167942',
 			},
 			{
 				name: 'Lunio',
 				icon: '/usedbyimgs/lunio.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=945030475779551415',
 				creator: 'lethalfluff',
-				creatorId: "337568120028004362"
+				creatorId: '337568120028004362',
 			},
 			{
 				name: 'JukeDisc',
 				icon: '/usedbyimgs/jukedisc.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=1109751797549105176',
 				creator: 'mrdieselgr',
-				creatorId: "794563552606289952"
+				creatorId: '794563552606289952',
 			},
 			{
 				name: 'Cool Music',
 				icon: '/usedbyimgs/cool-music.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=923529398425096193&scope=bot&permissions=12888394808',
 				creator: 'random.js',
-				creatorId: "878975596623986700"
+				creatorId: '878975596623986700',
 			},
 			{
 				name: 'Bot muzyczny',
 				icon: '/usedbyimgs/bot-muzyczny.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=840892428613320726',
 				creator: 'kwelo',
-				creatorId: "538675534754742292"
+				creatorId: '538675534754742292',
 			},
 			{
 				name: 'HamBot',
 				icon: '/usedbyimgs/hambot.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=1049314312776335390',
 				creator: 'yanishamburger',
-				creatorId: "447088005941952523"
+				creatorId: '447088005941952523',
 			},
 			{
 				name: 'Miyu',
 				icon: '/usedbyimgs/miyu.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=1277180179273482280',
 				creator: 'god_rayan',
-				creatorId: "977131375431913522"
+				creatorId: '977131375431913522',
 			},
 			{
 				name: 'Savage Bot',
 				icon: '/usedbyimgs/savage-bot.png',
 				link: 'https://discord.com/oauth2/authorize?client_id=823703707522433054&permissions=8&scope=bot%20applications.commands',
 				creator: 'savagefrvr',
-				creatorId: "299552992980500480"
+				creatorId: '299552992980500480',
 			},
 			{
-				name: "fume",
-				icon: "/usedbyimgs/fumes.png",
-				link: "https://discord.com/oauth2/authorize?client_id=1279968947575328779",
-				creator: "xrm0s",
-				creatorId: "627991951857418261",
+				name: 'fume',
+				icon: '/usedbyimgs/fumes.png',
+				link: 'https://discord.com/oauth2/authorize?client_id=1279968947575328779',
+				creator: 'xrm0s',
+				creatorId: '627991951857418261',
 			},
 			{
-				name: "Pepper",
-				icon: "/usedbyimgs/pepper.png",
-				link: "https://discord.com/oauth2/authorize?client_id=871808444502540379&permissions=11594760&scope=applications.commands+bot",
-				creator: "murlee",
-				creatorId: "678402714765361182",
-			}
+				name: 'Pepper',
+				icon: '/usedbyimgs/pepper.png',
+				link: 'https://discord.com/oauth2/authorize?client_id=871808444502540379&permissions=11594760&scope=applications.commands+bot',
+				creator: 'murlee',
+				creatorId: '678402714765361182',
+			},
 		],
 		versionGitLink: {
 			current: 'https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.9.1',
@@ -103,7 +103,7 @@ const config = {
 			'2.6.1': 'https://github.com/Magmastream-NPM/magmastream/releases/tag/v2.6.1',
 		},
 		repo: repoLink,
-		discord: discordSupportLink
+		discord: discordSupportLink,
 	},
 	stylesheets: ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'],
 	url: baseUrl,
@@ -111,8 +111,8 @@ const config = {
 	markdown: {
 		hooks: {
 			onBrokenMarkdownLinks: 'ignore',
-			onBrokenMarkdownImages: 'warn'
-		}
+			onBrokenMarkdownImages: 'warn',
+		},
 	},
 	onBrokenLinks: 'ignore',
 	onBrokenAnchors: 'ignore',
@@ -128,13 +128,19 @@ const config = {
 					lastVersion: 'current',
 					versions: {
 						current: {
-							label: 'v2.9.1 (current)',
+							label: 'v2.9.2 (current)',
+						},
+						'2.9.1': {
+							label: 'v2.9.1',
+							path: '2.9.1',
+							banner: 'none',
+							noIndex: false,
 						},
 						'2.9.0': {
-							label: "v2.9.0",
-							path: "2.9.0",
-							banner: "none",
-							noIndex: false
+							label: 'v2.9.0',
+							path: '2.9.0',
+							banner: 'none',
+							noIndex: false,
 						},
 						'2.8.7': {
 							label: 'v2.8.7',
@@ -238,8 +244,8 @@ const config = {
 		docs: {
 			sidebar: {
 				autoCollapseCategories: true,
-				hideable: false
-			}
+				hideable: false,
+			},
 		},
 		metadata: [
 			{ name: 'apple-mobile-web-app-title', content: title },
@@ -382,8 +388,8 @@ const config = {
 						{
 							label: 'Contributing',
 							to: '/docs/contributing',
-						}
-					]
+						},
+					],
 				},
 				{
 					title: 'Community',
@@ -399,8 +405,8 @@ const config = {
 						{
 							label: 'Credits',
 							href: 'https://github.com/MenuDocs/erela.js',
-						}
-					]
+						},
+					],
 				},
 			],
 			copyright: `Built in <a href="https://docusaurus.io/">Docusaurus</a><br>Made with <span style="color: red;">❤️</span> by <a href="https://github.com/realdarek">@realdarek</a><br> Copyright © ${new Date().getFullYear()} <b>Magmastream</b>`,
@@ -415,7 +421,7 @@ const config = {
 			indexName: 'magmastream',
 			contextualSearch: true,
 		},
-/*		announcementBar: {
+		/*		announcementBar: {
 			id: 'announcementBar',
 			content: 'content',
 			isCloseable: true,

@@ -1,0 +1,66 @@
+---
+id: manager-typedefs-VoiceReceiverEvents
+title: "Manager Events: VoiceReceiverEvents"
+description: VoiceReceiver events emitted by the Manager.
+slug: /typedefs/ManagerEvents/VoiceReceiverEvents
+sidebar_label: VoiceReceiverEvents
+---
+
+# Voice Receiver Events
+
+:::warning
+⚠️ These events are only emitted by a [NodeLink <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink) node.
+:::
+
+> These events are fired when the NodeLink node emits its related events.
+
+### VoiceReceiverConnect
+
+> Emitted when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) connects.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### VoiceReceiverDisconnect
+
+> Emitted when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) disconnects.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |  
+
+---
+
+### VoiceReceiverError
+
+> Emitted when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) encounters an error.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                                              | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `error`                                       | [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) | Error this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### VoiceReceiverStartSpeaking
+
+> Emitted when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) starts speaking.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                                              | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)        | Data this event applies to.                   | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### VoiceReceiverEndSpeaking
+
+> Emitted when a player's [voice receiver <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/PerformanC/NodeLink/blob/main/docs/API.md#voice-receive) stops speaking.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                                              | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `data`                                        | [unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)        | Data this event applies to.                   | <i className="fa-solid fa-xmark"/>          |

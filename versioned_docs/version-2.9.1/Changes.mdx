@@ -1,0 +1,110 @@
+---
+id: Changes
+title: Changes in 2.9.1
+description: Guide with changes in v2.9.1
+slug: /changes
+hide_title: true
+hide_table_of_contents: true
+sidebar_position: 2
+sidebar_label: 🐍 Changes in 2.9.1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 🐍 Changes in 2.9.1
+
+:::warning
+
+⚠️ If you are using a version lower than **2.9.0**, please refer to [upgrade guide to 2.9.0](/docs/2.9.0/changes) first, as v2.9.0 is the major release containing the braking changes. Please update your code accordingly.
+
+:::
+
+:::tip
+
+✅ Patch release with important fixes and small feature improvements. No breaking changes introduced.
+
+:::
+
+Hello, here you will find information on what has changed and what you need to change when upgrading to version 2.9.1.
+
+---
+
+## 🛠️ How to update?
+
+<Tabs>
+    <TabItem value="npm" label="npm" default>
+        ```sh
+        npm update magmastream
+        ```
+    </TabItem>
+    <TabItem value="pnpm" label="pnpm" default>
+        ```sh
+        pnpm update magmastream
+        ```
+    </TabItem>
+    <TabItem value="yarn" label="yarn" default>
+        ```sh
+        yarn upgrade magmastream
+        ```
+    </TabItem>
+</Tabs>
+
+---
+
+# ✨ New Features
+
+> ## New Player Option:
+> - [`applyVolumeAsFilter`](./Typedefs/PlayerOptions.mdx) Allows applying volume changes as a filter for more consistent audio handling.
+>
+> :::warning
+> In this version, the [`applyVolumeAsFilter`](./Typedefs/PlayerOptions.mdx) PlayerOption contains an error, resulting in no audio.
+>
+> This is already fixed in the developer version.
+>
+> If you want to use the fixed PlayerOption, update to the dev version:
+>
+> <Tabs>
+>     <TabItem value="npm" label="npm" default>
+>         ```sh
+>         npm install magmastream@dev
+>         ```
+>     </TabItem>
+>     <TabItem value="pnpm" label="pnpm" default>
+>         ```sh
+>         pnpm install magmastream@dev
+>         ```
+>     </TabItem>
+>     <TabItem value="yarn" label="yarn" default>
+>         ```sh
+>         yarn add magmastream@dev
+>         ```
+>     </TabItem>
+> </Tabs>
+>
+> :::
+
+> ## Expanded [TrackSourceTypes](./Enums/TrackSourceTypes.mdx) enum
+> - More sources are now supported and categorized.
+
+> ## [PortableUser](./Typedefs/PortableUser.mdx) Interface
+>  - Standardized requester object for safer and more flexible use across players and events.
+
+---
+
+# ⚖️ Fixes & Improvements
+
+> ## Node Connection
+> Fixed missing await call on node.connect() to ensure proper connection flow.
+
+> ## SeyfertManager
+> Added WorkerClient as a proper client instance to improve stability.
+
+> ## Serialization
+>  Switched to safe-stable-stringify for safer JSON serialization across all state storage and logging.
+
+---
+
+## 💬 Questions?
+
+Join our [Discord](https://discord.gg/Nq5gTGUfwa) — we're happy to help.
