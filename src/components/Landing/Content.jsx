@@ -19,7 +19,7 @@ function Content() {
                     className={clsx(css.badgeButton)}
                 >
                     <span className={clsx(css.badgeIcon)}>🎉</span>
-                    New Release v2.9.1 →
+                    New Release v2.9.2 →
                 </Link>
                 <h1 className={clsx(css.title)}>The best music apps start here...</h1>
                 <p className={css.p}>Powering the next generation of Discord music bots</p>
