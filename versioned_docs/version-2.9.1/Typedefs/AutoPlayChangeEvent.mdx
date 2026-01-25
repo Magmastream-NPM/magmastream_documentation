@@ -1,0 +1,16 @@
+---
+id: manager-typedefs-AutoplayChangeEvent
+title: "Interface: AutoplayChangeEvent"
+description: The event emitted when a player's autoplay state changes.
+slug: /typedefs/AutoplayChangeEvent
+sidebar_label: AutoplayChangeEvent
+---
+
+> Represents the event emitted when a player's autoplay status changes.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                            | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------- |:----------------------------------------------------------------------------------------------------------------- |:----------------------------------------------|:-------------------------------------------:|
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "autoplay"          | Constant string indicating the event type.    | <i className="fa-solid fa-xmark"/>          |
+> | `action`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "toggle"             | Indicates the autoplay toggle action.         | <i className="fa-solid fa-xmark"/>          |
+> | `previousAutoplay`                            | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) | The previous autoplay state before the event. | <i className="fa-solid fa-check"/>          |
+> | `currentAutoplay`                             | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) | The current autoplay state after the event.   | <i className="fa-solid fa-check"/>          |

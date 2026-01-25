@@ -1,0 +1,55 @@
+---
+id: utils-structure
+title: "Class: Structure"
+description: The Structure class.
+slug: /class/utils/Structure
+sidebar_label: Structure
+---
+
+# Structure
+
+### Table of Contents
+
+- [Class Definition](#class-definition)
+- [Methods](#methods)
+
+## Class Definition
+```ts
+export abstract class Structure {}
+```
+
+## Methods
+
+### extend()
+> ```ts
+> static extend<K extends keyof Extendable, T extends Extendable[K]>(name: K, extender: (target: Extendable[K]) => T): T
+> ```
+> Extends a class.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                  | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:--------------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `name`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)     | The name of the class to extend.              | <i className="fa-solid fa-xmark"/>          |
+> | `extender`                                     | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) | The function to extend the class with.        | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                       | <i className="fa-solid fa-list"/> Description |
+> | :-------------------------------------------------------------------|:----------------------------------------------|
+> | [T](https://www.typescriptlang.org/docs/handbook/2/generics.html) | The extended class.                           |
+---
+
+### get()
+> ```ts
+> get<K extends keyof Extendable>(name: K): Extendable[K]
+> ```
+> Gets a class.
+> 
+> #### Parameters
+> | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                              | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------|:-------------------------------------------:|
+> | `name`                                         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The name of the class to get.                 | <i className="fa-solid fa-xmark"/>          |
+> 
+> #### Returns
+> | <i className="fa-solid fa-arrow-right"/> Type                       | <i className="fa-solid fa-list"/> Description |
+> | :-------------------------------------------------------------------|:----------------------------------------------|
+> | [T](https://www.typescriptlang.org/docs/handbook/2/generics.html) | The class.                                    |

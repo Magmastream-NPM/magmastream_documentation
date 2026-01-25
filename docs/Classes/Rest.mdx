@@ -95,16 +95,21 @@ export class Rest {}
 
 ---
 
-### getAllPlayers()
+### getPlayer()
 > ```ts
-> async getAllPlayers(): Promise<unknown>
+> async getPlayer(guildId: string): Promise<LavaPlayer>
 > ```
-> Sends a GET request to the server to get all players.
+> Sends a GET request to the server to get a player.
+>
+> #### Parameters
+> | <i className="fa-solid fa-hashtag "/> Parameter | <i className="fa-solid fa-font "/> Type                                                              | <i className="fa-solid fa-list "/> Description | <i className="fa-solid fa-flask "/> Optional |
+> | :--------------------------------------------- |:----------------------------------------------------------------------------------------------------| :---------------------------------------------| :------------------------------------------:|
+> | `guildId`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The guild ID.                                 | <i className="fa-solid fa-xmark "/>          |
 >
 > #### Returns
 > | <i className="fa-solid fa-arrow-right "/> Return                                                               | <i className="fa-solid fa-list "/> Description |
 > | :------------------------------------------------------------------------------------------------------------- | :----------------------------------------------|
-> | Promise\<[unknown](https://www.typescripttutorial.net/typescript-tutorial/typescript-unknown-type/)> | The promise that resolves to the response.     |
+> | Promise\<[LavaPlayer](../Typedefs/LavaPlayer.mdx)> | The promise that resolves to the lavalink player.     |
 
 ---
 

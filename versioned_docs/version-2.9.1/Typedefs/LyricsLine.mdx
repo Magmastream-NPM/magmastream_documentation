@@ -1,0 +1,21 @@
+---
+id: manager-typedefs-LyricsLine
+title: "Interface: LyricsLine"
+description: "Represents a single line of synchronised lyrics with timing and metadata."
+slug: /typedefs/LyricsLine
+sidebar_label: LyricsLine
+---
+
+:::warning
+⚠️ This interface is only used by the [LavaLyrics <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/LavaLyrics) plugin.
+:::
+
+> Represents a single synchronised lyrics line, including its timestamp, duration, and content.  
+> Typically used for displaying timed karaoke-style lyrics.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                            | <i className="fa-solid fa-list"/> Description                      | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------ |:-------------------------------------------:|
+> | `timestamp`                                   | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Start time of the lyric line in milliseconds.                      | <i className="fa-solid fa-xmark"/>          |
+> | `duration`                                    | [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) | Duration for which the lyric line is shown in milliseconds.        | <i className="fa-solid fa-xmark"/>          |
+> | `line`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The actual lyric text.                                             | <i className="fa-solid fa-xmark"/>          |
+> | `plugin`                                      | [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) | Arbitrary metadata from the lyrics plugin that provided this line. | <i className="fa-solid fa-check"/>          |

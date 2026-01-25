@@ -1,0 +1,62 @@
+---
+id: manager-typedefs-SponsorBlockEvents
+title: "Manager Events: SponsorBlockEvents"
+description: SponsorBlock events emitted by the Manager.
+slug: /typedefs/ManagerEvents/SponsorBlockEvents
+sidebar_label: SponsorBlockEvents
+---
+
+# SponsorBlock Events
+
+:::warning
+⚠️ These events are only emitted by the [SponsorBlock <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/topi314/Sponsorblock-Plugin) plugin.
+:::
+
+> These events are fired when the SponsorBlock plugin emits its related events.
+
+### ChapterStarted
+
+> Emitted when a chapter is started.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`ChapterStarted`](../PlayerEvents/SponsorBlockEvents.mdx#chapterstarted) | Payload provided by Lavalink.                 | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### ChaptersLoaded
+
+> Emitted when chapters are loaded.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |  
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`ChaptersLoaded`](../PlayerEvents/SponsorBlockEvents.mdx#chaptersloaded) | Payload provided by Lavalink.                 | <i className="fa-solid fa-xmark"/>          |
+
+---
+
+### SegmentSkipped
+
+> Emitted when a segment is skipped.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`SegmentSkipped`](../PlayerEvents/SponsorBlockEvents.mdx#segmentskipped) | Payload provided by Lavalink.                 | <i className="fa-solid fa-xmark"/>          |
+
+
+---
+
+### SegmentsLoaded
+
+> Emitted when segments are loaded.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                    | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:--------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `player`                                      | [`Player`](../../Classes/Player.mdx)                                      | Player this event applies to.                 | <i className="fa-solid fa-xmark"/>          |  
+> | `track`                                       | [`Track`](../Track.mdx)                                                   | Track this event applies to.                  | <i className="fa-solid fa-xmark"/>          |
+> | `payload`                                     | [`SegmentsLoaded`](../PlayerEvents/SponsorBlockEvents.mdx#segmentsloaded) | Payload provided by Lavalink.                 | <i className="fa-solid fa-xmark"/>          |

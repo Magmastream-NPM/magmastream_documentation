@@ -45,10 +45,10 @@ The Oceanic wrapper hooks into the `ready` and `raw` event to automatically set 
 
 ### resolveUser()
 > ```ts
-> override async resolveUser(user: PortableUser | string): Promise<User | PortableUser>
+> override async resolveUser(user: AnyUser | string): Promise<User | AnyUser>
 > ```
 > Resolve a user.
 >
 > | <i className="fa-solid fa-hashtag"/> Parameter | <i className="fa-solid fa-font"/> Type                                                                    | <i className="fa-solid fa-list"/> Description |
 > | :--------------------------------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------- |
-> | `user`                                       | [`PortableUser`](../Typedefs/PortableUser.mdx) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The packet.                                   |
+> | `user`                                       | [`AnyUser`](../../Typedefs/AnyUser.mdx) \| [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | The packet.                                   |

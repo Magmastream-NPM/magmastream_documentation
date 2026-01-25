@@ -1,0 +1,16 @@
+---
+id: manager-typedefs-ConnectionChangeEvent
+title: "Interface: ConnectionChangeEvent"
+description: The event emitted when a player's connection state changes.
+slug: /typedefs/ConnectionChangeEvent
+sidebar_label: ConnectionChangeEvent
+---
+
+> Represents the event emitted when a player's connection status changes.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                                                                                                              | <i className="fa-solid fa-list"/> Description      | <i className="fa-solid fa-flask"/> Optional |
+> |:--------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------- |:-------------------------------------------:|
+> | `type`                                        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "connection"                                                                                                          | Constant string indicating the event type.         | <i className="fa-solid fa-xmark"/>          |
+> | `action`                                      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) = "connect" \| "disconnect" | Indicates if the player connected or disconnected. | <i className="fa-solid fa-xmark"/>          |
+> | `previousConnection`                          | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null)                                                                                                       | The previous connection state before the event.    | <i className="fa-solid fa-check"/>          |
+> | `currentConnection`                           | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) \| [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null)                                                                                                       | The current connection state after the event.      | <i className="fa-solid fa-check"/>          |

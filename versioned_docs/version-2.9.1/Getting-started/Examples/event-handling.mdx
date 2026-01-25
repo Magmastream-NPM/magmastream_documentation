@@ -1,0 +1,241 @@
+---
+id: event-handling
+title: Event handling
+description: Event handling
+slug: /getting-started/examples/event-handling
+sidebar_position: 5
+hide_title: true
+sidebar_label: 🔔 Event handling
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Event handling
+
+:::::tip
+💡 This page requires you to have a valid [main file](/docs/getting-started/examples/main-file), have at least created `one` command following [these steps](/docs/getting-started/examples/creating-commands) and followed the last step [command handling](/docs/getting-started/examples/command-handling).
+:::info
+ℹ️ This section can be done for both `slash-commands` and `message-commands`, as [`Client#messageCreate`](https://discord.js.org/docs/packages/discord.js/main/Client:Class#messageCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> as message-commands are executed from within the [`Client#messageCreate`](https://discord.js.org/docs/packages/discord.js/main/Client:Class#messageCreate)<i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/> event.
+:::
+:::::
+
+## Before you continue
+
+Assuming you've followed the guide so far, your project directory should look something like this:
+
+```
+discord-bot/
+    ├── node_modules/
+    ├── src/
+    │   ├── commands/
+    │   │   └── play.js
+    │   ├── config.js
+    │   └── index.js
+    ├── package-lock.json
+    └── package.json
+```
+
+## Individual event files
+
+### Loading event files
+
+To begin, remove any code from index.js that is related to `client.on()`.
+
+Then, add the following event-loading code into the `index.js` file, right after the command-loading section:
+
+```javascript showLineNumbers
+const loadEvents = (folderPath) => {
+	// Read all files from the specified folder
+	const eventFiles = fs.readdirSync(folderPath);
+
+	for (const file of eventFiles) {
+		const filePath = path.join(folderPath, file);
+		const stat = fs.statSync(filePath);
+
+		// If it's a directory, recursively load events from it
+		if (stat.isDirectory()) {
+			loadEvents(filePath);
+		} else if (file.endsWith('.js')) {
+			// Require the event module
+			const event = require(filePath);
+
+			// If the event should be handled only once
+			if (event.once) {
+				if (filePath.includes(`${path.sep}magmastream${path.sep}`)) {
+					// Handle Magmastream events differently
+					client.manager.on(event.name, (...args) => event.execute(client, ...args));
+				} else {
+					// Register a one-time event listener
+					client.once(event.name, (...args) => event.execute(client, ...args));
+				}
+			} else {
+				if (filePath.includes(`${path.sep}magmastream${path.sep}`)) {
+					// Handle Magmastream events differently
+					client.manager.on(event.name, (...args) => event.execute(client, ...args));
+				} else {
+					// Register a persistent event listener
+					client.on(event.name, (...args) => event.execute(client, ...args));
+				}
+			}
+			console.log(`[INFO] Loaded event: ${event.name}`);
+		}
+	}
+};
+```
+
+This code uses a the exact method to load files as the [`command loader`](/docs/getting-started/examples/command-handling#loading-command-files).
+
+If you want to make sure, you have the exact code for the `index.js` file, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/js-v2.9.0/src/index.js).
+
+## Event files structure
+
+Create a new folder inside the `src/` folder, named `events` and two subfolder named `discord` and `magmastream` inside it.
+
+:::warning
+⚠️ Please make sure to select below the command creation "step" you need. The section below is divided into "Discord Events" and "Magmastream Events".
+:::
+
+<Tabs>
+	<TabItem value="discord-events" label="Discord Events" default>
+        Let’s begin by creating three files named `raw.js`, `ready.js` and `interactionCreate.js` inside the `events/discord` folder.
+
+        The files should be structured as follows:
+
+        <Tabs>
+            <TabItem value="discord-readyEvent" label="events/discord/ready.js" default>
+            ```javascript showLineNumbers
+            const { Events } = require("discord.js");
+
+            module.exports = {
+                name: Events.ClientReady,
+                once: true,
+
+                async execute(client) {
+                    // Initialize Lavalink
+                    await client.manager.init({ clientId: client.user.id });
+
+                    // Print a message to the console indicating that the client is ready
+                    console.log(`[INFO] Ready! Logged in as ${client.user.tag}`);
+                },
+            };
+            ```
+            </TabItem>
+            <TabItem value="discord-interactionEvent" label="events/discord/interactionCreate.js">
+             ```javascript showLineNumbers
+            const { Events, MessageFlags } = require('discord.js');
+
+            module.exports = {
+                name: Events.InteractionCreate,
+                
+                async execute(client, interaction) {
+                    // Only handle chat input commands
+                    if (!interaction.isChatInputCommand()) return;
+
+                    // Get the command from the command collection
+                    const command = client.commands.get(interaction.commandName);
+
+                    // If no command is found, log an error
+                    if (!command) {
+                        console.error(`No command matching ${interaction.commandName} was found.`);
+                        return;
+                    }
+
+                    try {
+                        // Execute the command
+                        await command.execute(client, interaction);
+                    } catch (error) {
+                        // Log the error
+                        console.error(error);
+
+                        // Reply with an ephemeral message if the interaction has already been replied to
+                        if (interaction.replied || interaction.deferred) {
+                            await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+                        } else {
+                            await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+                        }
+                    }
+                },
+            };
+            ```
+            </TabItem>
+             <TabItem value="discord-rawEvent" label="events/discord/raw.js">
+             ```javascript showLineNumbers
+            const { Events } = require("discord.js");
+
+            module.exports = {
+                name: Events.Raw,
+
+                async execute(client, data) {
+                    // This is required by magmastream if you dont use a provided wrapper!
+                    // Update the voice state in the Lavalink manager
+                    await client.manager.updateVoiceState(data);
+                },
+            };
+            ```
+            </TabItem>
+        </Tabs>
+    </TabItem>
+    <TabItem value="magmastream-events" label="Magmastream Events" default>
+        Let’s begin by creating three files named `nodeConnet.js`, `trackStart.js` and `queueEnd.js` inside the `events/magmastream` folder.
+
+        The files should be structured as follows:
+
+        <Tabs>
+            <TabItem value="magmastream-nodeConnectEvent" label="events/magmastream/nodeConnect.js" default>
+            ```javascript showLineNumbers
+            const { ManagerEventTypes } = require("magmastream");
+
+            module.exports = {
+                name: ManagerEventTypes.NodeConnect,
+                execute(client, node) {
+                    console.log(`[NODECONNECT] Connected to node ${node.options.identifier}`);
+                },
+            };
+            ```
+            </TabItem>
+            <TabItem value="magmastream-trackStartEvent" label="events/magmastream/trackStart.js">
+             ```javascript showLineNumbers
+            const { ManagerEventTypes } = require("magmastream");
+
+            module.exports = {
+                name: ManagerEventTypes.TrackStart,
+                async execute(client, player, track) {
+                    const channel = client.channels.cache.get(player.textChannelId);
+                    if (!channel) return;
+
+                    channel
+                        .send(`Now playing: \`${track.title}\`, requested by \`${track.requester.username}\`.`)
+                        .catch((error) => console.log(`[TRACKSTART] Failed to send message to channel: ${player.textChannelId}`));
+                },
+            };
+            ```
+            </TabItem>
+             <TabItem value="magmastream-queueEndEvent" label="events/magmastream/queueEnd.js">
+             ```javascript showLineNumbers
+            const { ManagerEventTypes } = require("magmastream");
+
+            module.exports = {
+                name: ManagerEventTypes.QueueEnd,
+                async execute(client, player, track) {
+                    const channel = client.channels.cache.get(player.textChannelId);
+                    if (!channel) return;
+
+                    channel.send(`Queue has ended!`).catch((error) => console.log(`[QUEUEEND] Failed to send message to channel: ${player.textChannelId}`));
+                },
+            };
+            ```
+            </TabItem>
+        </Tabs>
+    </TabItem>
+</Tabs>
+if you want to make sure, you have the exact code for the different events etc. take a look at the example  GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/js-v2.9.0/src).
+## Next steps
+
+You can implement additional events by creating new files within a dedicated subfolder in the `events` folder, but these are the ones we're going to use for the examples as we go on.
+
+Next: We'll create a [deployment script] for our slash commands.
+
+## Resulting code
+
+If you want to compare your code to the final result after completing all the steps in this guide, you can review it on the GitHub repository [here <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.8em'}}/>](https://github.com/Magmastream-NPM/magmastream_basics_bot/tree/js-v2.9.0/src).

@@ -1,0 +1,307 @@
+---
+id: enums-magmastreamErrorCode
+title: "Enum: MagmaStreamErrorCode"
+description: Error codes in magmastream
+slug: /enums/MagmaStreamErrorCode
+sidebar_label: MagmaStreamErrorCode
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# MagmaStreamErrorCode
+
+> Represents the error codes in magmastream.
+
+<Tabs>
+  <TabItem value="members" label="Enumeration Members" default>
+  | Member                                                                              | Value  |
+  |:------------------------------------------------------------------------------------|:-------|
+  | [GENERAL_UNKNOWN](#general_unknown)                                                 | `1000` |
+  | [GENERAL_TIMEOUT](#general_timeout)                                                 | `1001` |
+  | [GENERAL_INVALID_MANAGER](#general_invalid_manager)                                 | `1002` |
+  | [MANAGER_INIT_FAILED](#manager_init_failed)                                         | `1100` |
+  | [MANAGER_INVALID_CONFIG](#manager_invalid_config)                                   | `1101` |
+  | [MANAGER_SHUTDOWN_FAILED](#manager_shutdown_failed)                                 | `1102` |
+  | [MANAGER_NO_NODES](#manager_no_nodes)                                               | `1103` |
+  | [MANAGER_NODE_NOT_FOUND](#manager_node_not_found)                                   | `1104` |
+  | [MANAGER_SEARCH_FAILED](#manager_search_failed)                                     | `1105` |
+  | [MANAGER_CLEANUP_INACTIVE_PLAYERS_FAILED](#manager_cleanup_inactive_players_failed) | `1106` |
+  | [NODE_INVALID_CONFIG](#node_invalid_config)                                         | `1200` |
+  | [NODE_CONNECT_FAILED](#node_connect_failed)                                         | `1201` |
+  | [NODE_RECONNECT_FAILED](#node_reconnect_failed)                                     | `1202` |
+  | [NODE_DISCONNECTED](#node_disconnected)                                             | `1203` |
+  | [NODE_PROTOCOL_ERROR](#node_protocol_error)                                         | `1204` |
+  | [NODE_SESSION_IDS_LOAD_FAILED](#node_session_ids_load_failed)                       | `1205` |
+  | [NODE_SESSION_IDS_UPDATE_FAILED](#node_session_ids_update_failed)                   | `1206` |
+  | [NODE_PLUGIN_ERROR](#node_plugin_error)                                             | `1207` |
+  | [PLAYER_INVALID_CONFIG](#player_invalid_config)                                     | `1300` |
+  | [PLAYER_STATE_INVALID](#player_state_invalid)                                       | `1301` |
+  | [PLAYER_QUEUE_EMPTY](#player_queue_empty)                                           | `1302` |
+  | [PLAYER_PREVIOUS_EMPTY](#player_previous_empty)                                     | `1303` |
+  | [PLAYER_INVALID_NOW_PLAYING_MESSAGE](#player_invalid_now_playing_message)           | `1304` |
+  | [PLAYER_INVALID_AUTOPLAY](#player_invalid_autoplay)                                 | `1305` |
+  | [PLAYER_INVALID_VOLUME](#player_invalid_volume)                                     | `1306` |
+  | [PLAYER_INVALID_REPEAT](#player_invalid_repeat)                                     | `1307` |
+  | [PLAYER_INVALID_PAUSE](#player_invalid_pause)                                       | `1308` |
+  | [PLAYER_INVALID_SEEK](#player_invalid_seek)                                         | `1309` |
+  | [PLAYER_MOVE_FAILED](#player_move_failed)                                           | `1310` |
+  | [PLAYER_VOICE_RECEIVER_ERROR](#player_voice_receiver_error)                         | `1311` |
+  | [QUEUE_REDIS_ERROR](#queue_redis_error)                                             | `1400` |
+  | [QUEUE_JSON_ERROR](#queue_json_error)                                               | `1401` |
+  | [QUEUE_MEMORY_ERROR](#queue_memory_error)                                           | `1402` |
+  | [FILTER_APPLY_FAILED](#filter_apply_failed)                                         | `1500` |
+  | [REST_REQUEST_FAILED](#rest_request_failed)                                         | `1600` |
+  | [REST_UNAUTHORIZED](#rest_unauthorized)                                             | `1601` |
+  | [UTILS_TRACK_PARTIAL_INVALID](#utils_track_partial_invalid)                         | `1700` |
+  | [UTILS_TRACK_BUILD_FAILED](#utils_track_build_failed)                               | `1701` |
+  | [UTILS_AUTOPLAY_BUILD_FAILED](#utils_autoplay_build_failed)                         | `1702` |
+  | [PLUGIN_LOAD_FAILED](#plugin_load_failed)                                           | `1800` |
+  | [PLUGIN_RUNTIME_ERROR](#plugin_runtime_error)                                       | `1801` |
+  </TabItem>
+</Tabs>
+
+### GENERAL_UNKNOWN {#general_unknown}
+
+> An unknown error occurred.
+
+---
+
+### GENERAL_TIMEOUT {#general_timeout}
+
+> A timeout occurred.
+
+---
+
+### GENERAL_INVALID_MANAGER {#general_invalid_manager}
+
+> An invalid manager was provided.
+
+---
+
+### MANAGER_INIT_FAILED {#manager_init_failed}
+
+> Failed to initialize the manager.
+
+---
+
+### MANAGER_INVALID_CONFIG {#manager_invalid_config}
+
+> The manager configuration is invalid or incomplete.
+
+---
+
+### MANAGER_SHUTDOWN_FAILED {#manager_shutdown_failed}
+
+> The manager failed to shut down properly.
+
+---
+
+### MANAGER_NO_NODES {#manager_no_nodes}
+
+> No Lavalink nodes were configured or available.
+
+---
+
+### MANAGER_NODE_NOT_FOUND {#manager_node_not_found}
+
+> The requested Lavalink node could not be found.
+
+---
+
+### MANAGER_SEARCH_FAILED {#manager_search_failed}
+
+> The track search operation failed.
+
+---
+
+### MANAGER_CLEANUP_INACTIVE_PLAYERS_FAILED {#manager_cleanup_inactive_players_failed}
+
+> Failed to clean up inactive players.
+
+---
+
+
+### NODE_INVALID_CONFIG {#node_invalid_config}
+
+> The Lavalink node configuration is invalid or missing required fields.
+
+---
+
+### NODE_CONNECT_FAILED {#node_connect_failed}
+
+> Failed to establish a connection to the Lavalink node.
+
+---
+
+### NODE_RECONNECT_FAILED {#node_reconnect_failed}
+
+> Failed to reconnect to the Lavalink node after disconnection.
+
+---
+
+### NODE_DISCONNECTED {#node_disconnected}
+
+> The Lavalink node was unexpectedly disconnected.
+
+---
+
+### NODE_PROTOCOL_ERROR {#node_protocol_error}
+
+> A protocol or communication error occurred between the client and Lavalink node.
+
+---
+
+### NODE_SESSION_IDS_LOAD_FAILED {#node_session_ids_load_failed}
+
+> Failed to load session IDs from persistent storage.
+
+---
+
+###  NODE_SESSION_IDS_UPDATE_FAILED {#node_session_ids_update_failed}
+
+> Failed to update session IDs in persistent storage.
+
+---
+
+###  NODE_PLUGIN_ERROR {#node_plugin_error}
+
+> A plugin running on the node caused an unexpected error.
+
+---
+
+### PLAYER_INVALID_CONFIG {#player_invalid_config}
+
+> The player configuration is invalid or incomplete.
+
+---
+
+### PLAYER_STATE_INVALID {#player_state_invalid}
+
+> The player state is corrupted or inconsistent.
+
+---
+
+### PLAYER_QUEUE_EMPTY {#player_queue_empty}
+
+> The queue is empty — no tracks to play.
+
+---
+
+### PLAYER_PREVIOUS_EMPTY {#player_previous_empty}
+
+> There are no previous tracks to play.
+
+---
+
+### PLAYER_INVALID_NOW_PLAYING_MESSAGE {#player_invalid_now_playing_message}
+
+> Failed to create or send the "Now Playing" message.
+
+---
+
+### PLAYER_INVALID_AUTOPLAY {#player_invalid_autoplay}
+
+> Autoplay is not available or failed to initialize.
+
+---
+
+### PLAYER_INVALID_VOLUME {#player_invalid_volume}
+
+> The provided volume value is invalid or out of range.
+
+---
+
+### PLAYER_INVALID_REPEAT {#player_invalid_repeat}
+
+> The repeat mode provided is invalid.
+
+---
+
+### PLAYER_INVALID_PAUSE {#player_invalid_pause}
+
+> The pause operation failed or was called in an invalid state.
+
+---
+
+### PLAYER_INVALID_SEEK {#player_invalid_seek}
+
+> The seek operation failed due to invalid position or track data.
+
+---
+
+### PLAYER_MOVE_FAILED {#player_move_failed}
+
+> Moving a track within the queue failed.
+
+---
+
+### PLAYER_VOICE_RECEIVER_ERROR {#player_voice_receiver_error}
+
+> Failed to receive or process voice data from Discord.
+
+---
+
+### QUEUE_REDIS_ERROR {#queue_redis_error}
+
+> A Redis-related error occurred while accessing the queue.
+
+---
+
+### QUEUE_JSON_ERROR {#queue_json_error}
+
+> A JSON read/write or parse error occurred while accessing the queue.
+
+---
+
+### QUEUE_MEMORY_ERROR {#queue_memory_error}
+
+> An in-memory queue operation failed unexpectedly.
+
+---
+
+### FILTER_APPLY_FAILED {#filter_apply_failed}
+
+> Failed to apply one or more audio filters.
+
+---
+
+### REST_REQUEST_FAILED {#rest_request_failed}
+
+> A REST request to Lavalink or a related service failed.
+
+---
+
+### REST_UNAUTHORIZED {#rest_unauthorized}
+
+> The REST request was unauthorized or missing valid credentials.
+
+---
+
+### UTILS_TRACK_PARTIAL_INVALID {#utils_track_partial_invalid}
+
+> A partial track object was invalid or missing required data.
+
+---
+
+### UTILS_TRACK_BUILD_FAILED {#utils_track_build_failed}
+
+> Failed to build a track object from provided data.
+
+---
+
+### UTILS_AUTOPLAY_BUILD_FAILED {#utils_autoplay_build_failed}
+
+> Failed to build or fetch an autoplay track.
+
+---
+
+### PLUGIN_LOAD_FAILED {#plugin_load_failed}
+
+> Failed to load a plugin or its dependencies.
+
+---
+
+### PLUGIN_RUNTIME_ERROR {#plugin_runtime_error}
+
+> A plugin threw an error during execution.

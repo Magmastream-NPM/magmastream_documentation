@@ -1,0 +1,16 @@
+---
+id: manager-typedefs-Extendable
+title: "Interface: Extendable"
+description: Internal structure allowing extension and injection of core components like Player, Queue, and Node.
+slug: /typedefs/Extendable
+sidebar_label: Extendable
+---
+
+> Configuration object to override default core classes with custom implementations.  
+> Useful for dependency injection or extending built-in logic.
+> 
+> | <i className="fa-solid fa-hashtag"/> Property | <i className="fa-solid fa-font"/> Type                                                                                                                | <i className="fa-solid fa-list"/> Description | <i className="fa-solid fa-flask"/> Optional |
+> |:----------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-------------------------------------------:|
+> | `Player`                                      | [`Player`](../Classes/Player.mdx)                                                                                                                     | The custom or default Player class.           | <i className="fa-solid fa-xmark"/>          |
+> | `Queue`                                       | [`MemoryQueue`](../Classes/Queue/MemoryQueue.mdx) \| [`RedisQueue`](../Classes/Queue/RedisQueue.mdx) \| [`JsonQueue`](../Classes/Queue/JsonQueue.mdx) | The queue implementation to use.              | <i className="fa-solid fa-xmark"/>          |
+> | `Node`                                        | [`Node`](../Classes/Node.mdx)                                                                                                                         | The custom or default Node class.             | <i className="fa-solid fa-xmark"/>          |
